@@ -33,13 +33,3 @@ moreInfoLink.addEventListener('click', (e) => {
 closePolicy.addEventListener('click', () => {
   policyOverlay.style.display = 'none';
 });
-// Sprawdzamy, czy jest okno na urządzeniu mobilnym
-if (window.innerWidth > 768) {
-  window.addEventListener('scroll', function() {
-    const scrollPosition = window.scrollY; // Pozycja scrolla
-    const mainElement = document.querySelector('.main');
-    
-    // Zmieniamy tło w zależności od przewijania
-    mainElement.style.backgroundPosition = `center ${scrollPosition * 0.5}px`;
-  });
-}
