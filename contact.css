@@ -12,22 +12,18 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Main Background & Overlay */
 .main {
   background: url('img/backgroundcontactKB.webp') no-repeat center/cover;
+  background-attachment: fixed;
   min-height: 100vh;
   position: relative;
-  overflow: hidden;
-  background-size: cover;
 }
-
 @media (max-width: 768px) {
   .main {
-    background-attachment: initial; /* Wyłączamy background-attachment na mobilnych */
+    background-attachment: scroll;
   }
 }
-
-
-
 .main::before {
   content: '';
   position: absolute;
