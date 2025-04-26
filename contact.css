@@ -20,6 +20,14 @@ html, body {
   position: relative;
 }
 
+/* Na mobilkach usuwamy fixed */
+@media (max-width: 768px) {
+  .main {
+    background-attachment: scroll;
+  }
+}
+
+
 .main::before {
   content: '';
   position: absolute;
