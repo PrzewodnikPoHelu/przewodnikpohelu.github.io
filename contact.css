@@ -14,7 +14,7 @@ html, body {
 
 /* Main Background & Overlay */
 .main {
-  background: url('img/background-contact.webp') no-repeat center/cover;
+  background: url('img/backgroundcontactKB.webp') no-repeat center/cover;
   background-attachment: fixed;
   min-height: 100vh;
   position: relative;
