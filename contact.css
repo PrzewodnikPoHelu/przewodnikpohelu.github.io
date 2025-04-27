@@ -15,17 +15,17 @@ html, body {
 /* Main Background & Overlay */
 .main {
   background: url('img/backgroundcontactKB.webp') no-repeat center/cover;
-  background-attachment: fixed; /* To działa na komputerach i tabletach */
+  background-attachment: fixed;
+  -webkit-background-attachment: fixed; /* For Safari */
+  -moz-background-attachment: fixed; /* For Firefox */
   min-height: 100vh;
   position: relative;
 }
-
 @media (max-width: 768px) {
   .main {
-    background-attachment: scroll; /* Wyłącz 'fixed' na telefonach */
+    background-attachment: scroll;
   }
 }
-
 .main::before {
   content: '';
   position: absolute;
