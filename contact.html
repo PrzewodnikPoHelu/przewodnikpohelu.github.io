@@ -3,53 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Static Background Example</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Kontakt – Przewodnik po Helu</title>
+  <link rel="stylesheet" href="contact.css" />
 </head>
 <body>
-
-  <!-- STAŁE TŁO -->
+  <!-- Stałe tło zamiast background-attachment: fixed -->
   <div class="bg-fixed"></div>
 
-  <!-- GŁÓWNA ZAWARTOŚĆ -->
-  <main class="main">
-    <nav class="navbar">
-      <div class="navbar-logo">
-        <img src="images/logo.png" alt="Logo" />
+  <div class="main">
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+      <a href="index.html"><img src="img/prof.webp" alt="Profil" class="profile-img"/></a>
+      <div class="main-menu_icon" id="menuToggle">
+        <span></span><span></span><span></span>
       </div>
-      <div class="navbar-toggle" id="navbar-toggle">&#9776;</div>
-      <ul class="navbar-menu" id="navbar-menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#o-nas">O nas</a></li>
-        <li><a href="#oferta">Oferta</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
+      <div class="navbar-menu" id="navbarMenu">
+        <div class="menu-links">
+          <hr />
+          <a href="index.html" class="first-child">Strona główna</a>
+          <a href="kontakt.html" class="second-child">Kontakt</a>
+          <a href="podstrona2.html" class="third-child">Podstrona2</a>
+          <a href="podstrona3.html" class="fourth-child">Podstrona3</a>
+          <a href="podstrona4.html" class="fifth-child">Podstrona4</a>
+          <hr />
+          <p class="copyright">
+            &copy; 2025 Daniel Kretkiewicz | Realizacja: 
+            <a href="https://gracjan-gs.github.io/"><span>Gracjan Śliwiński</span></a>
+          </p>
+        </div>
+      </div>
     </nav>
 
-    <header id="home" class="hero">
-      <div class="hero-text">
-        <h1>Witamy w naszej firmie</h1>
-        <p>Profesjonalne usługi dla Ciebie</p>
+    <!-- HERO SECTION -->
+    <section class="main-contact__hero">
+      <h1>Kontakt</h1>
+      <p>Skorzystaj z dowolnej formy kontaktu, a odpiszę, jak tylko wrócę z plaży!</p>
+    </section>
+
+    <!-- CONTACT CONTENT -->
+    <main class="main-contact__content">
+      <!-- CONTACT CARDS -->
+      <div class="main-contact__cards">
+        <div class="main-contact__card">
+          <i class="main-contact__icon fa-solid fa-location-dot"></i>
+          <h3>Adres</h3>
+          <p>ul. Morska 1, 84-100 Hel, Polska</p>
+        </div>
+        <div class="main-contact__card">
+          <i class="main-contact__icon fa-solid fa-phone"></i>
+          <h3>Telefon</h3>
+          <p>+48 123 456 789</p>
+        </div>
+        <div class="main-contact__card">
+          <i class="main-contact__icon fa-solid fa-envelope"></i>
+          <h3>Email</h3>
+          <p>kontakt@helguide.pl</p>
+        </div>
       </div>
-    </header>
 
-    <section id="o-nas" class="section">
-      <h2>O nas</h2>
-      <p>Nasza firma specjalizuje się w...</p>
-    </section>
+      <!-- CONTACT FORM -->
+      <form class="main-contact__form" id="contactForm" novalidate>
+        <div class="main-contact__forml">
+          <input type="text" id="name" name="name" required placeholder=" " />
+          <label for="name">Imię i nazwisko</label>
+        </div>
+        <div class="main-contact__forml">
+          <input type="email" id="email" name="email" required placeholder=" " />
+          <label for="email">Adres email</label>
+        </div>
+        <div class="main-contact__forml">
+          <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+          <label for="message">Twoja wiadomość</label>
+        </div>
+        <button type="submit" class="main-contact__button">Wyślij wiadomość</button>
+        <p class="main-contact__status" aria-live="polite"></p>
+      </form>
 
-    <section id="oferta" class="section">
-      <h2>Oferta</h2>
-      <p>Oferujemy szeroki zakres usług, w tym...</p>
-    </section>
-
-    <section id="kontakt" class="section section-contact">
-      <h2>Kontakt</h2>
-      <p>Skontaktuj się z nami pod adresem...</p>
-    </section>
-
-  </main>
+      <!-- MAP -->
+      <div class="main-contact__map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d91704.44242106148!2d18.72994990056854!3d54.631279550607196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd0429b0408aab%3A0x66e584a9f09d68ea!2sHel!5e1!3m2!1spl!2spl!4v1745688300994!5m2!1spl!2spl"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    </main>
+  </div>
 
   <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 </body>
 </html>
