@@ -33,3 +33,12 @@ moreInfoLink.addEventListener('click', (e) => {
 closePolicy.addEventListener('click', () => {
   policyOverlay.style.display = 'none';
 });
+window.addEventListener('scroll', function () {
+  const mainElement = document.querySelector('.main');
+  const scrollPosition = window.scrollY;
+
+  // Ustawienie tła na podstawie scrolla
+  if (window.innerWidth <= 768) {
+    mainElement.style.backgroundPosition = 'center ' + (scrollPosition * 0.5) + 'px';
+  }
+});
