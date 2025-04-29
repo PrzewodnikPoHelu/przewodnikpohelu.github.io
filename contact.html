@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kontakt – Przewodnik po Helu</title>
   <link rel="stylesheet" href="contact.css" />
-  <!-- Link do wtyczki simpleParallax -->
-  <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.0.0/simpleParallax.min.js"></script>
 </head>
 <body>
   <div class="main">
@@ -35,11 +33,11 @@
     <section class="main-contact__hero">
       <h1>Kontakt</h1>
       <p>Skorzystaj z dowolnej formy kontaktu, a odpiszę, jak tylko wrócę z plaży!</p>
-      <img src="img/backgroundcontactKB.webp" alt="Background" class="parallax" />
     </section>
 
     <!-- CONTACT CONTENT -->
     <main class="main-contact__content">
+      <!-- CONTACT CARDS -->
       <div class="main-contact__cards">
         <div class="main-contact__card">
           <i class="main-contact__icon main-contact__icon--location"></i>
@@ -58,6 +56,7 @@
         </div>
       </div>
 
+      <!-- CONTACT FORM -->
       <form class="main-contact__form" id="contactForm" novalidate>
         <div class="main-contact__forml">
           <input type="text" id="name" name="name" required placeholder=" " />
@@ -75,6 +74,7 @@
         <p class="main-contact__status" aria-live="polite"></p>
       </form>
 
+      <!-- MAP -->
       <div class="main-contact__map">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d91704.44242106148!2d18.72994990056854!3d54.631279550607196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd0429b0408aab%3A0x66e584a9f09d68ea!2sHel!5e1!3m2!1spl!2spl!4v1745688300994!5m2!1spl!2spl"
@@ -85,5 +85,6 @@
     </main>
   </div>
   <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 </body>
 </html>
