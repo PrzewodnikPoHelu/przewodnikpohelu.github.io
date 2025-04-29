@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const policyOverlay = document.getElementById("policyOverlay");
   const moreInfoLink  = document.getElementById("moreInfoLink");
   const closePolicy   = document.getElementById("closePolicy");
-
+  
   // Toggle menu
   menuIcon.addEventListener("click", () => {
     menuIcon.classList.toggle("open");
@@ -31,11 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
     policyOverlay.style.display = "none";
   });
 
-  // Parallax na .parallax
-  const images = document.querySelectorAll('.parallax');
-  new simpleParallax(images, {
-    scale: 1.3,
-    delay: 0.1,
-    transition: 'cubic-bezier(0,0,0,1)'
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuIcon = document.getElementById("menuToggle");
+    const navbarMenu = document.getElementById("navbarMenu");
+  
+    // Toggle menu
+    menuIcon.addEventListener("click", () => {
+      menuIcon.classList.toggle("open");
+      navbarMenu.classList.toggle("open");
+    });
   });
+    
 });
