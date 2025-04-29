@@ -1,50 +1,70 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const menuIcon = document.getElementById("menuToggle");
-  const navbarMenu = document.getElementById("navbarMenu");
-
-  // Toggle menu (rozwijanie i zwijanie)
+  const menuIcon      = document.getElementById("menuToggle");
+  const navbarMenu    = document.getElementById("navbarMenu");
+  const cookieBanner  = document.getElementById("cookieBanner");
+  const acceptCookies = document.getElementById("acceptCookies");
+  const policyOverlay = document.getElementById("policyOverlay");
+  const moreInfoLink  = document.getElementById("moreInfoLink");
+  const closePolicy   = document.getElementById("closePolicy");
+  
+  // Toggle menu
   menuIcon.addEventListener("click", () => {
     menuIcon.classList.toggle("open");
     navbarMenu.classList.toggle("open");
   });
 
   // Cookie banner
-  const cookieBanner = document.getElementById('cookieBanner');
-  const acceptCookies = document.getElementById('acceptCookies');
-
-  // Sprawdzamy, czy użytkownik zaakceptował ciasteczka (z localStorage)
-  if (!localStorage.getItem('cookiesAccepted')) {
-    cookieBanner.style.display = 'block'; // Jeśli nie zaakceptowane, pokazujemy banner
+  if (!localStorage.getItem("cookiesAccepted")) {
+    cookieBanner.style.display = "block";
   }
-
-  // Po kliknięciu "OK", zapisujemy akceptację w localStorage i ukrywamy banner
-  acceptCookies.addEventListener('click', () => {
-    localStorage.setItem('cookiesAccepted', 'true'); // Zapisz akceptację ciasteczek
-    cookieBanner.style.display = 'none'; // Ukryj banner
+  acceptCookies.addEventListener("click", () => {
+    localStorage.setItem("cookiesAccepted", "true");
+    cookieBanner.style.display = "none";
   });
 
   // Polityka overlay
-  const policyOverlay = document.getElementById('policyOverlay');
-  const moreInfoLink = document.getElementById('moreInfoLink');
-  const closePolicy = document.getElementById('closePolicy');
-
-  moreInfoLink.addEventListener('click', (e) => {
+  moreInfoLink.addEventListener("click", (e) => {
     e.preventDefault();
-    policyOverlay.style.display = 'flex'; // Pokazujemy overlay z polityką prywatności
+    policyOverlay.style.display = "flex";
+  });
+  closePolicy.addEventListener("click", () => {
+    policyOverlay.style.display = "none";
   });
 
-  closePolicy.addEventListener('click', () => {
-    policyOverlay.style.display = 'none'; // Zamykanie overlay
-  });
-
-  // Efekt parallax scroll
-  window.addEventListener('scroll', function () {
-    const mainElement = document.querySelector('.main');
-    const scrollPosition = window.scrollY;
-
-    // Ustawienie tła na podstawie scrolla
-    if (window.innerWidth <= 768) {
-      mainElement.style.backgroundPosition = 'center ' + (scrollPosition * 0.5) + 'px';
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuIcon = document.getElementById("menuToggle");
+    const navbarMenu = document.getElementById("navbarMenu");
+  
+    // Toggle menu
+    menuIcon.addEventListener("click", () => {
+      menuIcon.classList.toggle("open");
+      navbarMenu.classList.toggle("open");
+    });
+  
+    // Parallax Effect
+    const bg = document.querySelector(".main");
+    if (bg) {
+      let ticking = false;
+      const onScroll = () => {
+        const yOffset = window.scrollY * 0.5; 
+        bg.style.transform = `translateY(${yOffset}px)`;
+      };
+      window.addEventListener("scroll", () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            onScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
     }
   });
+  document.addEventListener("DOMContentLoaded", function () {
+    new simpleParallax('.parallax', {
+      delay: 0.1,
+      transition: 'cubic-bezier(0,0,0,1)'
+    });
+  });
+    
 });
