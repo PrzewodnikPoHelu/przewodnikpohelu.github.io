@@ -20,8 +20,8 @@ html, body {
   min-height: 100vh;
   width: 100%;
   position: relative;
+  background-attachment: fixed;
 }
-
 @media (max-width: 1024px) {
   .main {
     background-attachment: scroll; /* Zamiast fixed, scroll na urządzenia mobilne */
@@ -356,6 +356,9 @@ html, body {
 
 
 @media (max-width: 768px) {
+  .main {
+    background-attachment: scroll;
+  }
   .navbar {
     padding: 0.8rem;
   }
