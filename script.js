@@ -16,33 +16,44 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- Cookie Consent with Expiry ---
+  // --- Cookie Consent ---
   if (cookieBanner && acceptCookies) {
-    try {
-      const consent = JSON.parse(localStorage.getItem("cookieConsent"));
-      const now = new Date();
+    const consentRaw = localStorage.getItem("cookieConsent");
 
-      if (!consent || new Date(consent.expiresAt) <= now) {
-        cookieBanner.style.display = "flex";
+    let showBanner = true;
+
+    if (consentRaw) {
+      try {
+        const consent = JSON.parse(consentRaw);
+        const now = new Date();
+        const expires = new Date(consent.expiresAt);
+
+        if (consent.accepted && expires > now) {
+          showBanner = false;
+        }
+      } catch (e) {
+        console.warn("Invalid consent data", e);
       }
-
-      acceptCookies.addEventListener("click", () => {
-        const expiresAt = new Date();
-        expiresAt.setFullYear(expiresAt.getFullYear() + 1); // 1 year from now
-
-        localStorage.setItem("cookieConsent", JSON.stringify({
-          accepted: true,
-          expiresAt: expiresAt.toISOString()
-        }));
-
-        cookieBanner.style.display = "none";
-      });
-    } catch (err) {
-      console.error("Cookie consent error:", err);
     }
+
+    if (showBanner) {
+      cookieBanner.style.display = "flex";
+    }
+
+    acceptCookies.addEventListener("click", () => {
+      const expiresAt = new Date();
+      expiresAt.setFullYear(expiresAt.getFullYear() + 1);
+
+      localStorage.setItem("cookieConsent", JSON.stringify({
+        accepted: true,
+        expiresAt: expiresAt.toISOString()
+      }));
+
+      cookieBanner.style.display = "none";
+    });
   }
 
-  // --- Privacy Policy Overlay ---
+  // --- Privacy Policy Modal ---
   if (moreInfoLink && policyOverlay && closePolicy) {
     moreInfoLink.addEventListener("click", (e) => {
       e.preventDefault();
