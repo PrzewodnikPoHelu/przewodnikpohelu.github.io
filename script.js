@@ -18,42 +18,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Cookie Consent ---
   if (cookieBanner && acceptCookies) {
-    const consentRaw = localStorage.getItem("cookieConsent");
-
-    let showBanner = true;
-
-    if (consentRaw) {
-      try {
-        const consent = JSON.parse(consentRaw);
-        const now = new Date();
-        const expires = new Date(consent.expiresAt);
-
-        if (consent.accepted && expires > now) {
-          showBanner = false;
-        }
-      } catch (e) {
-        console.warn("Invalid consent data", e);
-      }
-    }
-
-    if (showBanner) {
+    const consent = localStorage.getItem("cookieConsent");
+    if (consent === "accepted") {
+      cookieBanner.style.display = "none";
+    } else {
       cookieBanner.style.display = "flex";
     }
 
     acceptCookies.addEventListener("click", () => {
-      const expiresAt = new Date();
-      expiresAt.setFullYear(expiresAt.getFullYear() + 1);
-
-      localStorage.setItem("cookieConsent", JSON.stringify({
-        accepted: true,
-        expiresAt: expiresAt.toISOString()
-      }));
-
+      // Save consent in localStorage with "accepted" status
+      localStorage.setItem("cookieConsent", "accepted");
       cookieBanner.style.display = "none";
     });
   }
 
-  // --- Privacy Policy Modal ---
+  // --- Privacy Policy Overlay ---
   if (moreInfoLink && policyOverlay && closePolicy) {
     moreInfoLink.addEventListener("click", (e) => {
       e.preventDefault();
@@ -62,6 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     closePolicy.addEventListener("click", () => {
       policyOverlay.style.display = "none";
+    });
+  }
+
+  // --- Menu Toggle (Hamburger) ---
+  if (menuIcon && navbarMenu) {
+    menuIcon.addEventListener("click", () => {
+      menuIcon.classList.toggle("open");
+      navbarMenu.classList.toggle("open");
     });
   }
 });
