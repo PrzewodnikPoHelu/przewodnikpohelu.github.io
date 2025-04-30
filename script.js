@@ -15,19 +15,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Cookie banner
+  // Cookie consent banner
   if (cookieBanner && acceptCookies) {
-    if (!localStorage.getItem("cookiesAccepted")) {
-      cookieBanner.style.display = "block";
+    const hasConsent = localStorage.getItem("cookiesAccepted");
+
+    if (!hasConsent) {
+      cookieBanner.style.display = "flex";
+      cookieBanner.classList.add("show-banner"); // for fade-in effect
     }
 
     acceptCookies.addEventListener("click", () => {
       localStorage.setItem("cookiesAccepted", "true");
-      cookieBanner.style.display = "none";
+      cookieBanner.classList.remove("show-banner");
+
+      // Hide after transition
+      setTimeout(() => {
+        cookieBanner.style.display = "none";
+      }, 300);
     });
   }
 
-  // Polityka overlay
+  // Privacy policy overlay
   if (moreInfoLink && policyOverlay && closePolicy) {
     moreInfoLink.addEventListener("click", (e) => {
       e.preventDefault();
