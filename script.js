@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Elements
   const menuIcon      = document.getElementById("menuToggle");
   const navbarMenu    = document.getElementById("navbarMenu");
   const cookieBanner  = document.getElementById("cookieBanner");
@@ -41,14 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     closePolicy.addEventListener("click", () => {
       policyOverlay.style.display = "none";
-    });
-  }
-
-  // --- Menu Toggle (Hamburger) ---
-  if (menuIcon && navbarMenu) {
-    menuIcon.addEventListener("click", () => {
-      menuIcon.classList.toggle("open");
-      navbarMenu.classList.toggle("open");
     });
   }
 });
