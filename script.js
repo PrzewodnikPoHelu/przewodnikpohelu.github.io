@@ -15,20 +15,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Cookie consent banner
+  // Cookie consent with expiration
   if (cookieBanner && acceptCookies) {
-    const hasConsent = localStorage.getItem("cookiesAccepted");
+    const consentData = JSON.parse(localStorage.getItem("cookieConsent"));
+    const now = new Date();
 
-    if (!hasConsent) {
+    const isConsentValid = consentData && new Date(consentData.expiresAt) > now;
+
+    if (!isConsentValid) {
       cookieBanner.style.display = "flex";
-      cookieBanner.classList.add("show-banner"); // for fade-in effect
+      cookieBanner.classList.add("show-banner");
     }
 
     acceptCookies.addEventListener("click", () => {
-      localStorage.setItem("cookiesAccepted", "true");
-      cookieBanner.classList.remove("show-banner");
+      const oneYearFromNow = new Date();
+      oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
 
-      // Hide after transition
+      localStorage.setItem("cookieConsent", JSON.stringify({
+        accepted: true,
+        expiresAt: oneYearFromNow.toISOString()
+      }));
+
+      cookieBanner.classList.remove("show-banner");
       setTimeout(() => {
         cookieBanner.style.display = "none";
       }, 300);
