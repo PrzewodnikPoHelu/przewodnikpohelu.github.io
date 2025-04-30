@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Elements
   const menuIcon      = document.getElementById("menuToggle");
   const navbarMenu    = document.getElementById("navbarMenu");
   const cookieBanner  = document.getElementById("cookieBanner");
@@ -7,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const moreInfoLink  = document.getElementById("moreInfoLink");
   const closePolicy   = document.getElementById("closePolicy");
 
-  // Toggle menu
+  // --- Mobile Menu Toggle ---
   if (menuIcon && navbarMenu) {
     menuIcon.addEventListener("click", () => {
       menuIcon.classList.toggle("open");
@@ -15,35 +16,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Cookie consent with expiration
+  // --- Cookie Consent with Expiry ---
   if (cookieBanner && acceptCookies) {
-    const consentData = JSON.parse(localStorage.getItem("cookieConsent"));
-    const now = new Date();
+    try {
+      const consent = JSON.parse(localStorage.getItem("cookieConsent"));
+      const now = new Date();
 
-    const isConsentValid = consentData && new Date(consentData.expiresAt) > now;
+      if (!consent || new Date(consent.expiresAt) <= now) {
+        cookieBanner.style.display = "flex";
+      }
 
-    if (!isConsentValid) {
-      cookieBanner.style.display = "flex";
-      cookieBanner.classList.add("show-banner");
-    }
+      acceptCookies.addEventListener("click", () => {
+        const expiresAt = new Date();
+        expiresAt.setFullYear(expiresAt.getFullYear() + 1); // 1 year from now
 
-    acceptCookies.addEventListener("click", () => {
-      const oneYearFromNow = new Date();
-      oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
+        localStorage.setItem("cookieConsent", JSON.stringify({
+          accepted: true,
+          expiresAt: expiresAt.toISOString()
+        }));
 
-      localStorage.setItem("cookieConsent", JSON.stringify({
-        accepted: true,
-        expiresAt: oneYearFromNow.toISOString()
-      }));
-
-      cookieBanner.classList.remove("show-banner");
-      setTimeout(() => {
         cookieBanner.style.display = "none";
-      }, 300);
-    });
+      });
+    } catch (err) {
+      console.error("Cookie consent error:", err);
+    }
   }
 
-  // Privacy policy overlay
+  // --- Privacy Policy Overlay ---
   if (moreInfoLink && policyOverlay && closePolicy) {
     moreInfoLink.addEventListener("click", (e) => {
       e.preventDefault();
