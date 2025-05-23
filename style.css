@@ -427,34 +427,3 @@ body, html {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-/* Domyślnie ukryj nagłówek "W budowie" */
-.mobile-only {
-  display: none;
-}
-
-/* Dla małych ekranów (telefonów) */
-@media (max-width: 768px) {
-  .main,
-  .cookie-banner,
-  .policy-overlay {
-    display: none !important;
-  }
-
-  .mobile-only {
-    display: block;
-    text-align: center;
-    font-size: 2em;
-    margin-top: 100px;
-    color: #cc0000;
-  }
-}
