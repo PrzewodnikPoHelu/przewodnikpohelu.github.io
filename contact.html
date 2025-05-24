@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kontakt – Przewodnik po Helu</title>
-  <link rel="stylesheet" href="contact.css" />
+  <link rel="stylesheet" href="contact2.css" />
 </head>
 <body>
   <div class="main">
@@ -74,14 +74,57 @@
         <button type="submit" class="main-contact__button">Wyślij wiadomość</button>
         <p class="main-contact__status" aria-live="polite"></p>
       </form>
+      <div class="gallery">
+        <img src="img/senior.webp" alt="Zdjęcie 1" id="gallery-image" />
+        
+        <div class="arrow arrow-left" id="prev">
+          <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </div>
+        
+        <div class="arrow arrow-right" id="next">
+          <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+        </div>
+      </div>
 
-      <!-- MAP -->
-      <div class="main-contact__map">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d73906.39799265143!2d18.68463129705293!3d54.62909348828289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd0429b0408aab%3A0x66e584a9f09d68ea!2sHel!5e0!3m2!1spl!2spl!4v1746032610246!5m2!1spl!2spl"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
+      <script>
+        const images = [
+          "galeria/1.webp",
+          "galeria/5.webp",
+          "galeria/3.webp",
+          "galeria/4.webp",
+          "galeria/5.webp",
+          "galeria/6.webp",
+          "galeria/7.webp",
+          "galeria/8.webp",
+          "galeria/9.webp",
+          "galeria/10.webp",
+          "galeria/11.webp",
+          "galeria/12.webp",
+        ];
+      
+        let currentIndex = 0;
+        const imgElement = document.getElementById('gallery-image');
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+      
+        function showImage(index) {
+          imgElement.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            imgElement.src = images[index];
+            imgElement.style.transform = 'scale(1)';
+          }, 200);
+        }
+      
+        prevBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+          showImage(currentIndex);
+        });
+      
+        nextBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % images.length;
+          showImage(currentIndex);
+        });
+      </script>
       </div>
     </main>
   </div>
