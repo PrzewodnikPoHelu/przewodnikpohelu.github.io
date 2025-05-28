@@ -21,7 +21,7 @@ body {
 }
 
 .navbar {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -103,7 +103,7 @@ body {
 .menu-links a:hover {
   color: #ffcc00ab;
 }
-.first-child {
+.third-child {
   color: #ffcc00 !important;
 }
 .second-child, .third-child, .fourth-child, .fifth-child {
@@ -235,7 +235,7 @@ main {
   }
 
   .container {
-    padding-top: 20px;
+    padding-top: 0.5rem;
     padding-bottom: 40px;
   }
 }
@@ -253,5 +253,17 @@ main {
 
   .title {
     font-size: 4rem;
+  }
+}
+
+/* Styl tylko dla tabletów (pion i poziom) */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .title {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 830px) and (max-width: 900px) {
+  .title {
+    font-size: 2rem;
   }
 }
