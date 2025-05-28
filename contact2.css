@@ -15,13 +15,21 @@
     color: black; 
   }
   .main {
-    background: url('img/backgfala.jpg') no-repeat center center;
+    background: url('img/backgroundcontact.JPEG') no-repeat center center;
     background-size: cover;
     min-height: 100vh;
     width: 100%;
     position: relative;
     background-attachment: fixed;
   }
+  
+  @media (max-width: 480px) {
+    .main {
+      background: url('img/backgroundcontactPhone.JPEG') no-repeat center center;
+    }
+  }
+  
+  
   @media (max-width: 1024px) {
     .main {
       background-attachment: scroll; /* Zamiast fixed, scroll na urządzenia mobilne */
