@@ -603,8 +603,9 @@
     height: auto;
     background: #222;
     border-radius: 1rem;
-    margin: 0 auto;       /* klucz do wyśrodkowania */
-    display: block;       /* potrzebne dla margin auto */
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;      /* potrzebne dla margin auto */
   }
   
   
@@ -696,7 +697,26 @@
       max-width: 100%;   /* żeby nie ograniczać na mniejszych ekranach */
       margin-left: auto;  /* wyśrodkowanie */
       margin-right: auto; /* wyśrodkowanie */
-      display: block;     /* ważne żeby działało margin auto */
+      display: block;
+      margin-left: auto;
+      margin-right: auto;      /* ważne żeby działało margin auto */
     }
   }
-  
+  @media (min-width: 1025px) {
+    .main-contact__form {
+      max-width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  @media (min-width: 600px) and (max-width: 1024px) {
+    .gallery {
+      width: 90vw;       /* albo 95vw - żeby trochę bardziej na szerokość */
+      max-width: 100%;   /* żeby nie ograniczać na mniejszych ekranach */
+      margin-left: auto;  /* wyśrodkowanie */
+      margin-right: auto; /* wyśrodkowanie */
+      display: block;
+      margin-left: auto;
+      margin-right: auto;      /* ważne żeby działało margin auto */
+    }
+  }
