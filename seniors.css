@@ -1,0 +1,444 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: auto;
+  }
+  body {
+    margin: 0;
+    height: 100vh;
+    background: url("img/backgroundOffer.JPEG");
+    background-size: cover;
+  }
+  
+  
+  .main {
+    background-color: transparent;
+    color: white;
+  }
+  
+  .navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+  }
+  
+  .profile-img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+  }
+  
+  .main-menu_icon {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .main-menu_icon span {
+    display: block;
+    height: 0.2rem;
+    background: white;
+    border-radius: 1rem;
+    transition: 0.4s;
+  }
+  
+  .main-menu_icon.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .main-menu_icon.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .main-menu_icon.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  .navbar-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease;
+    z-index: 2;
+    border-bottom-left-radius: 2dvh;
+    border-bottom-right-radius: 2dvh;
+  }
+  .navbar-menu.open {
+    max-height: 50vh;
+  }
+  
+  .menu-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+  .menu-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin: 0.3rem 0;
+  }
+  .menu-links a:hover {
+    color: #ffcc00ab;
+  }
+  .third-child {
+    color: #ffcc00 !important;
+  }
+  .second-child, .third-child, .fourth-child, .fifth-child {
+    margin-top: 1.8vh !important;
+  }
+  .menu-links hr {
+    width: 80%;
+    border: none;
+    border-top: 1px solid #ffffff4d;
+    margin: 0.5rem auto;
+  }
+  .menu-links .copyright {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #ccc;
+    text-align: center;
+  }
+  .copyright span {
+    color: #007BFF !important;
+  }
+  
+  /* PADDING OD GÓRY POD NAVBAR */
+  main {
+    padding-top: 80px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px 20px;
+    background: transparent;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .image-box {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    aspect-ratio: 4/3;
+    border-radius: 12px;
+    box-shadow:
+      0 4px 6px rgba(0, 0, 0, 0.5),
+      0 8px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .background-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0);
+    animation: fadeInOverlay 1.7s ease forwards;
+    animation-delay: 0.7s;
+  }
+  @keyframes fadeInOverlay {
+    to {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  }
+  
+  .title {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 90%;
+    max-width: 90%;
+    height: fit-content;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeInText 0.8s ease forwards;
+    animation-delay: 2.5s;
+  }
+  @keyframes fadeInText {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 0.8rem;
+    }
+  
+    .profile-img {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  
+    .main-menu_icon {
+      width: 1.6rem;
+      height: 1.6rem;
+      gap: 0.3rem;
+    }
+  
+    .main-menu_icon span {
+      height: 0.15rem;
+    }
+  
+    .menu-links a {
+      font-size: 1rem;
+    }
+  
+    .menu-links .copyright,
+    .copyright span {
+      font-size: 0.7rem;
+    }
+  
+    .title {
+      font-size: 2rem;
+    }
+  
+    main {
+      padding-top: 70px;
+    }
+  
+    .container {
+      padding-top: 0.5rem;
+      padding-bottom: 40px;
+    }
+  }
+/* Cała sekcja: rozmiar i centrowanie */
+.hero-section {
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+    font-size: 3rem;
+  }
+  
+  /* Wszystkie dzieci w hero-section: animacja początkowa */
+  .hero-section > * {
+    opacity: 0;
+    transform: translateY(5vh);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  /* Gdy element się pokaże na ekranie */
+  .hero-section > *.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }   
+  
+  @media (min-width: 768px) {
+    .container {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  
+    .image-box {
+      width: 45%;
+    }
+  
+    .title {
+      font-size: 4rem;
+    }
+  }
+  
+  /* Styl tylko dla tabletów (pion i poziom) */
+  @media (min-width: 600px) and (max-width: 1024px) {
+    .title {
+      font-size: 2rem;
+    }
+  }
+  @media (min-width: 830px) and (max-width: 900px) {
+    .title {
+      font-size: 2rem;
+    }
+  }
+  
+
+
+
+
+
+  .trip-card {
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+    gap: 2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  
+  .trip-image {
+    flex: 1;
+    aspect-ratio: 4 / 3;
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+  
+  .trip-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0.75rem;
+  }
+  
+  .trip-content {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .trip-content h2 {
+    font-size: 1.6rem;
+    margin: 0;
+    font-weight: 600;
+    color: #111;
+  }
+  
+  .trip-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .meta-item .icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    stroke: #e5c100;
+    flex-shrink: 0;
+  }
+  
+  .trip-description {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.6;
+  }
+  
+  .trip-extra-info {
+    padding-left: 1rem;
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .trip-extra-info li {
+    margin-bottom: 0.4rem;
+  }
+  
+  .btn-reserve {
+    align-self: flex-start;
+    padding: 0.6rem 1.8rem;
+    background: #e5c100;
+    border: none;
+    border-radius: 2rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #111;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .btn-reserve:hover {
+    background: #f0d847;
+  }
+  
+  @media (max-width: 768px) {
+    .trip-card {
+      flex-direction: column;
+      padding: 1.5rem 1.25rem;
+      gap: 1.5rem;
+      border-radius: 0.75rem;
+      margin: 0.75rem;
+    }
+  
+    .trip-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+  
+    .trip-content {
+      gap: 1rem;
+    }
+  
+    .trip-content h2 {
+      font-size: 1.3rem;
+      line-height: 1.3;
+    }
+  
+    .trip-meta {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+    }
+  
+    .meta-item {
+      gap: 0.6rem;
+    }
+  
+    .trip-description {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+  
+    .trip-extra-info {
+      font-size: 0.9rem;
+      padding-left: 1rem;
+    }
+  
+    .btn-reserve {
+      font-size: 0.95rem;
+      padding: 0.6rem 1.4rem;
+    }
+  }
+  
