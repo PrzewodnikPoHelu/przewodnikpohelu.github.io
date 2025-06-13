@@ -21,8 +21,8 @@
           <a href="index.html" class="first-child">Strona główna</a>
           <a href="kontakt.html" class="second-child">Kontakt</a>
           <a href="offer.html" class="third-child">Oferta</a>
-          <a href="podstrona3.html" class="fourth-child">Podstrona3</a>
-          <a href="podstrona4.html" class="fifth-child">Podstrona4</a>
+          <a href="#" class="fourth-child">Podstrona3</a>
+          <a href="#" class="fifth-child">Podstrona4</a>
           <p class="copyright">
             &copy; 2025 Daniel Kretkiewicz | Realizacja: <a href="https://gracjan-gs.github.io/"><span>Gracjan Śliwiński</span></a>
           </p>
@@ -60,7 +60,7 @@
         </div>
         <div class="main-contact__forml">
           <input type="email" id="email" name="email" required placeholder=" " />
-          <label for="email">Adres email</label>
+          <label for="email">Adres email / Numer telefonu</label>
         </div>
         <div class="main-contact__forml">
           <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
@@ -80,7 +80,50 @@
           <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
         </div>
       </div>
-
+      <script>
+        (function() {
+          const form = document.getElementById("contactForm");
+          const status = document.querySelector(".main-contact__status");
+          const webAppUrl = "https://script.google.com/macros/s/AKfycbzJLokaHg4MtShI-rD0EqTB3JymZAwt_knnqMX4gHh8fTfuGb0IwBOsfx32q6Yfs1ydqA/exec";
+      
+          form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+      
+            // Prosta walidacja: e-mail lub telefon musi być podany
+            const emailOrPhone = form.elements["email"].value.trim();
+            if (!emailOrPhone) {
+              status.textContent = "Podaj adres email lub numer telefonu.";
+              return;
+            }
+      
+            const formData = new FormData(form);
+            const data = new URLSearchParams();
+      
+            for (const pair of formData) {
+              data.append(pair[0], pair[1]);
+            }
+      
+            try {
+              const response = await fetch(webAppUrl, {
+                method: "POST",
+                body: data,
+              });
+      
+              if (response.ok) {
+                status.textContent = "Wiadomość wysłana!";
+                form.reset();
+              } else {
+                status.textContent = "Błąd podczas wysyłania.";
+              }
+            } catch (error) {
+              status.textContent = "Błąd sieci.";
+              console.error(error);
+            }
+          });
+        })();
+      </script>
+      
+      
       <script>
         const images = [
           "galeria/4.webp",
