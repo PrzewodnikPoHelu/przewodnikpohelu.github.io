@@ -2,171 +2,58 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kontakt – Przewodnik po Helu</title>
-  <link rel="stylesheet" href="contact2.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Przewodnik po Helu</title>
+  <link rel="stylesheet" href="offer.css" />
 </head>
 <body>
   <div class="main">
-  <div class="main">
-    <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
       <a href="index.html"><img src="img/prof.webp" alt="Profil" class="profile-img"/></a>
       <div class="main-menu_icon" id="menuToggle">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
       <div class="navbar-menu" id="navbarMenu">
         <div class="menu-links">
-          <hr />
-          <a href="index.html" class="first-child">Strona główna</a>
-          <a href="kontakt.html" class="second-child">Kontakt</a>
+          <hr/>
+          <a href="#" class="first-child">Strona główna</a>
+          <a href="contact.html" class="second-child">Kontakt</a>
           <a href="offer.html" class="third-child">Oferta</a>
-          <a href="podstrona3.html" class="fourth-child">Podstrona3</a>
-          <a href="podstrona4.html" class="fifth-child">Podstrona4</a>
-          <p class="copyright">
-            &copy; 2025 Daniel Kretkiewicz | Realizacja: <a href="https://gracjan-gs.github.io/"><span>Gracjan Śliwiński</span></a>
-          </p>
+          <a href="#" class="fourth-child">Podstrona3</a>
+          <a href="#" class="fifth-child">Podstrona4</a>
+          <p class="copyright">&copy; 2025 Daniel Kretkiewicz | Realizacja: <a href="https://gracjan-gs.github.io/"><span>Gracjan Śliwiński</span></a></p>
         </div>
       </div>
     </nav>
-
-    <!-- HERO SECTION -->
-    <section class="main-contact__hero">
-      <h1>Kontakt</h1>
-      <p>Skorzystaj z dowolnej formy kontaktu, a odpiszę, jak tylko wrócę z plaży!</p>
-    </section>
-
-    <!-- CONTACT CONTENT -->
-    <main class="main-contact__content">
-      <!-- CONTACT CARDS -->
-      <div class="main-contact__cards">
-        <div class="main-contact__card">
-          <i class="main-contact__icon main-contact__icon--phone"></i>
-          <h3>Telefon</h3>
-          <a href="tel:+48609494760"><p class="main-contact__card--text">+48 609 494 760</p></a>
+    <main>
+        <div class="container">
+          <a href="seniors.html"><div class="image-box">
+            <img src="img/senior.webp" alt="Seniorzy" class="background-img" />
+            <div class="overlay"></div>
+            <a href="seniors.html"><h1 class="title">SENIORZY</h1>
+          </div>
+        </a>
+          <div class="image-box">
+            <img src="img/wycieczka.webp" alt="Wycieczki" class="background-img" />
+            <div class="overlay"></div>
+            <h1 class="title">Wycieczki</h1>
+          </div>
+          <div class="image-box">
+            <img src="img/duzeGrupy.webp" alt="Trzecie" class="background-img" />
+            <div class="overlay"></div>
+            <h1 class="title">Duże Grupy</h1>
+          </div>
+          <div class="image-box">
+            <img src="img/indywidualnie.webp" alt="Czwarte" class="background-img" />
+            <div class="overlay"></div>
+            <h1 class="title">Indywidualnie</h1>
+          </div>
         </div>
-        <div class="main-contact__card">
-          <i class="main-contact__icon main-contact__icon--email"></i>
-          <h3>Email</h3>
-          <a href="#"><p class="main-contact__card--text">jan.kowal@gmail.com</p></a>
-        </div>
-      </div>
-
-      <!-- CONTACT FORM -->
-      <form class="main-contact__form" id="contactForm" novalidate>
-        <div class="main-contact__forml">
-          <input type="text" id="name" name="name" required placeholder=" " />
-          <label for="name">Imię i nazwisko</label>
-        </div>
-        <div class="main-contact__forml">
-          <input type="email" id="email" name="email" required placeholder=" " />
-          <label for="email">Adres email / Numer telefonu</label>
-        </div>
-        <div class="main-contact__forml">
-          <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
-          <label for="message">Twoja wiadomość</label>
-        </div>
-        <button type="submit" class="main-contact__button">Wyślij wiadomość</button>
-        <p class="main-contact__status" aria-live="polite"></p>
-      </form>
-      <div class="gallery">
-        <img src="img/senior.webp" alt="Zdjęcie 1" id="gallery-image" />
-        
-        <div class="arrow arrow-left" id="prev">
-          <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-        </div>
-        
-        <div class="arrow arrow-right" id="next">
-          <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
-        </div>
-      </div>
-      <script>
-        (function() {
-          const form = document.getElementById("contactForm");
-          const status = document.querySelector(".main-contact__status");
-          const webAppUrl = "https://script.google.com/macros/s/AKfycbzJLokaHg4MtShI-rD0EqTB3JymZAwt_knnqMX4gHh8fTfuGb0IwBOsfx32q6Yfs1ydqA/exec";
+      </main>
       
-          form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-      
-            // Prosta walidacja: e-mail lub telefon musi być podany
-            const emailOrPhone = form.elements["email"].value.trim();
-            if (!emailOrPhone) {
-              status.textContent = "Podaj adres email lub numer telefonu.";
-              return;
-            }
-      
-            const formData = new FormData(form);
-            const data = new URLSearchParams();
-      
-            for (const pair of formData) {
-              data.append(pair[0], pair[1]);
-            }
-      
-            try {
-              const response = await fetch(webAppUrl, {
-                method: "POST",
-                body: data,
-              });
-      
-              if (response.ok) {
-                status.textContent = "Wiadomość wysłana!";
-                form.reset();
-              } else {
-                status.textContent = "Błąd podczas wysyłania.";
-              }
-            } catch (error) {
-              status.textContent = "Błąd sieci.";
-              console.error(error);
-            }
-          });
-        })();
-      </script>
-      
-      
-      <script>
-        const images = [
-          "galeria/4.webp",
-          "galeria/5.webp",
-          "galeria/3.webp",
-          "galeria/4.webp",
-          "galeria/5.webp",
-          "galeria/6.webp",
-          "galeria/9.webp",
-          "galeria/8.webp",
-          "galeria/9.webp",
-          "galeria/10.webp",
-          "galeria/8.webp",
-          "galeria/12.webp",
-        ];
-      
-        let currentIndex = 0;
-        const imgElement = document.getElementById('gallery-image');
-        const prevBtn = document.getElementById('prev');
-        const nextBtn = document.getElementById('next');
-      
-        function showImage(index) {
-          imgElement.style.transform = 'scale(0.95)';
-          setTimeout(() => {
-            imgElement.src = images[index];
-            imgElement.style.transform = 'scale(1)';
-          }, 200);
-        }
-      
-        prevBtn.addEventListener('click', () => {
-          currentIndex = (currentIndex - 1 + images.length) % images.length;
-          showImage(currentIndex);
-        });
-      
-        nextBtn.addEventListener('click', () => {
-          currentIndex = (currentIndex + 1) % images.length;
-          showImage(currentIndex);
-        });
-      </script>
-      </div>
-    </main>
   </div>
   <script src="script.js"></script>
-  </div>
 </body>
 </html>
