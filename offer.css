@@ -6,13 +6,13 @@ body, html {
   font-family: 'Segoe UI', sans-serif;
   overflow: auto;
 }
+
 body {
   margin: 0;
   height: 100vh;
   background: url("img/backgroundOffer.JPEG");
   background-size: cover;
 }
-
 
 .main {
   background-color: transparent;
@@ -129,26 +129,21 @@ main {
   padding-top: 80px;
 }
 
+/* KONTAINER I BOXY - TWÓJ PODSTAWOWY UKŁAD */
 .container {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
   padding: 40px 20px;
-  background: transparent;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
 }
 
 .image-box {
   position: relative;
-  overflow: hidden;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  aspect-ratio: 4/3;
+  width: 300px;
+  aspect-ratio: 4 / 3;
   border-radius: 12px;
+  overflow: hidden;
   box-shadow:
     0 4px 6px rgba(0, 0, 0, 0.5),
     0 8px 15px rgba(0, 0, 0, 0.3);
@@ -189,12 +184,16 @@ main {
   opacity: 0;
   animation: fadeInText 0.8s ease forwards;
   animation-delay: 2.5s;
+  word-wrap: break-word;
+  white-space: normal;
 }
 @keyframes fadeInText {
   to {
     opacity: 1;
   }
 }
+
+/* Responsywność */
 
 @media (max-width: 768px) {
   .navbar {
@@ -237,32 +236,24 @@ main {
     padding-top: 0.5rem;
     padding-bottom: 40px;
   }
-}
 
-@media (min-width: 768px) {
-  .container {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
+  /* Na telefonach boxy na 100% */
   .image-box {
-    width: 45%;
-  }
-
-  .title {
-    font-size: 4rem;
+    width: 100%;
   }
 }
 
-/* Styl tylko dla tabletów (pion i poziom) */
-@media (min-width: 600px) and (max-width: 1024px) {
-  .title {
-    font-size: 2rem;
+/* Na większych ekranach max 2 w wierszu i ostatni wyśrodkowany */
+@media (min-width: 769px) {
+  .container {
+    justify-content: center;
   }
-}
-@media (min-width: 830px) and (max-width: 900px) {
-  .title {
-    font-size: 2rem;
+  .image-box {
+    width: 300px;
+  }
+  /* ostatni jeśli nieparzysta liczba wyśrodkowany */
+  .container > *:nth-last-child(1):nth-child(odd) {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
