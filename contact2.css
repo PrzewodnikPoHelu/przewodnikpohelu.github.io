@@ -728,3 +728,10 @@
       margin-right: auto;      /* ważne żeby działało margin auto */
     }
   }
+  #hrefNav {
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    margin-left: 5em;
+    text-shadow: 2px 1px 10px white;
+  } 
