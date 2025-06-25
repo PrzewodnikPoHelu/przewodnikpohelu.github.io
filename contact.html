@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kontakt – Przewodnik po Helu</title>
+  <title>Kontakt</title>
   <link rel="stylesheet" href="contact2.css" />
 </head>
 <body>
@@ -12,6 +12,7 @@
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
       <a href="index.html"><img src="img/prof.webp" alt="Profil" class="profile-img"/></a>
+      <a href="about.html" id="hrefNav">O MNIE</a>
       <div class="main-menu_icon" id="menuToggle">
         <span></span><span></span><span></span>
       </div>
@@ -33,7 +34,7 @@
     <!-- HERO SECTION -->
     <section class="main-contact__hero">
       <h1>Kontakt</h1>
-      <p>Skorzystaj z dowolnej formy kontaktu, a odpiszę, jak tylko wrócę z plaży!</p>
+      <p>W celu uzyskania dodatkowych informacji, sprawdzenia dostępności terminu, złożenia zlecenia, zapraszam do kontaktu: </p>
     </section>
 
     <!-- CONTACT CONTENT -->
@@ -48,7 +49,7 @@
         <div class="main-contact__card">
           <i class="main-contact__icon main-contact__icon--email"></i>
           <h3>Email</h3>
-          <a href="#"><p class="main-contact__card--text">jan.kowal@gmail.com</p></a>
+          <a href="mailto:kredahel@gmail.com"><p class="main-contact__card--text">kredahel@gmail.com</p></a>
         </div>
       </div>
 
@@ -56,11 +57,11 @@
       <form class="main-contact__form" id="contactForm" novalidate>
         <div class="main-contact__forml">
           <input type="text" id="name" name="name" required placeholder=" " />
-          <label for="name">Imię i nazwisko</label>
+          <label for="name">Imię, nazwisko, firma</label>
         </div>
         <div class="main-contact__forml">
           <input type="email" id="email" name="email" required placeholder=" " />
-          <label for="email">Adres email / Numer telefonu</label>
+          <label for="email">Adres email / numer telefonu</label>
         </div>
         <div class="main-contact__forml">
           <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
