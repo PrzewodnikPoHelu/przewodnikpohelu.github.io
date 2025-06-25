@@ -31,6 +31,18 @@ body, html {
     backdrop-filter: blur(10px);
   }
   
+.main-menu_icon.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.main-menu_icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.main-menu_icon.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+  
   .profile-img {
     height: 3rem;
     width: 3rem;
@@ -90,7 +102,7 @@ body, html {
   .menu-links a:hover {
     color: #ffcc00ab;
   }
-  .third-child {
+  .fourth-child {
     color: #ffcc00 !important;
   }
   .second-child, .third-child, .fourth-child, .fifth-child {
@@ -232,5 +244,12 @@ body, html {
     .image-box {
       width: 90%;
     }
+  }
+  #hrefNav {
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    margin-left: 5em;
+    text-shadow: 2px 1px 10px white;
   }
   
