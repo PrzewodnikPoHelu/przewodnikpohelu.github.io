@@ -142,7 +142,7 @@ body, html {
 .copyright span {
   font-size: 0.8rem;
   text-align: center;
-  color: #007BFF !important;
+  color: #4da3ff !important;
 }
 
 .main-content {
@@ -180,7 +180,7 @@ body, html {
   background: rgba(27, 0, 124, 0.7);
   color: white;
   font-weight: bold;
-  padding: 0.8rem 1.4rem;
+  padding: 0.8rem 2rem;
   border-radius: 1rem;
   font-size: 1.1rem;
   text-decoration: none;
@@ -388,7 +388,7 @@ body, html {
 
   /* Main button (Get Started) */
   .main-button {
-    padding: 0.7rem 1.2rem;
+    padding: 0.7rem 1.6rem;
     font-size: 1rem;
     bottom: -20vh;
   }
@@ -426,4 +426,10 @@ body, html {
   }
 }
 
-
+#hrefNav {
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  margin-left: 5em;
+  text-shadow: 2px 1px 10px white;
+}
