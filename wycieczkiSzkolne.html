@@ -82,11 +82,22 @@
   gap: 30px;
 }
 
-/* Duża kafelka */
 .image-box.large {
   flex: 1 1 50%;
   aspect-ratio: 4 / 3;
   max-width: 600px;
+  position: relative; /* dodaj to jeśli nie masz */
+  overflow: hidden;
+}
+
+.background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
 /* Mniejsze kafelki kontener */
