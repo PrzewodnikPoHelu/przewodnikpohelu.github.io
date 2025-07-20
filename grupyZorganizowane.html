@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Druga Oferta</title>
+  <link rel="stylesheet" href="offer.css" />
+</head>
+<body>
+  <div class="main">
+    <nav class="navbar">
+      <a href="index.html"><img src="img/prof.webp" alt="Profil" class="profile-img" /></a>
+      <div class="main-menu_icon" id="menuToggle">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="navbar-menu" id="navbarMenu">
+        <div class="menu-links">
+          <hr />
+          <a href="index.html" class="first-child">Strona główna</a>
+          <a href="contact.html" class="second-child">Kontakt</a>
+          <a href="offer.html" class="third-child">Oferta dla grup</a>
+          <a href="atractions.html" class="fourth-child">Helskie atrakcje</a>
+          <a href="#" class="fifth-child">Podstrona4</a>
+          <p class="copyright">&copy; 2025 Daniel Kretkiewicz | Realizacja:
+            <a href="https://gracjan-gs.github.io/"><span>Gracjan Śliwiński</span></a></p>
+        </div>
+      </div>
+    </nav>
+
+<main>
+  <div class="container tiles-layout">
+    <!-- Duża kafelka -->
+    <div class="image-box large">
+      <img src="img/duzeGrupy.webp" alt="Plenerowa Wycieczka" class="background-img" />
+      <div class="overlay"></div>
+      <a href="wycieczkiSzkolneWybor.html">
+        <h1 class="title">
+            WYCIECZKA PLENEROWA
+            <br><br><br><br>
+          </h1>
+          <span class="tile-description">Kliknij aby zobaczyć opis</span>
+      </a>
+    </div>
+
+    <!-- PLUS między dużą a mniejszymi -->
+    <div class="symbol plus">+</div>
+
+    <!-- Mniejsze kafelki -->
+    <div class="small-tiles">
+  <div class="image-box small">
+    <img src="img/obronyWybrzeza.jpg" alt="Muzeum Obrony" class="background-img" />
+    <div class="overlay"></div>
+    <a href="muzeumObrony.html">
+     <h2 class="title">MUZEUM OBRONY WYBRZEŻA<br><br><br><br></h2>
+     <span class="tile-description">Kliknij aby zobaczyć opis</span>
+    </a>
+  </div>
+
+  <div class="symbol lub">LUB</div>
+
+  <div class="image-box small">
+    <img src="img/muzeum helu.jpg" alt="Muzeum Helu" class="background-img" />
+    <div class="overlay"></div>
+    <a href="muzeumObrony.html">
+     <h2 class="title">MUZEUM HELU<br><br><br><br></h2>
+     <span class="tile-description">Kliknij aby zobaczyć opis</span>
+    </a>
+  </div>
+</div>
+
+
+  </div>
+</main>
+
+
+<style>
+  .tiles-layout {
+  display: flex;
+  align-items: center; /* wyrównanie pionowe */
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.image-box.large {
+  flex: 1 1 50%;
+  aspect-ratio: 4 / 3;
+  max-width: 600px;
+  position: relative; /* dodaj to jeśli nie masz */
+  overflow: hidden;
+}
+
+.background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Mniejsze kafelki kontener */
+.small-tiles {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1 1 25%;
+  max-width: 300px;
+}
+
+/* Małe kafelki */
+.image-box.small {
+  aspect-ratio: 4 / 3;
+  width: 100% !important;
+}
+
+.image-box.small .title {
+  font-size: 1.2rem;
+  padding: 8px;
+  animation-delay: 1.2s;
+}
+
+/* PLUS i LUB style */
+.symbol {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  line-height: 1;
+  user-select: none;
+}
+
+.plus {
+  align-self: center;
+}
+
+.lub {
+  font-size: 1.5rem;
+  color: black;
+  text-align: center;
+}
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 768px) {
+  .tiles-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-box.large,
+  .small-tiles,
+  .image-box.small {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .small-tiles {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .symbol.plus {
+    font-size: 3rem;
+    margin: 10px 0;
+  }
+
+  .symbol.lub {
+    font-size: 2rem;
+  }
+}
+.image-box.small {
+  aspect-ratio: 4 / 3;
+  width: 100% !important;
+}
+.image-box.small {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  width: 100% !important;
+  overflow: hidden;
+}
+
+/* To zostaje jak miałeś */
+.title {
+  position: absolute;
+  top: 10%;
+  width: 90%;
+  text-align: center;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeInText 0.8s ease forwards;
+  animation-delay: 2.5s;
+  pointer-events: none;
+}
+
+/* NOWOŚĆ – opis na dole kafelki */
+.tile-description {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #ffffffcc;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeInText 0.8s ease forwards;
+  animation-delay: 2.8s;
+}
+
+</style>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
