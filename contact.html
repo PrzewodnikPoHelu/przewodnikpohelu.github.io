@@ -1,173 +1,184 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kontakt</title>
-  <link rel="stylesheet" href="contact2.css" />
-</head>
-<body>
-  <div class="main">
-  <div class="main">
-    <!-- NAVBAR -->
-    <nav class="navbar" id="navbar">
-      <a href="index.html"><img src="img/prof.webp" alt="Profil" class="profile-img"/></a>
-      <a href="about.html" id="hrefNav">O MNIE</a>
-      <div class="main-menu_icon" id="menuToggle">
-        <span></span><span></span><span></span>
-      </div>
-      <div class="navbar-menu" id="navbarMenu">
-        <div class="menu-links">
-          <hr />
-          <a href="index.html" class="first-child">Strona główna</a>
-          <a href="contact.html" class="second-child">Kontakt</a>
-          <a href="offer.html" class="third-child">Oferta dla grup</a>
-          <a href="atractions.html" class="fourth-child">Helskie atrakcje</a>
-          <a href="#" class="fifth-child">Podstrona4</a>
-          <p class="copyright">
-            &copy; 2025 Daniel Kretkiewicz | Realizacja: <a href="https://gracjan-gs.github.io/"><span>Gracjan Śliwiński</span></a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="contact2.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="main">
+        <!-- NAVBAR -->
+        <nav class="navbar" id="navbar">
+          <a href="index.html">
+            <img src="img/prof.webp" alt="Profil" class="profile-img" />
+          </a>
+          <a href="about.html" id="hrefNav">O MNIE</a>
+          <div class="main-menu_icon" id="menuToggle">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="navbar-menu" id="navbarMenu">
+            <div class="menu-links">
+              <hr />
+              <a href="index.html" class="first-child">Strona główna</a>
+              <a href="contact.html" class="second-child">Kontakt</a>
+              <a href="offer.html" class="third-child">Oferta dla grup</a>
+              <a href="atractions.html" class="fourth-child">Helskie atrakcje</a>
+              <a href="#" class="fifth-child">Cennik</a>
+              <p class="copyright">
+                &copy; 2025 Daniel Kretkiewicz | Realizacja:
+                <a href="https://gracjan-gs.github.io/">
+                  <span>Gracjan Śliwiński</span>
+                </a>
+              </p>
+            </div>
+          </div>
+        </nav>
+
+        <!-- HERO SECTION -->
+        <section class="main-contact__hero">
+          <h1>Kontakt</h1>
+          <p>
+            W celu uzyskania dodatkowych informacji, sprawdzenia dostępności
+            terminu, złożenia zlecenia, zapraszam do kontaktu:
           </p>
-        </div>
-      </div>
-    </nav>
+        </section>
 
-    <!-- HERO SECTION -->
-    <section class="main-contact__hero">
-      <h1>Kontakt</h1>
-      <p>W celu uzyskania dodatkowych informacji, sprawdzenia dostępności terminu, złożenia zlecenia, zapraszam do kontaktu: </p>
-    </section>
+        <!-- CONTACT CONTENT -->
+        <main class="main-contact__content">
+          <!-- CONTACT CARDS -->
+          <div class="main-contact__cards">
+            <div class="main-contact__card">
+              <i class="main-contact__icon main-contact__icon--phone"></i>
+              <h3>Telefon</h3>
+              <a href="tel:+48609494760">
+                <p class="main-contact__card--text">+48 609 494 760</p>
+              </a>
+            </div>
+            <div class="main-contact__card">
+              <i class="main-contact__icon main-contact__icon--email"></i>
+              <h3>Email</h3>
+              <a href="mailto:kredahel@gmail.com">
+                <p class="main-contact__card--text">kredahel@gmail.com</p>
+              </a>
+            </div>
+          </div>
 
-    <!-- CONTACT CONTENT -->
-    <main class="main-contact__content">
-      <!-- CONTACT CARDS -->
-      <div class="main-contact__cards">
-        <div class="main-contact__card">
-          <i class="main-contact__icon main-contact__icon--phone"></i>
-          <h3>Telefon</h3>
-          <a href="tel:+48609494760"><p class="main-contact__card--text">+48 609 494 760</p></a>
-        </div>
-        <div class="main-contact__card">
-          <i class="main-contact__icon main-contact__icon--email"></i>
-          <h3>Email</h3>
-          <a href="mailto:kredahel@gmail.com"><p class="main-contact__card--text">kredahel@gmail.com</p></a>
-        </div>
-      </div>
+          <!-- CONTACT FORM -->
+          <form class="main-contact__form" id="contactForm" novalidate>
+            <div class="main-contact__forml">
+              <input type="text" id="name" name="name" required placeholder=" " />
+              <label for="name">Imię, nazwisko, firma</label>
+            </div>
+            <div class="main-contact__forml">
+              <input type="email" id="email" name="email" required placeholder=" " />
+              <label for="email">Adres email / numer telefonu</label>
+            </div>
+            <div class="main-contact__forml">
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+                placeholder=" "
+              ></textarea>
+              <label for="message">Twoja wiadomość</label>
+            </div>
+            <button type="submit" class="main-contact__button">
+              Wyślij wiadomość
+            </button>
+            <p class="main-contact__status" aria-live="polite"></p>
+          </form>
 
-      <!-- CONTACT FORM -->
-      <form class="main-contact__form" id="contactForm" novalidate>
-        <div class="main-contact__forml">
-          <input type="text" id="name" name="name" required placeholder=" " />
-          <label for="name">Imię, nazwisko, firma</label>
-        </div>
-        <div class="main-contact__forml">
-          <input type="email" id="email" name="email" required placeholder=" " />
-          <label for="email">Adres email / numer telefonu</label>
-        </div>
-        <div class="main-contact__forml">
-          <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
-          <label for="message">Twoja wiadomość</label>
-        </div>
-        <button type="submit" class="main-contact__button">Wyślij wiadomość</button>
-        <p class="main-contact__status" aria-live="polite"></p>
-      </form>
-      <div class="gallery">
-        <img src="img/senior.webp" alt="Zdjęcie 1" id="gallery-image" />
-        
-        <div class="arrow arrow-left" id="prev">
-          <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-        </div>
-        
-        <div class="arrow arrow-right" id="next">
-          <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
-        </div>
-      </div>
-      <script>
-        (function() {
-          const form = document.getElementById("contactForm");
-          const status = document.querySelector(".main-contact__status");
-          const webAppUrl = "https://script.google.com/macros/s/AKfycbzJLokaHg4MtShI-rD0EqTB3JymZAwt_knnqMX4gHh8fTfuGb0IwBOsfx32q6Yfs1ydqA/exec";
-      
-          form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-      
-            // Prosta walidacja: e-mail lub telefon musi być podany
-            const emailOrPhone = form.elements["email"].value.trim();
-            if (!emailOrPhone) {
-              status.textContent = "Podaj adres email lub numer telefonu.";
-              return;
-            }
-      
-            const formData = new FormData(form);
-            const data = new URLSearchParams();
-      
-            for (const pair of formData) {
-              data.append(pair[0], pair[1]);
-            }
-      
-            try {
-              const response = await fetch(webAppUrl, {
-                method: "POST",
-                body: data,
+          <div class="slider">
+            <div class="slides" id="slides">
+              <div class="slide" style="background-image: url('galeria/5.webp');"></div>
+              <div class="slide" style="background-image: url('galeria/4.webp');"></div>
+              <div class="slide" style="background-image: url('galeria/8.webp');"></div>
+              <div class="slide" style="background-image: url('galeria/12.webp');"></div>
+              <div class="slide" style="background-image: url('galeria/9.webp');"></div>
+              <div class="slide" style="background-image: url('galeria/duzeGrupy.webp');"></div>
+              <div class="slide" style="background-image: url('galeria/11.webp');"></div>
+              <div class="slide" style="background-image: url('galeria/10.webp');"></div>
+              <div class="slide" style="background-image: url('galeria/indywidualnie.webp');"></div>
+              <div class="slide" style="background-image: url('galeria/6.webp');"></div>
+              <div class="slide" style="background-image: url('galeria/7.webp');"></div>
+            </div>
+            <div class="slider-nav">
+              <button onclick="prevSlide()">❮</button>
+              <button onclick="nextSlide()">❯</button>
+            </div>
+          </div>
+
+          <script>
+            (function () {
+              const form = document.getElementById("contactForm");
+              const status = document.querySelector(".main-contact__status");
+              const webAppUrl =
+                "https://script.google.com/macros/s/AKfycbzJLokaHg4MtShI-rD0EqTB3JymZAwt_knnqMX4gHh8fTfuGb0IwBOsfx32q6Yfs1ydqA/exec";
+
+              form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                // Prosta walidacja: e-mail lub telefon musi być podany
+                const emailOrPhone = form.elements["email"].value.trim();
+                if (!emailOrPhone) {
+                  status.textContent = "Podaj adres email lub numer telefonu.";
+                  return;
+                }
+
+                const formData = new FormData(form);
+                const data = new URLSearchParams();
+
+                for (const pair of formData) {
+                  data.append(pair[0], pair[1]);
+                }
+
+                try {
+                  const response = await fetch(webAppUrl, {
+                    method: "POST",
+                    body: data,
+                  });
+
+                  if (response.ok) {
+                    status.textContent = "Wiadomość wysłana!";
+                    form.reset();
+                  } else {
+                    status.textContent = "Błąd podczas wysyłania.";
+                  }
+                } catch (error) {
+                  status.textContent = "Błąd sieci.";
+                  console.error(error);
+                }
               });
-      
-              if (response.ok) {
-                status.textContent = "Wiadomość wysłana!";
-                form.reset();
-              } else {
-                status.textContent = "Błąd podczas wysyłania.";
-              }
-            } catch (error) {
-              status.textContent = "Błąd sieci.";
-              console.error(error);
+            })();
+          </script>
+
+          <script>
+            const slides = document.getElementById("slides");
+            const totalSlides = slides.children.length;
+            let index = 0;
+
+            function showSlide(i) {
+              index = (i + totalSlides) % totalSlides;
+              slides.style.transform = `translateX(-${index * 100}%)`;
             }
-          });
-        })();
-      </script>
-      
-      
-      <script>
-        const images = [
-          "galeria/4.webp",
-          "galeria/5.webp",
-          "galeria/3.webp",
-          "galeria/4.webp",
-          "galeria/5.webp",
-          "galeria/6.webp",
-          "galeria/9.webp",
-          "galeria/8.webp",
-          "galeria/9.webp",
-          "galeria/10.webp",
-          "galeria/8.webp",
-          "galeria/12.webp",
-        ];
-      
-        let currentIndex = 0;
-        const imgElement = document.getElementById('gallery-image');
-        const prevBtn = document.getElementById('prev');
-        const nextBtn = document.getElementById('next');
-      
-        function showImage(index) {
-          imgElement.style.transform = 'scale(0.95)';
-          setTimeout(() => {
-            imgElement.src = images[index];
-            imgElement.style.transform = 'scale(1)';
-          }, 200);
-        }
-      
-        prevBtn.addEventListener('click', () => {
-          currentIndex = (currentIndex - 1 + images.length) % images.length;
-          showImage(currentIndex);
-        });
-      
-        nextBtn.addEventListener('click', () => {
-          currentIndex = (currentIndex + 1) % images.length;
-          showImage(currentIndex);
-        });
-      </script>
+
+            function nextSlide() {
+              showSlide(index + 1);
+            }
+
+            function prevSlide() {
+              showSlide(index - 1);
+            }
+
+            // Auto-slide every 3 seconds
+            setInterval(nextSlide, 3000);
+          </script>
+        </main>
       </div>
-    </main>
-  </div>
-  <script src="script.js"></script>
-  </div>
-</body>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
