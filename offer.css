@@ -251,3 +251,41 @@ main {
   margin-left: 5em;
   text-shadow: 2px 1px 10px white;
 }
+.offer-headers {
+  color: black;
+  text-align: center;
+  width: 100%;
+}
+.offer-headers {
+  display: inline-block;
+  font-size: 2rem;
+  white-space: nowrap;     /* tylko na duże ekrany */
+  overflow: hidden;
+  border-right: 3px solid #00ff88;
+  padding-right: 2px;
+}
+
+.offer-headers.cursor-done {
+  animation: blink .75s step-end infinite;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* 📉 Wyłączamy nowrap na tabletach i telefonach */
+@media (max-width: 1024px) {
+  .offer-headers {
+    white-space: normal;    /* pozwól na łamanie */
+    word-break: break-word; /* dziel słowa jeśli trzeba */
+    overflow: visible;      /* pokaż cały tekst */
+  }
+}
+
+@media (max-width: 480px) {
+  .offer-headers {
+    font-size: 1.2rem;
+    border-right-width: 2px;
+  }
+}
+
