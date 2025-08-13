@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Druga Oferta</title>
-  <link rel="stylesheet" href="offer.css" />
+  <link rel="stylesheet" href="offer.css"/>
 </head>
 <body>
   <div class="main">
@@ -28,6 +28,7 @@
     </nav>
 
 <main>
+<h1 class="offer-headers">OFERTA DLA SENIORÓW</h1>
   <div class="container tiles-layout">
     <!-- Duża kafelka -->
     <div class="image-box large">
@@ -213,6 +214,34 @@
 }
 
 </style>
+<script>
+  (function() {
+  const elements = document.querySelectorAll('.offer-headers');
+
+  elements.forEach(el => {
+    const fullText = el.textContent.trim();
+    el.textContent = ''; // wyczyść, zaczniemy pisać od zera
+
+    let i = 0;
+    function typeNext() {
+      if (i <= fullText.length - 1) {
+        el.textContent += fullText.charAt(i);
+        i++;
+        // naturalne tempo: bazowe 50ms + losowość ±70ms
+        const delay = 40 + Math.random() * 120;
+        setTimeout(typeNext, delay);
+      } else {
+        // zakończone — zostaw mrugający kursor (klasa dodana)
+        el.classList.add('cursor-done');
+      }
+    }
+
+    // minimalne opóźnienie przed startem (opcjonalnie)
+    setTimeout(typeNext, 150);
+  });
+})();
+
+</script>
   </div>
   <script src="script.js"></script>
 </body>
