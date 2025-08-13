@@ -102,9 +102,6 @@ body, html {
   .menu-links a:hover {
     color: #ffcc00ab;
   }
-  .fourth-child {
-    color: #ffcc00 !important;
-  }
   .second-child, .third-child, .fourth-child, .fifth-child {
     margin-top: 1.8vh !important;
   }
