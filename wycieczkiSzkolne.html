@@ -28,8 +28,11 @@
     </nav>
 
 <main>
+<h1 class="offer-headers">OFERTA DLA WYCIECZEK SZKOLNYCH</h1>
   <div class="container tiles-layout">
     <!-- Duża kafelka -->
+    <main class="napis--oferta">
+    </main>
     <div class="image-box large">
       <img src="img/wycieczka.webp" alt="Plenerowa Wycieczka" class="background-img" />
       <div class="overlay"></div>
@@ -74,6 +77,11 @@
 
 
 <style>
+  .napis--oferta {
+    font-size: 1rem !important;
+    text-align: center;
+    margin-top: -5rem;
+  }
   .tiles-layout {
   display: flex;
   align-items: center; /* wyrównanie pionowe */
@@ -213,6 +221,35 @@
 }
 
 </style>
+
+<script>
+  (function() {
+  const elements = document.querySelectorAll('.offer-headers');
+
+  elements.forEach(el => {
+    const fullText = el.textContent.trim();
+    el.textContent = ''; // wyczyść, zaczniemy pisać od zera
+
+    let i = 0;
+    function typeNext() {
+      if (i <= fullText.length - 1) {
+        el.textContent += fullText.charAt(i);
+        i++;
+        // naturalne tempo: bazowe 50ms + losowość ±70ms
+        const delay = 40 + Math.random() * 120;
+        setTimeout(typeNext, delay);
+      } else {
+        // zakończone — zostaw mrugający kursor (klasa dodana)
+        el.classList.add('cursor-done');
+      }
+    }
+
+    // minimalne opóźnienie przed startem (opcjonalnie)
+    setTimeout(typeNext, 150);
+  });
+})();
+
+</script>
   </div>
   <script src="script.js"></script>
 </body>
