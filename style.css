@@ -203,12 +203,18 @@ body, html {
     height: 2.5rem;
   }
 
-  .nav-link,
-  .nav-back {
-    background-color: rgba(0, 0, 0, 0.545);
+  .nav-link {
     font-size: 0.7rem;
-    padding: 0.40rem 0.9rem;
-    margin-left: 0.28rem;
+    padding: 0.4rem 1rem;
+    margin-left: 0.3rem;
+    background: rgb(0, 0, 0);
+  }
+
+  .nav-back {
+    font-size: 0.7rem;
+    padding: 0.3rem 1rem;
+    margin-left: 0.3rem;
+    background: rgb(0, 0, 0);
   }
 
   .main-menu_icon {
