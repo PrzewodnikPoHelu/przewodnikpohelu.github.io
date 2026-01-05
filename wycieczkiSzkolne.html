@@ -8,28 +8,49 @@
 </head>
 <body>
   <div class="main">
-    <nav class="navbar">
-      <a href="index.html"><img src="img/prof.webp" alt="Profil" class="profile-img" /></a>
-      <div class="main-menu_icon" id="menuToggle">
-        <span></span><span></span><span></span>
-      </div>
-      <div class="navbar-menu" id="navbarMenu">
-        <div class="menu-links">
-          <hr />
-          <a href="index.html" class="first-child">Strona główna</a>
-          <a href="contact.html" class="second-child">Kontakt</a>
-          <a href="offer.html" class="third-child">Oferta dla grup</a>
-          <a href="atractions.html" class="fourth-child">Helskie atrakcje</a>
-          <a href="#" class="fifth-child">Podstrona4</a>
-          <p class="copyright">&copy; 2025 Daniel Kretkiewicz | Realizacja:
-            <a href="https://gracjan-gs.github.io/"><span>Gracjan Śliwiński</span></a></p>
-        </div>
-      </div>
-    </nav>
+<nav class="navbar">
+  <!-- LEWA STRONA -->
+  <div class="nav-left">
+    <a href="index.html">
+      <img src="img/prof.webp" alt="Profil" class="profile-img" />
+    </a>
+
+    <a href="contact.html" class="nav-link">KONTAKT</a>
+
+    <a href="javascript:history.back()" class="nav-back">← WRÓĆ</a>
+  </div>
+
+  <!-- PRAWA STRONA -->
+  <div class="nav-right">
+    <div class="main-menu_icon" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- MENU -->
+  <div class="navbar-menu" id="navbarMenu">
+    <div class="menu-links">
+      <hr />
+      <a href="index.html">Strona główna</a>
+      <a href="contact.html">Kontakt</a>
+      <a href="offer.html">Oferta dla grup</a>
+      <a href="atractions.html">Helskie atrakcje</a>
+      <a href="#">Cennik</a>
+      <p class="copyright">
+        &copy; 2025 Daniel Kretkiewicz | Realizacja:
+        <a href="https://gracjan-gs.github.io/"><span>Gracjan Śliwiński</span></a>
+      </p>
+    </div>
+  </div>
+</nav>
 
 <main>
-<h1 class="offer-headers">OFERTA DLA WYCIECZEK SZKOLNYCH</h1>
-  <div class="container tiles-layout">
+    <section class="main-contact__hero">
+      <h1>OFERTA DLA WYCIECZEK SZKOLNYCH</h1>
+    </section>
+    <div class="container tiles-layout">
     <!-- Duża kafelka -->
     <main class="napis--oferta">
     </main>
@@ -41,35 +62,49 @@
             WYCIECZKA PLENEROWA
             <br><br><br><br>
           </h1>
-          <span class="tile-description">Kliknij aby zobaczyć opis</span>
+          <span class="tile-description">Czas zwiedzania - 4 godziny (całość)</span>
       </a>
     </div>
 
     <!-- PLUS między dużą a mniejszymi -->
-    <div class="symbol plus">+</div>
+        <section class="main-contact__hero">
+          <h1 id="plus">+</h1>
+        </section>
 
     <!-- Mniejsze kafelki -->
-    <div class="small-tiles">
-  <div class="image-box small">
-    <img src="img/obronyWybrzeza.jpg" alt="Muzeum Obrony" class="background-img" />
-    <div class="overlay"></div>
-    <a href="muzeumObrony.html">
-     <h2 class="title">MUZEUM OBRONY WYBRZEŻA<br><br><br><br></h2>
-     <span class="tile-description">Kliknij aby zobaczyć opis</span>
-    </a>
-  </div>
-
-  <div class="symbol lub">LUB</div>
-
-  <div class="image-box small">
-    <img src="img/muzeum helu.jpg" alt="Muzeum Helu" class="background-img" />
-    <div class="overlay"></div>
-    <a href="muzeumObrony.html">
-     <h2 class="title">MUZEUM HELU<br><br><br><br></h2>
-     <span class="tile-description">Kliknij aby zobaczyć opis</span>
-    </a>
-  </div>
-</div>
+<div class="small-tiles">
+           <a href="allAtractions.html#mObronyWybrzeza">
+            <div class="image-box small">
+              <img
+                src="img/obronyWybrzeza.jpg"
+                alt="Muzeum Obrony"
+                class="background-img"
+              />
+              <div class="overlay"></div>
+              <a href="muzeumObrony.html">
+                <h2 class="title">MUZEUM OBRONY WYBRZEŻA<br /><br /><br /><br /></h2>
+                <span class="tile-description">Kliknij aby zobaczyć opis</span>
+              </a>
+            </div>
+            </a>
+        <section class="main-contact__hero">
+          <h1 id="lub">LUB</h1>
+        </section>
+          <a href="allAtractions.html#mHelu">
+            <div class="image-box small">
+              <img
+                src="img/muzeum helu.jpg"
+                alt="Muzeum Helu"
+                class="background-img"
+              />
+              <div class="overlay"></div>
+              <a href="muzeumObrony.html">
+                <h2 class="title">MUZEUM HELU<br /><br /><br /><br /></h2>
+                <span class="tile-description">Kliknij aby zobaczyć opis</span>
+              </a>
+            </div>
+          </a>
+          </div>
 
 
   </div>
