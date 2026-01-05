@@ -205,12 +205,18 @@ body {
     height: 2.5rem;
   }
 
-  .nav-link,
+  .nav-link {
+    font-size: 0.7rem;
+    padding: 0.4rem 1rem;
+    margin-left: 0.3rem;
+    background: rgb(0, 0, 0);
+  }
+
   .nav-back {
     font-size: 0.7rem;
-    padding: 0.4rem 0.9rem;
+    padding: 0.3rem 1rem;
     margin-left: 0.3rem;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgb(0, 0, 0);
   }
 
   .main-menu_icon {
@@ -223,7 +229,6 @@ body {
     height: 0.14rem;
   }
 }
-
 
 .navbar-menu {
   position: absolute;
