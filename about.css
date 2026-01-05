@@ -238,7 +238,7 @@ body, html {
 
   .nav-back {
     font-size: 0.7rem;
-    padding: 0.3rem 1rem;
+    padding: 0.27rem 1rem;
     margin-left: 0.3rem;
     background: rgb(0, 0, 0);
   }
@@ -712,3 +712,4 @@ body, html {
     transform: scale(0.8);
     z-index: 1;
   }
+
