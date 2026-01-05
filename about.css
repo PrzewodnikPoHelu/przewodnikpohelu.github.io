@@ -112,6 +112,8 @@ body, html {
   border-radius: 1.4rem;
   background: rgba(0,0,0,0.4);
   backdrop-filter: blur(6px);
+  letter-spacing: 0.05em;
+  margin-left: 1.2rem;
   transition: background 0.25s ease, transform 0.2s ease;
 }
 
