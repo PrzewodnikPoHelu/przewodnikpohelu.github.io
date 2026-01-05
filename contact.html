@@ -10,31 +10,44 @@
     <div class="main">
       <div class="main">
         <!-- NAVBAR -->
-        <nav class="navbar" id="navbar">
-          <a href="index.html">
-            <img src="img/prof.webp" alt="Profil" class="profile-img" />
-          </a>
-          <a href="about.html" id="hrefNav">O MNIE</a>
-          <div class="main-menu_icon" id="menuToggle">
-            <span></span><span></span><span></span>
-          </div>
-          <div class="navbar-menu" id="navbarMenu">
-            <div class="menu-links">
-              <hr />
-              <a href="index.html" class="first-child">Strona główna</a>
-              <a href="contact.html" class="second-child">Kontakt</a>
-              <a href="offer.html" class="third-child">Oferta dla grup</a>
-              <a href="atractions.html" class="fourth-child">Helskie atrakcje</a>
-              <a href="#" class="fifth-child">Cennik</a>
-              <p class="copyright">
-                &copy; 2025 Daniel Kretkiewicz | Realizacja:
-                <a href="https://gracjan-gs.github.io/">
-                  <span>Gracjan Śliwiński</span>
-                </a>
-              </p>
-            </div>
-          </div>
-        </nav>
+<nav class="navbar">
+  <!-- LEWA STRONA -->
+  <div class="nav-left">
+    <a href="index.html">
+      <img src="img/prof.webp" alt="Profil" class="profile-img" />
+    </a>
+
+    <a href="about.html" class="nav-link">O MNIE</a>
+
+    <a href="javascript:history.back()" class="nav-back">← WRÓĆ</a>
+  </div>
+
+  <!-- PRAWA STRONA -->
+  <div class="nav-right">
+    <div class="main-menu_icon" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- MENU -->
+  <div class="navbar-menu" id="navbarMenu">
+    <div class="menu-links">
+      <hr />
+      <a href="index.html">Strona główna</a>
+      <a style="color: #ffcc00;" href="contact.html">Kontakt</a>
+      <a href="about.html">O mnie</a>
+      <a href="#">Cennik</a>
+      <a href="offer.html">Oferta dla grup</a>
+      <a href="atractions.html">Helskie atrakcje</a>
+      <p class="copyright">
+        &copy; 2025 Daniel Kretkiewicz | Realizacja:
+        <a href="https://gracjan-gs.github.io/"><span>Gracjan Śliwiński</span></a>
+      </p>
+    </div>
+  </div>
+</nav>
 
         <!-- HERO SECTION -->
         <section class="main-contact__hero">
@@ -50,16 +63,16 @@
           <!-- CONTACT CARDS -->
           <div class="main-contact__cards">
             <div class="main-contact__card">
+            <a href="tel:+48609494760">
               <i class="main-contact__icon main-contact__icon--phone"></i>
               <h3>Telefon</h3>
-              <a href="tel:+48609494760">
                 <p class="main-contact__card--text">+48 609 494 760</p>
-              </a>
+            </a>
             </div>
             <div class="main-contact__card">
+              <a href="mailto:kredahel@gmail.com">
               <i class="main-contact__icon main-contact__icon--email"></i>
               <h3>Email</h3>
-              <a href="mailto:kredahel@gmail.com">
                 <p class="main-contact__card--text">kredahel@gmail.com</p>
               </a>
             </div>
