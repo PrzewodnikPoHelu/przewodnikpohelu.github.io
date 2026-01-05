@@ -231,16 +231,16 @@ body, html {
 
   .nav-link {
     font-size: 0.7rem;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 1rem;
     margin-left: 0.3rem;
-    background: rgba(180, 180, 180, 0.55);
+    background: rgb(0, 0, 0);
   }
 
   .nav-back {
     font-size: 0.7rem;
-    padding: 0.2rem 1rem;
+    padding: 0.3rem 1rem;
     margin-left: 0.3rem;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgb(0, 0, 0);
   }
 
   .main-menu_icon {
