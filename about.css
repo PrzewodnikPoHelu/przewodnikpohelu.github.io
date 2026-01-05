@@ -19,28 +19,7 @@ body, html {
     color: white;
   }
   
-  .navbar {
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem;
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
-  }
-  
-  .profile-img {
-    height: 3rem;
-    width: 3rem;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid white;
-  }
-  
+
   .main-menu_icon {
     width: 2rem;
     height: 2rem;
@@ -70,59 +49,203 @@ body, html {
     transform: rotate(-45deg) translate(5px, -5px);
   }
   
-  .navbar-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.4s ease;
-    z-index: 2;
-    border-bottom-left-radius: 2dvh;
-    border-bottom-right-radius: 2dvh;
-  }
-  .navbar-menu.open {
-    max-height: 50vh;
-  }
+
+/* =========================
+   NAVBAR – FINAL (ONLY)
+========================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1.1rem;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-left {
+  gap: 0.7rem;
+}
+
+/* LOGO */
+.profile-img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+/* LINK OBOK LOGO */
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem;
+  padding: 0.4rem 1rem;
+  border-radius: 1.4rem;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+  letter-spacing: 0.05em;
+  margin-left: 1.2rem;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+  background: rgba(0,0,0,0.75);
+  transform: translateY(-1px);
+}
+
+/* POWRÓT */
+.nav-back {
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem;
+  padding: 0.4rem 1rem;
+  border-radius: 1.4rem;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.nav-back:hover {
+  background: rgba(0,0,0,0.75);
+  transform: translateY(-1px);
+}
+
+/* BURGER */
+.main-menu_icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.main-menu_icon span {
+  height: 0.18rem;
+  background: white;
+  border-radius: 1rem;
+  transition: 0.4s;
+}
+
+/* BURGER – ANIMACJA */
+.main-menu_icon.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.main-menu_icon.open span:nth-child(2) {
+  opacity: 0;
+}
+.main-menu_icon.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* MENU ROZWIJANE */
+.navbar-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.9);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  border-bottom-left-radius: 2vh;
+  border-bottom-right-radius: 2vh;
+}
+
+.navbar-menu.open {
+  max-height: 50vh;
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.menu-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  margin: 0.6rem 0 !important;
+  transition: ease-in-out 0.3s;
+}
+
+.menu-links a:hover {
+  color: #ffcc00 !important;
+  transition: ease-in-out 0.3s;
   
-  .menu-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem 0;
+}
+
+.menu-links hr {
+  width: 80%;
+  border: none;
+  border-top: 1px solid #ffffff4d;
+  margin: 0.5rem auto;
+}
+
+.menu-links .copyright {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: #ccc;
+  text-align: center;
+}
+
+.copyright span {
+  color: #007BFF;
+  font-size: 0.8rem;
+  transition: ease-in-out 0.3s;
+}
+
+.copyright span:hover{
+  color: white !important;
+  transition: ease-in-out 0.3s;
+}
+
+/* =========================
+   NAVBAR – MOBILE
+========================= */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.6rem 0.8rem;
   }
-  .menu-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    margin: 0.3rem 0;
+
+  .profile-img {
+    width: 2.5rem;
+    height: 2.5rem;
   }
-  .menu-links a:hover {
-    color: #ffcc00ab;
+
+  .nav-link,
+  .nav-back {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.9rem;
+    margin-left: 0.3rem;
+    background: rgba(0, 0, 0, 0.55);
   }
-  .third-child {
-    color: #ffffff !important;
+
+  .main-menu_icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    gap: 0.25rem;
   }
-  .second-child, .third-child, .fourth-child, .fifth-child {
-    margin-top: 1.8vh !important;
+
+  .main-menu_icon span {
+    height: 0.14rem;
   }
-  .menu-links hr {
-    width: 80%;
-    border: none;
-    border-top: 1px solid #ffffff4d;
-    margin: 0.5rem auto;
-  }
-  .menu-links .copyright {
-    margin-top: 1rem;
-    font-size: 0.8rem;
-    color: #ccc;
-    text-align: center;
-  }
-  .copyright span {
-    color: #007BFF !important;
-  }
+}
+
   
   /* PADDING OD GÓRY POD NAVBAR */
   main {
@@ -496,7 +619,7 @@ body, html {
   }
   
   footer a {
-    color: #008FEA;
+    color: #000000;
     text-decoration: none;
   }
   .main-contact__form {
