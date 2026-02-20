@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cennik – Usługi przewodnickie Hel</title>
+
+  <!-- Google Fonts i Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+
+  <link rel="stylesheet" href="priceList.css" />
+</head>
+<body>
+  <div class="main">
+
+    <!-- NAVBAR -->
+<nav class="navbar">
+  <!-- LEWA STRONA -->
+  <div class="nav-left">
+    <a href="index.html">
+      <img src="img/prof.webp" alt="Profil" class="profile-img" />
+    </a>
+
+    <a href="contact.html" class="nav-link">KONTAKT</a>
+
+    <a href="javascript:history.back()" class="nav-back">← WRÓĆ</a>
+  </div>
+
+  <!-- PRAWA STRONA -->
+  <div class="nav-right">
+    <div class="main-menu_icon" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- MENU -->
+  <div class="navbar-menu" id="navbarMenu">
+    <div class="menu-links">
+      <hr />
+      <a href="index.html">Strona główna</a>
+      <a href="contact.html">Kontakt</a>
+      <a href="about.html">O mnie</a>
+      <a style="color: #ffcc00;" href="#">Cennik</a>
+      <a href="offer.html">Oferta dla grup</a>
+      <a href="atractions.html">Helskie atrakcje</a>
+      <p class="copyright">
+        &copy; 2025 Daniel Kretkiewicz | Realizacja:
+        <a href="https://gracjan-gs.github.io/"><span>Gracjan Śliwiński</span></a>
+      </p>
+    </div>
+  </div>
+</nav>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+
+<div class="pricing-wrapper">
+  <div class="pricing-container">
+
+    <h1 class="sectiono">Cennik usług</h1>
+
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <div class="card-header">
+          <h2>Usługa godzinowa</h2>
+          <div class="price">
+            <span class="amount">170 zł</span>
+            <span class="unit">/ godz.</span>
+          </div>
+        </div>
+
+        <ul class="features">
+          <li>Profesjonalne oprowadzanie</li>
+          <li>Indywidualne tempo</li>
+          <li>Najważniejsze atrakcje Helu</li>
+          <li>Elastyczne godziny</li>
+        </ul>
+
+        <a href="contact.html" class="btn">Rezerwuj</a>
+      </div>
+
+
+      <div class="pricing-card highlight">
+        <div class="badge">Najczęściej wybierane</div>
+
+        <div class="card-header">
+          <h2>Wycieczka 4h</h2>
+          <div class="price">
+            <span class="amount">600 zł</span>
+            <span class="unit">/ grupa</span>
+          </div>
+        </div>
+
+        <ul class="features">
+          <li>09:00–13:00 lub 13:00–17:00</li>
+          <li>Kompletny program zwiedzania</li>
+          <li>Historia + ciekawostki</li>
+          <li>Możliwość negocjacji przy całym dniu</li>
+        </ul>
+
+        <a href="contact.html" class="btn gold">Zapytaj o termin</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+const cards = document.querySelectorAll(".pricing-card");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+},{threshold:0.2});
+
+cards.forEach(card => observer.observe(card));
+</script>
+  
+  </div>
+</body>
+</html>
