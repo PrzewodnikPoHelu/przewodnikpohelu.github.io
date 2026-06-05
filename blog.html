@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Blog – Hel | Przewodnik</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --bg:#0a0a0a;
+  --text:#f5f5f5;
+  --muted:#a1a1a1;
+  --line:rgba(255,255,255,.08);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Inter,system-ui;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+  width:92%;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:999;
+
+  padding:24px 0 18px;
+
+  margin-bottom:34px;
+
+  background:transparent;
+
+  transition:
+    padding .55s cubic-bezier(.16,1,.3,1),
+    transform .55s cubic-bezier(.16,1,.3,1),
+    opacity .55s ease;
+}
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar{
+
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  will-change:transform;
+
+  transform-origin:top center;
+
+  transition:
+    transform .55s cubic-bezier(.16,1,.3,1),
+    gap .55s cubic-bezier(.16,1,.3,1),
+    filter .55s ease;
+}
+
+/* =========================
+   APPLE EFFECT
+========================= */
+
+.header.scrolled{
+  padding:10px 0 10px;
+}
+
+.header.scrolled .topbar{
+
+  transform:
+    scale(.91)
+    translateY(-1px);
+
+  gap:11px;
+
+  filter:saturate(1.05);
+}
+
+/* =========================
+   SEARCH WRAP
+========================= */
+
+.searchBox{
+
+  flex:1;
+
+  position:relative;
+
+  transition:
+    transform .55s cubic-bezier(.16,1,.3,1),
+    max-width .55s cubic-bezier(.16,1,.3,1);
+}
+
+.header.scrolled .searchBox{
+
+  transform:scale(.995);
+
+  max-width:760px;
+}
+
+/* =========================
+   SEARCH INPUT
+========================= */
+
+.searchBox input{
+
+  width:100%;
+  height:58px;
+
+  border:none;
+  outline:none;
+
+  border-radius:22px;
+
+  background:rgba(18,18,18,.78);
+
+  backdrop-filter:
+    blur(22px)
+    saturate(160%);
+
+  -webkit-backdrop-filter:
+    blur(22px)
+    saturate(160%);
+
+  color:white;
+
+  padding:0 56px 0 22px;
+
+  font-size:.95rem;
+
+  border:1px solid rgba(255,255,255,.06);
+
+  transition:
+    transform .45s cubic-bezier(.16,1,.3,1),
+    box-shadow .45s ease,
+    border .45s ease,
+    background .45s ease;
+}
+
+.searchBox input:focus{
+
+  transform:translateY(-1px);
+
+  border-color:rgba(110,200,255,.32);
+
+  background:rgba(20,20,20,.86);
+
+  box-shadow:
+    0 0 0 4px rgba(110,200,255,.05),
+    0 10px 35px rgba(110,200,255,.08),
+    inset 0 1px 0 rgba(255,255,255,.03);
+}
+
+.searchBox i{
+
+  position:absolute;
+
+  right:20px;
+  top:50%;
+
+  transform:translateY(-50%);
+
+  color:#ffffff;
+
+  pointer-events:none;
+
+  transition:
+    opacity .3s ease,
+    transform .3s ease;
+}
+
+.searchBox input:focus + i{
+  transform:translateY(-50%) scale(1.08);
+}
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.backBtn{
+
+  width:58px;
+  height:58px;
+
+  border:none;
+  border-radius:20px;
+
+  background:rgba(18,18,18,.78);
+
+  backdrop-filter:
+    blur(22px)
+    saturate(160%);
+
+  -webkit-backdrop-filter:
+    blur(22px)
+    saturate(160%);
+
+  color:#fff;
+
+  cursor:pointer;
+
+  font-size:1rem;
+
+  flex-shrink:0;
+
+  border:1px solid rgba(255,255,255,.06);
+
+  transition:
+    transform .4s cubic-bezier(.16,1,.3,1),
+    border .35s ease,
+    background .35s ease,
+    box-shadow .35s ease;
+}
+
+.backBtn:hover{
+
+  transform:
+    translateX(-3px)
+    translateY(-1px);
+
+  border-color:rgba(126,208,255,.18);
+
+  box-shadow:
+    0 10px 35px rgba(126,208,255,.08);
+}
+
+/* =========================
+   FAVORITES BUTTON
+========================= */
+
+.favBtn{
+
+  height:58px;
+
+  padding:0 24px;
+
+  border:none;
+
+  border-radius:22px;
+
+  background:rgba(18,18,18,.82);
+
+  backdrop-filter:
+    blur(22px)
+    saturate(160%);
+
+  -webkit-backdrop-filter:
+    blur(22px)
+    saturate(160%);
+
+  color:#ffffff;
+
+  cursor:pointer;
+
+  font-weight:400;
+
+  font-size:.90rem;
+
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  border:1px solid rgba(255,255,255,.06);
+
+  transition:
+    transform .45s cubic-bezier(.16,1,.3,1),
+    box-shadow .4s ease,
+    border .4s ease,
+    background .4s ease;
+
+  flex-shrink:0;
+}
+
+.favBtn:hover{
+
+  transform:
+    translateY(-2px)
+    scale(1.015);
+
+  border-color:rgba(126,208,255,.2);
+
+  box-shadow:
+    0 10px 35px rgba(126,208,255,.08),
+    inset 0 0 18px rgba(126,208,255,.03);
+}
+
+.favBtn.active{
+
+  background:rgba(22,22,22,.92);
+
+  color:#a3e2ff;
+}
+
+/* =========================
+   POSTS
+========================= */
+
+.post{
+
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+
+  gap:40px;
+
+  padding:50px 0;
+
+  border-bottom:1px solid var(--line);
+
+  align-items:start;
+
+  transition:
+    opacity .35s ease,
+    transform .35s ease;
+}
+
+.post:nth-child(even){
+  direction:rtl;
+}
+
+.post:nth-child(even) .content{
+  direction:ltr;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.imageWrap{
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+}
+
+.post img{
+
+  width:100%;
+  height:320px;
+
+  object-fit:cover;
+
+  border-radius:18px;
+
+  filter:contrast(1.05);
+
+  transition:
+    transform .6s cubic-bezier(.16,1,.3,1),
+    filter .6s ease;
+}
+
+.imageWrap:hover img{
+
+  transform:scale(1.04);
+
+  filter:contrast(1.08);
+}
+
+/* =========================
+   STAR
+========================= */
+
+.star{
+
+  position:absolute;
+
+  top:16px;
+  right:16px;
+
+  width:50px;
+  height:50px;
+
+  border:none;
+  border-radius:16px;
+
+  background:rgba(0,0,0,.55);
+
+  backdrop-filter:blur(12px);
+
+  color:#ffffff;
+
+  font-size:1.2rem;
+
+  cursor:pointer;
+
+  transition:
+    transform .3s cubic-bezier(.16,1,.3,1),
+    background .3s ease,
+    box-shadow .3s ease;
+}
+
+.star:hover{
+  transform:scale(1.08);
+}
+
+.star.active{
+
+  background:rgba(0,0,0,.55);
+
+  box-shadow:
+    0 0 18px rgba(126,208,255,.2);
+    color: yellow;
+}
+
+.star.active i{
+  animation:pop .42s ease;
+}
+
+@keyframes pop{
+
+  0%{
+    transform:scale(.2) rotate(-15deg);
+    opacity:0;
+  }
+
+  70%{
+    transform:scale(1.3) rotate(10deg);
+  }
+
+  100%{
+    transform:scale(1);
+    opacity:1;
+  }
+
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.title{
+  font-size:1.6rem;
+  margin:0 0 10px;
+  letter-spacing:-0.5px;
+}
+
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  font-size:.85rem;
+  color:var(--muted);
+  margin-bottom:15px;
+}
+
+.meta span{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+/* =========================
+   LIST
+========================= */
+
+.points{
+  margin:15px 0;
+  padding:0;
+  list-style:none;
+}
+
+.points li{
+  margin:8px 0;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color:#d6d6d6;
+  font-size:.95rem;
+}
+
+.points i{
+  color:#fff;
+  font-size:.75rem;
+  margin-top:5px;
+}
+
+/* =========================
+   EXCERPT
+========================= */
+
+.excerpt{
+  color:var(--muted);
+  font-size:.95rem;
+  margin-top:10px;
+}
+
+/* =========================
+   READ
+========================= */
+
+.read{
+
+  margin-top:15px;
+
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+
+  background:none;
+  border:none;
+
+  color:#cfcfcf;
+
+  cursor:pointer;
+
+  padding:0;
+
+  transition:
+    transform .3s ease,
+    color .3s ease;
+}
+
+.read:hover{
+  color:#fff;
+  transform:translateX(4px);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+  .post{
+    grid-template-columns:1fr;
+  }
+
+  .post:nth-child(even){
+    direction:ltr;
+  }
+
+  .post img{
+    height:240px;
+  }
+
+}
+
+@media(max-width:700px){
+
+  .topbar{
+    gap:10px;
+  }
+
+  .favBtn span{
+    display:none;
+  }
+
+  .favBtn{
+    width:58px;
+    padding:0;
+    justify-content:center;
+  }
+
+}
+/* =========================
+   VISITED BADGE
+========================= */
+
+.visitedBadge{
+
+  position:absolute;
+
+  left:16px;
+  bottom:16px;
+
+  border:none;
+
+  background:#1371ff;
+
+  color:#ffffff;
+
+  font-size:.8rem;
+  font-weight:500;
+
+  padding:11px 16px;
+
+  border-radius:14px;
+
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  cursor:pointer;
+
+  opacity:0;
+
+  transform:
+    translateY(14px)
+    scale(.94);
+
+  pointer-events:none;
+
+  transition:
+    opacity .35s ease,
+    transform .35s cubic-bezier(.16,1,.3,1),
+    box-shadow .35s ease;
+
+    
+}
+
+.visitedBadge:hover{
+
+  transform:
+    translateY(0)
+    scale(1.05);
+
+}
+
+.post.visited .visitedBadge{
+
+  opacity:1;
+
+  pointer-events:auto;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+.post.visited img{
+
+  filter:
+    brightness(.82)
+    saturate(.88);
+}
+.post{
+  will-change: transform, opacity;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header" id="stickyHeader">
+
+    <div class="topbar">
+
+      <button class="backBtn" onclick="history.back()">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+
+      <div class="searchBox">
+
+        <input
+          type="text"
+          id="search"
+          placeholder="Szukaj wpisów..."
+        />
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+      </div>
+
+      <button class="favBtn" id="favToggle">
+        <i class="fa-solid fa-star"></i>
+        <span>Ulubione</span>
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- POST -->
+  <article class="post" data-title="10 powodów, dla których warto odwiedzić Półwysep Helski">
+
+    <div class="imageWrap">
+
+      <img src="https://cdn.podroze.onet.pl/1/Fm6k9lLaHR0cDovL29jZG4uZXUvaW1hZ2VzL3B1bHNjbXMvWW1ZN01EQV8vMmE0N2E2NzQxNWViYWFjZGU5YjFlZWNjNjUwNzc0MDAuanBnkpUDAMyMzQ86zQiQkwXNCWDNBOzeAAKhMAehMQQ" />
+
+      <button class="star" data-id="1">
+        <i class="fa-regular fa-star"></i>
+      </button>
+        <!-- VISITED BADGE -->
+  <button class="visitedBadge">
+    <i class="fa-solid fa-check"></i>
+    Przeczytane
+  </button>
+
+    </div>
+
+    <div class="content">
+
+      <h2 class="title">10 powodów, dla których warto odwiedzić Półwysep Helski</h2>
+
+      <div class="meta">
+        <span><i class="fa-regular fa-calendar"></i> 30.05.2026</span>
+        <span><i class="fa-regular fa-user"></i> Admin</span>
+        <span><i class="fa-regular fa-clock"></i> 4 min czytania</span>
+      </div>
+
+      <ul class="points">
+        <li><i class="fa-solid fa-circle-check"></i> Najpiękniejsze plaże na Półwyspie Helskim</li>
+        <li><i class="fa-solid fa-circle-check"></i> Co warto zobaczyć w Helu?</li>
+        <li><i class="fa-solid fa-circle-check"></i> Najlepsze miejsca na spacery i zachody słońca</li>
+        <li><i class="fa-solid fa-circle-check"></i> Atrakcje dla dzieci i całej rodziny</li>
+        <li><i class="fa-solid fa-circle-check"></i> Aktywny wypoczynek nad Bałtykiem</li>
+      </ul>
+
+      <p class="excerpt">
+      Półwysep Helski oferuje wyjątkowe połączenie natury, atrakcji turystycznych i nadmorskiego klimatu, które przyciąga turystów przez cały rok.
+      </p>
+
+      <button class="read">
+        <i class="fa-solid fa-arrow-right"></i>
+        Czytaj więcej
+      </button>
+
+    </div>
+
+  </article>
+
+  <!-- POST -->
+  <article class="post" data-title="Co zobaczyć na Półwyspie Helskim? Przewodnik po Helu i okolicach">
+
+    <div class="imageWrap">
+
+      <img src="image copy.png" />
+
+      <button class="star" data-id="2">
+        <i class="fa-regular fa-star"></i>
+      </button>
+
+              <!-- VISITED BADGE -->
+  <button class="visitedBadge">
+    <i class="fa-solid fa-check"></i>
+    Przeczytane
+  </button>
+    </div>
+
+    <div class="content">
+
+      <h2 class="title">Co zobaczyć na Półwyspie Helskim? Przewodnik po Helu i okolicach</h2>
+
+      <div class="meta">
+        <span><i class="fa-regular fa-calendar"></i> 28.05.2026</span>
+        <span><i class="fa-regular fa-user"></i> Admin</span>
+        <span><i class="fa-regular fa-clock"></i> 6 min czytania</span>
+      </div>
+
+      <ul class="points">
+        <li><i class="fa-solid fa-circle-check"></i> Muzeum Rybołówstwa – historia dawnego Helu i życia rybaków</li>
+        <li><i class="fa-solid fa-circle-check"></i> Latarnia Morska – punkt widokowy i symbol miasta</li>
+        <li><i class="fa-solid fa-circle-check"></i> Muzeum Obrony Wybrzeża – wojskowa historia półwyspu</li>
+        <li><i class="fa-solid fa-circle-check"></i> Fokarium Stacji Morskiej UG – spotkanie z fokami</li>
+      </ul>
+
+      <p class="excerpt">
+      Jeśli chcesz zwiedzić Hel i nie zgubić się w przypadkowych atrakcjach, chętnie oprowadzę Cię  przez konkretne, najważniejsze miejsca. Od muzeów i zabytków po najbardziej charakterystyczne punkty miasta.
+      </p>
+
+      <button class="read">
+        <i class="fa-solid fa-arrow-right"></i>
+        Czytaj więcej
+      </button>
+
+    </div>
+</article>
+
+  <!-- POST -->
+  <article class="post" data-title="Półwysep Helski bez samochodu – jak zwiedzać i nie utknąć">
+
+    <div class="imageWrap">
+
+      <img src="image.png" />
+
+      <button class="star" data-id="3">
+        <i class="fa-regular fa-star"></i>
+      </button>
+
+              <!-- VISITED BADGE -->
+  <button class="visitedBadge">
+    <i class="fa-solid fa-check"></i>
+    Przeczytane
+  </button>
+    </div>
+
+    <div class="content">
+
+      <h2 class="title">Półwysep Helski bez samochodu – jak zwiedzać i nie utknąć</h2>
+
+      <div class="meta">
+        <span><i class="fa-regular fa-calendar"></i> 18.05.2026</span>
+        <span><i class="fa-regular fa-user"></i> Admin</span>
+        <span><i class="fa-regular fa-clock"></i> 6 min czytania</span>
+      </div>
+
+      <ul class="points">
+        <li><i class="fa-solid fa-circle-check"></i> Kolejka SKM i PKP – jak dojechać na Hel</li>
+        <li><i class="fa-solid fa-circle-check"></i> Ruch pieszy i rowerowy na półwyspie</li>
+        <li><i class="fa-solid fa-circle-check"></i> Melexy, busy i lokalne przejazdy</li>
+        <li><i class="fa-solid fa-circle-check"></i> Plan zwiedzania bez auta w 1–2 dni</li>
+      </ul>
+
+      <p class="excerpt">
+      Półwysep Helski da się ogarnąć bez samochodu, ale trzeba wiedzieć jak się poruszać, żeby nie tracić czasu i nie chodzić bez sensu.      
+    </p>
+
+      <button class="read">
+        <i class="fa-solid fa-arrow-right"></i>
+        Czytaj więcej
+      </button>
+
+    </div>
+</article>
+
+  <!-- POST -->
+  <article class="post" data-title="Gdzie zjeść na Półwyspie Helskim? Konkretne miejsca bez turystycznych pułapek">
+
+    <div class="imageWrap">
+
+      <img src="https://photos.wikimapia.org/p/00/04/27/62/49_big.jpg" />
+
+      <button class="star" data-id="4">
+        <i class="fa-regular fa-star"></i>
+      </button>
+        <!-- VISITED BADGE -->
+  <button class="visitedBadge">
+    <i class="fa-solid fa-check"></i>
+    Przeczytane
+  </button>
+    </div>
+
+    <div class="content">
+
+      <h2 class="title">Gdzie zjeść na Półwyspie Helskim? Konkretne miejsca bez turystycznych pułapek</h2>
+
+      <div class="meta">
+        <span><i class="fa-regular fa-calendar"></i> 08.05.2026</span>
+        <span><i class="fa-regular fa-user"></i> Admin</span>
+        <span><i class="fa-regular fa-clock"></i> 6 min czytania</span>
+      </div>
+
+      <ul class="points">
+        <li><i class="fa-solid fa-circle-check"></i> Świeża ryba prosto z kutra – gdzie szukać</li>
+        <li><i class="fa-solid fa-circle-check"></i> Portowe smażalnie w Jastarni i Helu</li>
+        <li><i class="fa-solid fa-circle-check"></i> Lokalne bary z domowym jedzeniem</li>
+        <li><i class="fa-solid fa-circle-check"></i> Jak rozpoznać dobrą smażalnię od „turystycznej pułapki”</li>
+      </ul>
+
+      <p class="excerpt">
+      Na Helu łatwo trafić dobrze albo przepłacić za średni poziom – tu masz konkret, gdzie zjeść sensownie i bez rozczarowania.      
+       </p>
+
+      <button class="read">
+        <i class="fa-solid fa-arrow-right"></i>
+        Czytaj więcej
+      </button>
+
+    </div>
+</article>
+</div>
+
+<script>
+
+/* =========================
+   APPLE STICKY EFFECT
+========================= */
+
+const stickyHeader = document.getElementById("stickyHeader");
+
+let ticking = false;
+
+window.addEventListener("scroll", () => {
+
+  if(!ticking){
+
+    window.requestAnimationFrame(() => {
+
+      if(window.scrollY > 40){
+
+        stickyHeader.classList.add("scrolled");
+
+      }else{
+
+        stickyHeader.classList.remove("scrolled");
+
+      }
+
+      ticking = false;
+
+    });
+
+    ticking = true;
+  }
+
+});
+
+/* =========================
+   LOCAL STORAGE
+========================= */
+
+const STORAGE_KEY = "blog_favorites_forever_v1";
+
+function getFavorites(){
+
+  try{
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  }catch{
+    return [];
+  }
+
+}
+
+function saveFavorites(data){
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(data)
+  );
+
+}
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const stars = document.querySelectorAll(".star");
+const search = document.getElementById("search");
+const posts = document.querySelectorAll(".post");
+const favToggle = document.getElementById("favToggle");
+
+let favoritesMode = false;
+
+/* =========================
+   FAVORITES BUTTON
+========================= */
+
+favToggle.addEventListener("click", () => {
+
+  favoritesMode = !favoritesMode;
+
+  favToggle.classList.toggle("active");
+
+  filterPosts();
+
+});
+
+/* =========================
+   STARS
+========================= */
+
+function renderStars(){
+
+  const favorites = getFavorites();
+
+  stars.forEach(btn => {
+
+    const id = btn.dataset.id;
+    const icon = btn.querySelector("i");
+
+    if(favorites.includes(id)){
+
+      btn.classList.add("active");
+
+      icon.classList.remove("fa-regular");
+      icon.classList.add("fa-solid");
+
+    }else{
+
+      btn.classList.remove("active");
+
+      icon.classList.remove("fa-solid");
+      icon.classList.add("fa-regular");
+
+    }
+
+  });
+
+}
+
+stars.forEach(btn => {
+
+  btn.addEventListener("click", () => {
+
+    const id = btn.dataset.id;
+
+    let favorites = getFavorites();
+
+    if(favorites.includes(id)){
+
+      favorites = favorites.filter(x => x !== id);
+
+    }else{
+
+      favorites.push(id);
+
+    }
+
+    saveFavorites(favorites);
+
+    renderStars();
+
+    filterPosts();
+
+  });
+
+});
+
+renderStars();
+
+/* =========================
+   NORMALIZE TEXT
+========================= */
+
+function normalizeText(text){
+
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^\w\s]/g, " ");
+
+}
+
+/* =========================
+   LEVENSHTEIN
+========================= */
+
+function levenshtein(a, b){
+
+  const matrix = [];
+
+  for(let i = 0; i <= b.length; i++){
+    matrix[i] = [i];
+  }
+
+  for(let j = 0; j <= a.length; j++){
+    matrix[0][j] = j;
+  }
+
+  for(let i = 1; i <= b.length; i++){
+
+    for(let j = 1; j <= a.length; j++){
+
+      if(b.charAt(i - 1) === a.charAt(j - 1)){
+
+        matrix[i][j] = matrix[i - 1][j - 1];
+
+      }else{
+
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1,
+          matrix[i][j - 1] + 1,
+          matrix[i - 1][j] + 1
+        );
+
+      }
+
+    }
+
+  }
+
+  return matrix[b.length][a.length];
+
+}
+
+/* =========================
+   SMART SEARCH
+========================= */
+
+function smartMatch(fullText, query){
+
+  fullText = normalizeText(fullText);
+  query = normalizeText(query);
+
+  if(fullText.includes(query)) return true;
+
+  const textWords = fullText.split(/\s+/);
+  const queryWords = query.split(/\s+/);
+
+  return queryWords.every(qWord => {
+
+    return textWords.some(word => {
+
+      if(word.includes(qWord)) return true;
+
+      const tolerance =
+        qWord.length <= 4 ? 1 : 2;
+
+      return levenshtein(word, qWord) <= tolerance;
+
+    });
+
+  });
+
+}
+
+/* =========================
+   FILTER POSTS
+========================= */
+
+function filterPosts(){
+
+  const query = search.value.trim();
+  const favorites = getFavorites();
+
+  posts.forEach(post => {
+
+    const id =
+      post.querySelector(".star").dataset.id;
+
+    /* =========================
+       SEARCHABLE CONTENT
+    ========================= */
+
+    const title =
+      post.querySelector(".title")?.innerText || "";
+
+    const meta =
+      post.querySelector(".meta")?.innerText || "";
+
+    const excerpt =
+      post.querySelector(".excerpt")?.innerText || "";
+
+    const points =
+      post.querySelector(".points")?.innerText || "";
+
+    const fullSearchText = `
+      ${title}
+      ${meta}
+      ${excerpt}
+      ${points}
+      ${post.innerText}
+    `;
+
+    let show = true;
+
+    /* =========================
+       SEARCH FILTER
+    ========================= */
+
+    if(query){
+
+      show = smartMatch(
+        fullSearchText,
+        query
+      );
+
+    }
+
+    /* =========================
+       FAVORITES FILTER
+    ========================= */
+
+    if(favoritesMode){
+
+      show =
+        show &&
+        favorites.includes(id);
+
+    }
+
+    /* =========================
+       SHOW / HIDE
+    ========================= */
+
+    if(show){
+
+      post.style.display = "grid";
+
+      requestAnimationFrame(() => {
+
+        post.style.opacity = "1";
+        post.style.transform =
+          "translateY(0px) scale(1)";
+
+      });
+
+    }else{
+
+      post.style.opacity = "0";
+
+      post.style.transform =
+        "translateY(18px) scale(.98)";
+
+      setTimeout(() => {
+
+        const currentQuery =
+          search.value.trim();
+
+        const stillMatches = smartMatch(
+          fullSearchText,
+          currentQuery
+        );
+
+        const favoriteCheck =
+          !favoritesMode ||
+          favorites.includes(id);
+
+        if(!stillMatches || !favoriteCheck){
+
+          post.style.display = "none";
+
+        }
+
+      }, 240);
+
+    }
+
+  });
+
+}
+
+/* =========================
+   LIVE SEARCH
+========================= */
+
+search.addEventListener("input", () => {
+
+  filterPosts();
+
+});
+
+/* =========================
+   INITIAL
+========================= */
+
+filterPosts();
+
+/* =========================
+   VISITED POSTS
+========================= */
+
+const VISITED_KEY =
+  "visited_blog_posts_v1";
+
+function getVisitedPosts(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(VISITED_KEY)
+    ) || [];
+
+  }catch{
+
+    return [];
+
+  }
+
+}
+
+function saveVisitedPosts(data){
+
+  localStorage.setItem(
+    VISITED_KEY,
+    JSON.stringify(data)
+  );
+
+}
+
+/* =========================
+   RENDER VISITED
+========================= */
+
+function renderVisitedPosts(){
+
+  const visited =
+    getVisitedPosts();
+
+  posts.forEach(post => {
+
+    const id =
+      post.querySelector(".star")
+      .dataset.id;
+
+    if(visited.includes(id)){
+
+      post.classList.add("visited");
+
+    }else{
+
+      post.classList.remove("visited");
+
+    }
+
+  });
+
+}
+
+/* =========================
+   CLICK READ
+========================= */
+
+document
+.querySelectorAll(".read")
+.forEach((btn,index) => {
+
+  btn.addEventListener("click", () => {
+
+    const post =
+      posts[index];
+
+    const id =
+      post.querySelector(".star")
+      .dataset.id;
+
+    let visited =
+      getVisitedPosts();
+
+    if(!visited.includes(id)){
+
+      visited.push(id);
+
+      saveVisitedPosts(visited);
+
+      renderVisitedPosts();
+
+    }
+
+  });
+
+});
+
+/* =========================
+   CLICK BADGE = UNREAD
+========================= */
+
+document
+.querySelectorAll(".visitedBadge")
+.forEach((badge,index) => {
+
+  badge.addEventListener("click", () => {
+
+    const post =
+      posts[index];
+
+    const id =
+      post.querySelector(".star")
+      .dataset.id;
+
+    let visited =
+      getVisitedPosts();
+
+    visited =
+      visited.filter(x => x !== id);
+
+    saveVisitedPosts(visited);
+
+    renderVisitedPosts();
+
+  });
+
+});
+
+/* =========================
+   INIT
+========================= */
+
+renderVisitedPosts();
+
+/* =========================
+   SCROLL FADE-IN (SMOOTH, ALWAYS)
+========================= */
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+
+    if(entry.isIntersecting){
+
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0px) scale(1)";
+
+      entry.target.style.transition =
+        "opacity .6s ease, transform .6s cubic-bezier(.16,1,.3,1)";
+
+    }else{
+
+      // opcjonalnie: reset przy wyjściu z ekranu
+      entry.target.style.opacity = "0";
+      entry.target.style.transform = "translateY(20px) scale(.98)";
+    }
+
+  });
+}, {
+  threshold: 0.15
+});
+
+/* apply to posts */
+document.querySelectorAll(".post").forEach(post => {
+
+  post.style.opacity = "0";
+  post.style.transform = "translateY(20px) scale(.98)";
+
+  observer.observe(post);
+
+});
+</script>
+
+</body>
+</html>

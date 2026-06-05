@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Helskie Atrakcje | Przewodnik</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0a0a0a;
+  --text:#f5f5f5;
+  --muted:#a1a1a1;
+  --line:rgba(255,255,255,.08);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Inter,system-ui;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container{
+  width:92%;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header{
+  position:sticky;
+  top:0;
+  z-index:999;
+  padding:24px 0 18px;
+  margin-bottom:34px;
+  background:transparent;
+  transition:
+    padding .55s cubic-bezier(.16,1,.3,1),
+    transform .55s cubic-bezier(.16,1,.3,1),
+    opacity .55s ease;
+}
+
+/* =========================
+   TOPBAR (WYŚRODKOWANY)
+========================= */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  will-change:transform;
+  transform-origin:top center;
+  transition: transform .55s cubic-bezier(.16,1,.3,1);
+}
+
+/* =========================
+   APPLE EFFECT
+========================= */
+.header.scrolled{
+  padding:12px 0;
+}
+.header.scrolled .topbar{
+  transform: scale(.92) translateY(-1px);
+}
+
+/* =========================
+   BACK BUTTON
+========================= */
+.backBtn{
+  height:54px;
+  padding: 0 28px;
+  border:none;
+  border-radius:18px;
+  background:rgba(18,18,18,.78);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  color:#fff;
+  cursor:pointer;
+  font-size:0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  flex-shrink:0;
+  border:1px solid rgba(255,255,255,.06);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 12px;
+  transition:
+    transform .4s cubic-bezier(.16,1,.3,1),
+    border .35s ease,
+    background .35s ease,
+    box-shadow .35s ease;
+}
+
+.backBtn:hover{
+  transform: translateY(-2px);
+  border-color:rgba(126,208,255,.18);
+  box-shadow: 0 10px 35px rgba(126,208,255,.08);
+}
+
+/* =========================
+   POSTS
+========================= */
+.post{
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:40px;
+  padding:50px 0;
+  border-bottom:1px solid var(--line);
+  align-items:start; /* Umożliwia swobodne przesuwanie się elementów wewnątrz grida */
+  transition: opacity .35s ease, transform .35s ease;
+}
+.post:nth-child(even){
+  direction:rtl;
+}
+.post:nth-child(even) .content{
+  direction:ltr;
+}
+
+/* =========================
+   IMAGE & STICKY EFFECT (ZDJĘCIE PODĄŻA ZA TEKSTEM)
+========================= */
+.imageWrap{
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  /* Efekt Sticky na desktopie – uwzględnia wysokość zmniejszonego paska menu (ok. 80px górnego marginesu) */
+  position: sticky;
+  top: 90px; 
+  will-change: transform;
+}
+.post img{
+  width:100%;
+  height:340px;
+  object-fit:cover;
+  border-radius:18px;
+  filter:contrast(1.05);
+  transition: transform .6s cubic-bezier(.16,1,.3,1), filter .6s ease;
+}
+.imageWrap:hover img{
+  transform:scale(1.04);
+  filter:contrast(1.08);
+}
+
+/* =========================
+   CONTENT ELEMENTS
+========================= */
+.content {
+  display: flex;
+  flex-direction: column;
+}
+.title{
+  font-size:1.6rem;
+  margin:0 0 10px;
+  letter-spacing:-0.5px;
+  color:#fff;
+}
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  font-size:.85rem;
+  color:var(--muted);
+  margin-bottom:15px;
+}
+.meta span{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+/* =========================
+   DYNAMIC COLLAPSE SYSTEM
+========================= */
+.excerpt-visible {
+  color:#e0e0e0;
+  font-size:.98rem;
+  margin:0;
+  display: inline;
+}
+
+.full-text {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.post.expanded .full-text {
+  max-height: 2000px;
+  opacity: 1;
+  margin-top: 10px;
+}
+
+/* =========================
+   LIST
+========================= */
+.points{
+  margin:20px 0 15px 0;
+  padding:0;
+  list-style:none;
+}
+.points li{
+  margin:10px 0;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color:#d6d6d6;
+  font-size:.95rem;
+}
+.points i{
+  color:#0077ff;
+  font-size:.85rem;
+  margin-top:6px;
+}
+
+/* =========================
+   READ MORE / LESS BUTTON
+========================= */
+.read{
+  margin-top:20px;
+  display:inline-flex;
+  gap:10px;
+  align-items:center;
+  background:none;
+  border:none;
+  color:#0077ff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor:pointer;
+  padding:0;
+  transition: transform 0.3s ease, color 0.3s ease;
+  align-self: flex-start; /* Zabezpiecza szerokość przycisku w kierunku rtl */
+}
+.read:hover{
+  color:#52a5ff;
+}
+.read i {
+  transition: transform 0.4s ease;
+}
+.post.expanded .read i {
+  transform: rotate(-180deg);
+}
+
+/* =========================
+   VISITED BADGE
+========================= */
+.visitedBadge{
+  position:absolute;
+  left:16px;
+  bottom:16px;
+  border:none;
+  background:#1371ff;
+  color:#ffffff;
+  font-size:.8rem;
+  font-weight:500;
+  padding:11px 16px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+  opacity:0;
+  transform: translateY(14px) scale(.94);
+  pointer-events:none;
+  transition:
+    opacity .35s ease,
+    transform .35s cubic-bezier(.16,1,.3,1),
+    box-shadow .35s ease;
+  z-index: 5;
+}
+.visitedBadge:hover{
+  transform: translateY(0) scale(1.05);
+}
+.post.visited .visitedBadge{
+  opacity:1;
+  pointer-events:auto;
+  transform: translateY(0) scale(1);
+}
+.post.visited img{
+  filter: brightness(.72) saturate(.85);
+}
+.post{
+  will-change: transform, opacity;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media(max-width:850px){
+  .post{ grid-template-columns:1fr; gap:25px; padding:40px 0; }
+  .post:nth-child(even){ direction:ltr; }
+  .post img{ height:260px; }
+  .imageWrap{ position: static; } /* Wyłączenie sticky na mobile, gdzie układ jest pionowy */
+  .header{
+    padding: 16px 0 10px;
+    margin-bottom: 10px;
+  }
+  .backBtn {
+    height: 48px;
+    padding: 0 22px;
+    border-radius: 14px;
+    font-size: 0.9rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header" id="stickyHeader">
+    <div class="topbar">
+      <button class="backBtn" onclick="history.back()">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Powrót</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ATRAKCJA 1 -->
+  <article class="post" data-id="1">
+    <div class="imageWrap">
+      <img src="https://images.unsplash.com/photo-1591130901923-d582c7a692e2?auto=format&fit=crop&w=800&q=80" alt="Fokarium Hel">
+      <button class="visitedBadge"><i class="fa-solid fa-check"></i> Przeczytane</button>
+    </div>
+    <div class="content">
+      <h2 class="title">Fokarium Stacji Morskiej – Serce helskiej natury</h2>
+      <div class="meta">
+        <span><i class="fa-regular fa-calendar"></i> 2026</span>
+        <span><i class="fa-regular fa-user"></i> Przewodnik</span>
+        <span><i class="fa-regular fa-clock"></i> 3 min czytania</span>
+      </div>
+
+      <p class="excerpt-visible">
+        Helskie Fokarium to jedno z najbardziej wyjątkowych miejsc na polskim wybrzeżu, realizujące kluczową misję ochrony bałtyckich fok szarych. To tutaj naukowcy i wolontariusze każdego dnia walczą o przywrócenie naturalnej równowagi w ekosystemie naszego morza.
+      </p>
+
+      <div class="full-text">
+        <p>
+          Odwiedzając to miejsce, masz niepowtarzalną okazję zobaczyć te piękne ssaki z bliska podczas codziennych karmień połączonych z treningiem medycznym. Personel w fascynujący sposób opowiada o biologii fok, ich zwyczajach oraz o zagrożeniach, jakie niesie ze sobą nieodpowiedzialna działalność człowieka. Choć obiekt przyciąga rzesze turystów, nie jest typowym ogrodem zoologicznym, a placówką badawczo-hodowlaną Uniwersytetu Gdańskiego. Każdy zakupiony bilet bezpośrednio wspiera leczenie chorych lub osłabionych fok, które po rehabilitacji wracają na wolność, do wód Bałtyku. To idealna lekcja ekologii zarówno dla najmłodszych, jak i starszych podróżników.
+        </p>
+        <ul class="points">
+          <li><i class="fa-solid fa-circle-info"></i> Godziny karmienia: sprawdź aktualny grafik przed przyjściem (zwykle 11:00 i 14:00).</li>
+          <li><i class="fa-solid fa-circle-info"></i> Symboliczny koszt wstępu wspiera ratowanie fok na polskim wybrzeżu.</li>
+          <li><i class="fa-solid fa-circle-info"></i> Na miejscu znajduje się ciekawa wystawa edukacyjna „Ssaki naszego morza”.</li>
+        </ul>
+      </div>
+
+      <button class="read">Rozwiń opis <i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+  </article>
+
+  <!-- ATRAKCJA 2 -->
+  <article class="post" data-id="2">
+    <div class="imageWrap">
+      <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bde2?auto=format&fit=crop&w=800&q=80" alt="Militaria Hel">
+      <button class="visitedBadge"><i class="fa-solid fa-check"></i> Przeczytane</button>
+    </div>
+    <div class="content">
+      <h2 class="title">Muzeum Obrony Wybrzeża – Helskie Bunkry i Fortyfikacje</h2>
+      <div class="meta">
+        <span><i class="fa-regular fa-calendar"></i> 2026</span>
+        <span><i class="fa-regular fa-user"></i> Przewodnik</span>
+        <span><i class="fa-regular fa-clock"></i> 5 min czytania</span>
+      </div>
+
+      <p class="excerpt-visible">
+        Hel podczas II wojny światowej stanowił ufortyfikowaną bazę o kluczowym znaczeniu strategicznym dla obrony polskiego wybrzeża. Pozostałości gigantycznych stanowisk artyleryjskich baterii Schleswig-Holstein do dziś budzą ogromny podziw swoją monumentalną architekturą militarną.
+      </p>
+
+      <div class="full-text">
+        <p>
+          Spacerując po okolicznych lasach, można natknąć się na doskonale zachowane bunkry, schrony oraz wieże kierowania ogniem. Muzeum Obrony Wybrzeża w pasjonujący sposób przybliża realia heroicznej obrony Półwyspu w 1939 roku oraz późniejszy okres okupacji. Ekspozycje rozmieszczone są w wielkich, surowych żelbetowych schronach, co potęguje historyczny klimat tego miejsca. Zobaczysz tu autentyczną broń, mundury, sprzęt łączności oraz wielkie makiety operacji wojskowych. Dla fanów techniki nie lada gratką będzie też przejażdżka wąskotorową kolejką wojskową. To obowiązkowy punkt programu, który udowadnia, że Hel to nie tylko plaże, ale też żywa historia XX wieku.
+        </p>
+        <ul class="points">
+          <li><i class="fa-solid fa-circle-info"></i> Do głównych stanowisk artyleryjskich dojedziesz leśną ścieżką rowerową.</li>
+          <li><i class="fa-solid fa-circle-info"></i> Warto ubrać wygodne obuwie – zwiedzanie obejmuje rozległy teren leśny.</li>
+          <li><i class="fa-solid fa-circle-info"></i> Dostępne are wystawy poświęcone kmdr. Frankowskiemu i obrońcom Helu.</li>
+        </ul>
+      </div>
+
+      <button class="read">Rozwiń opis <i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+  </article>
+
+  <!-- ATRAKCJA 3 -->
+  <article class="post" data-id="3">
+    <div class="imageWrap">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Latarnia Morska Hel">
+      <button class="visitedBadge"><i class="fa-solid fa-check"></i> Przeczytane</button>
+    </div>
+    <div class="content">
+      <h2 class="title">Latarnia Morska w Helu – Panorama na kraniec Polski</h2>
+      <div class="meta">
+        <span><i class="fa-regular fa-calendar"></i> 2026</span>
+        <span><i class="fa-regular fa-user"></i> Przewodnik</span>
+        <span><i class="fa-regular fa-clock"></i> 3 min czytania</span>
+      </div>
+
+      <p class="excerpt-visible">
+        Wznosząca się na wysokość ponad 40 metrów oktagonalna, ceglana wieża stanowi jeden z najbardziej rozpoznawalnych symboli całego Półwyspu. Ta historyczna budowla od dekad wskazuje bezpieczną drogę statkom zmierzającym do portów Zatoki Gdańskiej.
+      </p>
+
+      <div class="full-text">
+        <p>
+          Pokonanie kilkudziesięciu krętych, metalowych stopni wymaga odrobiny kondycji, ale nagroda czekająca na szczycie w pełni rekompensuje ten trud. Z galerii widokowej roztacza się zapierający dech w piersiach, panoramiczny widok na bezkresny Bałtyk, Zatokę oraz gęste helskie bory. Przy dobrej widoczności bez problemu dostrzeżesz zarysy Trójmiasta oraz statki zakotwiczone na redzie portu. Obecna konstrukcja została odbudowana w 1942 roku po tym, jak polscy saperzy wysadzili pierwotną wieżę, by utrudnić celowanie niemiecznej artylerii. Obiekt tętni życiem zwłaszcza latem, będąc celem niemal każdej wycieczki docierającej na kraniec Polski.
+        </p>
+        <ul class="points">
+          <li><i class="fa-solid fa-circle-info"></i> Latarnia jest otwarta dla zwiedzających w sezonie od maja do września.</li>
+          <li><i class="fa-solid fa-circle-info"></i> Na szczyt prowadzą wąskie schody – zachowaj ostrożność przy wchodzeniu.</li>
+          <li><i class="fa-solid fa-circle-info"></i> Doskonałe miejsce na pamiątkowe, panoramiczne zdjęcia krajobrazowe.</li>
+        </ul>
+      </div>
+
+      <button class="read">Rozwiń opis <i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+  </article>
+
+  <!-- ATRAKCJA 4 -->
+  <article class="post" data-id="4">
+    <div class="imageWrap">
+      <img src="https://photos.wikimapia.org/p/00/04/27/62/49_big.jpg" alt="Muzeum Rybołówstwa Hel">
+      <button class="visitedBadge"><i class="fa-solid fa-check"></i> Przeczytane</button>
+    </div>
+    <div class="content">
+      <h2 class="title">Muzeum Rybołówstwa – Dawny kościół pełen morskich opowieści</h2>
+      <div class="meta">
+        <span><i class="fa-regular fa-calendar"></i> 2026</span>
+        <span><i class="fa-regular fa-user"></i> Przewodnik</span>
+        <span><i class="fa-regular fa-clock"></i> 4 min czytania</span>
+      </div>
+
+      <p class="excerpt-visible">
+        Zlokalizowane w samym sercu Helu muzeum mieści się w zabytkowym, gotyckim budynku dawnego kościoła ewangelickiego pod wezwaniem świętych Piotra i Pawła. To unikalne połączenie sakralnej architektury z morską historią tworzy niepowtarzalną atmosferę, której próżno szukać w innych placówkach.
+      </p>
+
+      <div class="full-text">
+        <p>
+          Wewnątrz obiektu czekają na Ciebie bogate ekspozycje prezentujące tradycyjne rzemiosło rybackie, dawne przyrządy nawigacyjne oraz historię samego Helu. Drewniane łodzie, sieci oraz makiety dawnych osad pozwalają zrozumieć, jak surowe i niebezpieczne było dawniej życie nad Bałtykiem. Dodatkową, ogromną atrakcją muzeum jest możliwość wejścia na dawną kościelną wieżę, która dziś służy jako kameralny punkt widokowy na pobliski port rybacki. Wokół muzeum zorganizowano skansen tradycyjnych łodzi rybackich, gdzie można przyjrzeć się z bliska autentycznym kadłubom jednostek pracujących na morzu. To spokojne, niezwykle klimatyczne miejsce, które wciąga opowieściami o ludziach morza.
+        </p>
+        <ul class="points">
+          <li><i class="fa-solid fa-circle-info"></i> Obiekt znajduje się tuż obok głównego deptaku miejskiego (ul. Wiejska).</li>
+          <li><i class="fa-solid fa-circle-info"></i> Muzeum jest oddziałem Narodowego Muzeum Morskiego w Gdańsku.</li>
+          <li><i class="fa-solid fa-circle-info"></i> Skansen wokół budynku jest w pełni darmowy i dostępny przez całą dobę.</li>
+        </ul>
+      </div>
+
+      <button class="read">Rozwiń opis <i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+  </article>
+
+  <!-- ATRAKCJA 5 -->
+  <article class="post" data-id="5">
+    <div class="imageWrap">
+      <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80" alt="Cypel Hel">
+      <button class="visitedBadge"><i class="fa-solid fa-check"></i> Przeczytane</button>
+    </div>
+    <div class="content">
+      <h2 class="title">Cypel Helski – Miejsce, gdzie Polska faktycznie się zaczyna</h2>
+      <div class="meta">
+        <span><i class="fa-regular fa-calendar"></i> 2026</span>
+        <span><i class="fa-regular fa-user"></i> Przewodnik</span>
+        <span><i class="fa-regular fa-clock"></i> 4 min czytania</span>
+      </div>
+
+      <p class="excerpt-visible">
+        Cypel Helski to geograficzny koniec i zarazem początek Polski, gdzie z trzech stron otacza nas bezkresna, szumiąca morska woda. To magiczne miejsce, w którym potężne fale otwartego Bałtyku widowiskowo zderzają się ze spokojniejszymi prądami Zatoki Puckiej.
+      </p>
+
+      <div class="full-text">
+        <p>
+          Do samego końca cypla prowadzi urokliwa, drewniana promenada wybudowana nad wydmami, chroniąca ten delikatny i cenny przyrodniczo krajobraz przed zniszczeniem. Spacer w tym kierunku pozwala poczuć prawdziwą potęgę morskiego żywiołu, zwłaszcza w wietrzne, sztormowe dni, gdy powietrze nasycone jest leczniczym jodem. Na samym krańcu stanął charakterystyczny pomnik „Kopiec Kaszubów”, symbolizujący jedność i przywiązanie tutejszej ludności do ziemi i tradycji. Okoliczne piaszczyste plaże są niezwykle szerokie i dzikie, stanowiąc fantastyczną alternatywę dla obleganych kąpielisk miejskich. To idealne miejsce na wyciszenie, wieczorne spacery oraz podziwianie spektakularnych wschodów i zachodów słońca bezpośrednio z morskiego brzegu.
+        </p>
+        <ul class="points">
+          <li><i class="fa-solid fa-circle-info"></i> Promenada jest w pełni dostosowana do wózków dziecięcych oraz rowerów.</li>
+          <li><i class="fa-solid fa-circle-info"></i> Zwróć uwagę na tablice edukacyjne opisujące unikalną florę helskich wydm.</li>
+          <li><i class="fa-solid fa-circle-info"></i> Doskonałe kierunek na długi, relaksujący spacer z dala od miejskiego zgiełku.</li>
+        </ul>
+      </div>
+
+      <button class="read">Rozwiń opis <i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+  </article>
+
+</div>
+
+<script>
+/* =========================
+   APPLE STICKY EFFECT
+========================= */
+const stickyHeader = document.getElementById("stickyHeader");
+let ticking = false;
+
+window.addEventListener("scroll", () => {
+  if(!ticking){
+    window.requestAnimationFrame(() => {
+      if(window.scrollY > 40){
+        stickyHeader.classList.add("scrolled");
+      }else{
+        stickyHeader.classList.remove("scrolled");
+      }
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
+/* =========================
+   DOM ELEMENTS
+========================= */
+const posts = document.querySelectorAll(".post");
+
+/* =========================
+   READ MORE / COLLAPSE SYSTEM
+========================= */
+document.querySelectorAll(".read").forEach((btn, index) => {
+  btn.addEventListener("click", () => {
+    const post = posts[index];
+    
+    post.classList.toggle("expanded");
+
+    if (post.classList.contains("expanded")) {
+      btn.innerHTML = `Zwiń opis <i class="fa-solid fa-chevron-down"></i>`;
+      markAsVisited(post);
+    } else {
+      btn.innerHTML = `Rozwiń opis <i class="fa-solid fa-chevron-down"></i>`;
+    }
+  });
+});
+
+/* =========================
+   VISITED POSTS ENGINE
+========================= */
+const VISITED_KEY = "visited_blog_posts_v1";
+
+function getVisitedPosts(){
+  try{
+    return JSON.parse(localStorage.getItem(VISITED_KEY)) || [];
+  }catch{
+    return [];
+  }
+}
+
+function saveVisitedPosts(data){
+  localStorage.setItem(VISITED_KEY, JSON.stringify(data));
+}
+
+function renderVisitedPosts(){
+  const visited = getVisitedPosts();
+  posts.forEach(post => {
+    const id = post.dataset.id;
+    if(visited.includes(id)){
+      post.classList.add("visited");
+    }else{
+      post.classList.remove("visited");
+    }
+  });
+}
+
+function markAsVisited(post) {
+  const id = post.dataset.id;
+  let visited = getVisitedPosts();
+  if(!visited.includes(id)){
+    visited.push(id);
+    saveVisitedPosts(visited);
+    renderVisitedPosts();
+  }
+}
+
+// Kliknięcie w niebieski badge resetuje status przeczytanego wpisu
+document.querySelectorAll(".visitedBadge").forEach((badge, index) => {
+  badge.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const post = posts[index];
+    const id = post.dataset.id;
+    let visited = getVisitedPosts();
+
+    visited = visited.filter(x => x !== id);
+    saveVisitedPosts(visited);
+    renderVisitedPosts();
+  });
+});
+
+renderVisitedPosts();
+
+/* =========================
+   INTERSECTION OBSERVER (FADE-IN EFFECT)
+========================= */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0px) scale(1)";
+      entry.target.style.transition = "opacity .6s ease, transform .6s cubic-bezier(.16,1,.3,1)";
+    }
+  });
+}, { threshold: 0.1 });
+
+posts.forEach(post => {
+  post.style.opacity = "0";
+  post.style.transform = "translateY(20px) scale(.98)";
+  observer.observe(post);
+});
+</script>
+
+</body>
+</html>

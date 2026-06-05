@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Oferty dla Grup | Przewodnik Hel</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0a0a0a;
+  --text:#f5f5f5;
+  --muted:#a1a1a1;
+  --line:rgba(255,255,255,.08);
+  --accent:#0077ff;
+  --sub-block:rgba(255,255,255,0.03);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Inter,system-ui;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header{
+  position:sticky;
+  top:0;
+  z-index:999;
+  padding:24px 0 18px;
+  margin-bottom:20px;
+  background:transparent;
+  transition:
+    padding .55s cubic-bezier(.16,1,.3,1),
+    transform .55s cubic-bezier(.16,1,.3,1);
+}
+
+/* =========================
+   TOPBAR (WYŚRODKOWANY)
+========================= */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  will-change:transform;
+  transform-origin:top center;
+  transition: transform .55s cubic-bezier(.16,1,.3,1);
+}
+
+/* =========================
+   APPLE EFFECT
+========================= */
+.header.scrolled{
+  padding:12px 0;
+}
+.header.scrolled .topbar{
+  transform: scale(.92) translateY(-1px);
+}
+
+/* =========================
+   BACK BUTTON (PODŁUŻNY NA ŚRODKU)
+========================= */
+.backBtn{
+  height:54px;
+  padding: 0 28px;
+  border:none;
+  border-radius:18px;
+  background:rgba(18,18,18,.78);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  color:#fff;
+  cursor:pointer;
+  font-size:0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  flex-shrink:0;
+  border:1px solid rgba(255,255,255,.06);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 12px;
+  transition:
+    transform .4s cubic-bezier(.16,1,.3,1),
+    border .35s ease,
+    background .35s ease,
+    box-shadow .35s ease;
+}
+
+.backBtn:hover{
+  transform: translateY(-2px);
+  border-color:rgba(126,208,255,.18);
+  box-shadow: 0 10px 35px rgba(126,208,255,.08);
+}
+
+/* =========================
+   POSTS / OFFERS
+========================= */
+.post{
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:40px;
+  padding:50px 0;
+  border-bottom:1px solid var(--line);
+  align-items:center;
+  transition: opacity .4s ease, transform .4s ease;
+}
+.post:last-child {
+  border-bottom: none;
+}
+.post:nth-child(even){
+  direction:rtl;
+}
+.post:nth-child(even) .content{
+  direction:ltr;
+}
+
+/* =========================
+   IMAGE
+========================= */
+.imageWrap{
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+  width: 100%;
+}
+.post img{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+  border-radius:18px;
+  filter:contrast(1.02) brightness(0.95);
+  display: block;
+  transition: transform .6s cubic-bezier(.16,1,.3,1), filter .6s ease;
+}
+.imageWrap:hover img{
+  transform:scale(1.03);
+  filter:contrast(1.05) brightness(1);
+}
+
+/* =========================
+   CONTENT ELEMENTS
+========================= */
+.title{
+  font-size:1.6rem;
+  margin:0 0 12px;
+  letter-spacing:-0.5px;
+  color:#fff;
+  line-height:1.3;
+}
+
+/* Target Group Label */
+.target-group {
+  display: inline-flex;
+  align-items: center;
+  gap:8px;
+  background: rgba(0, 119, 255, 0.08);
+  color: #52a5ff;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  border: 1px solid rgba(0, 119, 255, 0.12);
+}
+
+.excerpt-visible {
+  color:#d4d4d4;
+  font-size:.98rem;
+  margin:0 0 18px 0;
+}
+
+/* =========================
+   LIST (OD MYŚLNIKÓW)
+========================= */
+.points{
+  margin:18px 0;
+  padding:0;
+  list-style:none;
+}
+.points li{
+  margin:12px 0;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  color:#c2c2c2;
+  font-size:.95rem;
+}
+.points i{
+  color:var(--accent);
+  font-size:.85rem;
+  margin-top:6px;
+}
+
+/* =========================
+   PODBLOK (PROGRAM WYCIECZKI)
+========================= */
+.program-subblock {
+  background: var(--sub-block);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-top: 22px;
+}
+.program-subblock h4 {
+  margin: 0 0 8px 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+.program-subblock p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+.program-subblock p i {
+  color: #26e6a4;
+  font-size: 1rem;
+}
+
+/* =========================
+   RESPONSIVE DESIGN (MOBILE)
+========================= */
+@media(max-width:900px){
+  .post{ 
+    grid-template-columns: 1fr; 
+    gap: 25px; 
+    padding: 35px 0; 
+  }
+  .post:nth-child(even){ 
+    direction: ltr; 
+  }
+  .post img{ 
+    height: 240px; 
+  }
+  .title{
+    font-size: 1.4rem;
+  }
+  .container{
+    width: 88%;
+  }
+  .header{
+    padding: 16px 0 10px;
+    margin-bottom: 10px;
+  }
+  .backBtn {
+    height: 48px;
+    padding: 0 22px;
+    border-radius: 14px;
+    font-size: 0.9rem;
+  }
+  .program-subblock {
+    padding: 14px 16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header" id="stickyHeader">
+    <div class="topbar">
+      <button class="backBtn" onclick="history.back()">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Powrót</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- OFERTA 1 (SZKOŁY) -->
+  <article class="post">
+    <div class="imageWrap">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Wycieczki grupy Hel">
+    </div>
+    <div class="content">
+      <div class="target-group"><i class="fa-solid fa-graduation-cap"></i> Grupa Szkolna / Kolonie</div>
+      <h2 class="title">Szlakiem Helskiej Przyrody i Nauki</h2>
+      
+      <p class="excerpt-visible">
+        Program nastawiony na aktywną edukację, ekologię oraz integrację rówieśników poprzez gry terenowe na półwyspie.
+      </p>
+
+      <ul class="points">
+        <li><i class="fa-solid fa-minus"></i> Dedykowany przewodnik z podejściem pedagogicznym.</li>
+        <li><i class="fa-solid fa-minus"></i> Warsztaty ekologiczne oraz wejście na karmienie fok.</li>
+        <li><i class="fa-solid fa-minus"></i> Materiały edukacyjne i quizy z nagrodami dla uczniów.</li>
+        <li><i class="fa-solid fa-minus"></i> Ciepły posiłek dopasowany do preferencji dzieci.</li>
+      </ul>
+
+      <div class="program-subblock">
+        <h4>Główna atrakcja w programie:</h4>
+        <p><i class="fa-solid fa-landmark-dome"></i> Muzeum Rybołówstwa (wraz z wejściem na wieżę widokową)</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- OFERTA 2 (SENIORZY) -->
+  <article class="post">
+    <div class="imageWrap">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Wycieczki grupy Hel">
+    </div>
+    <div class="content">
+      <div class="target-group"><i class="fa-solid fa-person-cane"></i> Emeryci / Seniorzy / UTW</div>
+      <h2 class="title">Śladami Historii i Wojskowych Tajemnic</h2>
+      
+      <p class="excerpt-visible">
+        Dopasowane, spokojne tempo zwiedzania bez pośpiechu, skupione wokół bogatej historii obronności Helu.
+      </p>
+
+      <ul class="points">
+        <li><i class="fa-solid fa-minus"></i> Trasa zorganizowana z uwzględnieniem licznych miejsc odpoczynku.</li>
+        <li><i class="fa-solid fa-minus"></i> Przejazd komfortową kolejką wąskotorową na terenie lasu.</li>
+        <li><i class="fa-solid fa-minus"></i> Prelekcja historyczna i opowieści rodowitego Kaszuba.</li>
+        <li><i class="fa-solid fa-minus"></i> Obiad w tradycyjnej, helskiej restauracji rybnej.</li>
+      </ul>
+
+      <div class="program-subblock">
+        <h4>Główna atrakcja w programie:</h4>
+        <p><i class="fa-solid fa-shield-halved"></i> Muzeum Obrony Wybrzeża (Bateria Schleswig-Holstein)</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- OFERTA 3 (FIRMY) -->
+  <article class="post">
+    <div class="imageWrap">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Wycieczki grupy Hel">
+    </div>
+    <div class="content">
+      <div class="target-group"><i class="fa-solid fa-briefcase"></i> Firmy / Grupy Integracyjne</div>
+      <h2 class="title">Morski Teambuilding i Ekstremalny Hel</h2>
+      
+      <p class="excerpt-visible">
+        Dynamiczny program integracyjny łączący eksplorację helskich fortyfikacji z zastrzykiem adrenaliny.
+      </p>
+
+      <ul class="points">
+        <li><i class="fa-solid fa-minus"></i> Militarny bieg na orientację w opuszczonych schronach.</li>
+        <li><i class="fa-solid fa-minus"></i> Rejs szybką łodzią typu RIB po otwartym Bałtyku.</li>
+        <li><i class="fa-solid fa-minus"></i> Wieczorne ognisko z biesiady na plaży z widokiem na Zatokę.</li>
+      </ul>
+
+      <div class="program-subblock">
+        <h4>Główna atrakcja w programie:</h4>
+        <p><i class="fa-solid fa-shield-halved"></i> Muzeum Obrony Wybrzeża + Fortyfikacje Cypla</p>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<script>
+/* =========================
+   APPLE STICKY EFFECT
+========================= */
+const stickyHeader = document.getElementById("stickyHeader");
+let ticking = false;
+
+window.addEventListener("scroll", () => {
+  if(!ticking){
+    window.requestAnimationFrame(() => {
+      if(window.scrollY > 30){
+        stickyHeader.classList.add("scrolled");
+      }else{
+        stickyHeader.classList.remove("scrolled");
+      }
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
+/* =========================
+   INTERSECTION OBSERVER (FADE-IN EFFECT ON SCROLL)
+========================= */
+const posts = document.querySelectorAll(".post");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0px) scale(1)";
+      entry.target.style.transition = "opacity .6s ease, transform .6s cubic-bezier(.16,1,.3,1)";
+    }
+  });
+}, { threshold: 0.05 });
+
+posts.forEach(post => {
+  post.style.opacity = "0";
+  post.style.transform = "translateY(20px) scale(.99)";
+  observer.observe(post);
+});
+</script>
+
+</body>
+</html>
