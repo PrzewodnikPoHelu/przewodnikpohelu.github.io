@@ -234,345 +234,7 @@
       transform: translateX(-320px);
     }
 
-    /* ---------- KONTENER GŁÓWNY ---------- */
-    .container-main {
-      width: 90%;
-      max-width: 1500px;
-      margin: auto;
-    }
-
     
-
-    /* ---------- SEKCJE: NAGŁÓWKI I SLIDERY ---------- */
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 2rem;
-      margin-bottom: 4vh;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 3vw, 3rem);
-      font-weight: 700;
-      line-height: 110%;
-      white-space: nowrap;
-    }
-
-    /* Przyciski slidera (strzałki) */
-    .slider-controls {
-      display: flex;
-      gap: 0.7rem;
-    }
-
-    .slider-btn {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, .12);
-      background: rgba(255, 255, 255, .05);
-      color: white;
-      font-size: 1.6rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: .3s;
-      backdrop-filter: blur(10px);
-    }
-
-    .slider-btn:hover {
-      background: white;
-      color: black;
-      transform: translateY(-2px);
-    }
-
-    .slider-btn:disabled {
-      opacity: .2;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    /* ---------- KARTY (SLIDER HORYZONTALNY) ---------- */
-    .cards-grid, .cards-grid-oferta {
-      display: flex;
-      gap: 2vw;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      flex-wrap: nowrap;
-      scroll-behavior: smooth;
-      padding-bottom: 2rem;
-    }
-
-    .cards-grid .card, .cards-grid-oferta .card {
-      flex: 0 0 33.333%;
-      scroll-snap-align: start;
-    }
-
-    /* Ukrycie scrollbara */
-    .cards-grid::-webkit-scrollbar, .cards-grid-oferta::-webkit-scrollbar {
-      display: none;
-    }
-
-    .cards-grid, .cards-grid-oferta {
-      scrollbar-width: none;
-    }
-
-    /* Karta pojedyncza */
-    .card {
-      border: 1px solid rgba(255, 255, 255, .05);
-        background:
-  linear-gradient(
-    180deg,
-        rgba(255, 255, 255, 0.013),
-        rgba(0, 145, 255, 0.059)
-
-
-  );
-      border-radius: 2rem;
-      overflow: hidden;
-      transition: .45s;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      border-color: rgba(255, 255, 255, .15);
-    }
-
-    .card-img {
-      height: 45vh;
-      overflow: hidden;
-    }
-
-    .card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 2rem;
-    }
-
-    .card-category {
-      font-size: .8rem;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-
-    .card-title {
-      font-size: 1.7rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .card-text {
-      line-height: 180%;
-      color: #c8c8c8;
-    }
-
-    .card-link {
-      margin-top: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1rem 1.2rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid rgba(255, 255, 255, .06);
-      transition: .4s;
-    }
-
-    .card-link span {
-      font-size: .88rem;
-      font-weight: 500;
-      color: white;
-    }
-
-    .card-arrow {
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 50%;
-      background: white;
-      color: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: .4s;
-      flex-shrink: 0;
-      font-size: 1.5rem;
-    }
-
-    .card-link:hover {
-      background: white;
-      transform: translateY(-2px);
-    }
-
-    .card-link:hover span {
-      color: black;
-    }
-
-    .card-link:hover .card-arrow {
-      background: black;
-      color: white;
-      transform: translateX(4px);
-    }
-
-    
-    /* =========================
-   TABLET
-   ========================= */
-@media (max-width: 1024px) {
-
-  .cards-grid,
-  .cards-grid-oferta {
-    gap: 3vw !important;
-    padding-bottom: 1.5rem !important;
-  }
-
-  .cards-grid .card,
-  .cards-grid-oferta .card {
-    flex: 0 0 calc(50% - 1.5vw) !important;
-  }
-
-  .card {
-    border-radius: 1.8rem !important;
-  }
-
-  .card-img {
-    height: 34vh !important;
-  }
-
-  .card-content {
-    padding: 1.8rem !important;
-  }
-
-  .card-title {
-    font-size: 1.5rem !important;
-  }
-
-  .card-text {
-    font-size: 0.95rem !important;
-    line-height: 175% !important;
-  }
-
-  .card-link {
-    padding: 0.95rem 1.1rem !important;
-  }
-
-  .card-arrow {
-    width: 2.3rem !important;
-    height: 2.3rem !important;
-    font-size: 1.3rem !important;
-  }
-
-}
-
-
-/* =========================
-   TELEFON
-   ========================= */
-@media (max-width: 768px) {
-
-  .cards-grid,
-  .cards-grid-oferta {
-    gap: 1rem !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-    padding-bottom: 1rem !important;
-  }
-
-  .cards-grid .card,
-  .cards-grid-oferta .card {
-    flex: 0 0 88% !important;
-  }
-
-  .card {
-    border-radius: 1.5rem !important;
-  }
-
-  .card-img {
-    height: 260px !important;
-  }
-
-  .card-content {
-    padding: 1.4rem !important;
-  }
-
-  .card-category {
-    font-size: 0.75rem !important;
-    margin-bottom: 0.7rem !important;
-  }
-
-  .card-title {
-    font-size: 1.3rem !important;
-    line-height: 1.3 !important;
-    margin-bottom: 0.8rem !important;
-  }
-
-  .card-text {
-    font-size: 0.92rem !important;
-    line-height: 170% !important;
-  }
-
-  .card-link {
-    margin-top: 1.5rem !important;
-    padding: 0.9rem 1rem !important;
-  }
-
-  .card-link span {
-    font-size: 0.82rem !important;
-  }
-
-  .card-arrow {
-    width: 2.2rem !important;
-    height: 2.2rem !important;
-    font-size: 1.2rem !important;
-  }
-
-}
-
-
-/* =========================
-   MAŁY TELEFON
-   ========================= */
-@media (max-width: 480px) {
-
-  .cards-grid .card,
-  .cards-grid-oferta .card {
-    flex: 0 0 92% !important;
-  }
-
-  .card-img {
-    height: 220px !important;
-  }
-
-  .card-content {
-    padding: 1.2rem !important;
-  }
-
-  .card-title {
-    font-size: 1.15rem !important;
-  }
-
-  .card-text {
-    font-size: 0.88rem !important;
-  }
-
-  .card-link {
-    padding: 0.85rem 0.95rem !important;
-  }
-
-  .card-arrow {
-    width: 2rem !important;
-    height: 2rem !important;
-    font-size: 1.05rem !important;
-  }
-
-}
 
     /* ---------- SEKCJA O MNIE (PRZEWODNIK) ---------- */
     .about-min {
@@ -2037,284 +1699,850 @@ animation-delay:.6s;
 
 }</style>
 
-
-      <!-- SEKCJA ATRAKCJE (SLIDER) -->
-      <section id="atrakcje">
-        <div class="container-main">
-          <div class="section-header reveal">
-            <div>
-              <h2 class="section-title">Helskie Atrakcje</h2>
-            </div>
-            <div class="slider-controls">
-              <button class="slider-btn left">‹</button>
-              <button class="slider-btn right">›</button>
-            </div>
-          </div>
-          <div class="cards-grid">
-            <!-- Karta 1 -->
-            <div class="card reveal">
-              <div class="card-img"><img src="https://cetniewo.pl/wp-content/uploads/2023/05/hel-pazdziernik-94.jpg" alt="Wycieczka Plenerowa"></div>
-              <div class="card-content">
-                <p class="card-category">Wycieczka</p>
-                <h3 class="card-title">Wycieczka plenerowa ("pod chmurką")</h3>
-                <p class="card-text">po największych helskich atrakcjach</p>
-                        <!-- BUTTON -->
-        <a href="#" class="pricing-btn">
-          <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
-            <i class="fa-solid fa-person-hiking"></i>
-          </div>
-          <span>
-            Zarezerwuj wycieczkę
-          </span>
-        </a>
-              </div>
-            </div>
-            <!-- Karta 2 -->
-            <div class="card reveal">
-              <div class="card-img"><img src="https://gohel.pl/files/image/OO/Muzeum-Obrony-Wybrzeza/mow3.jpg" alt="Muzeum Obrony Wybrzeża"></div>
-              <div class="card-content">
-                <p class="card-category">Muzeum</p>
-                <h3 class="card-title">Muzeum Obrony Wybrzeża</h3>
-                <p class="card-text">Zwiedzanie Muzeum Obrony Wybrzeża</p>
-        <!-- BUTTON -->
-        <a href="#" class="pricing-btn">
-          <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
-            <i class="fa-solid fa-landmark"></i>
-          </div>
-          <span>
-            Zarezerwuj wycieczkę
-          </span>
-        </a>
-              </div>
-            </div>
-            <!-- Karta 3 -->
-            <div class="card reveal">
-              <div class="card-img"><img src="https://d37rmf1ynyg9aw.cloudfront.net/fit-in/1280x1280/data/v4/resources/images/86df68d5-5ec0-4cf5-b93e-916fb2ba2003.jpeg" alt="Muzeum Helu"></div>
-              <div class="card-content">
-                <p class="card-category">Muzeum</p>
-                <h3 class="card-title">Muzeum Helu</h3>
-                <p class="card-text">Zwiedzanie Muzeum Helu</p>
-        <!-- BUTTON -->
-        <a href="#" class="pricing-btn">
-          <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
-            <i class="fa-solid fa-landmark"></i>
-          </div>
-          <span>
-            Zarezerwuj wycieczkę
-          </span>
-        </a>
-              </div>
-            </div>
-            <!-- Karta 4 -->
-            <div class="card reveal">
-              <div class="card-img"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/637038_Hel_muz._Ryboustwa_01.JPG" alt="Muzeum Rybołówstwa"></div>
-              <div class="card-content">
-                <p class="card-category">Muzeum</p>
-                <h3 class="card-title">Muzeum Rybołówstwa</h3>
-                <p class="card-text">Zwiedzanie Muzeum Rybołówstwa</p>
-        <!-- BUTTON -->
-        <a href="#" class="pricing-btn">
-          <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
-            <i class="fa-solid fa-landmark"></i>
-          </div>
-          <span>
-            Zarezerwuj wycieczkę
-          </span>
-        </a>
-              </div>
-            </div>
-            <!-- Karta 5 -->
-            <div class="card reveal">
-              <div class="card-img"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/637038_Hel_muz._Ryboustwa_01.JPG" alt="Muzeum Rybołówstwa"></div>
-              <div class="card-content">
-                <p class="card-category">Muzeum</p>
-                <h3 class="card-title">Muzeum Rybołówstwa</h3>
-                <p class="card-text">Zwiedzanie Muzeum Rybołówstwa</p>
-        <!-- BUTTON -->
-        <a href="#" class="pricing-btn">
-          <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
-            <i class="fa-solid fa-water"></i>
-          </div>
-          <span>
-            Zarezerwuj wycieczkę
-          </span>
-        </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SEKCJA OFERTA DLA GRUP -->
-      <section id="oferta">
-        <div class="container-main">
-          <div class="section-header reveal">
-            <div>
-              <h2 class="section-title">Oferta dla grup</h2>
-            </div>
-            <div class="slider-controls">
-              <button class="slider-btn left">‹</button>
-              <button class="slider-btn right">›</button>
-            </div>
-          </div>
-          <div class="cards-grid-oferta">
-            <!-- analogiczne karty, 4 przykładowe -->
-            <div class="card reveal">
-              <div class="card-img"><img src="https://lh3.googleusercontent.com/p/AF1QipO48fwOou3clReI2neXarHXkx3QOkaHwC5GtRZz=s680-w680-h510-rw" alt="Wycieczka grupowa"></div>
-              <div class="card-content"><p class="card-category">Duże grupy</p><h3 class="card-title">Duże grupy zorganizowane</h3><p class="card-text">Wycieczka dla min. 20 osób</p>
-        <!-- BUTTON -->
-        <a href="#" class="pricing-btn">
-          <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
-            <i class="fa-solid fa-people-group"></i>
-          </div>
-          <span>
-            Zarezerwuj wycieczkę
-          </span>
-        </a>
-            </div>
-            </div>
-            <div class="card reveal">
-              <div class="card-img"><img src="https://lh3.googleusercontent.com/p/AF1QipOCs1iZqGpcdbtGW3S7nqdtEZPPoWoODOBWZbjJ=s680-w680-h510-rw" alt="Historia"></div>
-              <div class="card-content"><p class="card-category">Dla każdego</p><h3 class="card-title">Rodziny i osoby indywidualne</h3><p class="card-text">Wycieczki dla rodzin oraz osób indywidualnych</p>
-        <!-- BUTTON -->
-        <a href="#" class="pricing-btn">
-          <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
-            <i class="fa-solid fa-people-pulling"></i>
-          </div>
-          <span>
-            Zarezerwuj wycieczkę
-          </span>
-        </a>
-            </div>
-            </div>
-            <div class="card reveal">
-              <div class="card-img"><img src="https://lh3.googleusercontent.com/p/AF1QipPeLSSisIIFmjYmNW-KDkNiPoa-HL4dQk1IqfBa=s680-w680-h510-rw" alt="Rejsy"></div>
-              <div class="card-content"><p class="card-category">Szkolne wycieczki</p><h3 class="card-title">Wycieczki szkolne</h3><p class="card-text">Zdecydowanie najlepszy wybór dla szkół</p>
-        <!-- BUTTON -->
-        <a href="#" class="pricing-btn">
-          <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
-            <i class="fa-solid fa-graduation-cap"></i>
-          </div>
-          <span>
-            Zarezerwuj wycieczkę
-          </span>
-        </a>
-            </div>
-            </div>
-            <div class="card reveal">
-              <div class="card-img"><img src="https://lh3.googleusercontent.com/p/AF1QipNeglrGtSH3Q_WYzzAEHK0yMwbgRMuSvg5VRCA3=s680-w680-h510-rw" alt="Kulinaria"></div>
-              <div class="card-content"><p class="card-category">Seniorzy</p><h3 class="card-title">Seniorzy</h3><p class="card-text">Dostosowana wycieczka dla osób w wieku seniorskim</p>
-        <!-- BUTTON -->
-        <a href="#" class="pricing-btn">
-          <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
-            <i class="fa-solid fa-person-cane"></i>
-          </div>
-          <span>
-            Zarezerwuj wycieczkę
-          </span>
-        </a>
-            </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- =========================
-  ABOUT HEL V4 — BALANCED PREMIUM
-========================= -->
-
-<section class="hel-about-v4" id="o-mnie">
+<!-- ===================================================
+     SEKCJA ATRAKCJE (SLIDER ULTRA-PREMIUM)
+     =================================================== -->
+<section id="atrakcje" class="pricing-premium-section" style="background: #030303;">
+  <div class="pricing-glow-1"></div>
+  <div class="pricing-glow-2"></div>
 
   <div class="container-main">
+    
+    <div class="section-header reveal">
+      <div class="header-text-group">
+        <span class="pricing-kicker">ODKRYJ PÓŁWYSEP</span>
+        <h2 class="section-title">Helskie Atrakcje</h2>
+      </div>
+      <div class="slider-controls">
+        <button class="slider-btn left">‹</button>
+        <button class="slider-btn right">›</button>
+      </div>
+    </div>
 
-    <div class="hel-about-v4-card">
-
-      <!-- IMAGE -->
-      <div class="hel-about-v4-media">
-
-        <img src="Daniel Kretkiewicz.png" alt="Przewodnik Hel">
-
-        <div class="hel-about-v4-badge">
-          <i class="fa-solid fa-location-dot"></i>
-          <a href="https://www.google.com/search?q=Hel&sca_esv=515e544df15d7837&sxsrf=ANbL-n5teE4JO7HU5sYOa3Dz6kCAU7wjdQ%3A1779973488837&ei=cD0YatHqMrL8wPAPsa7MIQ&biw=1920&bih=992&ved=0ahUKEwjR4ov8hdyUAxUyPhAIHTEXMwQQ4dUDCBA&uact=5&oq=Hel&gs_lp=Egxnd3Mtd2l6LXNlcnAiA0hlbDIQECMY8AUYyQIYgAQYigUYJzIKECMY8AUYyQIYJzIEECMYJzIQEC4YQxiDARixAxiABBiKBTIKEAAYgAQYigUYQzIQEC4YgAQYigUYQxjHARivATIKEC4YgAQYigUYQzIKEAAYgAQYigUYQzIKEAAYgAQYigUYQzIKEAAYgAQYigUYQ0jwClCBB1jKCXAAeASQAQCYAWegAZICqgEDMi4xuAEDyAEA-AEBmAIGoAK3AsICBBAAGEfCAgoQIxjJAhjwBRgnwgIWEC4YgAQYigUYQxjHARivARiYBRiZBcICEBAjGMkCGPAFGIAEGIoFGCeYAwDiAwUSATEgQIgGAZAGCJIHAzUuMaAH4TGyBwMyLjG4B6oCwgcHMC4yLjMuMcgHG4AIAQ&sclient=gws-wiz-serp"><span>Półwysep Helski</span></a>
+    <div class="cards-grid">
+      
+      <!-- Karta 1 -->
+      <div class="card reveal">
+        <div class="card-img"><img src="https://cetniewo.pl/wp-content/uploads/2023/05/hel-pazdziernik-94.jpg" alt="Wycieczka Plenerowa"></div>
+        <div class="card-content">
+          <div class="card-header-block">
+            <div class="icon-box-wrapper"><i class="fa-solid fa-person-hiking"></i></div>
+            <div class="title-box">
+              <p class="card-category">Wycieczka</p>
+              <h3 class="card-title">Wycieczka plenerowa ("pod chmurką")</h3>
+            </div>
+          </div>
+          <p class="card-text">Kompleksowe przejście po największych i najbardziej spektakularnych helskich atrakcjach.</p>
+          <a href="#" class="pricing-btn">
+            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;"><i class="fa-solid fa-person-hiking"></i></div>
+            <span>Zarezerwuj wycieczkę</span>
+          </a>
         </div>
-
       </div>
 
-      <!-- CONTENT -->
+      <!-- Karta 2 -->
+      <div class="card reveal">
+        <div class="card-img"><img src="https://gohel.pl/files/image/OO/Muzeum-Obrony-Wybrzeza/mow3.jpg" alt="Muzeum Obrony Wybrzeża"></div>
+        <div class="card-content">
+          <div class="card-header-block">
+            <div class="icon-box-wrapper"><i class="fa-solid fa-landmark"></i></div>
+            <div class="title-box">
+              <p class="card-category">Muzeum</p>
+              <h3 class="card-title">Muzeum Obrony Wybrzeża</h3>
+            </div>
+          </div>
+          <p class="card-text">Niezapomniane zwiedzanie stanowisk artyleryjskich potężnej baterii Schleswig-Holstein.</p>
+          <a href="#" class="pricing-btn">
+            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;"><i class="fa-solid fa-landmark"></i></div>
+            <span>Zarezerwuj wycieczkę</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Karta 3 -->
+      <div class="card reveal">
+        <div class="card-img"><img src="https://d37rmf1ynyg9aw.cloudfront.net/fit-in/1280x1280/data/v4/resources/images/86df68d5-5ec0-4cf5-b93e-916fb2ba2003.jpeg" alt="Muzeum Helu"></div>
+        <div class="card-content">
+          <div class="card-header-block">
+            <div class="icon-box-wrapper"><i class="fa-solid fa-landmark"></i></div>
+            <div class="title-box">
+              <p class="card-category">Muzeum</p>
+              <h3 class="card-title">Muzeum Helu</h3>
+            </div>
+          </div>
+          <p class="card-text">Zwiedzanie Muzeum Helu z licencjonowanym przewodnikiem, odkrywanie tajemnic regionu.</p>
+          <a href="#" class="pricing-btn">
+            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;"><i class="fa-solid fa-landmark"></i></div>
+            <span>Zarezerwuj wycieczkę</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Karta 4 -->
+      <div class="card reveal">
+        <div class="card-img"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/637038_Hel_muz._Ryboustwa_01.JPG" alt="Muzeum Rybołówstwa"></div>
+        <div class="card-content">
+          <div class="card-header-block">
+            <div class="icon-box-wrapper"><i class="fa-solid fa-landmark"></i></div>
+            <div class="title-box">
+              <p class="card-category">Muzeum</p>
+              <h3 class="card-title">Muzeum Rybołówstwa</h3>
+            </div>
+          </div>
+          <p class="card-text">Fascynująca lekcja historii rybołówstwa i dawnego życia mieszkańców Helu w zabytkowym kościele.</p>
+          <a href="#" class="pricing-btn">
+            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;"><i class="fa-solid fa-landmark"></i></div>
+            <span>Zarezerwuj wycieczkę</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     SEKCJA OFERTA DLA GRUP (SLIDER ULTRA-PREMIUM)
+     =================================================== -->
+<section id="oferta" class="pricing-premium-section" style="background: #030303; padding-top: 4vh;">
+  <div class="container-main">
+    
+    <div class="section-header reveal">
+      <div class="header-text-group">
+        <span class="pricing-kicker">ELASTYCZNE PAKIETY</span>
+        <h2 class="section-title">Oferta dla grup</h2>
+      </div>
+      <div class="slider-controls">
+        <button class="slider-btn left">‹</button>
+        <button class="slider-btn right">›</button>
+      </div>
+    </div>
+
+    <div class="cards-grid-oferta">
+      
+      <!-- Karta 1 -->
+      <div class="card reveal">
+        <div class="card-img"><img src="https://lh3.googleusercontent.com/p/AF1QipO48fwOou3clReI2neXarHXkx3QOkaHwC5GtRZz=s680-w680-h510-rw" alt="Wycieczka grupowa"></div>
+        <div class="card-content">
+          <div class="card-header-block">
+            <div class="icon-box-wrapper unique-gold"><i class="fa-solid fa-people-group"></i></div>
+            <div class="title-box">
+              <p class="card-category gold-tag">Duże grupy</p>
+              <h3 class="card-title">Duże grupy zorganizowane</h3>
+            </div>
+          </div>
+          <p class="card-text">Dedykowane pakiety wycieczkowe stworzone optymalnie dla grup liczących minimum 20 osób.</p>
+          <a href="#" class="pricing-btn">
+            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;"><i class="fa-solid fa-people-group"></i></div>
+            <span>Zarezerwuj wycieczkę</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Karta 2 -->
+      <div class="card reveal">
+        <div class="card-img"><img src="https://lh3.googleusercontent.com/p/AF1QipOCs1iZqGpcdbtGW3S7nqdtEZPPoWoODOBWZbjJ=s680-w680-h510-rw" alt="Historia"></div>
+        <div class="card-content">
+          <div class="card-header-block">
+            <div class="icon-box-wrapper"><i class="fa-solid fa-people-pulling"></i></div>
+            <div class="title-box">
+              <p class="card-category">Dla każdego</p>
+              <h3 class="card-title">Rodziny i osoby indywidualne</h3>
+            </div>
+          </div>
+          <p class="card-text">Kameralne spacery z przewodnikiem dostosowane do tempa i zainteresowań Twoich najbliższych.</p>
+          <a href="#" class="pricing-btn">
+            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;"><i class="fa-solid fa-people-pulling"></i></div>
+            <span>Zarezerwuj wycieczkę</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Karta 3 -->
+      <div class="card reveal">
+        <div class="card-img"><img src="https://lh3.googleusercontent.com/p/AF1QipPeLSSisIIFmjYmNW-KDkNiPoa-HL4dQk1IqfBa=s680-w680-h510-rw" alt="Rejsy"></div>
+        <div class="card-content">
+          <div class="card-header-block">
+            <div class="icon-box-wrapper"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="title-box">
+              <p class="card-category">Szkolne wycieczki</p>
+              <h3 class="card-title">Wycieczki szkolne</h3>
+            </div>
+          </div>
+          <p class="card-text">Edukacja przez świetną zabawę. Bezpieczne i pełne pasji wycieczki dla dzieci i młodzieży.</p>
+          <a href="#" class="pricing-btn">
+            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;"><i class="fa-solid fa-graduation-cap"></i></div>
+            <span>Zarezerwuj wycieczkę</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Karta 4 -->
+      <div class="card reveal">
+        <div class="card-img"><img src="https://lh3.googleusercontent.com/p/AF1QipNeglrGtSH3Q_WYzzAEHK0yMwbgRMuSvg5VRCA3=s680-w680-h510-rw" alt="Kulinaria"></div>
+        <div class="card-content">
+          <div class="card-header-block">
+            <div class="icon-box-wrapper"><i class="fa-solid fa-person-cane"></i></div>
+            <div class="title-box">
+              <p class="card-category">Seniorzy</p>
+              <h3 class="card-title">Seniorzy</h3>
+            </div>
+          </div>
+          <p class="card-text">Programy zwiedzania ułożone bez pośpiechu, z dbałością o komfort oraz pełną dostępność logistyczną.</p>
+          <a href="#" class="pricing-btn">
+            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;"><i class="fa-solid fa-person-cane"></i></div>
+            <span>Zarezerwuj wycieczkę</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ===================================================
+     ABOUT HEL V4 — ULTRA PREMIUM COMPACT (WHITE & BLUE)
+     =================================================== -->
+<section class="hel-about-v4" id="o-mnie" style="background: #030303;">
+  <div class="pricing-glow-1"></div>
+  <div class="pricing-glow-2"></div>
+
+  <div class="container-main">
+    <div class="hel-about-v4-card reveal">
+
+      <!-- LEWA STRONA: MONUMENTALNY BLOK MULTIMEDIALNY -->
+      <div class="hel-about-v4-media">
+        <img src="Daniel Kretkiewicz.png" alt="Przewodnik Hel Daniel Kretkiewicz">
+        <div class="hel-about-v4-badge">
+          <!-- BIAŁA PINEZKA -->
+          <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i>
+          <a href="https://www.google.com/search?q=Hel..."><span>Półwysep Helski</span></a>
+        </div>
+      </div>
+
+      <!-- PRAWA STRONA: TREŚĆ Z PRZYCISKIEM NA DOLE -->
       <div class="hel-about-v4-content">
-
-        <p class="hel-about-v4-kicker">MOJA HISTORIA</p>
-
-        <h2 class="hel-about-v4-title">
-          Daniel Krekiewicz
-        </h2>
+        
+        <div class="card-header-block" style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 1.2rem; gap: 0.15rem;">
+          <p class="hel-about-v4-kicker">MOJA HISTORIA</p>
+          <h2 class="hel-about-v4-title">Daniel Kretkiewicz</h2>
+        </div>
 
         <p class="hel-about-v4-lead">
-            Nazywam się Daniel Kretkiewicz, mam 48 lat i jestem szczęśliwym mężem oraz ojcem trójki dzieci. W Helu zakochałem się jeszcze jako nastolatek, kiedy to w 1996 roku zamieszkałem tu na stałe. Już wtedy zaczęła fascynować mnie historia i kultura tej niezwykłej krainy. Przez większość życia zbierałem najróżniejsze pamiątki związane z dziejami Helu i całego Półwyspu Helskiego.
+          Nazywam się Daniel Kretkiewicz, mam 48 lat i jestem szczęśliwym mężem oraz ojcem trójki dzieci. W Helu zakochałem się jeszcze jako nastolatek, kiedy to w 1996 roku zamieszkałem tu na stałe. Już wtedy zaczęła fascynować mnie historia i kultura tej niezwykłej krainy. Przez większość życia zbierałem najróżniejsze pamiątki związane z dziejami Helu i całego Półwyspu Helskiego.
         </p>
 
         <div class="hel-about-v4-more" id="helMore">
-
           <p>
             Po powstaniu w Helu Muzeum Obrony Wybrzeża oraz Muzeum Helu, znaczna część mojej kolekcji zasiliła tamtejsze ekspozycje. Daje mi to ogromną satysfakcję, bo wiem, że dołożyłem swoją cegiełkę aby odwiedzający te miejsca, a także przyszłe pokolenia miłośników Helu, mogli czerpać wiedzę i radość z obcowania z dziedzictwem naszego wyjątkowego półwyspu.
           </p>
-
           <p>
-            W latach 2010–2011 ukończyłem szkolenie zakończone państwowym egzaminem, uzyskując uprawnienia Terenowego Przewodnika Turystycznego. Choć posiadam kwalifikacje do oprowadzania nie tylko po Półwyspie Helskim, ale również po całym powiecie puckim (do którego należy Hel), a także po powiatach wejherowskim i lęborskim, od wielu lat skupiam się wyłącznie na helskiej ziemi. Nieustannie się szkolę i poszerzam swoją wiedzę, aby móc dzielić się nią w jak najbardziej rzetelny i ciekawy sposób.
+            W latach 2010–2011 ukończykiem szkolenie zakończone państwowym egzaminem, uzyskując uprawnienia Terenowego Przewodnika Turystycznego. Choć posiadam kwalifikacje do oprowadzania nie tylko po Półwyspie Helskim, ale również po całym powiecie puckim (do którego należy Hel), a także po powiatach wejherowskim i lęborskim, od wielu lat skupiam się wyłącznie na helskiej ziemi. Nieustannie się szkolę i poszerzam swoją wiedzę, aby móc dzielić się nią w jak najbardziej rzetelny i ciekawy sposób.
           </p>
-
         </div>
 
-        <!-- TOGGLE (SPÓJNY Z INNYMI SEKCJAMI) -->
+        <!-- TOGGLE BUTTON -->
         <button class="hel-about-v4-toggle" id="helToggle">
           <span>Czytaj więcej</span>
-          <i class="fa-solid fa-plus"></i>
+          <i class="fa-solid fa-plus" style="color: #0077ff;"></i>
         </button>
 
-        <!-- STATS -->
+        <!-- LUKSUSOWE STATYSTYKI — NUMERKI NA BIALO -->
         <div class="hel-about-v4-stats">
-
           <div class="hel-about-v4-stat">
             <h3 class="counter" data-target="15">0</h3>
             <span>lat doświadczenia</span>
           </div>
-
           <div class="hel-about-v4-stat">
             <h3 class="counter" data-target="1700">0</h3>
             <span>wycieczek</span>
           </div>
-
           <div class="hel-about-v4-stat">
             <h3 class="counter" data-target="370">0</h3>
             <span>ocena 5,0 ★</span>
           </div>
-
         </div>
 
-        <!-- BUTTON -->
+        <!-- PRZYCISK ZGODNY Z RESZTĄ STRONY -->
         <a href="#" class="pricing-btn">
           <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
             <i class="fa-solid fa-map-location-dot"></i>
           </div>
-          <span>
-            Zarezerwuj wycieczkę
-          </span>
+          <span>Zarezerwuj wycieczkę</span>
         </a>
 
       </div>
 
     </div>
-
   </div>
-
 </section>
 
+<!-- ===================================================
+     PREMIUM STYLE REFRESH FOR ABOUT SECTION
+     =================================================== -->
+<style>
+.hel-about-v4 {
+  position: relative;
+  overflow: hidden;
+  padding: 10vh 0;
+}
 
-      <!-- =========================
-  KONTAKT PREMIUM
-========================= -->
+/* KARTA - SPERSONALIZOWANY GRADIENT AKCENTUJĄCY CYJAN/NIEBIESKI */
+.hel-about-v4-card {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2.2rem;
+  border-radius: 1.8rem;
+  background: linear-gradient(180deg, rgba(0, 119, 255, 0.04) 0%, rgba(255, 255, 255, 0.005) 100%);
+  border: 1px solid rgba(0, 119, 255, 0.12);
+  backdrop-filter: blur(2rem);
+  -webkit-backdrop-filter: blur(2rem);
+  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
+.hel-about-v4-card:hover {
+  border-color: rgba(0, 119, 255, 0.25);
+}
+
+/* SEKCJA MEDIA */
+.hel-about-v4-media {
+  position: relative;
+  min-height: 48vh;
+  border-radius: 1.4rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.hel-about-v4-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(3,3,3,0.4) 100%);
+}
+.hel-about-v4-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hel-about-v4-badge {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: rgba(3, 3, 3, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 2;
+}
+.hel-about-v4-badge a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* KONTENER TEKSTU */
+.hel-about-v4-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.hel-about-v4-kicker {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.25rem;
+  color: #0077ff; 
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.hel-about-v4-title {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.hel-about-v4-lead {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #bdbdbd;
+  margin: 0 0 1.2rem 0;
+}
+
+/* ROZWIJANIE TEKSTU */
+.hel-about-v4-more {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-bottom: 0;
+}
+.hel-about-v4-more.active {
+  max-height: 40rem;
+  opacity: 1;
+  margin-bottom: 1.2rem;
+}
+.hel-about-v4-more p {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #a8a8a8;
+  margin-bottom: 0.8rem;
+}
+
+/* PRZYCISK ROZWIJANIA */
+.hel-about-v4-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: rgba(0, 119, 255, 0.03);
+  border: 1px solid rgba(0, 119, 255, 0.15);
+  color: white;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hel-about-v4-toggle:hover {
+  color: rgb(0, 119, 255);
+  background: rgba(0, 119, 255, 0.1);
+  border-color: rgba(0, 119, 255, 0.4);
+}
+
+/* STATYSTYKI */
+.hel-about-v4-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+.hel-about-v4-stat {
+  padding: 1.1rem 0.8rem;
+  border-radius: 1.2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hel-about-v4-stat:hover {
+  border-color: rgba(0, 119, 255, 0.3);
+  background: rgba(0, 119, 255, 0.02);
+}
+.hel-about-v4-stat h3 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #ffffff; /* NUMERKI SĄ TERAZ BIAŁE */
+  margin: 0 0 0.2rem 0;
+  letter-spacing: -0.02em;
+}
+.hel-about-v4-stat span {
+  display: block;
+  font-size: 0.72rem;
+  color: #8a8a8a;
+  line-height: 1.3;
+}
+
+/* PRZYCISK NA SAMYM DOLE */
+.hel-about-v4-content .pricing-btn {
+  margin-top: auto;
+}
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 900px) {
+  .hel-about-v4-card {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+    padding: 1.3rem;
+  }
+  .hel-about-v4-media {
+    min-height: 320px;
+  }
+  .hel-about-v4-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .hel-about-v4-stat {
+    padding: 0.8rem 0.4rem;
+  }
+  .hel-about-v4-stat h3 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hel-about-v4-stats {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+}
+</style>
+<!-- ===================================================
+     PREMIUM STYLE CSS
+     =================================================== -->
+<style>
+/* KONTENER STRONY */
+.container-main {
+  width: 90%;
+  max-width: 1500px;
+  margin: auto;
+}
+
+/* PODŚWIETLENIA TŁA */
+.pricing-premium-section {
+  position: relative;
+  overflow: hidden;
+  padding: 6vh 0;
+}
+.pricing-glow-1 {
+  position: absolute;
+  top: 10%;
+  left: -5%;
+  width: 35rem;
+  height: 35rem;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.05) 0%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+.pricing-glow-2 {
+  position: absolute;
+  bottom: -5%;
+  right: -5%;
+  width: 35rem;
+  height: 35rem;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.03) 0%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* NAGŁÓWEK SEKCJII */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 5vh;
+  text-align: left;
+}
+.header-text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.pricing-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.25rem;
+  color: #0077ff;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.section-title {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* STRZAŁKI SLIDERA OBOK SIEBIE */
+.slider-controls {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+.slider-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, .12);
+  background: rgba(255, 255, 255, .04);
+  color: white;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.slider-btn:hover {
+  background: white;
+  color: black;
+  transform: translateY(-2px);
+  border-color: white;
+}
+.slider-btn:disabled {
+  opacity: .2;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* KONTENERY SLIDERA (WYMUSZENIE RÓWNEJ WYSOKOŚCI SYSTEMEM GRID-AUTO-ROWS) */
+.cards-grid, .cards-grid-oferta {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(33.333% - 1.2rem); /* Dynamiczna szerokość kolumn na desktopie */
+  grid-auto-rows: 1fr; /* KLUCZ: Wszystkie wygenerowane wiersze mają identyczną wysokość (100% najwyższej karty) */
+  gap: 1.8rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 0 2.5rem 0;
+  position: relative;
+  z-index: 1;
+}
+.cards-grid::-webkit-scrollbar, .cards-grid-oferta::-webkit-scrollbar { display: none; }
+.cards-grid, .cards-grid-oferta { scrollbar-width: none; }
+
+/* STRUKTURA POJEDYNCZEJ KARTY */
+.card {
+  position: relative;
+  border-radius: 1.8rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(2rem);
+  -webkit-backdrop-filter: blur(2rem);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Układ pionowy dla idealnego wyrównania elementów wnętrza */
+  height: 100%; /* Karta wypełnia przestrzeń narzuconą przez siatkę 1fr */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  scroll-snap-align: start;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 119, 255, 0.25);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* WYSOKIE BLOKI ZDJĘCIOWE */
+.card-img {
+  height: 42vh;
+  min-height: 280px;
+  overflow: hidden;
+  position: relative;
+}
+.card-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(3,3,3,0.5) 100%);
+}
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card:hover .card-img img {
+  transform: scale(1.05);
+}
+
+/* WNĘTRZE KARTY */
+.card-content {
+  padding: 1.8rem 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Pozwala wewnętrznemu kontenerowi rozwinąć się na pełną dostępną wysokość karty */
+}
+
+.card-header-block {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.icon-box-wrapper {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  color: #0077ff;
+  flex-shrink: 0;
+}
+.unique-gold {
+  color: #00d2ff;
+  background: rgba(0, 210, 255, 0.04);
+  border-color: rgba(0, 210, 255, 0.12);
+}
+
+.title-box {
+  display: flex;
+  flex-direction: column;
+}
+.card-category {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08rem;
+  color: #8a8a8a;
+  text-transform: uppercase;
+  margin: 0 0 0.15rem 0;
+}
+.gold-tag {
+  color: #00d2ff;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  line-height: 1.25;
+  margin: 0;
+}
+
+/* OPIS: ROZPYCHA PRZESTRZEŃ ABY PRZYCISK ZAWSZE BYŁ NA SAMYM DOLE */
+.card-text {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #999999;
+  margin: 0 0 1.8rem 0;
+  flex-grow: 1; /* KLUCZOWE: Popycha przycisk w dół, gwarantując idealną linię przycisków w każdej karcie */
+}
+
+/* PRZYCISK CTA */
+.pricing-btn {
+  margin-top: auto; /* Stabilizuje położenie przycisku przy dolnej krawędzi paddingu */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .03);
+  border: 1px solid rgba(255, 255, 255, .08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  color: white;
+  font-weight: 500;
+  font-size: 0.88rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  width: 100%;
+  text-decoration: none;
+}
+.pricing-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.6s ease;
+  z-index: -1;
+}
+.pricing-btn:hover::before { left: 100%; }
+.pricing-btn:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+.pricing-btn-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+/* ===================================================
+   RESPONSYWNOŚĆ: TABLET
+   =================================================== */
+@media (max-width: 1024px) {
+  .cards-grid, .cards-grid-oferta {
+    grid-auto-columns: calc(50% - 0.75rem);
+    gap: 1.5rem !important;
+  }
+  .card-img {
+    height: 34vh !important;
+  }
+}
+
+/* ===================================================
+   RESPONSYWNOŚĆ: MOBILE ULTRA-PREMIUM
+   =================================================== */
+@media (max-width: 768px) {
+  .section-header {
+    flex-direction: row !important;
+    align-items: flex-end !important;
+  }
+  
+  .slider-controls {
+    display: none !important;
+  }
+
+  .cards-grid, .cards-grid-oferta {
+    grid-auto-columns: 94%; /* Karty na mobile zajmują 94% szerokości ekranu */
+    gap: 0.8rem !important; 
+    padding: 0.5rem 0.8rem 1.5rem 0.8rem !important;
+    margin: 0 -5vw !important;
+    width: calc(100% + 10vw) !important;
+  }
+
+  .card-img {
+    height: 300px !important;
+  }
+
+  .card-content {
+    padding: 1.2rem 1.3rem !important; 
+  }
+
+  .card-header-block {
+    margin-bottom: 0.8rem !important;
+  }
+
+  .card-title {
+    font-size: 1.15rem !important;
+  }
+
+  .card-text {
+    margin-bottom: 1rem !important; 
+    font-size: 0.85rem !important;
+  }
+
+  .pricing-btn {
+    padding: 0.85rem 1.5rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+@media(max-width: 480px) {
+  .card-img {
+    height: 250px !important;
+  }
+}
+</style>
+
+
+<!-- ===================================================
+     KONTAKT PREMIUM SECTION HTML — W 100% ORYGINALNA STRUKTURA
+     =================================================== -->
 <section class="contact-section" id="kontakt">
 
   <div class="container-main">
@@ -2340,7 +2568,6 @@ animation-delay:.6s;
         </p>
 
         <!-- CONTACT BOX -->
-
         <a href="tel:+48500111222" class="contact-box">
 
           <div class="contact-box-glow"></div>
@@ -2361,7 +2588,6 @@ animation-delay:.6s;
         </a>
 
         <!-- CONTACT BOX -->
-
         <a href="mailto:gracjan.sliwinski2@gmail.com" class="contact-box">
 
           <div class="contact-box-glow"></div>
@@ -2382,7 +2608,6 @@ animation-delay:.6s;
         </a>
 
         <!-- CONTACT BOX -->
-
         <a 
         href="https://wa.me/48500111222" 
         target="_blank"
@@ -2512,14 +2737,14 @@ animation-delay:.6s;
           </div>
 
           <!-- BUTTON -->
-        <a href="#" class="pricing-btn">
-          <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
-            <i class="fa-solid fa-envelope"></i>
-          </div>
-          <span>
-            Wyślij wiadomość
-          </span>
-        </a>
+          <a href="#" class="pricing-btn">
+            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <span>
+              Wyślij wiadomość
+            </span>
+          </a>
 
         </form>
 
@@ -2531,14 +2756,14 @@ animation-delay:.6s;
 
 </section>
 
-
-
+<!-- ===================================================
+     STYLIZACJA SYSTEMOWA SEKCJI KONTAKTOWEJ
+     =================================================== -->
 <style>
 
 /* =========================
   CONTACT SECTION
 ========================= */
-
 .contact-section{
   padding:10vh 0;
   position:relative;
@@ -2548,13 +2773,10 @@ animation-delay:.6s;
 /* =========================
   GRID
 ========================= */
-
 .contact-wrapper{
   display:grid;
   grid-template-columns:.95fr 1.05fr;
-
   gap:1.4rem;
-
   max-width:1200px;
   margin:auto;
 }
@@ -2562,158 +2784,114 @@ animation-delay:.6s;
 /* =========================
   CARD STYLE
 ========================= */
-
 .contact-info,
 .contact-form-wrap{
   position:relative;
-
   overflow:hidden;
-
   padding:1.7rem;
-
   border-radius:1.8rem;
-
   background:
   linear-gradient(
     180deg,
-    rgba(0, 128, 255, 0.079),
+    rgba(0, 119, 255, 0.04), /* Delikatny luksusowy niebieski akcent w tle */
     rgba(255, 255, 255, 0)
   );
-
   border:
-  1px solid rgba(255,255,255,.08);
-
+  1px solid rgba(0, 119, 255, 0.12); /* Dopasowana ramka systemowa */
   backdrop-filter:blur(1.5rem);
-
   transition:.45s;
 }
 
 .contact-info::before,
 .contact-form-wrap::before{
   content:'';
-
   position:absolute;
   inset:0;
-
   background:
   radial-gradient(
     circle at top right,
-    rgba(0, 149, 255, 0.05),
+    rgba(0, 119, 255, 0.04),
     transparent 40%
   );
-
   pointer-events:none;
 }
 
 .contact-info:hover,
 .contact-form-wrap:hover{
   transform:translateY(-6px);
-
   border-color:
-  rgba(255,255,255,.14);
+  rgba(0, 119, 255, 0.25);
 }
-
-/* =========================
-  PATTERN
-========================= */
-
-
 
 /* =========================
   TEXT
 ========================= */
-
 .contact-mini,
 .form-mini{
   position:relative;
-
   font-size:.7rem;
   letter-spacing:.24rem;
-
-  color:#8e8e8e;
-
+  color:#0077ff; /* Spójny systemowy błękit dla małych nagłówków */
   margin-bottom:1rem;
-
   z-index:2;
 }
 
 .contact-title,
 .form-title{
   position:relative;
-
   font-size:2rem;
   font-weight:800;
-
   line-height:.92;
-
   margin-bottom:1rem;
-
   z-index:2;
 }
 
 .contact-text{
   position:relative;
-
   color:#9f9f9f;
-
   line-height:180%;
-
   font-size:.92rem;
-
   margin-bottom:2rem;
-
   z-index:2;
 }
 
 .form-top{
   position:relative;
   z-index:2;
-
   margin-bottom:1.4rem;
 }
 
 /* =========================
-  CONTACT BOX
+  CONTACT BOX (Nienaruszone odnośniki z lewej)
 ========================= */
-
 .contact-box{
   position:relative;
-
   display:flex;
   align-items:center;
-
   gap:1rem;
-
   overflow:hidden;
-
   padding:1rem;
-
   border-radius:1.2rem;
-
   margin-bottom:.8rem;
-
   background:
   rgba(255,255,255,.03);
-
   border:
   1px solid rgba(255,255,255,.06);
-
   transition:.35s;
+  text-decoration: none;
+  color: inherit;
 }
 
 .contact-box-glow{
   position:absolute;
   inset:0;
-
   background:
   radial-gradient(
     circle at top left,
     rgba(255,255,255,.08),
     transparent 60%
   );
-
   opacity:0;
-
   transition:.35s;
 }
 
@@ -2723,10 +2901,8 @@ animation-delay:.6s;
 
 .contact-box:hover{
   transform:translateX(.35rem);
-
   background:
   rgba(255,255,255,.055);
-
   border-color:
   rgba(255,255,255,.12);
 }
@@ -2734,26 +2910,21 @@ animation-delay:.6s;
 .contact-icon{
   width:3rem;
   height:3rem;
-
   border-radius:.95rem;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   flex-shrink:0;
-
   background:black;
-
   border:
   1px solid rgba(255,255,255,.08);
-
   font-size:.95rem;
+  color: white; /* Przywrócono oryginalny kolor biały */
 }
 
 .whatsapp{
   background:#000000;
-  color:white;
+  color:white; /* Przywrócono oryginalny kolor biały */
 }
 
 .contact-box-content{
@@ -2763,6 +2934,7 @@ animation-delay:.6s;
 .contact-box h4{
   font-size:.9rem;
   margin-bottom:.12rem;
+  margin-top: 0;
 }
 
 .contact-box span{
@@ -2773,27 +2945,21 @@ animation-delay:.6s;
 .contact-arrow{
   width:2.2rem;
   height:2.2rem;
-
   border-radius:50%;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   background:
   rgba(255,255,255,.05);
-
   border:
   1px solid rgba(255,255,255,.08);
-
   font-size:.7rem;
-
+  color: inherit;
   transition:.35s;
 }
 
 .contact-box:hover .contact-arrow{
   transform:translateX(3px);
-
   background:white;
   color:black;
 }
@@ -2801,38 +2967,28 @@ animation-delay:.6s;
 /* =========================
   FORM
 ========================= */
-
 .contact-form{
   position:relative;
-
   display:flex;
   flex-direction:column;
-
   gap:1rem;
-
   z-index:2;
 }
 
 /* =========================
   INPUTS
 ========================= */
-
 .form-group{
   position:relative;
 }
 
 .form-group i{
   position:absolute;
-
   top:50%;
   left:1rem;
-
   transform:translateY(-50%);
-
   color:#8c8c8c;
-
   font-size:.9rem;
-
   z-index:2;
 }
 
@@ -2840,31 +2996,22 @@ animation-delay:.6s;
 .form-group select,
 .form-group textarea{
   width:100%;
-
   background:
   rgba(255,255,255,.03);
-
   border:
   1px solid rgba(255,255,255,.06);
-
   outline:none;
-
   color:white;
-
   border-radius:1rem;
-
   padding:1rem 1rem 1rem 3rem;
-
   font-size:.88rem;
-
   transition:.35s;
+  font-family: inherit;
 }
 
 .form-group textarea{
   min-height:10rem;
-
   resize:none;
-
   padding-top:1.2rem;
 }
 
@@ -2880,116 +3027,35 @@ animation-delay:.6s;
 
 .form-group select{
   appearance:none;
+  -webkit-appearance: none;
   cursor:pointer;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus{
-  border-color:
-  rgba(255,255,255,.18);
-
-  background:
-  rgba(255,255,255,.05);
+  border-color: rgba(0, 119, 255, 0.4); /* Elegancki focus z poświatą błękitu */
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* =========================
-  BUTTON
+  MOBILE (ZOPTYMALIZOWANA GALERIA POZIOMA)
 ========================= */
-
-.contact-btn{
-  margin-top:.3rem;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  gap:1rem;
-
-  border:none;
-
-  cursor:pointer;
-
-  padding:1rem 1.2rem;
-
-  border-radius:999px;
-
-  background:
-  rgba(255,255,255,.04);
-
-  border:
-  1px solid rgba(255,255,255,.06);
-
-  transition:.4s;
-
-  color:white;
-}
-
-.contact-btn span{
-  font-size:.88rem;
-  font-weight:500;
-}
-
-.contact-btn-arrow{
-  width:2.5rem;
-  height:2.5rem;
-
-  border-radius:50%;
-
-  background:white;
-  color:black;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  flex-shrink:0;
-
-  transition:.4s;
-}
-
-.contact-btn:hover{
-  background:white;
-  transform:translateY(-2px);
-}
-
-.contact-btn:hover span{
-  color:black;
-}
-
-.contact-btn:hover .contact-btn-arrow{
-  background:black;
-  color:white;
-
-  transform:translateX(4px);
-}
-
-/* =========================
-  MOBILE
-========================= */
-
 @media(max-width:900px){
-
   .contact-section{
-    padding:7vh 0;
+    padding:6vh 0;
   }
 
   .contact-wrapper{
     display:flex;
     flex-wrap:nowrap;
-
-    gap:.8rem;
-
+    gap:1rem;
     overflow-x:auto;
     overflow-y:hidden;
-
     scroll-snap-type:x mandatory;
     scroll-behavior:smooth;
-
     width:100%;
-
-    padding-inline:.2rem 5vw;
-
+    padding: 0 1rem 1.5rem 1rem;
     -webkit-overflow-scrolling:touch;
   }
 
@@ -3003,127 +3069,100 @@ animation-delay:.6s;
 
   .contact-info,
   .contact-form-wrap{
-    min-width:84%;
-    width:84%;
-
-    flex:0 0 84%;
-
+    min-width:93%;
+    width:93%;
+    flex:0 0 93%;
     scroll-snap-align:center;
-
-    padding:1rem;
-
-    border-radius:1.25rem;
+    padding:1.5rem;
+    border-radius:1.5rem;
   }
 
   .contact-title,
   .form-title{
-    font-size:1.75rem;
-    line-height:.95;
+    font-size:1.85rem;
+    line-height:1.05;
   }
 
   .contact-mini,
   .form-mini{
-    font-size:.62rem;
+    font-size:.68rem;
     letter-spacing:.2rem;
   }
 
   .contact-text{
-    font-size:.78rem;
+    font-size:.88rem;
     line-height:165%;
   }
 
   .contact-box{
-    padding:.72rem;
-
-    border-radius:.95rem;
-
-    gap:.8rem;
-
-    margin-bottom:.7rem;
+    padding:.85rem;
+    border-radius:1rem;
+    gap:.9rem;
+    margin-bottom:.8rem;
   }
 
   .contact-icon{
-    width:2.45rem;
-    height:2.45rem;
-
-    border-radius:.8rem;
-
-    font-size:.78rem;
+    width:2.8rem;
+    height:2.8rem;
+    border-radius:.85rem;
+    font-size:.9rem;
   }
 
   .contact-box h4{
-    font-size:.76rem;
+    font-size:.88rem;
   }
 
   .contact-box span{
-    font-size:.66rem;
+    font-size:.75rem;
   }
 
   .contact-arrow{
-    width:1.8rem;
-    height:1.8rem;
-
-    font-size:.58rem;
+    width:2rem;
+    height:2rem;
+    font-size:.65rem;
   }
 
   .form-group i{
-    left:.9rem;
-    font-size:.8rem;
+    left:1rem;
+    font-size:.85rem;
   }
 
   .form-group input,
   .form-group select,
   .form-group textarea{
-    padding:.9rem .9rem .9rem 2.7rem;
-
-    border-radius:.95rem;
-
-    font-size:.8rem;
+    padding:1rem 1rem 1rem 2.8rem;
+    border-radius:1rem;
+    font-size:.85rem;
   }
 
   .form-group textarea{
-    min-height:8rem;
+    min-height:9rem;
   }
-
-  .contact-btn{
-    padding:.75rem .9rem;
-  }
-
-  .contact-btn span{
-    font-size:.72rem;
-  }
-
-  .contact-btn-arrow{
-    width:2rem;
-    height:2rem;
-
-    font-size:.72rem;
-  }
-
 }
 
 /* =========================
-  EXTRA SMALL
+  EXTRA SMALL (MAŁE SMARTFONY)
 ========================= */
-
 @media(max-width:520px){
-
   .contact-info,
+  .contact-wrapper {
+    min-width:99%;
+    width:99%;
+  }
   .contact-form-wrap{
-    min-width:88%;
-    width:88%;
-
-    flex:0 0 88%;
+    min-width:99%;
+    width:99%;
+    flex:0 0 95%;
+    padding: 1.25rem;
   }
 
   .contact-title,
   .form-title{
-    font-size:1.55rem;
+    font-size:1.65rem;
   }
-
 }
-
 </style>
+
 <script>  const helToggle = document.getElementById('helToggle');
 const helMore = document.getElementById('helMore');
 
@@ -3167,7 +3206,12 @@ const observer = new IntersectionObserver(entries => {
 
 counters.forEach(c => observer.observe(c));
 </script>
-<style>.blog-video{
+
+<!-- ===================================================
+     STYLIZACJA SYSTEMOWA SEKCJI BLOG-VIDEO (LUXURY BLUE)
+     =================================================== -->
+<style>
+.blog-video{
   padding:8vh 0;
 }
 
@@ -3187,7 +3231,7 @@ counters.forEach(c => observer.observe(c));
 
   overflow:hidden;
 
-  border:1px solid rgba(255,255,255,.08);
+  border:1px solid rgba(0, 119, 255, 0.12); /* Zmiana na systemową ramkę */
 
   box-shadow:0 40px 120px rgba(0,0,0,.4);
 }
@@ -3206,8 +3250,8 @@ counters.forEach(c => observer.observe(c));
   background:
   linear-gradient(
     180deg,
-    rgba(0,0,0,.15),
-    rgba(0,0,0,.55)
+    rgb(0, 0, 0),
+    rgba(0, 0, 0, 0.779)
   );
 }
 
@@ -3291,7 +3335,7 @@ counters.forEach(c => observer.observe(c));
 @media(max-width:900px){
 
   .blog-video-media{
-    height:260px;
+    height:295px;
     border-radius:1.4rem;
   }
 
@@ -3313,7 +3357,9 @@ counters.forEach(c => observer.observe(c));
   }
 }
 </style>
-<style>.blog-video-cta{
+
+<style>
+.blog-video-cta{
   padding: 10vh 0;
   display:flex;
   justify-content:center;
@@ -3330,13 +3376,14 @@ counters.forEach(c => observer.observe(c));
   padding:1.2rem;
   border-radius:2rem;
 
+  /* Dopasowany gradient tła z delikatną głębią błękitu */
   background: linear-gradient(
     135deg,
-    rgba(0, 140, 255, .12),
-    rgba(255,255,255,.03)
+    rgba(0, 119, 255, 0.04),
+    rgba(255,255,255,.01)
   );
 
-  border:1px solid rgba(255,255,255,.08);
+  border:1px solid rgba(0, 119, 255, 0.12); /* Spójna systemowa ramka */
   backdrop-filter: blur(18px);
 
   overflow:hidden;
@@ -3362,8 +3409,8 @@ counters.forEach(c => observer.observe(c));
   inset:0;
   background: linear-gradient(
     90deg,
-    rgba(0,0,0,.15),
-    rgba(0,0,0,.6)
+    rgba(0, 0, 0, 0.4),
+    transparent
   );
 }
 
@@ -3379,7 +3426,7 @@ counters.forEach(c => observer.observe(c));
   padding:.5rem .9rem;
   border-radius:999px;
 
-  background:rgba(0,0,0,.45);
+  background:rgba(0, 0, 0, 0.6);
   border:1px solid rgba(255,255,255,.12);
 
   color:#fff;
@@ -3399,8 +3446,9 @@ counters.forEach(c => observer.observe(c));
 .kicker{
   font-size:.7rem;
   letter-spacing:.25rem;
-  color:#8f8f8f;
+  color:#0077ff; /* Kicker w kolorze głębokiego błękitu */
   margin-bottom:.8rem;
+  font-weight: 600;
 }
 
 .text-box h2{
@@ -3415,10 +3463,12 @@ counters.forEach(c => observer.observe(c));
   font-size:.95rem;
   margin-bottom:1.8rem;
 }
+
 .cta-btn {
   max-height: 120px;
 }
-/* CTA — 80% WIDTH BUTTON */
+
+/* CTA — 80% WIDTH BUTTON (Nienaruszony oryginalny styl) */
 .cta-btn{
   width:90%;
   max-width:420px;
@@ -3500,7 +3550,12 @@ counters.forEach(c => observer.observe(c));
     justify-content:center;
     gap:1rem;
   }
-}</style>
+}
+</style>
+
+<!-- ===================================================
+     SEKCJA HTML — W THO_100% ORYGINALNA STRUKTURA
+     =================================================== -->
 <section class="blog-video-cta">
 
   <div class="blog-video-inner">
@@ -3534,15 +3589,15 @@ counters.forEach(c => observer.observe(c));
         Zobacz Hel zanim tam dotrzesz.
       </p>
 
-                <!-- BUTTON -->
-        <a href="blog.html" class="pricing-btn">
-          <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
-            <i class="fa-solid fa-newspaper"></i>
-          </div>
-          <span>
-            Odwiedź Blog
-          </span>
-        </a>
+      <!-- BUTTON (Nienaruszony, oryginalny link z klasą pricing-btn) -->
+      <a href="blog.html" class="pricing-btn">
+        <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
+          <i class="fa-solid fa-newspaper"></i>
+        </div>
+        <span>
+          Odwiedź Blog
+        </span>
+      </a>
 
     </div>
 
