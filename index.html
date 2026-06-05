@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,500,1,0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
 
   <!-- === TAILWIND CDN (użyte pomocniczo, ale główne style własne) === -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -664,22 +665,22 @@
    HERO PREMIUM LUXURY
 ========================================= */
 
-.hero {
+/* Globalne zablokowanie przesuwania strony na boki */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* Odcina wszystko, co wystaje w prawo lub lewo */
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
 }
 
+/* Twoje poprawione Hero */
 .hero {
   position: relative;
-  /* dvh zapobiega skakaniu i przesuwaniu tła przy chowaniu pasków przeglądarki */
   min-height: 100vh;
-  min-height: 100dvh; 
+  min-height: 100dvh;
   display: flex;
   align-items: center;
-  overflow: hidden;
+  overflow: hidden; /* Kluczowe odcięcie */
 }
 
 .hero-bg {
@@ -688,8 +689,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-
-  /* Domyślne tło dla komputerów / tabletów */
   background:
     linear-gradient(
       180deg,
@@ -698,22 +697,22 @@
       rgba(0,0,0,.82) 100%
     ),
     url("hero.png");
-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   transform: scale(1.06);
+  backface-visibility: hidden; /* Pomaga stabilizować grafikę w Safari */
+  -webkit-transform-style: preserve-3d;
 }
 
-/* Podmiana pliku tła dla telefonów — W 100% USTABILIZOWANA */
+/* Podmiana pliku tła dla telefonów */
 @media (max-width: 900px) {
   .hero-bg {
-    /* Wymuszamy sztywne ramy, obraz nie ma prawa wyjść poza ekran */
+    /* CAŁKOWITE WYŁĄCZENIE SKALI NA MOBILE — to ono pozwalało na oddalanie ekranu! */
+    transform: none !important; 
+    
     width: 100% !important;
     height: 100% !important;
-    top: 0 !important;
-    left: 0 !important;
-    transform: scale(1) !important; 
 
     background:
       linear-gradient(
@@ -723,14 +722,9 @@
         rgba(0,0,0,.82) 100%
       ),
       url("heromobile.png") !important;
-
-    /* Te wartości muszą być nadpisane z najwyższym priorytetem */
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
-    
-    /* Wyłączenie problematycznego mechanizmu fixed na iOS, jeśli był używany wyżej */
-    background-attachment: scroll !important; 
   }
 }
 
@@ -1195,6 +1189,7 @@ animation-delay:.6s;
 .pricing-premium-header {
   text-align: center;
   margin-bottom: 5vh;
+  text-align: center !important;
 }
 .pricing-kicker {
   display: inline-block;
