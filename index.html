@@ -681,22 +681,37 @@
   overflow:hidden;
 }
 
-.hero-bg{
-  position:absolute;
-  inset:0;
+.hero-bg {
+  position: absolute;
+  inset: 0;
 
+  /* Domyślne tło dla komputerów / tabletów */
   background:
-  linear-gradient(
-    180deg,
-    rgba(0,0,0,.18) 0%,
-    rgba(0,0,0,.42) 40%,
-    rgba(0,0,0,.82) 100%
-  ),
-  url("hero.png");
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.18) 0%,
+      rgba(0,0,0,.42) 40%,
+      rgba(0,0,0,.82) 100%
+    ),
+    url("hero.png");
 
-  background-size:cover;
-  background-position:center;
-  transform:scale(1.06);
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.06);
+}
+
+/* Podmiana pliku tła dla telefonów */
+@media (max-width: 900px) {
+  .hero-bg {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0,0,0,.18) 0%,
+        rgba(0,0,0,.42) 40%,
+        rgba(0,0,0,.82) 100%
+      ),
+      url("heromobile.png");
+  }
 }
 
 .hero::before{
@@ -1134,6 +1149,7 @@ animation-delay:.6s;
   padding: 8vh 0;
   background: #030303;
   overflow: hidden;
+  margin-left: 1rem !important;
 }
 
 .pricing-glow-1 {
@@ -3055,7 +3071,7 @@ animation-delay:.6s;
     scroll-snap-type:x mandatory;
     scroll-behavior:smooth;
     width:100%;
-    padding: 0 1rem 1.5rem 1rem;
+    padding: 0 0rem 0rem 0rem;
     -webkit-overflow-scrolling:touch;
   }
 
@@ -3069,12 +3085,13 @@ animation-delay:.6s;
 
   .contact-info,
   .contact-form-wrap{
-    min-width:93%;
-    width:93%;
-    flex:0 0 93%;
+    min-width:99%;
+    width:99%;
+    flex:0 0 99%;
     scroll-snap-align:center;
-    padding:1.5rem;
+    padding:1.2rem;
     border-radius:1.5rem;
+    margin: 0rem;
   }
 
   .contact-title,
