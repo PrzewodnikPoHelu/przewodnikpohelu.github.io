@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+  <title>Artykuł – Przewodnik po Helu</title>
+
+  <!-- FontAwesome & Czcionka Inter -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===================================================
+       SYSTEMOWE ZMIENNE DESIGNU (Mniejsza czcionka o 1)
+       =================================================== */
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: rgba(18, 18, 18, 0.75);
+      --bg-input: rgba(26, 26, 26, 0.85);
+      --text: #f5f5f5;
+      --muted: #a1a1a1;
+      --line: rgba(255, 255, 255, 0.08);
+      --accent: #1371ff;
+      --accent-glow: rgba(19, 113, 255, 0.15);
+      --article-font-size: 1.0rem; 
+      --header-padding: 12px 18px;  
+      --btn-height: 42px;           
+    }
+
+    /* Tryb Stonowanego Wysokiego Kontrastu */
+    [data-theme="high-contrast"] {
+      --bg: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-input: #edf2f7;
+      --text: #0f172a;
+      --muted: #4a5568;
+      --line: rgba(15, 23, 42, 0.12);
+      --accent: #0044cc;
+      --accent-glow: rgba(0, 68, 204, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+      transition: background 0.35s ease, color 0.35s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1140px;
+      margin: auto;
+    }
+
+    /* ===================================================
+       PASEK POSTĘPU CZYTANIA (READING PROGRESS)
+       =================================================== */
+    .reading-progress-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+      z-index: 10001;
+    }
+
+    .reading-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), #6ec8ff);
+      transition: width 0.1s ease-out;
+    }
+
+    /* ===================================================
+       ACCESSIBILITY & LANGUAGE BAR (Górny panel)
+       =================================================== */
+    .access-header {
+      position: sticky;
+      top: 12px;
+      z-index: 1000;
+      padding: 10px 0;
+      margin-bottom: 20px;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), top 0.3s ease;
+    }
+
+    .access-header.scrolled {
+      top: 6px;
+    }
+    .access-header.scrolled .access-topbar {
+      padding: 6px 14px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .access-header.scrolled .btn-tool {
+      height: 34px;
+      font-size: 0.78rem;
+      border-radius: 8px;
+    }
+    .access-header.scrolled .lang-selector {
+      height: 34px;
+      font-size: 0.75rem;
+      border-radius: 8px;
+    }
+
+    .access-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-card);
+      backdrop-filter: blur(25px) saturate(180%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: var(--header-padding);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+      transition: padding 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .access-left, .access-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-tool {
+      height: var(--btn-height);
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--bg-input);
+      color: var(--text);
+      font-size: 0.82rem; 
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-tool:hover {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    .lang-selector {
+      height: var(--btn-height);
+      padding: 0 10px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      color: var(--text);
+      border: 1px solid var(--line);
+      font-size: 0.8rem; 
+      outline: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.25s ease;
+    }
+
+    .access-pull-tab {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(-100%);
+      background: var(--accent);
+      color: #ffffff;
+      padding: 6px 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border-radius: 0 0 14px 14px;
+      box-shadow: 0 8px 24px rgba(19, 113, 255, 0.3);
+      cursor: pointer;
+      z-index: 1001;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .access-pull-tab.active {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ===================================================
+       STRUKTURA ARTYKUŁU (NAGŁÓWEK + AKAPITY)
+       =================================================== */
+    .article-wrapper {
+      padding-top: 10px;
+    }
+
+    .article-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .article-main-title {
+      font-size: clamp(1.9rem, 4.5vw, 2.8rem); 
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 20px;
+    }
+
+    .article-author-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 35px;
+    }
+
+    .author-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author-details h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .author-meta-info {
+      display: flex;
+      gap: 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .author-meta-info span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .main-photo-frame {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      border: 1px solid var(--line);
+    }
+
+    .main-photo-frame img {
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-credits {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: right;
+      margin-bottom: 35px;
+      font-style: italic;
+      padding-right: 4px;
+    }
+
+    /* GRID UKŁADU TREŚCI */
+    .article-grid {
+      display: grid;
+      grid-template-columns: 1fr 310px; 
+      gap: 50px;
+      align-items: start;
+      padding-bottom: 100px;
+    }
+
+    .article-core-text {
+      font-size: var(--article-font-size);
+      line-height: 1.85;
+    }
+
+    .article-core-text p {
+      margin-bottom: 24px;
+    }
+
+    .article-core-text h2 {
+      font-size: 1.6em;
+      font-weight: 800;
+      margin: 45px 0 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .article-core-text h3 {
+      font-size: 1.25em;
+      font-weight: 700;
+      margin: 35px 0 14px;
+      letter-spacing: -0.3px;
+      scroll-margin-top: 110px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    /* FANCY MINIMALISTYCZNE PODŚWIETLENIE */
+    .article-core-text h3::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .article-core-text h3.section-highlight {
+      color: var(--accent) !important;
+      animation: pulseHighlight 0.75s ease-in-out;
+    }
+
+    .article-core-text h3.section-highlight::after {
+      width: 60px;
+    }
+
+    @keyframes pulseHighlight {
+      0% { transform: scale(1); }
+      30% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+
+    .article-core-text ul {
+      margin: 20px 0 24px 25px;
+    }
+
+    .article-core-text li {
+      margin-bottom: 12px;
+      padding-left: 5px;
+    }
+
+    .premium-blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 20px;
+      margin: 35px 0;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 1.1em;
+    }
+
+    .inline-photo-box {
+      margin: 35px 0 12px 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .inline-photo-box img {
+      width: 100%;
+      display: block;
+      max-height: 400px;
+      object-fit: cover;
+    }
+
+    /* ===================================================
+       SIDEBAR & SPIS TREŚCI (DESKTOP)
+       =================================================== */
+    .sidebar-sticky-panel {
+      position: sticky;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+
+    .toc-container {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .toc-title {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .toc-title-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-title i {
+      color: var(--accent);
+    }
+
+    .toc-close-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .toc-item a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      line-height: 1.4;
+      display: block;
+      padding: 2px 0 2px 10px;
+      border-left: 2px solid transparent;
+      transition: all 0.25s ease;
+    }
+
+    .toc-item a:hover {
+      color: var(--text);
+      padding-left: 14px;
+    }
+
+    .toc-item.active a {
+      color: var(--text);
+      font-weight: 700;
+      border-left-color: var(--accent);
+      padding-left: 14px;
+    }
+
+    /* INNE WPISY */
+    .sidebar-heading {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .aside-post-node {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+      padding: 12px;
+      border-radius: 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      margin-bottom: 12px;
+      transition: all 0.3s cubic-bezier(.16,1,.3,1);
+    }
+
+    .aside-post-node:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+    }
+
+    .aside-node-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 10px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .aside-node-info h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 4px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .aside-node-info span {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* PŁYWAJĄCY PRZYCISK SPISU TREŚCI (MOBILE/TABLET) */
+    .mobile-toc-trigger {
+      display: none;
+      position: fixed;
+      right: 20px;
+      bottom: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      box-shadow: 0 8px 24px rgba(19, 113, 255, 0.4);
+      cursor: pointer;
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: transform 0.2s ease;
+    }
+
+    .mobile-toc-trigger:active {
+      transform: scale(0.9);
+    }
+
+    /* OVERLAY TŁA DLA WYSUNIĘTEGO MENU */
+    .toc-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 10002;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .toc-overlay.open {
+      display: block;
+      opacity: 1;
+    }
+
+    /* ===================================================
+       RESPONSYWNOŚĆ & WYSÓWANY PANEL
+       =================================================== */
+    @media (max-width: 950px) {
+      .photo-credits {
+        text-align: center;
+      }
+      .article-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .main-photo-frame img {
+        max-height: 380px;
+      }
+      .sidebar-sticky-panel {
+        position: static;
+        gap: 30px;
+      }
+
+      .toc-container {
+        position: fixed;
+        top: 0;
+        right: -320px; 
+        width: 300px;
+        height: 100vh;
+        z-index: 10003;
+        border-radius: 20px 0 0 20px;
+        background: rgba(15, 15, 15, 0.95);
+        border-left: 1px solid var(--line);
+        border-top: none;
+        border-bottom: none;
+        box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+        padding: 30px 24px;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        overflow-y: auto;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .toc-container.open {
+        right: 0;
+      }
+
+      .toc-close-btn {
+        display: block;
+      }
+
+      .mobile-toc-trigger {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .access-header {
+        position: fixed;
+        left: 4%;
+        right: 4%;
+        top: 12px;
+        padding: 0;
+        margin-bottom: 0;
+        will-change: transform;
+      }
+
+      .access-header.hide-bar {
+        transform: translateY(-150%);
+      }
+
+      .access-topbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 12px;
+        border-radius: 16px;
+      }
+
+      .access-left, .access-right {
+        justify-content: space-between;
+      }
+
+      .btn-tool, .lang-selector {
+        flex: 1;
+        justify-content: center;
+        height: 38px;
+      }
+
+      .article-wrapper {
+        margin-top: calc(var(--btn-height) * 2 + 50px); 
+      }
+    }
+
+    /* STOPKA */
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 40px 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+      background: var(--bg-card);
+      margin-top: 40px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-nav a:hover {
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="access-pull-tab" id="pullTab" onclick="forceShowHeader()">
+    <i class="fa-solid fa-bars"></i> <span data-i18n="options">Opcje strony</span>
+  </div>
+
+  <div class="reading-progress-wrap">
+    <div class="reading-progress-bar" id="readingProgress"></div>
+  </div>
+
+  <!-- Pływający przycisk spisu treści dla smartfonów/tabletów -->
+  <button class="mobile-toc-trigger" id="mobileTocBtn" onclick="toggleMobileToc()" aria-label="Spis treści">
+    <i class="fa-solid fa-list-ul"></i>
+  </button>
+
+  <!-- Tło gaszące ekran przy otwartym spisie treści -->
+  <div class="toc-overlay" id="tocOverlay" onclick="toggleMobileToc()"></div>
+
+  <div class="container">
+
+    <div class="access-header" id="accessHeader">
+      <div class="access-topbar">
+        <div class="access-left">
+          <button class="btn-tool" onclick="history.back()">
+            <i class="fa-solid fa-arrow-left"></i> <span data-i18n="back">Powrót</span>
+          </button>
+          <select class="lang-selector" id="langSelect" onchange="switchLanguage()">
+            <option value="pl" selected>Polski</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+        <div class="access-right">
+          <button class="btn-tool" onclick="toggleContrast()">
+            <i class="fa-solid fa-circle-half-stroke"></i> <span data-i18n="contrast">Kontrast</span>
+          </button>
+          <button class="btn-tool" onclick="alterFont(1)"><b>A+</b></button>
+          <button class="btn-tool" onclick="alterFont(-1)"><b>A-</b></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-wrapper">
+      <span class="article-kicker" data-i18n="kicker">Przewodnik / Artykuł</span>
+      <h1 class="article-main-title" id="artTitle" data-i18n="title">10 powodów, dla których warto odwiedzić Półwysep Helski</h1>
+
+      <div class="article-author-card">
+        <img src="omnieJa.jpg" alt="Avatar" class="author-img">
+        <div class="author-details">
+          <h4>Gracjan Śliwiński</h4>
+          <div class="author-meta-info">
+            <span><i class="fa-regular fa-calendar"></i> 05.06.2026</span>
+            <span><i class="fa-regular fa-clock"></i> <span data-i18n="readtime">8 min czytania</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-photo-frame">
+        <img src="https://cdn.podroze.onet.pl/1/Fm6k9lLaHR0cDovL29jZG4uZXUvaW1hZ2VzL3B1bHNjbXMvWW1ZN01EQV8vMmE0N2E2NzQxNWViYWFjZGU5YjFlZWNjNjUwNzc0MDAuanBnkpUDAMyMzQ86zQiQkwXNCWDNBOzeAAKhMAehMQQ" alt="Hel Coast">
+      </div>
+      <div class="photo-credits" data-i18n="photo1">fot. Gracjan Śliwiński • Archiwum prywatne, Hel 2026</div>
+
+      <div class="article-grid">
+        
+        <main class="article-core-text" id="articleBody">
+          <p data-i18n="p1">
+            Półwysep Helski to jedno z najbardziej unikalnych miejsc na mapie Polski. Wąski pasek lądu otoczony z dwóch stron wodami Morza Bałtyckiego oraz Zatoki Puckiej przyciąga co roku tysiące turystów, pasjonatów sportów wodnych oraz osób zainteresowanych historią. W tym wpisie dowiesz się, co naprawdę warto zobaczyć, będąc tutaj.
+          </p>
+
+          <div class="premium-blockquote" data-i18n="quote">
+            "Hel nie jest po prostu końcem Polski — to początek niesamowitej, morskiej opowieści, którą pisze sam wiatr i fale."
+          </div>
+
+          <!-- SEKCJA 1 (SAM TEKST, BEZ WYPUNKTOWAŃ NA LOGIKĘ) -->
+          <div class="inline-photo-box">
+            <img src="https://lh5.googleusercontent.com/p/AF1QipP60iwyoYuyhvSErt8B4qzT0wGINvx_-TacrNK8=s1600" alt="Plaża Hel">
+          </div>
+          <h3 id="punkt1" data-i18n="h1">Najpiękniejsze plaże na Półwyspie Helskim</h3>
+          <p data-i18n="lead1"><strong>Złocisty piasek i szum fal z dwóch stron lądu.</strong> Półwysep oferuje coś absolutnie niespotykanego – plaże o zupełnie odmiennym charakterze oddalone od siebie o zaledwie krótki spacer.</p>
+          <p data-i18n="p2">
+            Wybierając plaże od strony otwartego Morza Bałtyckiego, zanurzysz się w szerokich, piaszczystych przestrzeniach z majestatycznymi, silnymi falami i kojącym, otwartym horyzontem. To idealne miejsce na klasyczne, głębokie plażowanie z dala od zgiełku miast. Z kolei przechodząc na drugą stronę lądu, trafisz nad spokojne, znacznie cieplejsze i płytsze wody Zatoki Puckiej. To tam bije serce europejskiego surfingu – stabilne wiatry tworzą tu idealny poligon dla początkujących i zaawansowanych pasjonatów kitesurfingu oraz windsurfingu. Według danych geograficznych i krajoznawczych, piaszczyste osady tworzące tutejsze plaże charakteryzują się wyjątkową czystością oraz jasną barwą, co w połączeniu z pasami wydm nadmorskich porośniętych borem sosnowym stwarza unikalny mikroklimat bogaty w jód. Ruchome podłoże półwyspu sprawia, że linie brzegowe ulegają nieustannym zmianom pod wpływem prądów morskich i wiatru, co czyni każdą wizytę na Helu unikalnym doświadczeniem przyrodniczym.
+          </p>
+
+          <!-- SEKCJA 2 (SZCZEGÓŁOWA LISTA Z WIKIPEDII) -->
+          <div class="inline-photo-box">
+            <img src="https://visiton.pl/components/com_djclassifieds/images/item/6/6785__mg_1816_thb.jpg" alt="Latarnia Hel">
+          </div>
+          <h3 id="punkt2" data-i18n="h2">Co warto zobaczyć na Helu?</h3>
+          <p data-i18n="lead2"><strong>Ślady wielkiej historii, rybackie tradycje i kultowe budowle.</strong> Samo miasto Hel, ulokowane na samym cyplu, to prawdziwy skarbiec pełen kontrastów – od surowej architektury militarnej po urokliwy kaszubski klimat.</p>
+          <p data-i18n="p3_intro">Opierając się na bogatych kronikach historycznych oraz faktach dokumentowanych przez polskie instytucje muzealne, podczas wizyty w Helu koniecznie trzeba zobaczyć i poznać następujące historyczne obiekty:</p>
+          <ul>
+            <li data-i18n="p3_li1"><strong>Zabytkowa Latarnia Morska z 1942 roku:</strong> Ośmiokątna wieża z ciemnoczerwonej cegły o wysokości 41,5 metra. Wybudowana przez Niemców podczas okupacji w miejsce wysadzonej przez polskie wojsko poprzedniej latarni z 1826 roku. Oferuje niesamowitą panoramę całej Zatoki Gdańskiej.</li>
+            <li data-i18n="p3_li2"><strong>Muzeum Obrony Wybrzeża (MOW):</strong> Zlokalizowane w potężnych, betonowych obiektach dawnej niemieckiej baterii Schleswig-Holstein (kaliber armat 406 mm). Prezentuje militarną historię półwyspu, który w 1939 roku stanowił Rejon Umocniony Hel i bronił się jako jeden z ostatnich bastionów w Polsce.</li>
+            <li data-i18n="p3_li3"><strong>Muzeum Rybołówstwa w dawnej świątyni:</strong> Mieści się w gotyckim poewangelickim kościele św. Piotra i Pawła z XV wieku, położonym tuż przy porcie. Z wieży kościoła roztacza się piękny widok, a ekspozycje prezentują dzieje rzemiosła rybackiego na Morzu Bałtyckim oraz historię regionu kaszubskiego.</li>
+            <li data-i18n="p3_li4"><strong>Ulica Wiejska i tradycyjne chaty ryglowe:</strong> Zabytkowa oś architektoniczna miasta o długości około jednego kilometra. Zachowały się tu unikalne drewniane i ryglowe (szachulcowe) domki rybackie z przełomu XVIII i XIX wieku, oddające autentyczną atmosferę dawnej osady pomorskiej.</li>
+          </ul>
+
+          <!-- SEKCJA 3 -->
+          <div class="inline-photo-box">
+            <img src="https://www.worldisbeautiful.eu/up_files/1255-12-Spacer-przy-zachodzie-slonca.jpg" alt="Zachód słońca Hel">
+          </div>
+          <h3 id="punkt3" data-i18n="h3">Najlepsze miejsca na spacery i zachody słońca</h3>
+          <p data-i18n="lead3"><strong>Chwile wyciszenia na legendarnym początku Polski.</strong> Gdy opadną całodzienne emocje, Półwysep zmienia się w oazę spokoju, oferując widowiska malowane prosto na niebie.</p>
+          <p data-i18n="p4">
+            Najbardziej mistycznym miejscem na spacer jest sam Cypel Helski, czyli symboliczny „Koniec Świata”, gdzie wody otwartego morza łączą się z Zatoką Pucką, a fale uderzają o piaszczysty brzeg z trzech stron. Spacer ułatwia wspaniale przygotowana drewniana promenada. Równie niezapomniane chwile gwarantuje wędrówka przez unikalny, chroniony bór bażynowy – ukształtowane przez potężne wiatry karłowate, powyginane sosny tworzą baśniowy, wręcz surrealistyczny krajobraz. Z kolei na najpiękniejsze zachody słońca warto udać się na molo w Jastarni lub plaże w okolicach Chałup, gdzie słońce spektakularnie chowa się bezpośrednio w wodach zatoki.
+          </p>
+
+          <!-- SEKCJA 4 (WYPUNKTOWANA I ROZBUDOWANA) -->
+          <div class="inline-photo-box">
+            <img src="https://surfpeople.pl/wp-content/uploads/2023/06/portraits_pt2_27-edited-1.jpg" alt="Foki Hel">
+          </div>
+          <h3 id="punkt4" data-i18n="h4">Atrakcje dla dzieci i całej rodziny</h3>
+          <p data-i18n="lead4"><strong>Edukacja przez zabawę i aktywny wypoczynek na świeżym powietrzu.</strong> Hel to idealny kierunek na rodzinny wyjazd, łączący bliskość natury z fascynującymi atrakcjami dla najmłodszych.</p>
+          <p data-i18n="p5_intro">Planując pobyt z dziećmi, warto skierować się ku miejscom oferującym wartościową edukację przyrodniczą oraz aktywność fizyczną:</p>
+          <ul>
+            <li data-i18n="p5_li1"><strong>Helskie Fokarium Stacji Morskiej Uniwersytetu Gdańskiego:</strong> Specjalistyczna placówka naukowa działająca od 1999 roku, której celem jest odtworzenie i ochrona populacji foki szarej (Halichoerus grypus) w południowym Bałtyku. Co dokładnie oferuje rodzinom?
+              <br>• Dwa razy dziennie (stałe godziny: 11:00 i 14:00) odbywają się publiczne treningi medyczne połączone z karmieniem fok, podczas których opiekunowie opowiadają o biologii tych ssaków.
+              <br>• Podziemna ścieżka edukacyjna oraz wystawa "Ssaki naszego morza", prezentująca zagrożenia ekologiczne dla fauny morskiej.
+            </li>
+            <li data-i18n="p5_li2"><strong>Helska Ścieżka Rowerowa (Puck - Hel):</strong> Ponad 40-kilometrowa, doskonale przygotowana trasa biegnąca wzdłuż całego półwyspu. Całkowicie odseparowana od ruchu samochodowego, płaska i bezpieczna dla dzieci, co pozwala na całodniowe wycieczki z widokiem na Zatokę Pucką.</li>
+            <li data-i18n="p5_li3"><strong>Park Wydmowy i Dom Morświna:</strong> Kameralna ekspozycja edukacyjna poświęcona morświnom – bałtyckim kuzynom delfina, którzy są krytycznie zagrożeni wyginięciem. Dzieci mogą tu zobaczyć makiety w naturalnych rozmiarach i posłuchać dźwięków wydawanych przez te ssaki.</li>
+          </ul>
+        </main>
+
+        <aside class="sidebar-sticky-panel">
+          <div class="toc-container" id="tocContainer">
+            <h3 class="toc-title">
+              <span class="toc-title-left"><i class="fa-solid fa-list-ul"></i> <span data-i18n="toc_title">Spis treści</span></span>
+              <button class="toc-close-btn" onclick="toggleMobileToc()"><i class="fa-solid fa-xmark"></i></button>
+            </h3>
+            <ul class="toc-list">
+              <li class="toc-item active" id="toc-punkt1"><a href="#punkt1" data-i18n="h1">Najpiękniejsze plaże</a></li>
+              <li class="toc-item" id="toc-punkt2"><a href="#punkt2" data-i18n="h2">Co warto zobaczyć?</a></li>
+              <li class="toc-item" id="toc-punkt3"><a href="#punkt3" data-i18n="h3">Spacery i zachody słońca</a></li>
+              <li class="toc-item" id="toc-punkt4"><a href="#punkt4" data-i18n="h4">Atrakcje dla dzieci</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="sidebar-heading" data-i18n="sideheading">Inne wpisy</h3>
+            <a href="#" class="aside-post-node">
+              <img src="https://photos.wikimapia.org/p/00/04/27/62/49_big.jpg" alt="Post" class="aside-node-img">
+              <div class="aside-node-info">
+                <h4 data-i18n="side1">Gdzie zjeść na Półwyspie Helskim? Konkretne miejsca bez turystycznych pułapek</h4>
+                <span> 08.05.2026</span>
+              </div>
+            </a>
+            <a href="#" class="aside-post-node">
+              <img src="image copy.png" alt="Post" class="aside-node-img">
+              <div class="aside-node-info">
+                <h4 data-i18n="side2">Co zobaczyć na Półwyspie Helskim? Przewodnik po Helu i okolicach</h4>
+                <span>28.05.2026</span>
+              </div>
+            </a>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-credits">
+        &copy; 2026 Hel Guide. Projekt i realizacja: Gracjan Śliwiński.
+      </div>
+      <div class="footer-nav">
+        <a href="index.html" data-i18n="f1">Główna</a>
+        <a href="index.html#cennik" data-i18n="f2">Cennik</a>
+        <a href="#" data-i18n="f3">Polityka prywatności</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById("accessHeader");
+    const pullTab = document.getElementById("pullTab");
+    const tocContainer = document.getElementById("tocContainer");
+    const tocOverlay = document.getElementById("tocOverlay");
+    let lastScrollTop = 0;
+
+    const sections = document.querySelectorAll(".article-core-text h3");
+    const tocItems = document.querySelectorAll(".toc-item");
+
+    function toggleMobileToc() {
+      tocContainer.classList.toggle("open");
+      tocOverlay.classList.toggle("open");
+    }
+
+    window.addEventListener('scroll', () => {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolledProgress = (scrollTop / height) * 100;
+      
+      document.getElementById("readingProgress").style.width = scrolledProgress + "%";
+
+      if (scrollTop > 20) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+
+      if (window.innerWidth <= 600) {
+        if (scrollTop > lastScrollTop && scrollTop > 120) {
+          header.classList.add("hide-bar");
+          pullTab.classList.add("active");
+        } else {
+          header.classList.remove("hide-bar");
+          pullTab.classList.remove("active");
+        }
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+      let currentSectionId = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollTop >= sectionTop - 130) {
+          currentSectionId = section.getAttribute("id");
+        }
+      });
+
+      if (currentSectionId) {
+        tocItems.forEach(item => {
+          item.classList.remove("active");
+          if (item.getAttribute("id") === `toc-${currentSectionId}`) {
+            item.classList.add("active");
+          }
+        });
+      }
+    }, { passive: true });
+
+    document.querySelectorAll(".toc-item a").forEach(link => {
+      link.addEventListener("click", (e) => {
+        const targetId = link.getAttribute("href").substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (tocContainer.classList.contains("open")) {
+          toggleMobileToc();
+        }
+
+        if (targetSection) {
+          sections.forEach(sec => sec.classList.remove("section-highlight"));
+          
+          setTimeout(() => {
+            targetSection.classList.add("section-highlight");
+          }, 300);
+          
+          setTimeout(() => {
+            targetSection.classList.remove("section-highlight");
+          }, 1100);
+        }
+      });
+    });
+
+    function forceShowHeader() {
+      header.classList.remove("hide-bar");
+      pullTab.classList.remove("active");
+    }
+
+    function toggleContrast() {
+      const current = document.documentElement.getAttribute("data-theme");
+      if (current === "high-contrast") {
+        document.documentElement.removeAttribute("data-theme");
+      } else {
+        document.documentElement.setAttribute("data-theme", "high-contrast");
+      }
+    }
+
+    let fontMultiplier = 1.0; 
+    function alterFont(direction) {
+      if (direction === 1 && fontMultiplier < 1.8) {
+        fontMultiplier += 0.12;
+      } else if (direction === -1 && fontMultiplier > 0.8) {
+        fontMultiplier -= 0.12;
+      }
+      document.documentElement.style.setProperty('--article-font-size', fontMultiplier + 'rem');
+    }
+
+    const dictionary = {
+      pl: {
+        back: "Powrót", 
+        contrast: "Kontrast", 
+        kicker: "Przewodnik / Artykuł", 
+        options: "Opcje strony",
+        toc_title: "Spis treści",
+        title: "10 powodów, dla których warto odwiedzić Półwysep Helski",
+        readtime: "8 min czytania", 
+        photo1: "fot. Gracjan Śliwiński • Archiwum prywatne, Hel 2026",
+        p1: "Półwysep Helski to jedno z najbardziej unikalnych miejsc na mapie Polski. Wąski pasek lądu otoczony z dwóch stron wodami Morza Bałtyckiego oraz Zatoki Puckiej przyciąga co roku tysiące turystów, pasjonatów sportów wodnych oraz osób zainteresowanych historią. W tym wpisie dowiesz się, co naprawdę warto zobaczyć, będąc tutaj.",
+        quote: '"Hel nie jest po prostu końcem Polski — to początek niesamowitej, morskiej opowieści, którą pisze sam wiatr i fale."',
+        
+        h1: "Najpiękniejsze plaże na Półwyspie Helskim",
+        lead1: "Złocisty piasek i szum fal z dwóch stron lądu. Półwysep oferuje coś absolutnie niespotykanego – plaże o zupełnie odmiennym charakterze oddalone od siebie o zaledwie krótki spacer.",
+        p2: "Wybierając plaże od strony otwartego Morza Bałtyckiego, zanurzysz się w szerokich, piaszczystych przestrzeniach z majestatycznymi, silnymi falami i kojącym, otwartym horyzontem. To idealne miejsce na klasyczne, głębokie plażowanie z dala od zgiełku miast. Z kolei przechodząc na drugą stronę lądu, trafisz nad spokojne, znacznie cieplejsze i płytsze wody Zatoki Puckiej. To tam bije serce europejskiego surfingu – stabilne wiatry tworzą tu idealny poligon dla początkujących i zaawansowanych pasjonatów kitesurfingu oraz windsurfingu. Według danych geograficznych i krajoznawczych, piaszczyste osady tworzące tutejsze plaże charakteryzują się wyjątkową czystością oraz jasną barwą, co w połączeniu z pasami wydm nadmorskich porośniętych borem sosnowym stwarza unikalny mikroklimat bogaty w jód. Ruchome podłoże półwyspu sprawia, że linie brzegowe ulegają nieustannym zmianom pod wpływem prądów morskich i wiatru, co czyni każdą wizytę na Helu unikalnym doświadczeniem przyrodniczym.",
+        
+        h2: "Co warto zobaczyć w Helu?",
+        lead2: "Ślady wielkiej historii, rybackie tradycje i kultowe budowle. Samo miasto Hel, ulokowane na samym cyplu, to prawdziwy skarbiec pełen kontrastów – od surowej architektury militarnej po urokliwy kaszubski klimat.",
+        p3_intro: "Opierając się na bogatych kronikach historycznych oraz faktach dokumentowanych przez polskie instytucje muzealne, podczas wizyty w Helu koniecznie trzeba zobaczyć i poznać następujące historyczne obiekty:",
+        p3_li1: "<strong>Zabytkowa Latarnia Morska z 1942 roku:</strong> Ośmiokątna wieża z ciemnoczerwonej cegły o wysokości 41,5 metra. Wybudowana przez Niemców podczas okupacji w miejsce wysadzonej przez polskie wojsko poprzedniej latarni z 1826 roku. Oferuje niesamowitą panoramę całej Zatoki Gdańskiej.",
+        p3_li2: "<strong>Muzeum Obrony Wybrzeża (MOW):</strong> Zlokalizowane w potężnych, betonowych obiektach dawnej niemieckiej baterii Schleswig-Holstein (kaliber armat 406 mm). Prezentuje militarną historię półwyspu, który w 1939 roku stanowił Rejon Umocnionego Hel i bronił się jako jeden z ostatnich bastionów w Polsce.",
+        p3_li3: "<strong>Muzeum Rybołówstwa w dawnej świątyni:</strong> Mieści się w gotyckim poewangelickim kościele św. Piotra i Pawła z XV wieku, położonym tuż przy porcie. Z wieży kościoła roztacza się piękny widok, a ekspozycje prezentują dzieje rzemiosła rybackiego na Morzu Bałtyckim oraz historię regionu kaszubskiego.",
+        p3_li4: "<strong>Ulica Wiejska i tradycyjne chaty ryglowe:</strong> Zabytkowa oś architektoniczna miasta o długości około jednego kilometra. Zachowały się tu unikalne drewniane i ryglowe (szachulcowe) domki rybackie z przełomu XVIII i XIX wieku, oddające autentyczną atmosferę dawnej osady pomorskiej.",
+        
+        h3: "Najlepsze miejsca na spacery i zachody słońca",
+        lead3: "Chwile wyciszenia na legendarnym początku Polski. Gdy opadną całodzienne emocje, Półwysep zmienia się w oazę spokoju, oferując widowiska malowane prosto na niebie.",
+        p4: "Najbardziej mistycznym miejscem na spacer jest sam Cypel Helski, czyli symboliczny „Koniec Świata”, gdzie wody otwartego morza łączą się z Zatoką Pucką, a fale uderzają o piaszczysty brzeg z trzech stron. Spacer ułatwia wspaniale przygotowana drewniana promenada. Równie niezapomniane chwile gwarantuje wędrówka przez unikalny, chroniony bór bażynowy – ukształtowane przez potężne wiatry karłowate, powyginane sosny tworzą baśniowy, wręcz surrealistyczny krajobraz. Z kolei na najpiękniejsze zachody słońca warto udać się na molo w Jastarni lub plaże w okolicach Chałup, gdzie słońce spektakularnie chowa się bezpośrednio w wodach zatoki.",
+        
+        h4: "Atrakcje dla dzieci i całej rodziny",
+        lead4: "Edukacja przez zabawę i aktywny wypoczynek na świeżym powietrzu. Hel to idealny kierunek na rodzinny wyjazd, łączący bliskość natury z fascynującymi atrakcjami dla najmłodszych.",
+        p5_intro: "Planując pobyt z dziećmi, warto skierować się ku miejscom oferującym wartościową edukację przyrodniczą oraz aktywność fizyczną:",
+        p5_li1: "<strong>Helskie Fokarium Stacji Morskiej Uniwersytetu Gdańskiego:</strong> Specjalistyczna placówka naukowa działająca od 1999 roku, której celem jest odtworzenie i ochrona populacji foki szarej (Halichoerus grypus) w południowym Bałtyku. Co dokładnie oferuje rodzinom?<br>• Dwa razy dziennie (stałe godziny: 11:00 i 14:00) odbywają się publiczne treningi medyczne połączone z karmieniem fok, podczas których opiekunowie opowiadają o biologii tych ssaków.<br>• Podziemna ścieżka edukacyjna oraz wystawa \"Ssaki naszego morza\", prezentująca zagrożenia ekologiczne dla fauny morskiej.",
+        p5_li2: "<strong>Helska Ścieżka Rowerowa (Puck - Hel):</strong> Ponad 40-kilometrowa, doskonale przygotowana trasa biegnąca wzdłuż całego półwyspu. Całkowicie odseparowana od ruchu samochodowego, płaska i bezpieczna dla dzieci, co pozwala na całodniowe wycieczki z widokiem na Zatokę Pucką.",
+        p5_li3: "<strong>Park Wydmowy i Dom Morświna:</strong> Kameralna ekspozycja edukacyjna poświęcona morświnom – bałtyckim kuzynom delfina, którzy są krytycznie zagrożeni wyginięciem. Dzieci mogą tu zobaczyć makiety w naturalnych rozmiarach i posłuchać dźwięków wydawanych przez te ssaki.",
+        
+        sideheading: "Inne wpisy",
+        side1: "Gdzie zjeść na Półwyspie Helskim? Sprawdzone punkty",
+        side2: "Półwysep Helski bez samochodu – jak zwiedzać bez korków",
+        f1: "Główna", f2: "Cennik", f3: "Polityka prywatności"
+      },
+      en: {
+        back: "Back", 
+        contrast: "Contrast", 
+        kicker: "Guide / Article", 
+        options: "Page options",
+        toc_title: "Table of Contents",
+        title: "10 Reasons Why You Should Visit the Hel Peninsula",
+        readtime: "8 min read", 
+        photo1: "photo: Gracjan Śliwiński • Private archive, Hel 2026",
+        p1: "The Hel Peninsula is one of the most unique places on the map of Poland. A narrow strip of land surrounded on both sides by the waters of the Baltic Sea and the Puck Bay attracts thousands of tourists, water sports enthusiasts, and history lovers every year. In this post, you will find out what is truly worth seeing while being here.",
+        quote: '"Hel is not just the end of Poland — it is the beginning of an amazing maritime story written by the wind and the waves themselves."',
+        
+        h1: "The Most Beautiful Beaches on the Hel Peninsula",
+        lead1: "Golden sand and the sound of waves from two sides of the land. The peninsula offers something absolutely unique – beaches with completely different characters just a short walk apart.",
+        p2: "By choosing the beaches on the open Baltic Sea side, you will immerse yourself in wide, sandy spaces with majestic, strong waves and a soothing, open horizon. It is a perfect place for classic, deep sunbathing away from the hustle and bustle of cities. On the other hand, crossing to the other side of the land, you will find the calm, much warmer, and shallower waters of the Puck Bay. That is where the heart of European surfing beats – stable winds create a perfect training ground for both beginners and advanced kitesurfing and windsurfing enthusiasts. According to geographical data, the sandy deposits forming these beaches are exceptionally clean and bright, which combined with the coastal sand dunes covered with pine forests creates a unique microclimate rich in iodine. The shifting ground of the peninsula causes the shorelines to constantly change under the influence of sea currents and wind, making every visit to Hel a unique natural experience.",
+        
+        h2: "What is Worth Seeing in Hel?",
+        lead2: "Traces of great history, fishing traditions, and iconic buildings. The town of Hel itself, located at the very tip, is a real treasure trove full of contrasts – from austere military architecture to charming Kashubian atmosphere.",
+        p3_intro: "Based on rich historical chronicles and facts documented by Polish museum institutions, during your visit to Hel you must see and experience the following historical sites:",
+        p3_li1: "<strong>Historic Lighthouse from 1942:</strong> An octagonal dark red brick tower with a height of 41.5 meters. Built by the Germans during the occupation to replace the previous lighthouse from 1826 blown up by the Polish army. It offers an incredible panoramic view of the entire Gulf of Gdańsk.",
+        p3_li2: "<strong>Museum of Coastal Defence (MOW):</strong> Located in the massive concrete facilities of the former German Schleswig-Holstein battery (406 mm gun caliber). It presents the military history of the peninsula, which in 1939 was the Hel Fortified Region and defended itself as one of the last bastions in Poland.",
+        p3_li3: "<strong>Fisheries Museum in a Former Temple:</strong> Located in the Gothic post-Evangelical Church of St. Peter and St. Paul from the 15th century, situated right by the harbor. The church tower offers a beautiful view, and the exhibitions present the history of fishing crafts in the Baltic Sea and the history of the Kashubian region.",
+        p3_li4: "<strong>Wiejska Street and Traditional Timber-Framed Huts:</strong> The historic architectural axis of the city, about one kilometer long. Unique wooden and timber-framed (half-timbered) fishermen's houses from the turn of the 18th and 19th centuries have been preserved here, reflecting the authentic atmosphere of an old Pomeranian settlement.",
+        
+        h3: "Best Places for Walks and Sunsets",
+        lead3: "Moments of tranquility at the legendary beginning of Poland. When the all-day excitement subsides, the Peninsula turns into an oasis of peace, offering spectacles painted directly on the sky.",
+        p4: "The most mystical place for a walk is the Hel Cape itself, the symbolic 'End of the World', where the waters of the open sea merge with the Puck Bay, and waves hit the sandy shore from three sides. The walk is facilitated by a wonderfully prepared wooden promenade. Equally unforgettable moments are guaranteed by a hike through the unique, protected crowberry forest – stunted, twisted pines shaped by powerful winds create a fairytale, almost surreal landscape. For the most beautiful sunsets, it is worth going to the pier in Jastarnia or the beaches around Chałupy, where the sun spectacularly hides directly in the waters of the bay.",
+        
+        h4: "Attractions for Children and the Whole Family",
+        lead4: "Education through fun and active recreation in the fresh air. Hel is an ideal destination for a family trip, combining the closeness of nature with fascinating attractions for the youngest.",
+        p5_intro: "When planning a stay with children, it is worth heading towards places that offer valuable nature education and physical activity:",
+        p5_li1: "<strong>Hel Sealarium of the Marine Station of the University of Gdańsk:</strong> A specialized scientific facility operating since 1999, whose goal is to restore and protect the population of the grey seal (Halichoerus grypus) in the southern Baltic. What exactly does it offer families?<br>• Twice a day (fixed hours: 11:00 AM and 2:00 PM) public medical training sessions combined with seal feeding take place, during which keepers talk about the biology of these mammals.<br>• An underground educational path and the 'Mammals of our Sea' exhibition, presenting environmental threats to marine fauna.",
+        p5_li2: "<strong>Hel Bike Path (Puck - Hel):</strong> A well-prepared route of over 40 kilometers running along the entire peninsula. Completely separated from car traffic, flat and safe for children, allowing for all-day trips with a view of the Puck Bay.",
+        p5_li3: "<strong>Dune Park and Harbor Porpoise House:</strong> A cozy educational display dedicated to harbor porpoises – Baltic cousins of the dolphin, which are critically endangered. Children can see life-sized models here and listen to the sounds made by these mammals.",
+        
+        sideheading: "Other posts",
+        side1: "Where to eat on the Hel Peninsula? Proven spots",
+        side2: "Hel Peninsula without a car – how to sightsee without traffic jams",
+        f1: "Home", f2: "Pricing", f3: "Privacy Policy"
+      }
+    };
+
+    function switchLanguage() {
+      const lang = document.getElementById("langSelect").value;
+      const elements = document.querySelectorAll("[data-i18n]");
+      
+      elements.forEach(element => {
+        const key = element.getAttribute("data-i18n");
+        if (dictionary[lang] && dictionary[lang][key]) {
+          element.innerHTML = dictionary[lang][key];
+        }
+      });
+    }
+  </script>
+</body>
+</html>
