@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+  <title data-i18n="doc_title">Polityka Prywatności – Przewodnik po Helu</title>
+
+  <!-- FontAwesome & Czcionka Inter -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===================================================
+       SYSTEMOWE ZMIENNE DESIGNU
+       =================================================== */
+    :root {
+      --bg: #050505;
+      --bg-card: rgba(15, 15, 15, 0.75);
+      --bg-input: rgba(26, 26, 26, 0.85);
+      --text: #f5f5f5;
+      --muted: #8f8f8f;
+      --line: rgba(255, 255, 255, 0.06);
+      --accent: #0077ff;
+      --accent-glow: rgba(0, 119, 255, 0.1);
+      --article-font-size: 0.95rem; 
+      --header-padding: 12px 18px;  
+      --btn-height: 42px;           
+    }
+
+    [data-theme="high-contrast"] {
+      --bg: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-input: #edf2f7;
+      --text: #0f172a;
+      --muted: #4a5568;
+      --line: rgba(15, 23, 42, 0.12);
+      --accent: #0044cc;
+      --accent-glow: rgba(0, 68, 204, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+      transition: background 0.35s ease, color 0.35s ease;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1440px; 
+      margin: auto;
+    }
+
+    /* ===================================================
+       ACCESSIBILITY BAR (Górny panel)
+       =================================================== */
+    .access-header {
+      position: sticky;
+      top: 12px;
+      z-index: 1000;
+      padding: 10px 0;
+      margin-bottom: 50px;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), top 0.3s ease;
+    }
+
+    .access-header.scrolled {
+      top: 6px;
+    }
+    .access-header.scrolled .access-topbar {
+      padding: 6px 14px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .access-header.scrolled .btn-tool {
+      height: 34px;
+      font-size: 0.78rem;
+      border-radius: 8px;
+    }
+    .access-header.scrolled .lang-selector {
+      height: 34px;
+      font-size: 0.75rem;
+      border-radius: 8px;
+    }
+
+    .access-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-card);
+      backdrop-filter: blur(25px) saturate(180%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: var(--header-padding);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+      transition: padding 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .access-left, .access-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-tool {
+      height: var(--btn-height);
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--bg-input);
+      color: var(--text);
+      font-size: 0.82rem; 
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-tool:hover {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    .lang-selector {
+      height: var(--btn-height);
+      padding: 0 10px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      color: var(--text);
+      border: 1px solid var(--line);
+      font-size: 0.8rem; 
+      outline: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.25s ease;
+    }
+
+    .access-pull-tab {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(-100%);
+      background: var(--accent);
+      color: #ffffff;
+      padding: 6px 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border-radius: 0 0 14px 14px;
+      box-shadow: 0 8px 24px rgba(0, 119, 255, 0.3);
+      cursor: pointer;
+      z-index: 1001;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .access-pull-tab.active {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ===================================================
+       ARCHITEKTURA PANELU SZEROKIEGO PC
+       =================================================== */
+    .legal-wrapper {
+      padding-top: 10px;
+      margin-bottom: 80px;
+    }
+
+    .legal-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .legal-main-title {
+      font-size: clamp(2.2rem, 5vw, 3.8rem); 
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 15px;
+    }
+
+    .legal-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .privacy-mega-panel {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .privacy-sidebar-nav {
+      position: sticky;
+      top: 100px;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.8rem;
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+    }
+
+    .sticky-nav-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .sidebar-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(0, 200, 100, 0.08);
+      border: 1px solid rgba(0, 200, 100, 0.2);
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      color: #00cc66;
+      width: max-content;
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background-color: #00cc66;
+      border-radius: 50%;
+    }
+
+    .privacy-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .priv-nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.25s ease;
+    }
+
+    .priv-nav-link i {
+      font-size: 0.95rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .priv-nav-link:hover, .priv-nav-link.active {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      transform: translateX(4px);
+    }
+
+    /* KARTY Z TREŚCIĄ */
+    .legal-content-card {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+      font-size: var(--article-font-size);
+      min-width: 0;
+    }
+
+    .privacy-article-block {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 45px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+      transition: border-color 0.4s ease;
+      word-wrap: break-word;
+      word-break: break-word;
+    }
+
+    .privacy-article-block:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .article-header {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .article-icon {
+      width: 3rem;
+      height: 3rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .privacy-article-block h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .privacy-article-block p {
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .privacy-article-block p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .privacy-article-block ul {
+      margin: 20px 0 20px 25px;
+    }
+
+    .privacy-article-block li {
+      margin-bottom: 12px;
+      padding-left: 5px;
+    }
+
+    .privacy-article-block strong {
+      color: var(--text);
+    }
+
+    .admin-data-card {
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 3px solid var(--accent);
+      padding: 1.5rem 2rem;
+      border-radius: 0px 16px 16px 0px;
+      margin: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .admin-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .admin-detail {
+      font-size: 0.88rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .admin-detail i {
+      color: var(--accent);
+      width: 16px;
+      flex-shrink: 0;
+    }
+
+    /* KONTENER RESPONSYWNY DLA TABELI */
+    .table-scroll-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 2rem 0;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(5, 5, 5, 0.3);
+    }
+
+    .privacy-data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+      min-width: 500px;
+    }
+
+    .privacy-data-table th {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      font-weight: 600;
+      padding: 1rem 1.4rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .privacy-data-table td {
+      padding: 1.2rem 1.4rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      vertical-align: top;
+    }
+
+    blockquote {
+      background: rgba(255, 170, 0, 0.03);
+      border: 1px solid rgba(255, 170, 0, 0.15);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    blockquote i {
+      color: #ffaa00;
+      margin-right: 0.4rem;
+    }
+
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.8rem;
+    }
+
+    .right-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .right-box h5 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .right-box p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .privacy-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+      padding: 0.8rem 1.6rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 999px;
+      cursor: pointer;
+      margin-top: 1.5rem;
+      transition: all 0.25s ease;
+      max-width: 100%;
+    }
+
+    .privacy-action-btn:hover {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    /* ===================================================
+       MOBILNY SPIS TREŚCI
+       =================================================== */
+    .mobile-toc-trigger {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1100;
+      width: 54px;
+      height: 54px;
+      background: rgba(20, 20, 20, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      color: var(--text);
+      font-size: 1.25rem;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+    }
+
+    .mobile-toc-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 300px;
+      max-width: 85vw;
+      height: 100vh;
+      background: rgba(10, 10, 10, 0.98);
+      border-left: 1px solid var(--line);
+      z-index: 1200;
+      padding: 30px 20px;
+      box-shadow: -10px 0 40px rgba(0,0,0,0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .mobile-toc-drawer.open {
+      right: 0;
+    }
+
+    .mobile-toc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 15px;
+    }
+
+    .mobile-toc-header h4 {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .close-toc-btn {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.3rem;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .mobile-toc-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.7);
+      z-index: 1150;
+      opacity: 0;
+      pointer-events: none;
+      backdrop-filter: blur(4px);
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-toc-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .priv-nav-link-mob {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding: 0.8rem 0.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+      transition: color 0.2s;
+    }
+    .priv-nav-link-mob:hover {
+      color: var(--text);
+    }
+
+    /* ===================================================
+       TWÓJ KOCHANY STYL NOWEGO BANERA COOKIE (PREMIUM)
+       =================================================== */
+    .cookie-popup-container {
+      position: fixed;
+      bottom: -100%; 
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(92%, 600px);
+      z-index: 999999;
+      margin-bottom: 2vh;
+      transition: bottom 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cookie-popup-container.active {
+      bottom: 0;
+    }
+
+    .cookie-popup-inner {
+      padding: 1.8rem;
+      background: rgba(10, 10, 10, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1.8rem;
+      backdrop-filter: blur(2rem);
+      -webkit-backdrop-filter: blur(2rem);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8);
+    }
+
+    .cookie-popup-header {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .cookie-icon-shield {
+      width: 2.8rem;
+      height: 2.8rem;
+      background: rgba(0, 119, 255, 0.1);
+      border: 1px solid rgba(0, 119, 255, 0.25);
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0077ff;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .cookie-title-block h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+    .cookie-title-block p {
+      font-size: 0.78rem;
+      color: #666666;
+      margin-top: 0.15rem;
+    }
+
+    .cookie-popup-body {
+      font-size: 0.86rem;
+      line-height: 1.6;
+      color: #cccccc;
+      margin-bottom: 1.5rem;
+    }
+    .cookie-popup-body strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Szuflada zaawansowana */
+    .cookie-options-drawer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, margin-top 0.4s ease;
+    }
+    .cookie-options-drawer.open {
+      max-height: 300px;
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .cookie-option-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0.8rem 0;
+    }
+    .cookie-option-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .option-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .option-desc {
+      font-size: 0.75rem;
+      color: #666666;
+      margin-top: 0.1rem;
+    }
+
+    .cookie-checkbox-mock.checked {
+      width: 1.8rem;
+      height: 1.8rem;
+      background: rgba(255, 255, 255, 0.05);
+      color: #444;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+    }
+
+    .cookie-switch {
+      position: relative;
+      display: inline-block;
+      width: 2.6rem;
+      height: 1.5rem;
+      flex-shrink: 0;
+    }
+    .cookie-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .cookie-slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: .3s;
+      border-radius: 999px;
+    }
+    .cookie-slider:before {
+      position: absolute;
+      content: "";
+      height: 1.1rem;
+      width: 1.1rem;
+      left: 0.2rem;
+      bottom: 0.2rem;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+    input:checked + .cookie-slider {
+      background-color: #0077ff;
+    }
+    input:checked + .cookie-slider:before {
+      transform: translateX(1.1rem);
+    }
+
+    .cookie-popup-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .cookie-footer-rights {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .cookie-btn {
+      padding: 0.65rem 1.2rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .cookie-btn-primary {
+      background: #ffffff;
+      color: #000000;
+      border: 1px solid #ffffff;
+    }
+    .cookie-btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.15);
+    }
+    .cookie-btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .cookie-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.03);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Warstwa szumu i tła statycznego */
+    .blur-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 99999;
+      background: transparent;
+    }
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 99998;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .cookie-popup-container.active ~ .menu-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ===================================================
+       MEDIA QUERIES (NAPRAWA SMARTFONÓW)
+       =================================================== */
+    @media (max-width: 1200px) {
+      .privacy-mega-panel {
+        grid-template-columns: 260px 1fr;
+        gap: 2.5rem;
+      }
+      .privacy-article-block {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .privacy-mega-panel {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .privacy-sidebar-nav {
+        display: none; 
+      }
+      .mobile-toc-trigger {
+        display: flex; 
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: 88%;
+      }
+
+      .access-header {
+        position: fixed;
+        left: 6%;
+        right: 6%;
+        top: 12px;
+        padding: 0;
+        margin-bottom: 0;
+        will-change: transform;
+      }
+
+      .access-header.hide-bar {
+        transform: translateY(-150%);
+      }
+
+      .access-topbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 10px;
+        border-radius: 16px;
+      }
+
+      .access-left, .access-right {
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .btn-tool, .lang-selector {
+        flex: 1;
+        justify-content: center;
+        height: 38px;
+        font-size: 0.78rem;
+      }
+
+      .legal-wrapper {
+        margin-top: 140px; 
+        margin-bottom: 50px;
+      }
+
+      .legal-main-title {
+        font-size: 1.9rem;
+        line-height: 1.2;
+      }
+
+      .privacy-article-block {
+        padding: 20px 16px;
+        border-radius: 16px;
+      }
+
+      .article-header {
+        gap: 0.8rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .article-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 0.95rem;
+      }
+
+      .privacy-article-block h2 {
+        font-size: 1.15rem;
+      }
+
+      .admin-data-card {
+        padding: 1rem;
+        border-radius: 0 12px 12px 0;
+      }
+
+      .admin-name {
+        font-size: 0.95rem;
+      }
+
+      blockquote {
+        padding: 1.2rem 1rem;
+        margin: 1.5rem 0;
+        font-size: 0.85rem;
+      }
+
+      .rights-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .right-box {
+        padding: 1rem;
+      }
+
+      .privacy-action-btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.8rem;
+        padding: 0.8rem 1rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .cookie-popup-footer {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .cookie-footer-rights {
+        flex-direction: column-reverse;
+        gap: 0.5rem;
+      }
+      .cookie-btn {
+        width: 100%;
+        text-align: center;
+      }
+      #cookie-btn-settings {
+        order: 3;
+      }
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 40px 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+      background: var(--bg-card);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-nav a:hover {
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MOBILNY SPIS TREŚCI -->
+  <button class="mobile-toc-trigger" id="mobileTocBtn" aria-label="Spis treści">
+    <i class="fa-solid fa-list-ul"></i>
+  </button>
+
+  <div class="mobile-toc-overlay" id="mobileTocOverlay"></div>
+
+  <div class="mobile-toc-drawer" id="mobileTocDrawer">
+    <div class="mobile-toc-header">
+      <h4 data-i18n="options">Spis treści</h4>
+      <button class="close-toc-btn" id="closeTocBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <ul class="privacy-nav-list">
+      <li><a href="#priv-1" class="priv-nav-link-mob"><i class="fa-solid fa-info-circle"></i> <span data-i18n="nav1">1. Informacje ogólne</span></a></li>
+      <li><a href="#priv-2" class="priv-nav-link-mob"><i class="fa-solid fa-user-shield"></i> <span data-i18n="nav2">2. Administrator Danych</span></a></li>
+      <li><a href="#priv-3" class="priv-nav-link-mob"><i class="fa-solid fa-folder-open"></i> <span data-i18n="nav3">3. Cel i Podstawy</span></a></li>
+      <li><a href="#priv-4" class="priv-nav-link-mob"><i class="fa-solid fa-wpforms"></i> <span data-i18n="nav4">4. Bezpieczeństwo Formularzy</span></a></li>
+      <li><a href="#priv-5" class="priv-nav-link-mob"><i class="fa-solid fa-chart-line"></i> <span data-i18n="nav5">5. Google Search Console</span></a></li>
+      <li><a href="#priv-6" class="priv-nav-link-mob"><i class="fa-solid fa-handshake-angle"></i> <span data-i18n="nav6">6. Prawa Użytkownika</span></a></li>
+      <li><a href="#priv-7" class="priv-nav-link-mob"><i class="fa-solid fa-cookie-bite"></i> <span data-i18n="nav7">7. Pliki Cookies</span></a></li>
+    </ul>
+  </div>
+
+  <!-- TWÓJ NOWY WYPASIONY BANER COOKIE -->
+  <div id="cookie-popup" class="cookie-popup-container">
+    <div class="cookie-popup-inner">
+      <div class="cookie-popup-header">
+        <div class="cookie-icon-shield">
+          <i class="fa-solid fa-cookie-bite"></i>
+        </div>
+        <div class="cookie-title-block">
+          <h3>Prywatność i pliki cookies</h3>
+          <p>Szanujemy Twój czas i dane na końcu mapy.</p>
+        </div>
+      </div>
+      
+      <div class="cookie-popup-body">
+        <p>
+          Używamy plików cookies, aby zrozumieć, jak trafiasz na naszą stronę przez <strong>Google Search Console</strong>, jak korzystasz z naszych materiałów oraz do poprawnego działania <strong>formularzy rezerwacji danych</strong>.
+        </p>
+        
+        <div id="cookie-advanced-options" class="cookie-options-drawer">
+          <div class="cookie-option-row">
+            <div class="cookie-option-info">
+              <span class="option-title">Niezbędne (Zawsze włączone)</span>
+              <span class="option-desc">Wymagane do podstawowego działania strony i formularzy kontaktowych.</span>
+            </div>
+            <div class="cookie-checkbox-mock checked">
+              <i class="fa-solid fa-check"></i>
+            </div>
+          </div>
+          
+          <div class="cookie-option-row">
+            <div class="cookie-option-info">
+              <span class="option-title">Analityka i Statystyki (Google)</span>
+              <span class="option-desc">Pozwala monitorować ruch z wyszukiwarki Google Search Console oraz zachowanie na stronie.</span>
+            </div>
+            <label class="cookie-switch">
+              <input type="checkbox" id="cookie-pref-analytics" checked>
+              <span class="cookie-slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="cookie-popup-footer">
+        <button id="cookie-btn-settings" class="cookie-btn cookie-btn-secondary">
+          <span>Ustawienia</span>
+        </button>
+        <div class="cookie-footer-rights">
+          <button id="cookie-btn-reject" class="cookie-btn cookie-btn-secondary">Odrzuć</button>
+          <button id="cookie-btn-accept" class="cookie-btn cookie-btn-primary">Akceptuję wszystkie</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATYCZNA WARSTWA SZUMU I OVERLAY -->
+  <div class="blur-bg"></div>
+  <div class="menu-overlay"></div>
+
+  <div class="access-pull-tab" id="pullTab" onclick="forceShowHeader()">
+    <i class="fa-solid fa-bars"></i> <span data-i18n="options">Opcje strony</span>
+  </div>
+
+  <div class="container">
+
+    <!-- Kontrolery Dostępności -->
+    <div class="access-header" id="accessHeader">
+      <div class="access-topbar">
+        <div class="access-left">
+          <button class="btn-tool" onclick="history.back()">
+            <i class="fa-solid fa-arrow-left"></i> <span data-i18n="back">Powrót</span>
+          </button>
+          <select class="lang-selector" id="langSelect" onchange="switchLanguage()">
+            <option value="pl" selected>Polski</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+        <div class="access-right">
+          <button class="btn-tool" onclick="toggleContrast()">
+            <i class="fa-solid fa-circle-half-stroke"></i> <span data-i18n="contrast">Kontrast</span>
+          </button>
+          <button class="btn-tool" onclick="alterFont(1)"><b>A+</b></button>
+          <button class="btn-tool" onclick="alterFont(-1)"><b>A-</b></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Główna struktura dokumentu -->
+    <div class="legal-wrapper">
+      <span class="legal-kicker" data-i18n="kicker">Dokumenty prawne</span>
+      <h1 class="legal-main-title" data-i18n="title">Polityka Prywatności i Plików Cookies</h1>
+      <div class="legal-meta" data-i18n="meta">Ostatnia aktualizacja: 08.06.2026 r.</div>
+
+      <div class="privacy-mega-panel">
+        
+        <!-- Lewy Panel Nawigacyjny (PC) -->
+        <aside class="privacy-sidebar-nav">
+          <div class="sticky-nav-wrapper">
+            <div class="sidebar-status-badge">
+              <span class="status-dot"></span>
+              <span data-i18n="badge_text">Zgodność z RODO</span>
+            </div>
+            <ul class="privacy-nav-list">
+              <li><a href="#priv-1" class="priv-nav-link active"><i class="fa-solid fa-info-circle"></i> <span data-i18n="nav1">1. Informacje ogólne</span></a></li>
+              <li><a href="#priv-2" class="priv-nav-link"><i class="fa-solid fa-user-shield"></i> <span data-i18n="nav2">2. Administrator Danych</span></a></li>
+              <li><a href="#priv-3" class="priv-nav-link"><i class="fa-solid fa-folder-open"></i> <span data-i18n="nav3">3. Cel i Podstawy</span></a></li>
+              <li><a href="#priv-4" class="priv-nav-link"><i class="fa-solid fa-wpforms"></i> <span data-i18n="nav4">4. Bezpieczeństwo Formularzy</span></a></li>
+              <li><a href="#priv-5" class="priv-nav-link"><i class="fa-solid fa-chart-line"></i> <span data-i18n="nav5">5. Google Search Console</span></a></li>
+              <li><a href="#priv-6" class="priv-nav-link"><i class="fa-solid fa-handshake-angle"></i> <span data-i18n="nav6">6. Prawa Użytkownika</span></a></li>
+              <li><a href="#priv-7" class="priv-nav-link"><i class="fa-solid fa-cookie-bite"></i> <span data-i18n="nav7">7. Pliki Cookies</span></a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- Prawy Blok Treści -->
+        <main class="legal-content-card" id="legalBody">
+          
+          <article class="privacy-article-block" id="priv-1">
+            <div class="article-header">
+              <div class="article-icon"><i class="fa-solid fa-info-circle"></i></div>
+              <h2 data-i18n="h1">1. Informacje ogólne</h2>
+            </div>
+            <p data-i18n="p1">Niniejsza Polityka prywatności określa zasady przetwarzania i ochrony danych osobowych użytkowników korzystających z serwisu internetowego Przewodnik po Helu. Dokładamy najwyższej staranności, aby szanować prywatność wszystkich osób odwiedzających naszą witrynę i bezpiecznie przetwarzać ich zapytania.</p>
+          </article>
+
+          <article class="privacy-article-block" id="priv-2">
+            <div class="article-header">
+              <div class="article-icon"><i class="fa-solid fa-user-shield"></i></div>
+              <h2 data-i18n="h2">2. Administrator Danych Osobowych (ADO)</h2>
+            </div>
+            <p data-i18n="p2">Administratorem danych osobowych zbieranych za pośrednictwem serwisu jest podmiot zarządzający witryną, reprezentowany przez autora projektu i przewodnika:</p>
+            <div class="admin-data-card">
+              <span class="admin-name">Daniel Kretkiewicz Przewodnik Turystyczny</span>
+              <span class="admin-detail"><i class="fa-solid fa-location-dot"></i> ul. Kapitańska, 84-150 Hel, Polska</span>
+              <span class="admin-detail"><i class="fa-solid fa-envelope"></i> kretkiewicz@gmail.com</span>
+            </div>
+            <p data-i18n="p2_sub">W sprawach związanych z modyfikacją, wglądem lub całkowitym usunięciem danych osobowych z bazy danych portalu, prosimy o bezpośredni kontakt drogą elektroniczną.</p>
+          </article>
+
+          <article class="privacy-article-block" id="priv-3">
+            <div class="article-header">
+              <div class="article-icon"><i class="fa-solid fa-folder-open"></i></div>
+              <h2 data-i18n="h3">3. Cel i podstawy prawne przetwarzania danych</h2>
+            </div>
+            <p data-i18n="p3_intro">Dane osobowe użytkowników są przetwarzane w ścisłej zgodzie z przepisami RODO w następujących celach strukturalnych:</p>
+            
+            <div class="table-scroll-container">
+              <table class="privacy-data-table">
+                <thead>
+                  <tr>
+                    <th data-i18n="th_col1">Cel operacyjny</th>
+                    <th data-i18n="th_col2">Zakres danych</th>
+                    <th data-i18n="th_col3">Podstawa prawna</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong data-i18n="td_r1_c1">Obsługa rezerwacji</strong></td>
+                    <td data-i18n="td_r1_c2">Imię, nazwisko, e-mail, telefon, data wycieczki.</td>
+                    <td data-i18n="td_r1_c3">Art. 6 ust. 1 lit. b RODO (Realizacja umowy)</td>
+                  </tr>
+                  <tr>
+                    <td><strong data-i18n="td_r2_c1">Formularz kontaktowy</strong></td>
+                    <td data-i18n="td_r2_c2">Imię, adres e-mail, treść wiadomości.</td>
+                    <td data-i18n="td_r2_c3">Art. 6 ust. 1 lit. f RODO (Uzasadniony interes)</td>
+                  </tr>
+                  <tr>
+                    <td><strong data-i18n="td_r3_c1">Analityka i SEO</strong></td>
+                    <td data-i18n="td_r3_c2">IP, lokalizacja, czas sesji, zachowanie na sliderach.</td>
+                    <td data-i18n="td_r3_c3">Art. 6 ust. 1 lit. a RODO (Dobrowolna zgoda)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="privacy-article-block" id="priv-4">
+            <div class="article-header">
+              <div class="article-icon"><i class="fa-solid fa-wpforms"></i></div>
+              <h2 data-i18n="h4_new">4. Bezpieczeństwo Formularzy i Rezerwacji Danych</h2>
+            </div>
+            <p data-i18n="p4_new1">Wszelkie dane przesyłane w sekcjach takich jak <strong>"Zarezerwuj termin"</strong> są chronione przy użyciu zaawansowanego szyfrowania SSL/TLS. Zapobiega to przechwytywaniu haseł i informacji osobistych przez podmioty nieuprawnione podczas komunikacji z serwerem.</p>
+            <blockquote data-i18n="bq_new">
+              <i class="fa-solid fa-triangle-exclamation"></i> <strong>Ważna uwaga techniczna:</strong> Formularze nie wysyłają zdarzeń analitycznych w przypadku braku zgody w pop-upie cookies, zapewniając pełen tryb incognito dla rezerwacji.
+            </blockquote>
+          </article>
+
+          <article class="privacy-article-block" id="priv-5">
+            <div class="article-header">
+              <div class="article-icon"><i class="fa-solid fa-chart-line"></i></div>
+              <h2 data-i18n="h5_new">5. Integracja z Google Search Console i Statystykami</h2>
+            </div>
+            <p data-i18n="p5_new1">W celu monitorowania skuteczności pozycjonowania organicznego na zapytania związane z Helu, strona analizuje anonimowe wskaźniki przy użyciu danych udostępnianych przez systemy <strong>Google Search Console</strong>. Informacje te obejmują wyłącznie zanonimizowane statystyki ruchu i nie są łączone z konkretnymi tożsamościami osób fizycznych.</p>
+          </article>
+
+          <article class="privacy-article-block" id="priv-6">
+            <div class="article-header">
+              <div class="article-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+              <h2 data-i18n="h5">6. Pełne Prawa Użytkownika</h2>
+            </div>
+            <p data-i18n="p5">Zgodnie z przepisami ogólnego rozporządzenia o ochronie danych (RODO), każdemu użytkownikowi przysługuje prawo dostępu do swoich danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, a także prawo do wniesienia sprzeciwu wobec przetwarzania oraz prawo do wniesienia skargi do organu nadzorczego.</p>
+            
+            <div class="rights-grid">
+              <div class="right-box">
+                <h5 data-i18n="rb_t1">Wgląd i dostęp</h5>
+                <p data-i18n="rb_d1">Prawo do otrzymania pełnej kopii danych osobowych przetwarzanych w naszej bazie.</p>
+              </div>
+              <div class="right-box">
+                <h5 data-i18n="rb_t2">Prawo do usunięcia</h5>
+                <p data-i18n="rb_d2">Możliwość zażądania bezpowrotnego usunięcia danych ("bycia zapomnianym").</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="privacy-article-block" id="priv-7">
+            <div class="article-header">
+              <div class="article-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+              <h2 data-i18n="h4">7. Pliki Cookies (Ciasteczka)</h2>
+            </div>
+            <p data-i18n="p4">Serwis wykorzystuje minimalistyczne pliki cookies, które są zapisywane na urządzeniu użytkownika. Służą one wyłącznie do zapamiętywania preferencji dostępnościowych witryny, takich jak wybrany stopień kontrastu oraz zdefiniowany rozmiar czcionki. Użytkownik w każdej chwili może zmienić ustawienia dotyczące cookies bezpośrednio w swojej przeglądarce internetowej.</p>
+            <p data-i18n="p4_sub">Jeżeli chcesz zresetować przyznane uprawnienia dotyczące śledzenia oraz preferencji cookies, możesz wywołać baner ponownie przyciskiem poniżej:</p>
+            <button class="privacy-action-btn" id="privacyResetBtn">
+              <i class="fa-solid fa-arrows-rotate"></i> <span data-i18n="reset_btn">Zmień ustawienia / Resetuj pliki Cookies</span>
+            </button>
+          </article>
+
+        </main>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-credits">
+        &copy; 2026 Hel Guide. Projekt i realizacja: Gracjan Śliwiński.
+      </div>
+      <div class="footer-nav">
+        <a href="index.html" data-i18n="f1">Główna</a>
+        <a href="index.html#cennik" data-i18n="f2">Cennik</a>
+        <a href="#" data-i18n="f3">Polityka prywatności</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // System tłumaczeń (I18n)
+    const translations = {
+      pl: {
+        doc_title: "Polityka Prywatności – Przewodnik po Helu",
+        options: "Opcje strony",
+        back: "Powrót",
+        contrast: "Kontrast",
+        kicker: "Dokumenty prawne",
+        title: "Polityka Prywatności i Plików Cookies",
+        meta: "Ostatnia aktualizacja: 08.06.2026 r.",
+        badge_text: "Zgodność z RODO",
+        nav1: "1. Informacje ogólne",
+        nav2: "2. Administrator Danych",
+        nav3: "3. Cel i Podstawy",
+        nav4: "4. Bezpieczeństwo Formularzy",
+        nav5: "5. Google Search Console",
+        nav6: "6. Prawa Użytkownika",
+        nav7: "7. Pliki Cookies",
+        h1: "1. Informacje ogólne",
+        p1: "Niniejsza Polityka prywatności określa zasady przetwarzania i ochrony danych osobowych użytkowników korzystających z serwisu internetowego Przewodnik po Helu. Dokładamy najwyższej staranności, aby szanować prywatność wszystkich osób odwiedzających naszą witrynę i bezpiecznie przetwarzać ich zapytania.",
+        h2: "2. Administrator Danych Osobowych (ADO)",
+        p2_sub: "W sprawach związanych z modyfikacją, wglądem lub całkowitym usunięciem danych osobowych z bazy danych portalu, prosimy o bezpośredni kontakt drogą elektroniczną.",
+        h3: "3. Cel i podstawy prawne przetwarzania danych",
+        p3_intro: "Dane osobowe użytkowników are processed w ścisłej zgodzie z przepisami RODO w następujących celach strukturalnych:",
+        th_col1: "Cel operacyjny", th_col2: "Zakres danych", th_col3: "Podstawa prawna",
+        td_r1_c1: "Obsługa rezerwacji", td_r1_c2: "Imię, nazwisko, e-mail, telefon, data wycieczki.", td_r1_c3: "Art. 6 ust. 1 lit. b RODO (Realizacja umowy)",
+        td_r2_c1: "Formularz kontaktowy", td_r2_c2: "Imię, adres e-mail, treść wiadomości.", td_r2_c3: "Art. 6 ust. 1 lit. f RODO (Uzasadniony interes)",
+        td_r3_c1: "Analityka i SEO", td_r3_c2: "IP, lokalizacja, czas sesji, zachowanie na sliderach.", td_r3_c3: "Art. 6 ust. 1 lit. a RODO (Dobrowolna zgoda)",
+        h4_new: "4. Bezpieczeństwo Formularzy i Rezerwacji Danych",
+        p4_new1: "Wszelkie dane przesyłane w sekcjach takich jak \"Zarezerwuj termin\" są chronione przy użyciu zaawansowanego szyfrowania SSL/TLS. Zapobiega to przechwytywaniu haseł i informacji osobistych przez podmioty nieuprawnione podczas komunikacji z serwerem.",
+        bq_new: "<i class=\"fa-solid fa-triangle-exclamation\"></i> <strong>Ważna uwaga techniczna:</strong> Formularze nie wysyłają zdarzeń analitycznych w przypadku braku zgody w pop-upie cookies, zapewniając pełen tryb incognito dla rezerwacji.",
+        h5_new: "5. Integracja z Google Search Console i Statystykami",
+        p5_new1: "W celu monitorowania skuteczności pozycjonowania organicznego na zapytania związane z Helu, strona analizuje anonimowe wskaźniki przy użyciu danych udostępnianych przez systemy <strong>Google Search Console</strong>. Informacje te obejmują wyłącznie zanonimizowane statystyki ruchu i nie są łączone z konkretnymi tożsamościami osób fizycznych.",
+        h5: "6. Pełne Prawa Użytkownika",
+        p5: "Zgodnie z przepisami ogólnego rozporządzenia o ochronie danych (RODO), każdemu użytkownikowi przysługuje prawo dostępu do swoich danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, a także prawo do wniesienia sprzeciwu wobec przetwarzania oraz prawo do wniesienia skargi do organu nadzorczego.",
+        rb_t1: "Wgląd i dostęp", rb_d1: "Prawo do otrzymania pełnej kopii danych osobowych przetwarzanych w naszej bazie.",
+        rb_t2: "Prawo do usunięcia", rb_d2: "Możliwość zażądania bezpowrotnego usunięcia danych (\"bycia zapomnianym\").",
+        h4: "7. Pliki Cookies (Ciasteczka)",
+        p4: "Serwis wykorzystuje minimalistyczne pliki cookies, które są zapisywane na urządzeniu użytkownika. Służą one wyłącznie do zapamiętywania preferencji dostępnościowych witryny, takich jak wybrany stopień kontrastu oraz zdefiniowany rozmiar czcionki. Użytkownik w każdej chwili może zmienić ustawienia dotyczące cookies bezpośrednio w swojej przeglądarce internetowej.",
+        p4_sub: "Jeżeli chcesz zresetować przyznane uprawnienia dotyczące śledzenia oraz preferencji cookies, możesz wywołać baner ponownie przyciskiem poniżej:",
+        reset_btn: "Zmień ustawienia / Resetuj pliki Cookies",
+        f1: "Główna", f2: "Cennik", f3: "Polityka prywatności"
+      },
+      en: {
+        doc_title: "Privacy Policy – Hel Guide",
+        options: "Page options",
+        back: "Back",
+        contrast: "Contrast",
+        kicker: "Legal Documents",
+        title: "Privacy and Cookies Policy",
+        meta: "Last updated: June 8, 2026",
+        badge_text: "GDPR Compliance",
+        nav1: "1. General Info",
+        nav2: "2. Data Administrator",
+        nav3: "3. Purposes & Basis",
+        nav4: "4. Form Security",
+        nav5: "5. Google Search Console",
+        nav6: "6. User Rights",
+        nav7: "7. Cookies Policy",
+        h1: "1. General Information",
+        p1: "This Privacy Policy defines the rules for processing and protecting personal data of users using the Hel Guide website. We make every effort to respect the privacy of all visitors to our site and process their inquiries securely.",
+        h2: "2. Personal Data Administrator (PDO)",
+        p2_sub: "For matters related to modification, inspection or permanent removal of personal data from the portal database, please contact us directly via email.",
+        h3: "3. Purpose and Legal Basis of Processing",
+        p3_intro: "Users' personal data are processed in strict accordance with GDPR provisions for the following structural purposes:",
+        th_col1: "Operational purpose", th_col2: "Data scope", th_col3: "Legal basis",
+        td_r1_c1: "Reservation handling", td_r1_c2: "Name, surname, email, telephone number, tour date.", td_r1_c3: "Art. 6 ust. 1 lit. b GDPR (Contract execution)",
+        td_r2_c1: "Contact form", td_r2_c2: "Name, email address, message content.", td_r2_c3: "Art. 6 ust. 1 lit. f GDPR (Legitimate interest)",
+        td_r3_c1: "Analytics & SEO", td_r3_c2: "IP, location, session time, slider interaction behaviors.", td_r3_c3: "Art. 6 ust. 1 lit. a GDPR (Voluntary consent)",
+        h4_new: "4. Security of Booking Forms and Data Entry",
+        p4_new1: "All data transmitted within sections such as \"Book a date\" are protected using advanced SSL/TLS encryption. This prevents the interception of passwords and personal information by unauthorized entities during communication with the server.",
+        bq_new: "<i class=\"fa-solid fa-triangle-exclamation\"></i> <strong>Important technical note:</strong> Forms do not send analytical events if consent is not granted in the cookies pop-up, ensuring full incognito mode for reservations.",
+        h5_new: "5. Google Search Console and Analytics Integration",
+        p5_new1: "In order to monitor the effectiveness of organic positioning for queries related to Hel, the website analyzes anonymous indicators using data provided by <strong>Google Search Console</strong> systems. This information includes only anonymized traffic statistics and is not linked to specific individual identities.",
+        h5: "6. Full User Rights",
+        p5: "In accordance with the provisions of the General Data Protection Regulation (GDPR), every user has the right to access their data, rectify it, delete it, limit its processing, as well as the right to object to processing and file a complaint with a supervisory authority.",
+        rb_t1: "Inspection and Access", rb_d1: "The right to receive a full copy of personal data processed in our database.",
+        rb_t2: "Right to Erasure", rb_d2: "The possibility to request the irrevocable deletion of data ('the right to be forgotten').",
+        h4: "7. Cookies Policy",
+        p4: "The website uses minimalist cookies stored on the user's device. They are only used to remember the website accessibility preferences, such as selected contrast level and defined font size. Users can change cookie settings at any time directly in their web browser.",
+        p4_sub: "If you want to reset the granted tracking permissions and cookie preferences, you can trigger the banner again with the button below:",
+        reset_btn: "Change settings / Reset Cookies",
+        f1: "Home", f2: "Pricing", f3: "Privacy policy"
+      }
+    };
+
+    const header = document.getElementById("accessHeader");
+    const pullTab = document.getElementById("pullTab");
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', () => {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (scrollTop > 20) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+
+      if (window.innerWidth <= 600) {
+        if (scrollTop > lastScrollTop && scrollTop > 120) {
+          header.classList.add("hide-bar");
+          pullTab.classList.add("active");
+        } else {
+          header.classList.remove("hide-bar");
+          pullTab.classList.remove("active");
+        }
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }, { passive: true });
+
+    function forceShowHeader() {
+      header.classList.remove("hide-bar");
+      pullTab.classList.remove("active");
+    }
+
+    function toggleContrast() {
+      const current = document.documentElement.getAttribute("data-theme");
+      if (current === "high-contrast") {
+        document.documentElement.removeAttribute("data-theme");
+      } else {
+        document.documentElement.setAttribute("data-theme", "high-contrast");
+      }
+    }
+
+    let fontMultiplier = 0.95; 
+    function alterFont(direction) {
+      if (direction === 1 && fontMultiplier < 1.6) {
+        fontMultiplier += 0.08;
+      } else if (direction === -1 && fontMultiplier > 0.75) {
+        fontMultiplier -= 0.08;
+      }
+      document.getElementById("legalBody").style.fontSize = fontMultiplier + "rem";
+    }
+
+    function switchLanguage() {
+      const lang = document.getElementById("langSelect").value;
+      document.documentElement.lang = lang;
+      
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.getAttribute("data-i18n");
+        if (translations[lang] && translations[lang][key]) {
+          if (element.tagName === "TITLE") {
+            document.title = translations[lang][key];
+          } else {
+            element.innerHTML = translations[lang][key];
+          }
+        }
+      });
+    }
+
+    // INTERAKCJA MOBILNEGO SPISU TREŚCI I TWÓJ NOWY PREKURSORSKI BANER COOKIES
+    document.addEventListener("DOMContentLoaded", function () {
+      const mobileTocBtn = document.getElementById("mobileTocBtn");
+      const mobileTocDrawer = document.getElementById("mobileTocDrawer");
+      const mobileTocOverlay = document.getElementById("mobileTocOverlay");
+      const closeTocBtn = document.getElementById("closeTocBtn");
+      const mobLinks = document.querySelectorAll(".priv-nav-link-mob");
+
+      function openToc() {
+        mobileTocDrawer.classList.add("open");
+        mobileTocOverlay.classList.add("active");
+      }
+      function closeToc() {
+        mobileTocDrawer.classList.remove("open");
+        mobileTocOverlay.classList.remove("active");
+      }
+
+      if(mobileTocBtn) mobileTocBtn.addEventListener("click", openToc);
+      if(closeTocBtn) closeTocBtn.addEventListener("click", closeToc);
+      if(mobileTocOverlay) mobileTocOverlay.addEventListener("click", closeToc);
+
+      mobLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          closeToc();
+        });
+      });
+
+      // OBSŁUGA TWOJEGO NOWEGO SYSTEMU COOKIES
+      const cookiePopup = document.getElementById("cookie-popup");
+      const btnAccept = document.getElementById("cookie-btn-accept");
+      const btnReject = document.getElementById("cookie-btn-reject");
+      const btnSettings = document.getElementById("cookie-btn-settings");
+      const advancedDrawer = document.getElementById("cookie-advanced-options");
+      const analyticsCheckbox = document.getElementById("cookie-pref-analytics");
+      const privacyResetBtn = document.getElementById("privacyResetBtn");
+
+      if (!localStorage.getItem("cookieConsentDecision")) {
+        setTimeout(() => {
+          cookiePopup.classList.add("active");
+        }, 1500);
+      } else {
+        evalConsentAndRun();
+      }
+
+      if(btnSettings) {
+        btnSettings.addEventListener("click", function() {
+          advancedDrawer.classList.toggle("open");
+        });
+      }
+
+      if(btnAccept) {
+        btnAccept.addEventListener("click", function () {
+          localStorage.setItem("cookieConsentDecision", "all_granted");
+          localStorage.setItem("cookieAnalyticsAllowed", "true");
+          if(analyticsCheckbox) analyticsCheckbox.checked = true;
+          closeCookiePopup();
+          evalConsentAndRun();
+        });
+      }
+
+      if(btnReject) {
+        btnReject.addEventListener("click", function () {
+          localStorage.setItem("cookieConsentDecision", "all_rejected");
+          localStorage.setItem("cookieAnalyticsAllowed", "false");
+          if(analyticsCheckbox) analyticsCheckbox.checked = false;
+          closeCookiePopup();
+          evalConsentAndRun();
+        });
+      }
+
+      if(privacyResetBtn) {
+        privacyResetBtn.addEventListener("click", function () {
+          localStorage.removeItem("cookieConsentDecision");
+          localStorage.removeItem("cookieAnalyticsAllowed");
+          cookiePopup.classList.add("active");
+        });
+      }
+
+      function closeCookiePopup() {
+        cookiePopup.classList.remove("active");
+      }
+
+      function evalConsentAndRun() {
+        const isAnalyticsAllowed = localStorage.getItem("cookieAnalyticsAllowed") === "true";
+        if (analyticsCheckbox) analyticsCheckbox.checked = isAnalyticsAllowed;
+
+        if (isAnalyticsAllowed) {
+          console.log("Consent Cookie: Śledzenie Google aktywne.");
+        } else {
+          console.log("Consent Cookie: Śledzenie Google zostało ZABLOKOWANE.");
+          document.cookie = "_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+          document.cookie = "_gid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+      }
+
+      const forms = document.querySelectorAll("form");
+      forms.forEach(form => {
+        form.addEventListener("submit", function(e) {
+          const isAnalyticsAllowed = localStorage.getItem("cookieAnalyticsAllowed") === "true";
+          if (isAnalyticsAllowed) {
+            if (typeof dataLayer !== 'undefined') {
+              dataLayer.push({'event': 'form_submission_success'});
+            }
+            console.log("Analityka: Zdarzenie wysłane.");
+          } else {
+            console.log("Analityka: Wysłano formularz w trybie incognito.");
+          }
+        });
+      });
+
+      // Scroll Spy PC
+      const navLinks = document.querySelectorAll(".priv-nav-link");
+      const articles = document.querySelectorAll(".privacy-article-block");
+
+      function updateActiveSidebarLink() {
+        let currentSectionId = "";
+        articles.forEach((article) => {
+          const articleTop = article.offsetTop;
+          if (window.scrollY >= articleTop - 160) {
+            currentSectionId = article.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${currentSectionId}`) {
+            link.classList.add("active");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", updateActiveSidebarLink);
+    });
+  </script>
+</body>
+</html>
