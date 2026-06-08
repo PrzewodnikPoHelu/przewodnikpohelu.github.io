@@ -1,28 +1,66 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html class="dark" lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Przewodnik po Helu | Oficjalny turystyczny portal</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
-  <!-- ==============================================
-    OPIS KOMENTARZA:
-    Pełen, szczegółowy przewodnik po Helu z interaktywnymi sliderami,
-    efektami GSAP, responsywnym menu mobilnym oraz sekcją "O mnie" z galerią certyfikatów.
-    Kod zawiera dokładne opisy każdej sekcji i funkcji.
-  ============================================== -->
+<title>Przewodnik po Helu – Daniel Kretkiewicz | Oficjalny Przewodnik Turystyczny</title>
 
-  <!-- === FONTS & ICONS === -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,500,1,0" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
 
-  <!-- === TAILWIND CDN (użyte pomocniczo, ale główne style własne) === -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "Przewodnik po Helu - Daniel Kretkiewicz",
+  "url": "https://przewodnikpohelu.pl/", 
+  "description": "Profesjonalne wycieczki i oprowadzanie po Półwyspie Helskim. Poznaj historię, militaria oraz najpiękniejsze zakątki Helu z certyfikowanym przewodnikiem Danielem Kretkiewiczem.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Hel",
+    "addressRegion": "Pomorskie",
+    "addressCountry": "PL"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "54.6083",
+    "longitude": "18.8014"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "08:00",
+    "closes": "20:00"
+  }
+}
+</script>
+
+
+
+<meta name="description" content="Szukasz profesjonalnego przewodnika po Helu? Daniel Kretkiewicz to certyfikowany przewodnik po Półwyspie Helskim. Odkryj unikalne zabytki militarne, historię rybołówstwa, fokarium oraz ukryte plaże na końcu Polski. Zaplanuj niezapomnianą wycieczkę na Helu w sezonie 2026. Sprawdź ofertę!">
+
+<meta name="keywords" content="przewodnik po helu, Daniel Kretkiewicz, przewodnik Daniel Kretkiewicz, hel przewodnik, atrakcje helu, co warto zobaczyć na helu, półwysep helski wycieczki, wycieczki z przewodnikiem hel, militaria hel zwiedzanie">
+
+<meta property="og:title" content="Przewodnik po Helu – Daniel Kretkiewicz">
+<meta property="og:description" content="Oficjalny przewodnik po Helu – Daniel Kretkiewicz. Najlepsze atrakcje, militaria, plaże i unikalne wycieczki z przewodnikiem. Zarezerwuj termin!">
+<meta property="og:url" content="https://przewodnikpohelu.pl/">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Przewodnik po Helu – Daniel Kretkiewicz">
+<meta name="twitter:description" content="Odkryj sekrety Półwyspu Helskiego z profesjonalnym przewodnikiem Danielem Kretkiewiczem. Sprawdź szczegóły wycieczek.">
+
 
   <!-- === GSAP i ScrollTrigger do animacji przewijania === -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -972,6 +1010,364 @@ animation-delay:.6s;
 </head>
 
 <body id="dom">
+  <div id="cookie-popup" class="cookie-popup-container">
+  <div class="cookie-popup-inner">
+    <div class="cookie-popup-header">
+      <div class="cookie-icon-shield">
+        <i class="fa-solid fa-cookie-bite"></i>
+      </div>
+      <div class="cookie-title-block">
+        <h3>Prywatność i pliki cookies</h3>
+        <p>Szanujemy Twój czas i dane na końcu mapy.</p>
+      </div>
+    </div>
+    
+    <div class="cookie-popup-body">
+      <p>
+        Używamy plików cookies, aby zrozumieć, jak trafiasz na naszą stronę przez <strong>Google Search Console</strong>, jak korzystasz z naszych materiałów oraz do poprawnego działania <strong>formularzy rezerwacji danych</strong>.
+      </p>
+      
+      <div id="cookie-advanced-options" class="cookie-options-drawer">
+        <div class="cookie-option-row">
+          <div class="cookie-option-info">
+            <span class="option-title">Niezbędne (Zawsze włączone)</span>
+            <span class="option-desc">Wymagane do podstawowego działania strony i formularzy kontaktowych.</span>
+          </div>
+          <div class="cookie-checkbox-mock checked">
+            <i class="fa-solid fa-check"></i>
+          </div>
+        </div>
+        
+        <div class="cookie-option-row">
+          <div class="cookie-option-info">
+            <span class="option-title">Analityka i Statystyki (Google)</span>
+            <span class="option-desc">Pozwala monitorować ruch z wyszukiwarki Google Search Console oraz zachowanie na stronie.</span>
+          </div>
+          <label class="cookie-switch">
+            <input type="checkbox" id="cookie-pref-analytics" checked>
+            <span class="cookie-slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="cookie-popup-footer">
+      <button id="cookie-btn-settings" class="cookie-btn cookie-btn-secondary">
+        <span>Ustawienia</span>
+      </button>
+      <div class="cookie-footer-rights">
+        <button id="cookie-btn-reject" class="cookie-btn cookie-btn-secondary">Odrzuć</button>
+        <button id="cookie-btn-accept" class="cookie-btn cookie-btn-primary">Akceptuję wszystkie</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.cookie-popup-container {
+  position: fixed;
+  bottom: -100%; /* Domyślnie schowany, wysuwa się skryptem */
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92%, 600px);
+  z-index: 999999;
+  margin-bottom: 2vh;
+  transition: bottom 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cookie-popup-container.active {
+  bottom: 0;
+}
+
+.cookie-popup-inner {
+  padding: 1.8rem;
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.8rem;
+  backdrop-filter: blur(2rem);
+  -webkit-backdrop-filter: blur(2rem);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8);
+}
+
+.cookie-popup-header {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+
+.cookie-icon-shield {
+  width: 2.8rem;
+  height: 2.8rem;
+  background: rgba(0, 119, 255, 0.1);
+  border: 1px solid rgba(0, 119, 255, 0.25);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0077ff;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.cookie-title-block h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+.cookie-title-block p {
+  font-size: 0.78rem;
+  color: #666666;
+  margin-top: 0.15rem;
+}
+
+.cookie-popup-body {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #cccccc;
+  margin-bottom: 1.5rem;
+}
+.cookie-popup-body strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Szuflada zaawansowana */
+.cookie-options-drawer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, margin-top 0.4s ease;
+}
+.cookie-options-drawer.open {
+  max-height: 300px;
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cookie-option-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.8rem 0;
+}
+.cookie-option-info {
+  display: flex;
+  flex-direction: column;
+}
+.option-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+.option-desc {
+  font-size: 0.75rem;
+  color: #666666;
+  margin-top: 0.1rem;
+}
+
+/* Niezbędne ikona */
+.cookie-checkbox-mock.checked {
+  width: 1.8rem;
+  height: 1.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+/* Przełącznik Premium Switch */
+.cookie-switch {
+  position: relative;
+  display: inline-block;
+  width: 2.6rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+.cookie-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.cookie-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: .3s;
+  border-radius: 999px;
+}
+.cookie-slider:before {
+  position: absolute;
+  content: "";
+  height: 1.1rem;
+  width: 1.1rem;
+  left: 0.2rem;
+  bottom: 0.2rem;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+}
+input:checked + .cookie-slider {
+  background-color: #0077ff;
+}
+input:checked + .cookie-slider:before {
+  transform: translateX(1.1rem);
+}
+
+/* Stopka i przyciski */
+.cookie-popup-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.cookie-footer-rights {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.cookie-btn {
+  padding: 0.65rem 1.2rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.cookie-btn-primary {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff;
+}
+.cookie-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.15);
+}
+.cookie-btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.cookie-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 500px) {
+  .cookie-popup-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cookie-footer-rights {
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+  }
+  .cookie-btn {
+    width: 100%;
+    text-align: center;
+  }
+  #cookie-btn-settings {
+    order: 3;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const cookiePopup = document.getElementById("cookie-popup");
+  const btnAccept = document.getElementById("cookie-btn-accept");
+  const btnReject = document.getElementById("cookie-btn-reject");
+  const btnSettings = document.getElementById("cookie-btn-settings");
+  const advancedDrawer = document.getElementById("cookie-advanced-options");
+  const analyticsCheckbox = document.getElementById("cookie-pref-analytics");
+
+  // 1. Sprawdzenie, czy użytkownik już podjął decyzję w przeszłości
+  if (!localStorage.getItem("cookieConsentDecision")) {
+    setTimeout(() => {
+      cookiePopup.classList.add("active");
+    }, 1500); // wysuwa się subtelnie po 1.5 sekundy
+  } else {
+    // Jeśli decyzja zapadła, uruchom dozwolone systemy od razu
+    evalConsentAndRun();
+  }
+
+  // 2. Rozwijanie opcji zaawansowanych
+  btnSettings.addEventListener("click", function() {
+    advancedDrawer.classList.toggle("open");
+  });
+
+  // 3. Akceptacja wszystkich
+  btnAccept.addEventListener("click", function () {
+    localStorage.setItem("cookieConsentDecision", "all_granted");
+    localStorage.setItem("cookieAnalyticsAllowed", "true");
+    closeCookiePopup();
+    evalConsentAndRun();
+  });
+
+  // 4. Odrzucenie wszystkich (blokada)
+  btnReject.addEventListener("click", function () {
+    localStorage.setItem("cookieConsentDecision", "all_rejected");
+    localStorage.setItem("cookieAnalyticsAllowed", "false");
+    closeCookiePopup();
+    evalConsentAndRun();
+  });
+
+  function closeCookiePopup() {
+    cookiePopup.classList.remove("active");
+  }
+
+  // 5. ZARZĄDZANIE ŚLEDZENIEM GOOGLE I FORMULARZYM
+  function evalConsentAndRun() {
+    const isAnalyticsAllowed = localStorage.getItem("cookieAnalyticsAllowed") === "true";
+
+    if (isAnalyticsAllowed) {
+      console.log("Consent Cookie: Śledzenie Google (Search Console/Analytics) aktywne.");
+      
+      // MIEJSCE NA TWOJE SKRYPTY GOOGLE (np. Tag Manager, Google Analytics v4)
+      // Wklej tutaj swój standardowy kod od Google, jeśli go posiadasz, np.:
+      /*
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-XXXXXXX');
+      */
+      
+    } else {
+      console.log("Consent Cookie: Śledzenie Google zostało ZABLOKOWANE przez użytkownika.");
+      // Czyszczenie ewentualnych ciasteczek Google w razie odrzucenia zgody
+      document.cookie = "_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = "_gid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    }
+  }
+
+  // 6. MONITOROWANIE FORMULARZY WPISYWANIA DANYCH
+  // Nasłuchujemy wszystkie formularze na stronie. Jeśli użytkownik odrzucił cookies,
+  // blokujemy przesyłanie zdarzeń analitycznych (event trackerów) podczas kliknięcia rezerwacji.
+  const forms = document.querySelectorAll("form");
+  forms.forEach(form => {
+    form.addEventListener("submit", function(e) {
+      const isAnalyticsAllowed = localStorage.getItem("cookieAnalyticsAllowed") === "true";
+      
+      if (isAnalyticsAllowed) {
+        // Formularz wysłany - wysyłamy zdarzenie konwersji do analityki Google
+        if (typeof dataLayer !== 'undefined') {
+          dataLayer.push({'event': 'form_submission_success'});
+        }
+        console.log("Analityka: Zdarzenie wysłania danych przesłane do Search Console/Analytics.");
+      } else {
+        console.log("Analityka: Wysłano formularz w trybie incognito (bez śledzenia Google).");
+      }
+    });
+  });
+});
+</script>
   <!-- STATYCZNA WARSTWA SZUMU -->
   <div class="blur-bg"></div>
   <div class="menu-overlay"></div>
@@ -1115,7 +1511,7 @@ animation-delay:.6s;
             </li>
           </ul>
 
-          <a href="#" class="pricing-btn">
+          <a href="#kontakt" class="pricing-btn">
             <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
               <i class="fa-solid fa-person-hiking"></i>
             </div>
@@ -1179,7 +1575,7 @@ animation-delay:.6s;
             </li>
           </ul>
 
-          <a href="#" class="pricing-btn">
+          <a href="#kontakt" class="pricing-btn">
             <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
               <i class="fa-solid fa-person-hiking"></i>
             </div>
@@ -2374,7 +2770,7 @@ animation-delay:.6s;
         </div>
 
         <!-- PRZYCISK ZGODNY Z RESZTĄ STRONY -->
-        <a href="#" class="pricing-btn">
+        <a href="#kontakt" class="pricing-btn">
           <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
             <i class="fa-solid fa-map-location-dot"></i>
           </div>
@@ -2951,16 +3347,12 @@ animation-delay:.6s;
 </style>
 
 
-<!-- ===================================================
-     KONTAKT PREMIUM SECTION HTML — W 100% ORYGINALNA STRUKTURA
-     =================================================== -->
 <section class="contact-section" id="kontakt">
 
   <div class="container-main">
 
     <div class="contact-wrapper">
 
-      <!-- LEWA -->
       <div class="contact-info reveal">
 
         <div class="contact-pattern"></div>
@@ -2978,8 +3370,7 @@ animation-delay:.6s;
           Ustalimy idealną trasę zwiedzania dopasowaną do grupy lub wycieczki indywidualnej.
         </p>
 
-        <!-- CONTACT BOX -->
-        <a href="tel:+48500111222" class="contact-box">
+        <a href="tel:+48609494760" class="contact-box">
 
           <div class="contact-box-glow"></div>
 
@@ -2998,8 +3389,7 @@ animation-delay:.6s;
 
         </a>
 
-        <!-- CONTACT BOX -->
-        <a href="mailto:gracjan.sliwinski2@gmail.com" class="contact-box">
+        <a href="mailto:kretkiewicz@gmail.com" class="contact-box">
 
           <div class="contact-box-glow"></div>
 
@@ -3018,9 +3408,8 @@ animation-delay:.6s;
 
         </a>
 
-        <!-- CONTACT BOX -->
         <a 
-        href="https://wa.me/48500111222" 
+        href="https://wa.me/48609494760" 
         target="_blank"
         class="contact-box">
 
@@ -3043,7 +3432,6 @@ animation-delay:.6s;
 
       </div>
 
-      <!-- PRAWA -->
       <div class="contact-form-wrap reveal">
 
         <div class="contact-pattern"></div>
@@ -3060,51 +3448,39 @@ animation-delay:.6s;
 
         </div>
 
-        <form
-          class="contact-form"
-          action="https://formsubmit.co/gracjan.sliwinski2@gmail.com"
-          method="POST"
-        >
+        <form class="contact-form" id="mailForm">
 
-          <!-- SETTINGS -->
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_subject" value="Nowa wiadomość ze strony HEL">
-          <input type="hidden" name="_template" value="table">
-
-          <!-- INPUT -->
           <div class="form-group">
 
             <i class="fa-solid fa-user"></i>
 
             <input
               type="text"
-              name="Imię"
+              id="formName"
               placeholder="Twoje imię"
               required
             >
 
           </div>
 
-          <!-- INPUT -->
           <div class="form-group">
 
             <i class="fa-solid fa-envelope"></i>
 
             <input
               type="email"
-              name="Email"
+              id="formEmail"
               placeholder="Twój adres e-mail"
               required
             >
 
           </div>
 
-          <!-- SELECT -->
           <div class="form-group">
 
             <i class="fa-solid fa-layer-group"></i>
 
-            <select name="Plan" required>
+            <select id="formPlan" required>
 
               <option value="">
                 Wybierz plan
@@ -3134,21 +3510,19 @@ animation-delay:.6s;
 
           </div>
 
-          <!-- TEXTAREA -->
           <div class="form-group textarea-group">
 
             <i class="fa-solid fa-comment"></i>
 
             <textarea
-              name="Wiadomość"
+              id="formMessage"
               placeholder="Treść wiadomości..."
               required
             ></textarea>
 
           </div>
 
-          <!-- BUTTON -->
-          <a href="#" class="pricing-btn">
+          <a href="#" class="pricing-btn" id="submitMailBtn">
             <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
               <i class="fa-solid fa-envelope"></i>
             </div>
@@ -3167,9 +3541,6 @@ animation-delay:.6s;
 
 </section>
 
-<!-- ===================================================
-     STYLIZACJA SYSTEMOWA SEKCJI KONTAKTOWEJ
-     =================================================== -->
 <style>
 
 /* =========================
@@ -3575,20 +3946,20 @@ animation-delay:.6s;
 }
 </style>
 
-<script>  const helToggle = document.getElementById('helToggle');
+<script>  
+const helToggle = document.getElementById('helToggle');
 const helMore = document.getElementById('helMore');
 
-helToggle.addEventListener('click', () => {
-
-  helMore.classList.toggle('active');
-
-  if (helMore.classList.contains('active')) {
-    helToggle.innerHTML = `<span>Zwiń całość</span><i class="fa-solid fa-minus"></i>`;
-  } else {
-    helToggle.innerHTML = `<span>Czytaj więcej</span><i class="fa-solid fa-plus"></i>`;
-  }
-
-});
+if(helToggle && helMore) {
+  helToggle.addEventListener('click', () => {
+    helMore.classList.toggle('active');
+    if (helMore.classList.contains('active')) {
+      helToggle.innerHTML = `<span>Zwiń całość</span><i class="fa-solid fa-minus"></i>`;
+    } else {
+      helToggle.innerHTML = `<span>Czytaj więcej</span><i class="fa-solid fa-plus"></i>`;
+    }
+  });
+}
 
 const counters = document.querySelectorAll('.counter');
 
@@ -3617,6 +3988,32 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 
 counters.forEach(c => observer.observe(c));
+
+// OBSŁUGA GENEROWANIA SYSTEMOWEGO LINKU MAILTO PRZEZ ORYGINALNY PRZYCISK <a>
+document.getElementById('submitMailBtn').addEventListener('click', function(e) {
+  e.preventDefault();
+  
+  const form = document.getElementById('mailForm');
+  
+  // Sprawdzenie poprawności wypełnienia wymaganych pól
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+  
+  const name = document.getElementById('formName').value;
+  const email = document.getElementById('formEmail').value;
+  const plan = document.getElementById('formPlan').value;
+  const message = document.getElementById('formMessage').value;
+  
+  const emailTo = "kretkiewicz@gmail.com";
+  const subject = encodeURIComponent("Rezerwacja / pytanie - wycieczki Hel");
+  
+  // Struktura wiadomości zgodnie z Twoim życzeniem
+  const bodyText = `Imię: ${name}%0D%0AEmail: ${email}%0D%0APakiet: ${plan}%0D%0A%0D%0AWiadomość:%0D%0A${message}`;
+  
+  window.location.href = `mailto:${emailTo}?subject=${subject}&body=${bodyText}`;
+});
 </script>
 
 <!-- ===================================================
@@ -4020,7 +4417,7 @@ counters.forEach(c => observer.observe(c));
     <div class="footer-inner">
 
       <div class="footer-left">
-        <a href="#" class="footer-link footer-link--secondary">
+        <a href="PolitykaPrywatnosci.html" class="footer-link footer-link--secondary">
           Polityka prywatności<span class="link-icon">↗</span>
         </a>
       </div>
@@ -4312,5 +4709,7 @@ gsap.from(".hero-neo-btn", {
   ease: "power3.out"
 });
   </script>
+
+  
 </body>
 </html>
