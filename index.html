@@ -1527,7 +1527,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <i class="fa-solid fa-users"></i>
             </div>
             <div class="title-box">
-              <span class="card-tag gold-tag">Wycieczka całodniowa (7-8 godz.)</span>
+              <span class="card-tag gold-tag">Najpopularniejszy pakiet</span>
               <h3>Wycieczka całodniowa</h3>
             </div>
           </div>
@@ -1538,7 +1538,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <span class="period">/ godz.</span>
           </div>
 
-<p class="card-brief">Najlepszy pakiet dla każdego, kto chce wycisnąć z Helu jak najwięcej.<br><span style="color: #00ff1e;">-10% zniżki </span></p>
+<p class="card-brief">Obejmuje 7-8 godzin zwiedzania | <span style="color: #00ff1e;">-10% zniżki </span></p>
 
           <hr class="card-divider">
 
@@ -2416,8 +2416,7 @@ document.addEventListener('DOMContentLoaded', function() {
   color: #ffffff9b; 
   font-weight: 300;
   overflow: hidden;
-  max-height: 5.1em; /* Dokładna wysokość początkowa dla 3 linii tekstu */
-  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1); /* Wysoce stabilna krzywa przejściowa */
+  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
 /* NIEBIESKI LINK ZWROTNY */
@@ -2522,9 +2521,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (!container || !section) return;
 
-  // SYSTEM SKRACANIA DO DOKŁADNIE 244 ZNAKÓW + DOSKONALE PŁYNNE ZWIJANIE/ROZWIJANIE
+  // SYSTEM SKRACANIA DO DOKŁADNIE 350 ZNAKÓW Z POPRAWNYM UKRYWANIEM
   const textCards = container.querySelectorAll('.review-premium-card');
-  const MAX_LEN = 244; // Nowa wartość graniczna znaków
+  const MAX_LEN = 350; // Zwiększona wartość znaków przed rozwinięciem
 
   textCards.forEach(card => {
     const textEl = card.querySelector('.review-text');
@@ -2543,41 +2542,21 @@ document.addEventListener('DOMContentLoaded', function() {
       
       card.querySelector('.review-inner-wrapper').appendChild(toggleBtn);
 
-      // Pobieramy i zapamiętujemy dokładną bazową wysokość (3 linijek tekstu) w px
-      const collapsedHeight = textEl.getBoundingClientRect().height;
-      textEl.style.maxHeight = collapsedHeight + 'px';
-
       toggleBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         const dots = textEl.querySelector('.dots');
         const moreText = textEl.querySelector('.more-text');
 
         if (card.classList.contains('expanded')) {
-          // PŁYNNE ZWIJANIE
-          // 1. Zanim schowamy tekst, ustawiamy max-height na wysokość pełnego tekstu
-          textEl.style.maxHeight = textEl.scrollHeight + 'px';
-          
-          // 2. Wymuszamy natychmiastowe przeliczenie stylów przez przeglądarkę
-          textEl.offsetHeight; 
-          
-          // 3. Wracamy do pierwotnej, niskiej wysokości px
-          textEl.style.maxHeight = collapsedHeight + 'px';
           card.classList.remove('expanded');
           toggleBtn.innerHTML = 'Zobacz więcej <span class="arrow">↓</span>';
-          
-          setTimeout(() => {
-            dots.style.display = 'inline';
-            moreText.style.display = 'none';
-          }, 450); // Dokładne dopasowanie do czasu transition w CSS (0.45s)
+          dots.style.display = 'inline';
+          moreText.style.display = 'none';
         } else {
-          // PŁYNNE ROZWIJANIE
-          dots.style.display = 'none';
-          moreText.style.display = 'inline';
-          
-          // Ustawiamy wysokość dokładnie na scrollHeight (czyli pełny wymiar w px)
-          textEl.style.maxHeight = textEl.scrollHeight + 'px';
           card.classList.add('expanded');
           toggleBtn.innerHTML = 'Zwiń <span class="arrow"></span>';
+          dots.style.display = 'none';
+          moreText.style.display = 'inline';
         }
       });
     }
