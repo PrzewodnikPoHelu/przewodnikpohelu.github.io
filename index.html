@@ -145,7 +145,7 @@
     }
 
     .nav-links a {
-      font-size: .88rem;
+      font-size: 0.97rem;
       color: #fff;
       opacity: .92;
       position: relative;
@@ -737,7 +737,7 @@ html, body {
       rgba(0,0,0,.42) 40%,
       rgba(0,0,0,.82) 100%
     ),
-    url("hero.png");
+    url("background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -762,7 +762,7 @@ html, body {
         rgba(0,0,0,.42) 40%,
         rgba(0,0,0,.82) 100%
       ),
-      url("heromobile.png") !important;
+      url("backgroundmobile.png") !important;
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
@@ -798,7 +798,7 @@ html, body {
 
   margin-bottom:1.2rem;
 
-  font-size:.82rem;
+  font-size:1.2rem;
   font-weight:500;
 
   text-transform:uppercase;
@@ -906,7 +906,7 @@ html, body {
   }
 
   .hero-kicker{
-    font-size:.7rem;
+    font-size:.9rem;
     letter-spacing:.16rem;
   }
 
@@ -954,7 +954,7 @@ html, body {
   }
 
   .hero-kicker{
-    font-size:.68rem;
+    font-size:.9rem;
   }
 }
 .post{
@@ -1384,7 +1384,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <a href="#oferta"><i class="fa-solid fa-briefcase"></i> Oferta</a>
   <a href="#o-mnie"><i class="fa-solid fa-user"></i> O mnie</a>
   <a href="#kontakt"><i class="fa-solid fa-envelope"></i> Kontakt</a>
-  <a href="#blog"><i class="fa-solid fa-newspaper"></i> Blog</a>
+  <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a>
 </div>
 
   <div class="site-wrapper">
@@ -1400,7 +1400,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <a href="#oferta">Oferta</a>
                 <a href="#o-mnie">O mnie</a>
                 <a href="#kontakt">Kontakt</a>
-                <a href="#blog">Blog</a>
+                <a href="blog.html">Blog</a>
         </div>
         <div class="hamburger">
           <span></span>
@@ -1420,7 +1420,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="hero-content">
 
     <span class="hero-kicker">
-      TURYSTYCZNY PRZEWODNIK PO HELU
+       PRZEWODNIK TURYSTYCZNY PO HELU
     </span>
 
     <h1 class="hero-title">
@@ -1429,7 +1429,7 @@ document.addEventListener("DOMContentLoaded", function () {
     </h1>
 
     <p class="hero-desc">
-      „Tu kończy się Polska, a zaczyna przygoda”. Odkryj Hel i poznaj sekrety końca mapy.
+       Tu kończy się Polska, a zaczyna przygoda. Odkryj Hel i poznaj jego sekrety.
     </p>
 
     <div class="hero-buttons">
@@ -1443,19 +1443,143 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </section>
 
-
-
-
-<!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
-<!-- ===================================================
-     CENNIK: ULTRA SZEROKIE KARTY + BLISKI ODSTĘP CTA (MOBILE)
-     =================================================== -->
 
+<section class="pricing-premium-section" id="cennik">
+  <div class="pricing-glow-1"></div>
+  <div class="pricing-glow-2"></div>
 
-<!-- ===================================================
-     STYLE CSS
-     =================================================== -->
+  <div class="container-main">
+    
+    <div class="pricing-premium-header reveal">
+      <span class="pricing-kicker">AKTUALNA OFERTA</span>
+      <h2 class="pricing-main-title">Cennik i pakiety zwiedzania</h2>
+    </div>
+
+    <div class="pricing-premium-grid" id="pricing-scroll-container">
+  
+      <div class="pricing-premium-card reveal">
+        <div class="card-inner-wrapper">
+          
+          <div class="card-header-block">
+            <div class="icon-box-wrapper">
+              <i class="fa-solid fa-person-hiking"></i>
+            </div>
+            <div class="title-box">
+              <span class="card-tag">cena za godzinę</span>
+              <h3>Usługa godzinowa</h3>
+            </div>
+          </div>
+
+          <div class="price-display-block">
+            <span class="amount">170</span>
+            <span class="currency">zł</span>
+            <span class="period">/ godz.</span>
+          </div>
+
+          <p class="card-brief">Najlepsze dla osób prywatnych i rodzin.</p>
+
+          <hr class="card-divider">
+
+          <ul class="premium-features-list">
+            <li>
+              <div class="feature-bullet"><i class="fa-solid fa-check"></i></div>
+              <div class="feature-text">
+                <strong>Czas pod Twoją kontrolą</strong>
+                <p>Sami decydujecie, ile godzin chcecie poświęcić na zwiedzanie</p>
+              </div>
+            </li>
+            <li>
+              <div class="feature-bullet"><i class="fa-solid fa-check"></i></div>
+              <div class="feature-text">
+                <strong>Dostosowanie do uczestników</strong>
+                <p>Tempo i trasa dopasowane do wieku oraz zainteresowań każdego z Was</p>
+              </div>
+            </li>
+            <li>
+              <div class="feature-bullet"><i class="fa-solid fa-check"></i></div>
+              <div class="feature-text">
+                <strong>Najciekawsze zakątki Helu</strong>
+                <p>Odkrywanie tajemnic półwyspu, od historii po piękne widoki</p>
+              </div>
+            </li>
+          </ul>
+
+          <a href="#kontakt" class="pricing-btn">
+            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
+              <i class="fa-solid fa-person-hiking"></i>
+            </div>
+            <span>Zarezerwuj wycieczkę</span>
+          </a>
+
+        </div>
+      </div>
+
+      <div class="pricing-premium-card featured-luxury reveal">
+        <div class="luxury-badge">
+          <i class="fa-solid fa-star"></i> Popularne
+        </div>
+        
+        <div class="card-inner-wrapper">
+          
+          <div class="card-header-block">
+            <div class="icon-box-wrapper unique-gold">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div class="title-box">
+              <span class="card-tag gold-tag">Wycieczka całodniowa (7-8 godz.)</span>
+              <h3>Wycieczka całodniowa</h3>
+            </div>
+          </div>
+
+          <div class="price-display-block">
+            <span class="amount">170</span>
+            <span class="currency">zł</span>
+            <span class="period">/ godz.</span>
+          </div>
+
+<p class="card-brief">Najlepszy pakiet dla każdego, kto chce wycisnąć z Helu jak najwięcej.<br><span style="color: #00ff1e;">-10% zniżki </span></p>
+
+          <hr class="card-divider">
+
+          <ul class="premium-features-list">
+            <li>
+              <div class="feature-bullet gold-bullet"><i class="fa-solid fa-check"></i></div>
+              <div class="feature-text">
+                <strong>Pełna panorama Helu</strong>
+                <p>Możliwość zobaczenia wszystkich najważniejszych miejsc i ukrytych ciekawostek podczas jednej wyprawy</p>
+              </div>
+            </li>
+            <li>
+              <div class="feature-bullet gold-bullet"><i class="fa-solid fa-check"></i></div>
+              <div class="feature-text">
+                <strong>Dzień bez pośpiechu</strong>
+                <p>Około 7-8 godzin spokojnego odkrywania bez patrzenia na zegarek</p>
+              </div>
+            </li>
+            <li>
+              <div class="feature-bullet gold-bullet"><i class="fa-solid fa-check"></i></div>
+              <div class="feature-text">
+                <strong>Bogaty program i elastyczność</strong>
+                <p>Dłuższy czas pozwala na swobodne i głębokie poznanie lokalnych atrakcji i legend</p>
+              </div>
+            </li>
+          </ul>
+
+          <a href="#kontakt" class="pricing-btn">
+            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
+              <i class="fa-solid fa-person-hiking"></i>
+            </div>
+            <span>Zarezerwuj wycieczkę</span>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <style>
 .pricing-premium-section {
   position: relative;
@@ -1484,11 +1608,9 @@ document.addEventListener("DOMContentLoaded", function () {
   pointer-events: none;
 }
 
-/* NAGŁÓWEK */
 .pricing-premium-header {
   text-align: center;
   margin-bottom: 5vh;
-  text-align: center !important;
 }
 .pricing-kicker {
   display: inline-block;
@@ -1506,15 +1628,7 @@ document.addEventListener("DOMContentLoaded", function () {
   color: #ffffff;
   letter-spacing: -0.01em;
 }
-.pricing-lead-text {
-  max-width: 32rem;
-  margin: 1rem auto 0;
-  font-size: 0.92rem;
-  line-height: 1.6;
-  color: #8a8a8a;
-}
 
-/* GRID DESKTOP */
 .pricing-premium-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1524,6 +1638,7 @@ document.addEventListener("DOMContentLoaded", function () {
   align-items: stretch;
 }
 
+/* WAŻNE: Dodajemy płynny transition dla samych kart pod kątem animacji hintu */
 .pricing-premium-card {
   position: relative;
   border-radius: 1.8rem;
@@ -1531,7 +1646,7 @@ document.addEventListener("DOMContentLoaded", function () {
   border: 1px solid rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(2rem);
   -webkit-backdrop-filter: blur(2rem);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease, box-shadow 0.4s ease;
 }
 .card-inner-wrapper {
   padding: 2.2rem;
@@ -1552,7 +1667,6 @@ document.addEventListener("DOMContentLoaded", function () {
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
 }
 
-/* BADGE */
 .luxury-badge {
   position: absolute;
   top: -12px;
@@ -1569,7 +1683,6 @@ document.addEventListener("DOMContentLoaded", function () {
   gap: 0.3rem;
 }
 
-/* NAGŁÓWEK KARTY */
 .card-header-block {
   display: flex;
   align-items: center;
@@ -1605,11 +1718,8 @@ document.addEventListener("DOMContentLoaded", function () {
   color: #777;
   text-transform: uppercase;
 }
-.gold-tag {
-  color: #00d2ff;
-}
+.gold-tag { color: #00d2ff; }
 
-/* CENA */
 .price-display-block {
   display: flex;
   align-items: baseline;
@@ -1628,10 +1738,7 @@ document.addEventListener("DOMContentLoaded", function () {
   line-height: 1;
   letter-spacing: -0.02em;
 }
-.period {
-  font-size: 0.88rem;
-  color: #777;
-}
+.period { font-size: 0.88rem; color: #777; }
 
 .card-brief {
   font-size: 0.88rem;
@@ -1647,7 +1754,6 @@ document.addEventListener("DOMContentLoaded", function () {
   margin-bottom: 1.5rem;
 }
 
-/* LISTA ATUTÓW */
 .premium-features-list {
   list-style: none;
   display: flex;
@@ -1690,112 +1796,6 @@ document.addEventListener("DOMContentLoaded", function () {
   margin-top: 0.05rem;
 }
 
-/* BUTTONY */
-.premium-pricing-btn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.95rem 1.3rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  color: #ffffff;
-  font-size: 0.88rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-.btn-arrow-circle {
-  width: 1.9rem;
-  height: 1.9rem;
-  border-radius: 50%;
-  background: #ffffff;
-  color: #000000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  transition: transform 0.3s ease;
-}
-.premium-pricing-btn:hover {
-  background: #ffffff;
-  color: #000000;
-  border-color: #ffffff;
-}
-
-.gold-btn {
-  background: #ffffff;
-  color: #000000;
-  border-color: #ffffff;
-}
-.gold-btn .btn-arrow-circle {
-  background: #000000;
-  color: #ffffff;
-}
-
-/* ===================================================
-   SEKCJA MOBILNA: MAKSYMALNA SZEROKOŚĆ + MAŁE ODSTĘPY
-   =================================================== */
-@media (max-width: 768px) {
-  .pricing-premium-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 0.5rem 0.8rem 1rem 0.8rem; 
-    margin: 0 -5vw;
-    gap: 0.8rem;
-    scrollbar-width: none;
-  }
-
-  .pricing-premium-grid::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* ZMIANA: Zwiększona szerokość do 94% ekranu */
-  .pricing-premium-card {
-    flex: 0 0 94%; 
-    scroll-snap-align: center;
-  }
-
-  .card-inner-wrapper {
-    padding: 1.2rem 1.3rem; 
-  }
-
-  .card-header-block {
-    margin-bottom: 0.8rem;
-  }
-
-  .card-brief {
-    margin-bottom: 0.8rem;
-  }
-
-  .card-divider {
-    margin-bottom: 0.8rem;
-  }
-
-  /* ZMIANA: Ekstremalne zmniejszenie odstępów nad buttonem CTA */
-  .premium-features-list {
-    gap: 0.7rem; 
-    padding-bottom: 0px; /* Całkowite usunięcie wolnej przestrzeni pod listą */
-    margin-bottom: 1rem; /* Kontrolowany, minimalny dystans do przycisku */
-  }
-
-  .luxury-badge {
-    right: 1.2rem;
-    top: -10px;
-  }
-
-  .pricing-premium-header {
-    margin-bottom: 1.5vh;
-  }
-}
-
-/* =========================
-  BUTTON
-========================= */
-
 .pricing-btn {
   margin-top: 1.4rem;
   display: inline-flex;
@@ -1814,220 +1814,107 @@ document.addEventListener("DOMContentLoaded", function () {
   z-index: 1;
 }
 
-/* pseudo-element do błysku */
-.pricing-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s ease;
-  z-index: -1;
-}
-
-.pricing-btn:hover::before {
-  left: 100%;
-}
-
-.pricing-btn:hover {
-  background: rgba(255,255,255,.1);
-  transform: translateY(-2px);
-}
-
-
-
-/* =========================
-  LEPSZY MOBILE — GALERIA
-  PODMIEŃ SWOJĄ SEKCJĘ MOBILE
-========================= */
-
-@media(max-width:900px){
-
-  .pricing-section{
-    padding: 7vh 0;
-    overflow: hidden;
-  }
-
-  /* GALERIA / SLIDER */
-  .pricing-grid{
-    display: flex;
-    gap: .9rem;
-
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-
-    padding-bottom: .4rem;
-    padding-right: 5vw;
-
+@media (max-width: 768px) {
+  .pricing-premium-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    
+    scroll-snap-type: x mandatory !important; 
+    scroll-behavior: smooth !important;
+    
     -webkit-overflow-scrolling: touch;
+    padding: 0.5rem 0.8rem 1rem 0.8rem; 
+    margin: 0 -5vw;
+    gap: 0.8rem;
+    scrollbar-width: none;
   }
 
-  .pricing-grid::-webkit-scrollbar{
-    display:none;
-  }
-
-  .pricing-grid{
-    scrollbar-width:none;
-  }
-
-  /* KARTY */
-  .pricing-card{
-    min-width: 84%;
-    flex: 0 0 84%;
-
-    scroll-snap-align: center;
-
-    padding: 1rem;
-    border-radius: 1.25rem;
-  }
-
-  /* BADGE */
-  .pricing-badge{
-    position: static;
-    width: fit-content;
-
-    margin-bottom: .8rem;
-
-    font-size: .58rem;
-
-    padding: .42rem .7rem;
-  }
-
-  /* TOP */
-  .pricing-top{
-    gap: .75rem;
-    margin-bottom: 1rem;
-  }
-
-  .pricing-icon{
-    width: 3rem;
-    height: 3rem;
-
-    border-radius: .9rem;
-
-    font-size: .95rem;
-  }
-
-  .pricing-label{
-    font-size: .58rem;
-    letter-spacing: .16rem;
-  }
-
-  .pricing-top h3{
-    font-size: 1.05rem;
-    line-height: 1.1;
-  }
-
-  /* PRICE */
-  .pricing-price{
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .pricing-price span{
-    display: inline;
-    font-size: .78rem;
-  }
-
-  /* STEPS */
-  .pricing-steps{
-    gap: .55rem;
-    margin-bottom: 1rem;
-  }
-
-  .step{
-    padding: .7rem;
-    border-radius: .95rem;
-    gap: .7rem;
-  }
-
-  .step-icon{
-    width: 2.2rem;
-    height: 2.2rem;
-
-    border-radius: .7rem;
-
-    font-size: .72rem;
-  }
-
-  .step h4{
-    font-size: .82rem;
-    margin-bottom: .15rem;
-  }
-
-  .step p{
-    font-size: .72rem;
-    line-height: 145%;
-  }
-
-  /* DESC */
-  .pricing-desc{
-    gap: .55rem;
-    margin-bottom: 1rem;
-  }
-
-  .desc-item{
-    gap: .55rem;
-    font-size: .74rem;
-  }
-
-  .desc-item i{
-    font-size: .72rem;
-  }
-
-  }
-  .step {
+  .pricing-premium-grid::-webkit-scrollbar {
     display: none;
   }
 
+  .pricing-premium-card {
+    flex: 0 0 94% !important; 
+    min-width: 94% !important;
+    scroll-snap-align: center !important;
+  }
 
-.fade-item {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: 0.5s ease;
+  .card-inner-wrapper { padding: 1.2rem 1.3rem; }
+  .premium-features-list { gap: 0.7rem; padding-bottom: 0px; margin-bottom: 1rem; }
+  .luxury-badge { right: 1.2rem; top: -10px; }
+  .pricing-premium-header { margin-bottom: 1.5vh; }
 }
+</style>
 
-.fade-item.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.getElementById('pricing-scroll-container');
+  const section = document.getElementById('cennik');
+  if (!container || !section) return;
 
-.fade-item.hide {
-  opacity: 0;
-  transform: translateY(30px);
-}
+  let hasAnimated = false; 
+  let userInteracted = false;
 
-/* EXTRA SMALL */
+  // Pobieramy obie karty, aby poruszyć nimi niezależnie od paska scrolla
+  const cards = container.querySelectorAll('.pricing-premium-card');
 
-@media(max-width:520px){
-
-  .pricing-card{
-    min-width: 88%;
-    flex: 0 0 88%;
+  function stopHint() {
+    if (userInteracted) return;
+    userInteracted = true;
+    
+    // W przypadku dotknięcia natychmiast anulujemy przesunięcie na kartach
+    cards.forEach(card => {
+      card.style.transform = "none";
+    });
+    
+    container.removeEventListener('touchstart', stopHint);
+    container.removeEventListener('scroll', stopHint);
   }
 
-  .pricing-price{
-    font-size: 1.8rem;
-  }
+  container.addEventListener('touchstart', stopHint, { passive: true });
+  container.addEventListener('scroll', stopHint, { passive: true });
 
-  .pricing-top h3{
-    font-size: .98rem;
-  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // Reaguje na telefonach, gdy sekcja pojawi się w polu widzenia (threshold: 0.25)
+      if (entry.isIntersecting && !hasAnimated && window.innerWidth <= 768) {
+        hasAnimated = true; 
+        observer.unobserve(section); 
 
-  .step p{
-    font-size: .68rem;
-  }
+        // CZAS OCZEKIWANIA: 1.5 sekundy (1500ms) od wejścia na sekcję cennika
+        setTimeout(() => {
+          if (userInteracted) return;
 
-  .pricing-btn span{
-    font-size: .68rem;
-  }
+          // 1. SUBTELNE WYCHYLENIE KART: Przesuwamy same karty w lewo o 60px
+          // Ruch odbywa się wewnątrz paska, nie niszcząc tła strony
+          cards.forEach(card => {
+            card.style.transform = "translateX(-60px)";
+          });
 
-}</style>
+          // 2. PRZETRZYMANIE: Po 500ms karty wracają do normy
+          setTimeout(() => {
+            if (userInteracted) return;
+            
+            cards.forEach(card => {
+              card.style.transform = "none";
+            });
+
+            container.removeEventListener('touchstart', stopHint);
+            container.removeEventListener('scroll', stopHint);
+          }, 500); 
+
+        }, 1500); 
+      }
+    });
+  }, {
+    threshold: 0.25 // Odpala, gdy 25% sekcji jest widoczne na ekranie
+  });
+
+  observer.observe(section);
+});
+</script>
 
 <section class="reviews-premium-section" id="opinie">
   <div class="reviews-glow-1"></div>
@@ -2036,7 +1923,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="container-main-reviews">
     
     <div class="reviews-premium-header reveal">
-      <span class="reviews-kicker">ZOSTAW OPINIĘ</span> <h2 class="reviews-main-title">Opinie moich klientów</h2> <a href="https://www.google.com/search?sa=X&sca_esv=d2b5db79e1641e91&sxsrf=ANbL-n5Z-CkqgGUw_uugobxJKhaEU2vmUQ:1780836847812&q=daniel%20-%20przewodnik%20turystyczny%20po%20helu%20opinie&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2sjS3MLMwNzUztzAxNDCxMDA02sDI-IpRLyUxLzM1R0FXoaCoKrU8PyUvM1uhpLSosrikMrkqr1KhIF8hIzWnVCG_IBOocBEriRoA0E8HHXwAAAA&rldimm=2978687567841048012&tbm=lcl&hl=pl-PL&ved=0CAYQ5foLahcKEwio_Z-alvWUAxUAAAAAHQAAAAAQDA&biw=1920&bih=992&dpr=1#lkt=LocalPoiReviews&arid=Ci9DQUlRQUNvZENodHljRjlvT2s0eFRqQnZNVkZrUlhObFlsOWxibkJCYUY4M09FRRAB" target="_blank" class="header-google-trust">
+      <span class="reviews-kicker">ZOBACZ WIĘCEJ OPINII</span> <h2 class="reviews-main-title">Opinie moich klientów</h2> <a href="https://www.google.com/search?sa=X&sca_esv=d2b5db79e1641e91&sxsrf=ANbL-n5Z-CkqgGUw_uugobxJKhaEU2vmUQ:1780836847812&q=daniel%20-%20przewodnik%20turystyczny%20po%20helu%20opinie&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2sjS3MLMwNzUztzAxNDCxMDA02sDI-IpRLyUxLzM1R0FXoaCoKrU8PyUvM1uhpLSosrikMrkqr1KhIF8hIzWnVCG_IBOocBEriRoA0E8HHXwAAAA&rldimm=2978687567841048012&tbm=lcl&hl=pl-PL&ved=0CAYQ5foLahcKEwio_Z-alvWUAxUAAAAAHQAAAAAQDA&biw=1920&bih=992&dpr=1#lkt=LocalPoiReviews&arid=Ci9DQUlRQUNvZENodHljRjlvT2s0eFRqQnZNVkZrUlhObFlsOWxibkJCYUY4M09FRRAB" target="_blank" class="header-google-trust">
         <span class="google-svg-wrap">
           <svg viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -2053,80 +1940,273 @@ document.addEventListener("DOMContentLoaded", function () {
           <i class="fa-solid fa-star"></i>
           <i class="fa-solid fa-star"></i>
         </span>
-        <span class="trust-count">(389 recenzje)</span>
+        <span class="trust-count">(400+ recenzji)</span>
       </a>
     </div>
 
-    <div class="reviews-premium-grid">
-  
-      <div class="review-premium-card reveal">
-        <div class="review-inner-wrapper">
-          <div class="review-header">
-            <div class="user-avatar">
-              <img src="https://lh3.googleusercontent.com/a/ACg8ocKRsOj-zKUM3rXVaOBxaKKLhJFVRbPlRTG54ajPu-PXOiUA8mI=w72-h72-p-rp-mo-ba12-br100" alt="Anna Kowalska">
+    <div class="reviews-slider-wrapper">
+      <button class="reviews-nav-btn prev-btn" id="reviews-prev" aria-label="Poprzednia opinia">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="reviews-premium-grid" id="reviews-scroll-container">
+    
+        <div class="review-premium-card reveal">
+          <div class="review-inner-wrapper">
+            <div class="review-header">
+              <div class="user-avatar">
+                <img src="https://lh3.googleusercontent.com/a/ACg8ocKRsOj-zKUM3rXVaOBxaKKLhJFVRbPlRTG54ajPu-PXOiUA8mI=w72-h72-p-rp-mo-ba12-br100" alt="Wojciech Pawlikowski">
+              </div>
+              <div class="user-meta">
+                <h4>Wojciech Pawlikowski</h4>
+                <span>
+                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
+                </span>
+              </div>
             </div>
-            <div class="user-meta">
-              <h4>Wojciech Pawlikowski</h4>
-              <span>4 miesiące temu</span>
+            <div class="card-stars-gold">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
+            <p class="review-text">
+              "Żałuję… że nie wziąłem wcześniej udziału w zwiedzaniu Helu z p.Danielem. Żal towarzyszy odczuciu niezwykle interesująco spędzonych dwóch godzin, które w perspektywie dwóch godzin mroźnego dnia minęły niezwykle szybko, ba! zbyt szybko. Polecam każdemu, a nie zainteresowanym powiem tylko tyle - nie wiecie co tracicie 😉"
+            </p>
           </div>
-          <div class="card-stars-gold">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          </div>
-          <p class="review-text">
-            "Żałuję… że nie wziąłem wcześniej udziału w zwiedzaniu Helu z p.Danielem. Żal towarzyszy odczuciu niezwykle interesująco spędzonych dwóch godzin, które w perspektywie dwóch godzin mroźnego dnia minęły niezwykle szybko, ba! zbyt szybko. Polecam każdemu, a nie zainteresowanym powiem tylko tyle - nie wiecie co tracicie 😉"
-          </p>
         </div>
+
+        <div class="review-premium-card reveal">
+          <div class="review-inner-wrapper">
+            <div class="review-header">
+              <div class="user-avatar">
+                <img src="https://lh3.googleusercontent.com/a/ACg8ocL-_U8iVt0d9tJhDxMvhTGxyyngcJEZcMDZeVtfBYph6VSiJw=w72-h72-p-rp-mo-br100" alt="Justyna Polakowska">
+              </div>
+              <div class="user-meta">
+                <h4>Justyna Polakowska</h4>
+                <span>
+                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
+                </span>
+              </div>
+            </div>
+            <div class="card-stars-gold">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Jeśli spacer z przewodnikiem po Helu, to TYLKO z panem Danielem. Pan Daniel, to: elokwentny, komunikatywny, bardzo sympatyczny Człowiek, który chętnie dzieli się swoją wiedzą, pasją, energią, życzliwością, poczuciem humoru i...uśmiechem. Serdecznie dziękuję i pozdrawiam Pana, jak również wszystkich tu zaglądających."
+            </p>
+          </div>
+        </div>
+
+        <div class="review-premium-card reveal">
+          <div class="review-inner-wrapper">
+            <div class="review-header">
+              <div class="user-avatar">
+                <img src="https://lh3.googleusercontent.com/a/ACg8ocJz6b90ZHdFu1Zm_V-fAIoWEnVeqHuCVOgr1dQP6j82oBg1ww=w72-h72-p-rp-mo-ba12-br100" alt="Magdalena Ignaczak">
+              </div>
+              <div class="user-meta">
+                <h4>Magdalena Ignaczak</h4>
+                <span>
+                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
+                </span>
+              </div>
+            </div>
+            <div class="card-stars-gold">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Pan Daniel jest świetnym przewodnikiem po Helu, byliśmy z grupą młodzieży na ok. 4 godzinnym spacerze po Półwyspie Helskim. Dużo ale konkretnych informacji pod tematykę którą się interesowała Młodzież, profesjonalny i rzeczowy. Bardzo polecam! "
+            </p>
+          </div>
+        </div>
+
+        <div class="review-premium-card reveal">
+          <div class="review-inner-wrapper">
+            <div class="review-header">
+              <div class="user-avatar">
+                <img src="https://lh3.googleusercontent.com/a-/ALV-UjWet78c0qkIxNXR96o35MoAU77soWeyKvHbCGB5EhCnOd_8zMLt=w72-h72-p-rp-mo-ba12-br100" alt="Kamil Nowak">
+              </div>
+              <div class="user-meta">
+                <h4>Joanna Dudziak</h4>
+                <span>
+                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
+                </span>
+              </div>
+            </div>
+            <div class="card-stars-gold">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Pomimo zimniej i wietrznej pogody zwiedzaliśmy Hel, w super towarzystwie Pana Daniela, który oprowadził nas ciekawie po tym wspaniałym mieście. Serdecznie polecamy!"
+            </p>
+          </div>
+        </div>
+
+        <div class="review-premium-card reveal">
+          <div class="review-inner-wrapper">
+            <div class="review-header">
+              <div class="user-avatar">
+                <img src="https://lh3.googleusercontent.com/a-/ALV-UjWjGlQQ8BBsSxqinHSx8WxBJ8smFmM8dA0NhrFC3xiubn4iWc4J=w72-h72-p-rp-mo-ba12-br100" alt="Anna Kowalska">
+              </div>
+              <div class="user-meta">
+                <h4>RENA Rena</h4>
+                <span>
+                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
+                </span>
+              </div>
+            </div>
+            <div class="card-stars-gold">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Pan Daniel bardzo ciekawie opowiada i zaciekawil mnie historia Helu , zna bardzo duzo szczegolow i cekawostek . Bardzo madry czlowiek."
+            </p>
+          </div>
+        </div>
+
+        <div class="review-premium-card reveal">
+          <div class="review-inner-wrapper">
+            <div class="review-header">
+              <div class="user-avatar">
+                <img src="https://lh3.googleusercontent.com/a-/ALV-UjUgX49a2X_6n0_Q6xUQSvS28mS5ttaNJ_L5nb5EHb2tZuyMEjEfTw=w72-h72-p-rp-mo-br100" alt="Anna Kowalska">
+              </div>
+              <div class="user-meta">
+                <h4>Marta Bargiel Juristova</h4>
+                <span>
+                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
+                </span>
+              </div>
+            </div>
+            <div class="card-stars-gold">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Pan Daniel jest bardzo miłą i pozytywną osobą z dużą wiedzą i poczuciem humoru.Wyjazd jest bardzo ciekawy dla wszystkich grup wiekowych.Dodatkowo można ustalić własne punkty,które mają być zawarte w wyjeździe.Polecam serdecznie i bardzo dziękuję za spełnienie wszystkich życzeń wycieczkowych."
+            </p>
+          </div>
+        </div>
+
+        <div class="review-premium-card reveal">
+          <div class="review-inner-wrapper">
+            <div class="review-header">
+              <div class="user-avatar">
+                <img src="https://lh3.googleusercontent.com/a-/ALV-UjXL2rHPwoVpWwx-SuxwibMs_Wyy1QXD-x_OMsA3jiccY7FZLG0=w72-h72-p-rp-mo-br100" alt="Anna Kowalska">
+              </div>
+              <div class="user-meta">
+                <h4>Barbara Woszczyńska</h4>
+                <span>
+                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
+                </span>
+              </div>
+            </div>
+            <div class="card-stars-gold">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Bardzo ciekawa trasa pod względem historycznym. To mi się bardzo podobało, z racji pasji historycznej. Dynamiczne, ciekawie podana opowieść, otwartość na uczestników, poczucie humoru - to główne atuty P. Daniela. Dziękuję bardzo 🤗🇵🇱"
+            </p>
+          </div>
+        </div>
+
+        <div class="review-premium-card reveal">
+          <div class="review-inner-wrapper">
+            <div class="review-header">
+              <div class="user-avatar">
+                <img src="https://lh3.googleusercontent.com/a-/ALV-UjVADXkVFKgcWoAQxvJYb9sUrT6ifEZtB2AuNjgmLbHM7Py9oqrs=w72-h72-p-rp-mo-br100" alt="Anna Kowalska">
+              </div>
+              <div class="user-meta">
+                <h4>Sylwia Moczadłowska</h4>
+                <span>
+                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
+                </span>
+              </div>
+            </div>
+            <div class="card-stars-gold">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Serdecznie polecam. Trasę 6 godzinną z młodzieżą pań Daniel poprowadził w sposób ciekawy, nie zarzucając zbędnymi szczegółami."
+            </p>
+          </div>
+        </div>
+
+        <div class="review-premium-card reveal">
+          <div class="review-inner-wrapper">
+            <div class="review-header">
+              <div class="user-avatar">
+                <img src="https://lh3.googleusercontent.com/a/ACg8ocLT_sDWrPOzZGxU_yGuCEVwN7PWkrG6dW1TOWElHSzuFJlWiQ=w36-h36-p-rp-mo-ba12-br100" alt="Anna Kowalska">
+              </div>
+              <div class="user-meta">
+                <h4>Szymon Kaczmarek</h4>
+                <span>
+                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
+                </span>
+              </div>
+            </div>
+            <div class="card-stars-gold">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Wczoraj z synem byliśmy na zwiedzaniu Helu wycieczka była bardzo świetna dowiedzieliśmy się wielu ciekawych rzeczy odnośnie Helu,mój syn był zafascynowany wycieczka,Pan Daniel super opowiada nawet nie wiedziałem kiedy minęło dwie godziny zwiedzania mam z synem super wspomnienia,on został z dziadkami jeszcze ja niestety wczoraj jechałem wieczorem do domu po 6 dniach napewno jak będę ma Helu w przyszłym roku to będę czekał z niecierpliwością na super zwiedzanie Helu z Panem Danielem."
+            </p>
+          </div>
+        </div>
+
+        <div class="review-premium-card reveal">
+          <div class="review-inner-wrapper">
+            <div class="review-header">
+              <div class="user-avatar">
+                <img src="https://lh3.googleusercontent.com/a-/ALV-UjUGbovc-nCr9CGsNLNvZ_BhviNWngXir8IO181JGLtlp4Wkg4j7=w72-h72-p-rp-mo-br100" alt="Anna Kowalska">
+              </div>
+              <div class="user-meta">
+                <h4>Hanys Hanyss</h4>
+                <span>
+                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
+                </span>
+              </div>
+            </div>
+            <div class="card-stars-gold">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Jak najbardziej polecam , bardzo fajny przewodnik z dużą wiedzą na temat Helu a którego przyjemnie się słucha ... Polecam"
+            </p>
+          </div>
+        </div>
+        
+        <div class="review-premium-card reveal">
+          <div class="review-inner-wrapper">
+            <div class="review-header">
+              <div class="user-avatar">
+                <img src="https://lh3.googleusercontent.com/a/ACg8ocI1UmtndHKOcAerRwfpVnzJSGTJ5Y7aRnppXkOu6dwedfbQYQ=w72-h72-p-rp-mo-br100" alt="Anna Kowalska">
+              </div>
+              <div class="user-meta">
+                <h4>Lidia Zielińska</h4>
+                <span>
+                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
+                </span>
+              </div>
+            </div>
+            <div class="card-stars-gold">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Polecamy Pana Daniela. Wszystko super: ogromna wiedza, świetny kontakt z dziećmi, piękny przekaz, uśmiech, śmiało można napisać, że wszystko naj..."
+            </p>
+          </div>
+        </div>
+
       </div>
 
-      <div class="review-premium-card reveal">
-        <div class="review-inner-wrapper">
-          <div class="review-header">
-            <div class="user-avatar">
-              <img src="https://lh3.googleusercontent.com/a/ACg8ocL-_U8iVt0d9tJhDxMvhTGxyyngcJEZcMDZeVtfBYph6VSiJw=w72-h72-p-rp-mo-br100" alt="Marek Zawadzki">
-            </div>
-            <div class="user-meta">
-              <h4>Justyna Polakowska</h4>
-              <span>7 miesięcy temu</span>
-            </div>
-          </div>
-          <div class="card-stars-gold">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          </div>
-          <p class="review-text">
-            "Jeśli spacer z przewodnikiem po Helu, to TYLKO z panem Danielem. Pan Daniel, to: elokwentny, komunikatywny, bardzo sympatyczny Człowiek, który chętnie dzieli się swoją wiedzą, pasją, energią, życzliwością, poczuciem humoru i...uśmiechem. Serdecznie dziękuję i pozdrawiam Pana, jak również wszystkich tu zaglądających."
-          </p>
-        </div>
-      </div>
-
-      <div class="review-premium-card reveal">
-        <div class="review-inner-wrapper">
-          <div class="review-header">
-            <div class="user-avatar">
-              <img src="https://lh3.googleusercontent.com/a/ACg8ocJz6b90ZHdFu1Zm_V-fAIoWEnVeqHuCVOgr1dQP6j82oBg1ww=w72-h72-p-rp-mo-ba12-br100" alt="Karolina Lewandowska">
-            </div>
-            <div class="user-meta">
-              <h4>Magdalena Ignaczak</h4>
-              <span>12 miesięcy temu</span>
-            </div>
-          </div>
-          <div class="card-stars-gold">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          </div>
-          <p class="review-text">
-            "Pan Daniel jest świetnym przewodnikiem po Helu, byliśmy z grupą młodzieży na ok. 4 godzinnym spacerze po Półwyspie Helskim. Dużo ale konkretnych informacji pod tematykę którą się interesowała Młodzież, profesjonalny i rzeczowy. Bardzo polecam! "
-          </p>
-        </div>
-      </div>
-
+      <button class="reviews-nav-btn next-btn" id="reviews-next" aria-label="Następna opinia">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
     </div>
+
   </div>
 </section>
 
 <style>
 .reviews-premium-section {
   position: relative;
-  padding: 20vh 0; /* DUŻY ODDECH GÓRA/DÓŁ NA PC */
+  padding: 20vh 0; 
   background: #000000;
   overflow: hidden;
 }
@@ -2175,24 +2255,14 @@ document.addEventListener("DOMContentLoaded", function () {
   border-color: rgba(255, 255, 255, 0.15);
 }
 
-/* BEZWZGLĘDNE BLOKOWANIE ROZMIARU (Zabezpieczenie przed spłaszczaniem we flexboksie) */
 .google-svg-wrap {
-  display: block;
   width: 16px !important;
   height: 16px !important;
-  min-width: 16px !important;
-  min-height: 16px !important;
-  max-width: 16px !important;
-  max-height: 16px !important;
 }
 .google-svg-wrap svg {
   display: block !important;
   width: 16px !important;
   height: 16px !important;
-  min-width: 16px !important;
-  min-height: 16px !important;
-  max-width: 16px !important;
-  max-height: 16px !important;
 }
 
 .trust-score {
@@ -2213,28 +2283,80 @@ document.addEventListener("DOMContentLoaded", function () {
   color: #777777;
 }
 
-/* GRID DESKTOP */
-.reviews-premium-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  align-items: stretch;
+/* KONTENER SLIDERA PC */
+.reviews-slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
+/* GRID SLIDERA DLA PC */
+.reviews-premium-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - (2 * 1.5rem)) / 3); 
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none; 
+  width: 100%;
+  padding: 0.5rem 0.2rem 1.5rem 0.2rem;
+}
+
+.reviews-premium-grid::-webkit-scrollbar {
+  display: none; 
+}
+
+/* STRZAŁKI NAWIGACYJNE DLA PC */
+.reviews-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: rgba(15, 15, 15, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+}
+
+.reviews-nav-btn:hover {
+  background: #0077ff;
+  border-color: #0077ff;
+  box-shadow: 0 0 15px rgba(0, 119, 255, 0.4);
+}
+
+.prev-btn { left: -4.5rem; }
+.next-btn { right: -4.5rem; }
+
+/* KARTA GLOBALNIE / PC */
 .review-premium-card {
+  scroll-snap-align: start;
   position: relative;
   border-radius: 1.5rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: radial-gradient(circle at center, rgba(0, 119, 255, 0.12) 0%, rgba(255, 255, 255, 0.008) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.09); 
   backdrop-filter: blur(1.5rem);
   -webkit-backdrop-filter: blur(1.5rem);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s;
+  box-shadow: 0 10px 25px rgba(0, 119, 255, 0.02);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s, box-shadow 0.4s;
 }
 
 .review-premium-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(0, 119, 255, 0.25);
-  box-shadow: 0 15px 30px rgba(0, 119, 255, 0.05);
+  border-color: rgba(0, 119, 255, 0.4); 
+  box-shadow: 0 15px 30px rgba(0, 119, 255, 0.08);
 }
 
 .review-inner-wrapper {
@@ -2244,7 +2366,7 @@ document.addEventListener("DOMContentLoaded", function () {
   height: 100%;
 }
 
-/* KARTA OPINII */
+/* ELEMENTY WEWNĘTRZNE KARTY */
 .review-header {
   display: flex;
   align-items: center;
@@ -2272,14 +2394,14 @@ document.addEventListener("DOMContentLoaded", function () {
 }
 .user-meta span {
   font-size: 0.72rem;
-  color: #666666; 
+  color: #777777; 
   display: block;
   margin-top: 0.1rem;
 }
 
 .card-stars-gold {
   display: flex;
-  gap: 0.15rem;
+  gap: 0.1rem;
   margin-bottom: 1.1rem;
 }
 .card-stars-gold i {
@@ -2287,17 +2409,52 @@ document.addEventListener("DOMContentLoaded", function () {
   font-size: 0.75rem;
 }
 
+/* ZAAWANSOWANE STYLOWANIE DYNAMICZNEGO TEKSTU */
 .review-text {
   font-size: 0.88rem;
   line-height: 1.7;
-  color: #cccccc; 
+  color: #ffffff9b; 
   font-weight: 300;
+  overflow: hidden;
+  max-height: 5.1em; /* Dokładna wysokość początkowa dla 3 linii tekstu */
+  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1); /* Wysoce stabilna krzywa przejściowa */
+}
+
+/* NIEBIESKI LINK ZWROTNY */
+.review-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 0.8rem;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: color 0.2s ease;
+}
+
+.review-toggle-btn:hover {
+  color: #3399ff;
+}
+
+.review-toggle-btn .arrow {
+  display: inline-block;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Obrót strzałki */
+.review-premium-card.expanded .review-toggle-btn .arrow {
+  transform: rotate(180deg);
 }
 
 /* ===================================================
-      SYSTEM MOBILNY 
-      =================================================== --> */
-@media (max-width: 900px) {
+      SYSTEM RESPONSYWNY: TELEFONY ORAZ TABLETY
+   =================================================== */
+@media (max-width: 1024px) {
   .reviews-premium-section {
     padding: 12vh 0; 
   }
@@ -2312,27 +2469,30 @@ document.addEventListener("DOMContentLoaded", function () {
     margin-bottom: 4vh;
   }
 
+  .reviews-nav-btn {
+    display: none !important;
+  }
+
   .reviews-premium-grid {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    grid-auto-columns: auto;
     padding: 0.2rem 1.5rem 1.5rem 0; 
     gap: 0.8rem;
-    scrollbar-width: none;
-  }
-  
-  .reviews-premium-grid::-webkit-scrollbar {
-    display: none;
   }
 
   .review-premium-card {
     flex: 0 0 82%; 
-    scroll-snap-align: start;
     border-radius: 1.2rem;
-    background: rgba(255, 255, 255, 0.02);
-    border-color: rgba(255, 255, 255, 0.05);
+    background: radial-gradient(circle at center, rgba(0, 119, 255, 0.14) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 119, 255, 0.02);
+  }
+
+  .review-premium-card:hover {
+    transform: none !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 6px 20px rgba(0, 119, 255, 0.02) !important;
   }
 
   .review-inner-wrapper {
@@ -2342,10 +2502,143 @@ document.addEventListener("DOMContentLoaded", function () {
   .review-text {
     font-size: 0.85rem;
     line-height: 1.6;
-    color: #cccccc;
+    color: #dddddd;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .review-premium-card {
+    flex: 0 0 45%; 
   }
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.getElementById('reviews-scroll-container');
+  const section = document.getElementById('opinie');
+  const prevBtn = document.getElementById('reviews-prev');
+  const nextBtn = document.getElementById('reviews-next');
+  
+  if (!container || !section) return;
+
+  // SYSTEM SKRACANIA DO DOKŁADNIE 244 ZNAKÓW + DOSKONALE PŁYNNE ZWIJANIE/ROZWIJANIE
+  const textCards = container.querySelectorAll('.review-premium-card');
+  const MAX_LEN = 244; // Nowa wartość graniczna znaków
+
+  textCards.forEach(card => {
+    const textEl = card.querySelector('.review-text');
+    if (!textEl) return;
+
+    const fullText = textEl.textContent.trim();
+
+    if (fullText.length > MAX_LEN) {
+      const shortText = fullText.slice(0, MAX_LEN);
+      
+      textEl.innerHTML = `${shortText}<span class="dots">...</span><span class="more-text" style="display:none;">${fullText.slice(MAX_LEN)}</span>`;
+
+      const toggleBtn = document.createElement('button');
+      toggleBtn.className = 'review-toggle-btn';
+      toggleBtn.innerHTML = 'Zobacz więcej <span class="arrow">↓</span>';
+      
+      card.querySelector('.review-inner-wrapper').appendChild(toggleBtn);
+
+      // Pobieramy i zapamiętujemy dokładną bazową wysokość (3 linijek tekstu) w px
+      const collapsedHeight = textEl.getBoundingClientRect().height;
+      textEl.style.maxHeight = collapsedHeight + 'px';
+
+      toggleBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const dots = textEl.querySelector('.dots');
+        const moreText = textEl.querySelector('.more-text');
+
+        if (card.classList.contains('expanded')) {
+          // PŁYNNE ZWIJANIE
+          // 1. Zanim schowamy tekst, ustawiamy max-height na wysokość pełnego tekstu
+          textEl.style.maxHeight = textEl.scrollHeight + 'px';
+          
+          // 2. Wymuszamy natychmiastowe przeliczenie stylów przez przeglądarkę
+          textEl.offsetHeight; 
+          
+          // 3. Wracamy do pierwotnej, niskiej wysokości px
+          textEl.style.maxHeight = collapsedHeight + 'px';
+          card.classList.remove('expanded');
+          toggleBtn.innerHTML = 'Zobacz więcej <span class="arrow">↓</span>';
+          
+          setTimeout(() => {
+            dots.style.display = 'inline';
+            moreText.style.display = 'none';
+          }, 450); // Dokładne dopasowanie do czasu transition w CSS (0.45s)
+        } else {
+          // PŁYNNE ROZWIJANIE
+          dots.style.display = 'none';
+          moreText.style.display = 'inline';
+          
+          // Ustawiamy wysokość dokładnie na scrollHeight (czyli pełny wymiar w px)
+          textEl.style.maxHeight = textEl.scrollHeight + 'px';
+          card.classList.add('expanded');
+          toggleBtn.innerHTML = 'Zwiń <span class="arrow"></span>';
+        }
+      });
+    }
+  });
+
+  // 1. Obsługa strzałek na PC
+  if (prevBtn && nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      const cardWidth = container.querySelector('.review-premium-card').offsetWidth;
+      const gap = parseFloat(window.getComputedStyle(container).gap) || 0;
+      container.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+      const cardWidth = container.querySelector('.review-premium-card').offsetWidth;
+      const gap = parseFloat(window.getComputedStyle(container).gap) || 0;
+      container.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+    });
+  }
+
+  // 2. Automatyczny hint mobilny
+  let hasAnimated = false; 
+  let userInteracted = false;
+  const cards = container.querySelectorAll('.review-premium-card');
+
+  function stopHint() {
+    if (userInteracted) return;
+    userInteracted = true;
+    cards.forEach(card => card.style.transform = "none");
+    container.removeEventListener('touchstart', stopHint);
+    container.removeEventListener('scroll', stopHint);
+  }
+
+  container.addEventListener('touchstart', stopHint, { passive: true });
+  container.addEventListener('scroll', stopHint, { passive: true });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasAnimated && window.innerWidth <= 1024) {
+        hasAnimated = true; 
+        observer.unobserve(section); 
+
+        setTimeout(() => {
+          if (userInteracted) return;
+          cards.forEach(card => card.style.transform = "translateX(-60px)");
+
+          setTimeout(() => {
+            if (userInteracted) return;
+            cards.forEach(card => card.style.transform = "none");
+            container.removeEventListener('touchstart', stopHint);
+            container.removeEventListener('scroll', stopHint);
+          }, 500); 
+        }, 1500); 
+      }
+    });
+  }, { threshold: 0.25 });
+
+  observer.observe(section);
+});
+</script>
+
 
 <!-- ===================================================
      SEKCJA ATRAKCJE (SLIDER ULTRA-PREMIUM)
@@ -2568,9 +2861,7 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   </div>
 </section>
-<!-- ===================================================
-     ABOUT HEL V4 — ULTRA PREMIUM COMPACT (WHITE & BLUE)
-     =================================================== -->
+
 <section class="hel-about-v4" id="o-mnie" style="background: #030303;">
   <div class="pricing-glow-1"></div>
   <div class="pricing-glow-2"></div>
@@ -2578,17 +2869,14 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="container-main">
     <div class="hel-about-v4-card reveal">
 
-      <!-- LEWA STRONA: MONUMENTALNY BLOK MULTIMEDIALNY -->
       <div class="hel-about-v4-media">
         <img src="Daniel Kretkiewicz.png" alt="Przewodnik Hel Daniel Kretkiewicz">
         <div class="hel-about-v4-badge">
-          <!-- BIAŁA PINEZKA -->
           <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i>
           <a href="https://www.google.com/search?q=Hel..."><span>Półwysep Helski</span></a>
         </div>
       </div>
 
-      <!-- PRAWA STRONA: TREŚĆ Z PRZYCISKIEM NA DOLE -->
       <div class="hel-about-v4-content">
         
         <div class="card-header-block" style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 1.2rem; gap: 0.15rem;">
@@ -2605,33 +2893,26 @@ document.addEventListener("DOMContentLoaded", function () {
             Po powstaniu w Helu Muzeum Obrony Wybrzeża oraz Muzeum Helu, znaczna część mojej kolekcji zasiliła tamtejsze ekspozycje. Daje mi to ogromną satysfakcję, bo wiem, że dołożyłem swoją cegiełkę aby odwiedzający te miejsca, a także przyszłe pokolenia miłośników Helu, mogli czerpać wiedzę i radość z obcowania z dziedzictwem naszego wyjątkowego półwyspu.
           </p>
           <p>
-            W latach 2010–2011 ukończykiem szkolenie zakończone państwowym egzaminem, uzyskując uprawnienia Terenowego Przewodnika Turystycznego. Choć posiadam kwalifikacje do oprowadzania nie tylko po Półwyspie Helskim, ale również po całym powiecie puckim (do którego należy Hel), a także po powiatach wejherowskim i lęborskim, od wielu lat skupiam się wyłącznie na helskiej ziemi. Nieustannie się szkolę i poszerzam swoją wiedzę, aby móc dzielić się nią w jak najbardziej rzetelny i ciekawy sposób.
+            W latach 2010–2011 ukończyłem szkolenie zakończone państwowym egzaminem, uzyskując uprawnienia Terenowego Przewodnika Turystycznego. Choć posiadam kwalifikacje do oprowadzania nie tylko po Półwyspie Helskim, ale również po całym powiecie puckim (do którego należy Hel), a także po powiatach wejherowskim i lęborskim, od wielu lat skupiam się wyłącznie na helskiej ziemi. Nieustannie się szkolę i poszerzam swoją wiedzę, aby móc dzielić się nią w jak najbardziej rzetelny i ciekawy sposób.
           </p>
         </div>
 
-        <!-- TOGGLE BUTTON -->
         <button class="hel-about-v4-toggle" id="helToggle">
           <span>Czytaj więcej</span>
           <i class="fa-solid fa-plus" style="color: #0077ff;"></i>
         </button>
 
-        <!-- LUKSUSOWE STATYSTYKI — NUMERKI NA BIALO -->
         <div class="hel-about-v4-stats">
           <div class="hel-about-v4-stat">
             <h3 class="counter" data-target="15">0</h3>
             <span>lat doświadczenia</span>
           </div>
           <div class="hel-about-v4-stat">
-            <h3 class="counter" data-target="1700">0</h3>
-            <span>wycieczek</span>
-          </div>
-          <div class="hel-about-v4-stat">
-            <h3 class="counter" data-target="370">0</h3>
-            <span>ocena 5,0 ★</span>
+            <h3 class="counter" data-target="900">0</h3>
+            <span>przeprowadzonych wycieczek</span>
           </div>
         </div>
 
-        <!-- PRZYCISK ZGODNY Z RESZTĄ STRONY -->
         <a href="#kontakt" class="pricing-btn">
           <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
             <i class="fa-solid fa-map-location-dot"></i>
@@ -2645,9 +2926,6 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </section>
 
-<!-- ===================================================
-     PREMIUM STYLE REFRESH FOR ABOUT SECTION
-     =================================================== -->
 <style>
 .hel-about-v4 {
   position: relative;
@@ -2794,15 +3072,15 @@ document.addEventListener("DOMContentLoaded", function () {
   border-color: rgba(0, 119, 255, 0.4);
 }
 
-/* STATYSTYKI */
+/* ZMODYFIKOWANE STATYSTYKI — 2 KOLUMNY ZAMIAST 3 */
 .hel-about-v4-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.8rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 .hel-about-v4-stat {
-  padding: 1.1rem 0.8rem;
+  padding: 1.2rem 1rem;
   border-radius: 1.2rem;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -2816,13 +3094,13 @@ document.addEventListener("DOMContentLoaded", function () {
 .hel-about-v4-stat h3 {
   font-size: 1.8rem;
   font-weight: 500;
-  color: #ffffff; /* NUMERKI SĄ TERAZ BIAŁE */
+  color: #ffffff; 
   margin: 0 0 0.2rem 0;
   letter-spacing: -0.02em;
 }
 .hel-about-v4-stat span {
   display: block;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: #8a8a8a;
   line-height: 1.3;
 }
@@ -2843,15 +3121,15 @@ document.addEventListener("DOMContentLoaded", function () {
     min-height: 320px;
   }
   .hel-about-v4-stats {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
     margin-bottom: 1.5rem;
   }
   .hel-about-v4-stat {
-    padding: 0.8rem 0.4rem;
+    padding: 1rem 0.5rem;
   }
   .hel-about-v4-stat h3 {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -2862,9 +3140,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 }
 </style>
-<!-- ===================================================
-     PREMIUM STYLE CSS
-     =================================================== -->
+
 <style>
 /* KONTENER STRONY */
 .container-main {
@@ -2966,12 +3242,12 @@ document.addEventListener("DOMContentLoaded", function () {
   transform: none;
 }
 
-/* KONTENERY SLIDERA (WYMUSZENIE RÓWNEJ WYSOKOŚCI SYSTEMEM GRID-AUTO-ROWS) */
+/* KONTENERY SLIDERA */
 .cards-grid, .cards-grid-oferta {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc(33.333% - 1.2rem); /* Dynamiczna szerokość kolumn na desktopie */
-  grid-auto-rows: 1fr; /* KLUCZ: Wszystkie wygenerowane wiersze mają identyczną wysokość (100% najwyższej karty) */
+  grid-auto-columns: calc(33.333% - 1.2rem); 
+  grid-auto-rows: 1fr; 
   gap: 1.8rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -2993,8 +3269,8 @@ document.addEventListener("DOMContentLoaded", function () {
   -webkit-backdrop-filter: blur(2rem);
   overflow: hidden;
   display: flex;
-  flex-direction: column; /* Układ pionowy dla idealnego wyrównania elementów wnętrza */
-  height: 100%; /* Karta wypełnia przestrzeń narzuconą przez siatkę 1fr */
+  flex-direction: column; 
+  height: 100%; 
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   scroll-snap-align: start;
 }
@@ -3033,7 +3309,7 @@ document.addEventListener("DOMContentLoaded", function () {
   padding: 1.8rem 2rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Pozwala wewnętrznemu kontenerowi rozwinąć się na pełną dostępną wysokość karty */
+  flex-grow: 1; 
 }
 
 .card-header-block {
@@ -3086,18 +3362,18 @@ document.addEventListener("DOMContentLoaded", function () {
   margin: 0;
 }
 
-/* OPIS: ROZPYCHA PRZESTRZEŃ ABY PRZYCISK ZAWSZE BYŁ NA SAMYM DOLE */
+/* OPIS */
 .card-text {
   font-size: 0.88rem;
   line-height: 1.55;
   color: #999999;
   margin: 0 0 1.8rem 0;
-  flex-grow: 1; /* KLUCZOWE: Popycha przycisk w dół, gwarantując idealną linię przycisków w każdej karcie */
+  flex-grow: 1; 
 }
 
 /* PRZYCISK CTA */
 .pricing-btn {
-  margin-top: auto; /* Stabilizuje położenie przycisku przy dolnej krawędzi paddingu */
+  margin-top: auto; 
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -3167,7 +3443,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   .cards-grid, .cards-grid-oferta {
-    grid-auto-columns: 94%; /* Karty na mobile zajmują 94% szerokości ekranu */
+    grid-auto-columns: 94%; 
     gap: 0.8rem !important; 
     padding: 0.5rem 0.8rem 1.5rem 0.8rem !important;
     margin: 0 -5vw !important;
@@ -3208,7 +3484,6 @@ document.addEventListener("DOMContentLoaded", function () {
 }
 </style>
 
-
 <section class="contact-section" id="kontakt">
 
   <div class="container-main">
@@ -3224,12 +3499,11 @@ document.addEventListener("DOMContentLoaded", function () {
         </p>
 
         <h2 class="contact-title">
-          Zarezerwuj wycieczkę po Helu
+          Wybierz wygodny sposób kontaktu 
         </h2>
 
         <p class="contact-text">
-          Skontaktuj się telefonicznie, mailowo lub przez WhatsApp.
-          Ustalimy idealną trasę zwiedzania dopasowaną do grupy lub wycieczki indywidualnej.
+          W celu omówienia planu wycieczki i zarezerwowania terminu proszę o kontakt.
         </p>
 
         <a href="tel:+48609494760" class="contact-box">
@@ -3404,7 +3678,6 @@ document.addEventListener("DOMContentLoaded", function () {
 </section>
 
 <style>
-
 /* =========================
   CONTACT SECTION
 ========================= */
@@ -3437,11 +3710,11 @@ document.addEventListener("DOMContentLoaded", function () {
   background:
   linear-gradient(
     180deg,
-    rgba(0, 119, 255, 0.04), /* Delikatny luksusowy niebieski akcent w tle */
+    rgba(0, 119, 255, 0.04), 
     rgba(255, 255, 255, 0)
   );
   border:
-  1px solid rgba(0, 119, 255, 0.12); /* Dopasowana ramka systemowa */
+  1px solid rgba(0, 119, 255, 0.12); 
   backdrop-filter:blur(1.5rem);
   transition:.45s;
 }
@@ -3475,7 +3748,7 @@ document.addEventListener("DOMContentLoaded", function () {
   position:relative;
   font-size:.7rem;
   letter-spacing:.24rem;
-  color:#0077ff; /* Spójny systemowy błękit dla małych nagłówków */
+  color:#0077ff; 
   margin-bottom:1rem;
   z-index:2;
 }
@@ -3506,7 +3779,7 @@ document.addEventListener("DOMContentLoaded", function () {
 }
 
 /* =========================
-  CONTACT BOX (Nienaruszone odnośniki z lewej)
+  CONTACT BOX
 ========================= */
 .contact-box{
   position:relative;
@@ -3563,12 +3836,12 @@ document.addEventListener("DOMContentLoaded", function () {
   border:
   1px solid rgba(255,255,255,.08);
   font-size:.95rem;
-  color: white; /* Przywrócono oryginalny kolor biały */
+  color: white; 
 }
 
 .whatsapp{
   background:#000000;
-  color:white; /* Przywrócono oryginalny kolor biały */
+  color:white; 
 }
 
 .contact-box-content{
@@ -3678,7 +3951,7 @@ document.addEventListener("DOMContentLoaded", function () {
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus{
-  border-color: rgba(0, 119, 255, 0.4); /* Elegancki focus z poświatą błękitu */
+  border-color: rgba(0, 119, 255, 0.4); 
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -3697,10 +3970,9 @@ document.addEventListener("DOMContentLoaded", function () {
     overflow-x:auto;
     overflow-y:hidden;
     scroll-snap-type:x mandatory;
-    scroll-behavior:smooth;
+    -webkit-overflow-scrolling:touch; 
     width:100%;
     padding: 0 1rem 0rem 0rem;
-    -webkit-overflow-scrolling:touch;
   }
 
   .contact-wrapper::-webkit-scrollbar{
@@ -3720,6 +3992,10 @@ document.addEventListener("DOMContentLoaded", function () {
     padding:1.2rem;
     border-radius:1.5rem;
     margin: 0rem;
+    
+    /* DODANE: Wolne i neutralne przejście transformacji przypisane bezpośrednio do kart, aby zachować stałe odległości */
+    transition: transform 0.75s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.45s;
+    will-change: transform;
   }
 
   .contact-title,
@@ -3807,6 +4083,75 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.querySelector('.contact-wrapper');
+  const items = container ? container.querySelectorAll('.contact-info, .contact-form-wrap') : null;
+  const section = document.getElementById('kontakt');
+  
+  if (!container || !items || !section) return;
+
+  let hasAnimated = false; 
+  let userInteracted = false;
+
+  // Całkowite i natychmiastowe zneutralizowanie efektu, jeśli użytkownik zacznie dotykać sekcji
+  function stopHint() {
+    if (userInteracted) return;
+    userInteracted = true;
+    
+    items.forEach(item => {
+      item.style.transform = 'none';
+      item.style.webkitTransform = 'none';
+    });
+    
+    container.removeEventListener('touchstart', stopHint);
+    container.removeEventListener('scroll', stopHint);
+  }
+
+  container.addEventListener('touchstart', stopHint, { passive: true });
+  container.addEventListener('scroll', stopHint, { passive: true });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasAnimated && window.innerWidth <= 900) {
+        hasAnimated = true; 
+        observer.unobserve(section); 
+
+        // 1. Oczekiwanie przed odchyleniem (1.5 sekundy po scrollu do sekcji)
+        setTimeout(() => {
+          if (userInteracted) return;
+
+          // Przesuwamy obie karty płynnie w lewo za pomocą hardware transform (działa świetnie na Safari iOS i Chrome)
+          items.forEach(item => {
+            item.style.transform = 'translate3d(-45px, 0, 0)';
+            item.style.webkitTransform = 'translate3d(-45px, 0, 0)';
+          });
+
+          // 2. Przytrzymanie wychylenia (dokładnie 500ms)
+          setTimeout(() => {
+            if (userInteracted) return;
+            
+            // Neutralny, wolny i automatyczny powrót na pozycję wyjściową
+            items.forEach(item => {
+              item.style.transform = 'translate3d(0, 0, 0)';
+              item.style.webkitTransform = 'translate3d(0, 0, 0)';
+            });
+
+            container.removeEventListener('touchstart', stopHint);
+            container.removeEventListener('scroll', stopHint);
+          }, 500); 
+
+        }, 1500); 
+      }
+    });
+  }, {
+    threshold: 0.25 
+  });
+
+  observer.observe(section);
+});
+</script>
 
 <script>  
 const helToggle = document.getElementById('helToggle');
@@ -4385,34 +4730,101 @@ document.getElementById('submitMailBtn').addEventListener('click', function(e) {
     gsap.from(".hero-buttons", { y: 40, opacity: 0, delay: .4, duration: 1 });
     gsap.from(".her-btn-hero", { y: 40, opacity: 0, delay: .7, duration: 1 });
 
-    // Parallax tła hero
-    const heroBg = document.querySelector('.hero-bg');
-    gsap.to(heroBg, { yPercent: 12, scale: 1, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1.2 } });
+   document.addEventListener('DOMContentLoaded', () => {
+  gsap.registerPlugin(ScrollTrigger);
 
-    // Reveal (pojawianie przy przewijaniu)
-    gsap.utils.toArray(".reveal").forEach(el => {
-      gsap.to(el, { opacity: 1, y: 0, duration: 1.1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%" } });
-    });
+  // Sprawdzamy, czy użytkownik jest na telefonie/tablecie
+  const isMobile = window.innerWidth <= 1024;
 
-    // 2. Zmiana przezroczystości paska nawigacji przy scrollu
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        navbar.style.background = 'rgba(0,0,0,.90)';
-            }
-       else {
-        navbar.style.background = 'rgba(0,0,0,0)';
+  // 1. DYNAMICZNY PARALLAX HERO (Mocny efekt na PC i Mobile)
+  const heroBg = document.querySelector('.hero-bg');
+  if (heroBg) {
+    // Wymuszamy mocne powiększenie i przesunięcie startowe na każdym urządzeniu
+    gsap.set(heroBg, { scale: 1.15, yPercent: -5 });
+
+    gsap.to(heroBg, {
+      yPercent: 12,
+      scale: 1.02,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1.5 // Płynne, gładkie śledzenie scrolla
       }
     });
-
-    // 3. Płynne przewijanie do sekcji po kliknięciu kotwic
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
+  }
+  // 2. REVEAL (Pojawianie elementów)
+  gsap.utils.toArray(".reveal").forEach(el => {
+    if (isMobile) {
+      // Płynne, klasyczne i bezbłędne wejście na telefonach (Zero lagów)
+      gsap.set(el, { opacity: 0, y: 30 });
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 92%", // Odpala odrobinę wcześniej na mobile, żeby uzytkownik nie widział pustki
+          toggleActions: "play none none none"
+        }
       });
+    } else {
+      // Podkręcone luksusowe 3D tylko dla komputerów
+      gsap.set(el, { opacity: 0, y: 60, rotationX: -10, scale: 0.96, filter: "blur(4px)" });
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        rotationX: 0,
+        scale: 1,
+        filter: "blur(0px)",
+        duration: 1.3,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 88%",
+          toggleActions: "play none none none"
+        }
+      });
+    }
+  });
+
+  // 3. PŁYNNY NAVBAR (Zoptymalizowany pod Safari / iOS)
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    navbar.style.transition = "background-color 0.4s ease, backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease";
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) {
+        navbar.style.backgroundColor = 'rgba(3, 3, 3, 0.85)';
+        navbar.style.backdropFilter = 'blur(12px)';
+        navbar.style.webkitBackdropFilter = 'blur(12px)';
+      } else {
+        navbar.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+        navbar.style.backdropFilter = 'blur(0px)';
+        navbar.style.webkitBackdropFilter = 'blur(0px)';
+      }
+    }, { passive: true });
+  }
+
+  // 4. PŁYNNE ANCHORY (KOTWICE)
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const target = document.querySelector(targetId);
+      if (target) {
+        target.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
     });
+  });
+});
 
     // 4. MOBILNE MENU (hamburger, overlay, zamykanie)
     const hamburger = document.querySelector('.hamburger');
