@@ -734,8 +734,8 @@ html, body {
     linear-gradient(
       180deg,
       rgba(0,0,0,.18) 0%,
-      rgba(0,0,0,.42) 40%,
-      rgba(0,0,0,.82) 100%
+      rgba(0, 0, 0, 0.302) 40%,
+      rgba(0, 0, 0, 0.764) 100%
     ),
     url("background.png");
   background-size: cover;
@@ -758,9 +758,9 @@ html, body {
     background:
       linear-gradient(
         180deg,
-        rgba(0,0,0,.18) 0%,
-        rgba(0,0,0,.42) 40%,
-        rgba(0,0,0,.82) 100%
+      rgba(0,0,0,.18) 0%,
+      rgba(0, 0, 0, 0.302) 40%,
+      rgba(0, 0, 0, 0.764) 100%
       ),
       url("backgroundmobile.png") !important;
     background-size: cover !important;
@@ -3475,15 +3475,14 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="contact-pattern"></div>
 
         <p class="contact-mini">
-          KONTAKT
+          UMÓW WYCIECZKĘ
         </p>
 
         <h2 class="contact-title">
           Kontakt
         </h2>
 
-        <p class="contact-text">
-        </p>
+        <p class="contact-text">Skontaktuj się ze mną w najwygodniejszy dla Ciebie sposób.</p>
 
         <a href="tel:+48609494760" class="contact-box">
 
@@ -3515,25 +3514,6 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="contact-box-content">
             <h4>E-mail</h4>
             <span>Wyślij E-mail</span>
-          </div>
-
-          <div class="contact-arrow">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </div>
-
-        </a>
-
-                <a href="mailto:kretkiewicz@gmail.com" class="contact-box">
-
-          <div class="contact-box-glow"></div>
-
-          <div class="contact-icon">
-            <i class="fa-solid fa-id-card"></i>
-          </div>
-
-          <div class="contact-box-content">
-            <h4>Google</h4>
-            <span>Zobacz google wizytówkę</span>
           </div>
 
           <div class="contact-arrow">
@@ -3581,7 +3561,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         </div>
 
-        <form class="contact-form" id="mailForm">
+        <form class="contact-form" id="mailForm" novalidate>
 
           <div class="form-group">
 
@@ -3590,7 +3570,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <input
               type="text"
               id="formName"
-              placeholder="Twoje imię"
+              placeholder="Imię i nazwisko"
               required
             >
 
@@ -3609,54 +3589,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
           </div>
 
-          <div class="form-group">
-
-            <i class="fa-solid fa-layer-group"></i>
-
-            <select id="formPlan" required>
-
-              <option value="">
-                Wybierz plan
-              </option>
-
-              <option value="Duże grupy zorganizowane">
-                Duże grupy zorganizowane
-              </option>
-
-              <option value="Rodziny i osoby indywidualne">
-                Rodziny i osoby indywidualne
-              </option>
-
-              <option value="Wycieczki szkolne">
-                Wycieczki szkolne
-              </option>
-              
-              <option value="Seniorzy">
-                Seniorzy
-              </option>
-
-              <option value="pytanie">
-                Pytanie
-              </option>
-
-            </select>
-
-          </div>
-
           <div class="form-group textarea-group">
 
             <i class="fa-solid fa-comment"></i>
 
             <textarea
               id="formMessage"
-              placeholder="Treść wiadomości..."
-              required
+              placeholder="Treść wiadomości (opcjonalnie)..."
             ></textarea>
 
           </div>
 
-          <a href="#" class="pricing-btn" id="submitMailBtn">
-            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
+          <div class="privacy-container" id="privacyBlock">
+            <div class="privacy-red-gradient-bg"></div>
+            <label class="uiverse-checkbox-label">
+              <input type="checkbox" id="formPrivacy">
+              <svg viewBox="0 0 64 64" height="1.2em" width="1.2em">
+                <path d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16" pathLength="575.0541381835938" class="path"></path>
+              </svg>
+              <span class="privacy-text">
+                Wyrażam zgodę na przetwarzanie danych w celu obsługi zapytania. Wiadomość zostanie wysłana bezpośrednio przez Twój program pocztowy.
+              </span>
+            </label>
+          </div>
+
+          <a href="#" class="pricing-btn disabled" id="submitMailBtn">
+            <div class="pricing-btn-arrow">
               <i class="fa-solid fa-envelope"></i>
             </div>
             <span>
@@ -3665,6 +3623,20 @@ document.addEventListener('DOMContentLoaded', function() {
           </a>
 
         </form>
+
+        <div class="custom-warning-popup" id="warningPopup">
+          <div class="warning-popup-content">
+            <div class="warning-icon">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h4>Pusta wiadomość</h4>
+            <p>Nie wpisałeś treści wiadomości. Czy chcesz kontynuować i otworzyć program pocztowy?</p>
+            <div class="warning-actions">
+              <button type="button" class="warn-btn-yes" id="popupYes">Tak, wyślij</button>
+              <button type="button" class="warn-btn-no" id="popupNo">Uzupełnij</button>
+            </div>
+          </div>
+        </div>
 
       </div>
 
@@ -3879,7 +3851,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 /* =========================
-  FORM
+  FORM & BUTTON GAP
 ========================= */
 .contact-form{
   position:relative;
@@ -3887,6 +3859,13 @@ document.addEventListener('DOMContentLoaded', function() {
   flex-direction:column;
   gap:1rem;
   z-index:2;
+}
+
+.pricing-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem; 
+  transition: transform 0.2s ease, opacity 0.3s ease;
 }
 
 /* =========================
@@ -3907,7 +3886,6 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .form-group input,
-.form-group select,
 .form-group textarea{
   width:100%;
   background:
@@ -3939,145 +3917,273 @@ document.addEventListener('DOMContentLoaded', function() {
   color:#8d8d8d;
 }
 
-.form-group select{
-  appearance:none;
-  -webkit-appearance: none;
-  cursor:pointer;
-}
-
 .form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus{
+.form-group textarea:focus{
   border-color: rgba(0, 119, 255, 0.4); 
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* =========================
-  MOBILE (ZOPTYMALIZOWANA GALERIA POZIOMA)
-========================= */
-@media(max-width:900px){
-  .contact-section{
-    padding:6vh 0;
-  }
+/* ===================================================
+  UIVERSE CHECKBOX & REAKTYWNE AKCENTY
+=================================================== */
+.privacy-container {
+  position: relative;
+  margin: .2rem 0;
+  padding: 0.6rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  border: 1px solid transparent;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .contact-wrapper{
-    display:flex;
-    flex-wrap:nowrap;
-    gap:1rem;
-    overflow-x:auto;
-    overflow-y:hidden;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch; 
-    width:100%;
-    padding: 0 1rem 0rem 0rem;
-  }
+.privacy-red-gradient-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, 
+    rgba(255, 0, 68, 0) 0%, 
+    rgba(255, 0, 68, 0.25) 50%, 
+    rgba(255, 0, 68, 0) 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
 
-  .contact-wrapper::-webkit-scrollbar{
-    display:none;
-  }
+.uiverse-checkbox-label {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  cursor: pointer;
+  z-index: 2;
+}
 
-  .contact-wrapper{
-    scrollbar-width:none;
-  }
+.uiverse-checkbox-label input {
+  display: none;
+}
 
-  .contact-info,
-  .contact-form-wrap{
-    min-width:99%;
-    width:99%;
-    flex:0 0 99%;
-    scroll-snap-align:center;
-    padding:1.2rem;
-    border-radius:1.5rem;
-    margin: 0rem;
-    
-    /* DODANE: Wolne i neutralne przejście transformacji przypisane bezpośrednio do kart, aby zachować stałe odległości */
-    transition: transform 0.75s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.45s;
-    will-change: transform;
-  }
+.uiverse-checkbox-label svg {
+  overflow: visible;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
 
-  .contact-title,
-  .form-title{
-    font-size:1.85rem;
-    line-height:1.05;
-  }
+.path {
+  fill: none;
+  stroke: currentColor;
+  opacity: 0.45;
+  stroke-width: 6.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease, stroke 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+  stroke-dasharray: 241 9999999;
+  stroke-dashoffset: 0;
+}
 
-  .contact-mini,
-  .form-mini{
-    font-size:.68rem;
-    letter-spacing:.2rem;
-  }
+.uiverse-checkbox-label:hover .path {
+  opacity: 0.9;
+}
 
-  .contact-text{
-    font-size:.88rem;
-    line-height:165%;
-  }
+/* ZIELONY HIT PO ZAZNACZENIU */
+.uiverse-checkbox-label input:checked ~ svg .path {
+  stroke: #00ff88 !important;
+  opacity: 1;
+  stroke-dasharray: 70.5096664428711 9999999;
+  stroke-dashoffset: -262.2723388671875;
+  filter: drop-shadow(0 0 4px rgba(0, 255, 136, 0.5));
+}
 
-  .contact-box{
-    padding:.85rem;
-    border-radius:1rem;
-    gap:.9rem;
-    margin-bottom:.8rem;
-  }
+.privacy-text {
+  font-size: .82rem;
+  line-height: 1.5;
+  color: #8c8c8c;
+  transition: color 0.3s ease;
+  user-select: none;
+}
 
-  .contact-icon{
-    width:2.8rem;
-    height:2.8rem;
-    border-radius:.85rem;
-    font-size:.9rem;
-  }
+.uiverse-checkbox-label input:checked ~ .privacy-text {
+  color: #e0e0e0;
+}
 
-  .contact-box h4{
-    font-size:.88rem;
-  }
+/* CZERWONY ALERT CHECKBOXA */
+@keyframes waveMove {
+  0% { background-position: 150% 0; }
+  100% { background-position: -50% 0; }
+}
 
-  .contact-box span{
-    font-size:.75rem;
-  }
+.shake-error {
+  border-color: rgba(255, 0, 68, 0.4) !important;
+  box-shadow: 0 0 12px rgba(255, 0, 68, 0.15);
+}
 
-  .contact-arrow{
-    width:2rem;
-    height:2rem;
-    font-size:.65rem;
-  }
+.shake-error .path {
+  stroke: #ff0044 !important;
+  opacity: 1;
+  filter: drop-shadow(0 0 6px rgba(255, 0, 68, 0.8));
+}
 
-  .form-group i{
-    left:1rem;
-    font-size:.85rem;
-  }
+.shake-error .privacy-red-gradient-bg {
+  opacity: 1;
+  animation: waveMove 0.5s ease-in-out forwards;
+}
 
-  .form-group input,
-  .form-group select,
-  .form-group textarea{
-    padding:1rem 1rem 1rem 2.8rem;
-    border-radius:1rem;
-    font-size:.85rem;
-  }
+.pricing-btn.disabled {
+  opacity: 0.4;
+  cursor: pointer;
+  filter: grayscale(0.8);
+}
 
-  .form-group textarea{
-    min-height:9rem;
-  }
+@keyframes buttonShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+.btn-shake {
+  animation: buttonShake 0.25s ease-in-out 2;
+}
+
+@keyframes blockShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+.shake-error {
+  animation: blockShake 0.4s ease-in-out;
+}
+
+/* ===================================================
+  MODAL OSTRZEGAWCZY - USUNIĘTO ODCIEŃ NIEBIESKIEGO
+=================================================== */
+.custom-warning-popup {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85); /* Czysta, głęboka matowa czerń */
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  border-radius: 1.8rem;
+}
+
+.custom-warning-popup.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.warning-popup-content {
+  background: #0d0d11; /* Ciemny grafit/czerń dopasowana do inputów, bez niebieskiego */
+  border: 1px solid rgba(255, 196, 0, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 196, 0, 0.03);
+  padding: 2rem;
+  border-radius: 1.3rem;
+  text-align: center;
+  max-width: 330px;
+  transform: scale(0.85);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.custom-warning-popup.active .warning-popup-content {
+  transform: scale(1);
+}
+
+.warning-icon {
+  font-size: 2.4rem;
+  color: #ffc400;
+  margin-bottom: 0.9rem;
+  filter: drop-shadow(0 0 10px rgba(255, 196, 0, 0.35));
+}
+
+.warning-popup-content h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.6rem 0;
+}
+
+.warning-popup-content p {
+  font-size: 0.86rem;
+  color: #a0a0a5;
+  line-height: 1.55;
+  margin: 0 0 1.5rem 0;
+}
+
+.warning-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.warning-actions button {
+  flex: 1;
+  padding: 0.8rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.warn-btn-yes {
+  background: #ffc400;
+  color: #000000;
+}
+.warn-btn-yes:hover { 
+  background: #e0ad00; 
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 196, 0, 0.2);
+}
+
+.warn-btn-no {
+  background: rgba(255,255,255,0.04);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+}
+.warn-btn-no:hover { 
+  background: rgba(255,255,255,0.08); 
+  transform: translateY(-2px); 
 }
 
 /* =========================
-  EXTRA SMALL (MAŁE SMARTFONY)
+  MOBILE 
 ========================= */
+@media(max-width:900px){
+  .contact-section{ padding:6vh 0; }
+  .contact-wrapper{
+    display:flex; flex-wrap:nowrap; gap:1rem;
+    overflow-x:auto; overflow-y:hidden;
+    scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; 
+    width:100%; padding: 0 1rem 0rem 0rem;
+  }
+  .contact-wrapper::-webkit-scrollbar{ display:none; }
+  .contact-wrapper{ scrollbar-width:none; }
+  .contact-info, .contact-form-wrap{
+    min-width:99%; width:99%; flex:0 0 99%; scroll-snap-align:center;
+    padding:1.2rem; border-radius:1.5rem; margin: 0rem;
+    transition: transform 0.75s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.45s;
+    will-change: transform;
+  }
+  .contact-title, .form-title{ font-size:1.85rem; line-height:1.05; }
+  .contact-mini, .form-mini{ font-size:.68rem; letter-spacing:.2rem; }
+  .contact-text{ font-size:.88rem; line-height:165%; }
+  .contact-box{ padding:.85rem; border-radius:1rem; gap:.9rem; margin-bottom:.8rem; }
+  .contact-icon{ width:2.8rem; height:2.8rem; border-radius:.85rem; font-size:.9rem; }
+  .contact-box h4{ font-size:.88rem; }
+  .contact-box span{ font-size:.75rem; }
+  .contact-arrow{ width:2rem; height:2rem; font-size:.65rem; }
+  .form-group i{ left:1rem; font-size:.85rem; }
+  .form-group input, .form-group textarea{ padding:1rem 1rem 1rem 2.8rem; border-radius:1rem; font-size:.85rem; }
+  .form-group textarea{ min-height:9rem; }
+}
 @media(max-width:520px){
-  .contact-info,
-  .contact-wrapper {
-    min-width:99%;
-    width:99%;
-  }
-  .contact-form-wrap{
-    min-width:99%;
-    width:99%;
-    flex:0 0 95%;
-    padding: 1.25rem;
-  }
-
-  .contact-title,
-  .form-title{
-    font-size:1.65rem;
-  }
+  .contact-info, .contact-wrapper { min-width:99%; width:99%; }
+  .contact-form-wrap{ min-width:99%; width:99%; flex:0 0 95%; padding: 1.25rem; }
+  .contact-title, .form-title{ font-size:1.65rem; }
 }
 </style>
 
@@ -4092,16 +4198,10 @@ document.addEventListener('DOMContentLoaded', function() {
   let hasAnimated = false; 
   let userInteracted = false;
 
-  // Całkowite i natychmiastowe zneutralizowanie efektu, jeśli użytkownik zacznie dotykać sekcji
   function stopHint() {
     if (userInteracted) return;
     userInteracted = true;
-    
-    items.forEach(item => {
-      item.style.transform = 'none';
-      item.style.webkitTransform = 'none';
-    });
-    
+    items.forEach(item => { item.style.transform = 'none'; item.style.webkitTransform = 'none'; });
     container.removeEventListener('touchstart', stopHint);
     container.removeEventListener('scroll', stopHint);
   }
@@ -4114,38 +4214,19 @@ document.addEventListener('DOMContentLoaded', function() {
       if (entry.isIntersecting && !hasAnimated && window.innerWidth <= 900) {
         hasAnimated = true; 
         observer.unobserve(section); 
-
-        // 1. Oczekiwanie przed odchyleniem (1.5 sekundy po scrollu do sekcji)
         setTimeout(() => {
           if (userInteracted) return;
-
-          // Przesuwamy obie karty płynnie w lewo za pomocą hardware transform (działa świetnie na Safari iOS i Chrome)
-          items.forEach(item => {
-            item.style.transform = 'translate3d(-45px, 0, 0)';
-            item.style.webkitTransform = 'translate3d(-45px, 0, 0)';
-          });
-
-          // 2. Przytrzymanie wychylenia (dokładnie 500ms)
+          items.forEach(item => { item.style.transform = 'translate3d(-45px, 0, 0)'; });
           setTimeout(() => {
             if (userInteracted) return;
-            
-            // Neutralny, wolny i automatyczny powrót na pozycję wyjściową
-            items.forEach(item => {
-              item.style.transform = 'translate3d(0, 0, 0)';
-              item.style.webkitTransform = 'translate3d(0, 0, 0)';
-            });
-
+            items.forEach(item => { item.style.transform = 'translate3d(0, 0, 0)'; });
             container.removeEventListener('touchstart', stopHint);
             container.removeEventListener('scroll', stopHint);
           }, 500); 
-
         }, 1500); 
       }
     });
-  }, {
-    threshold: 0.25 
-  });
-
+  }, { threshold: 0.25 });
   observer.observe(section);
 });
 </script>
@@ -4157,66 +4238,101 @@ const helMore = document.getElementById('helMore');
 if(helToggle && helMore) {
   helToggle.addEventListener('click', () => {
     helMore.classList.toggle('active');
-    if (helMore.classList.contains('active')) {
-      helToggle.innerHTML = `<span>Zwiń całość</span><i class="fa-solid fa-minus"></i>`;
-    } else {
-      helToggle.innerHTML = `<span>Czytaj więcej</span><i class="fa-solid fa-plus"></i>`;
-    }
+    helToggle.innerHTML = helMore.classList.contains('active') 
+      ? `<span>Zwiń całość</span><i class="fa-solid fa-minus"></i>` 
+      : `<span>Czytaj więcej</span><i class="fa-solid fa-plus"></i>`;
   });
 }
 
 const counters = document.querySelectorAll('.counter');
-
-const observer = new IntersectionObserver(entries => {
+const countObserver = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       const el = e.target;
       const target = +el.dataset.target;
       let current = 0;
-
       const step = () => {
-        const inc = Math.ceil(target / 100);
-        current += inc;
-
-        if (current < target) {
-          el.innerText = current;
-          setTimeout(step, 18);
-        } else {
-          el.innerText = target + '+';
-        }
+        current += Math.ceil(target / 100);
+        if (current < target) { el.innerText = current; setTimeout(step, 18); } 
+        else { el.innerText = target + '+'; }
       };
-
       step();
     }
   });
 }, { threshold: 0.5 });
+counters.forEach(c => countObserver.observe(c));
 
-counters.forEach(c => observer.observe(c));
 
-// OBSŁUGA GENEROWANIA SYSTEMOWEGO LINKU MAILTO PRZEZ ORYGINALNY PRZYCISK <a>
-document.getElementById('submitMailBtn').addEventListener('click', function(e) {
+/* ===================================================
+  LOGIKA FORMULARZA I POPUPÓW
+=================================================== */
+const privacyCheckbox = document.getElementById('formPrivacy');
+const submitBtn = document.getElementById('submitMailBtn');
+const privacyBlock = document.getElementById('privacyBlock');
+
+const warningPopup = document.getElementById('warningPopup');
+const popupYes = document.getElementById('popupYes');
+const popupNo = document.getElementById('popupNo');
+
+privacyCheckbox.addEventListener('change', function() {
+  if(this.checked) {
+    submitBtn.classList.remove('disabled');
+  } else {
+    submitBtn.classList.add('disabled');
+  }
+});
+
+function executeMailRedirect() {
+  const name = document.getElementById('formName').value;
+  const email = document.getElementById('formEmail').value;
+  const message = document.getElementById('formMessage').value;
+  
+  const emailTo = "kretkiewicz@gmail.com";
+  const subject = encodeURIComponent("Wiadomość z formularza - wycieczki Hel");
+  const bodyText = `Imię i nazwisko: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AWiadomość:%0D%0A${message}`;
+  
+  window.location.href = `mailto:${emailTo}?subject=${subject}&body=${bodyText}`;
+}
+
+submitBtn.addEventListener('click', function(e) {
   e.preventDefault();
   
-  const form = document.getElementById('mailForm');
+  if (!privacyCheckbox.checked) {
+    submitBtn.classList.remove('btn-shake');
+    void submitBtn.offsetWidth;
+    submitBtn.classList.add('btn-shake');
+    setTimeout(() => submitBtn.classList.remove('btn-shake'), 300);
+
+    privacyBlock.classList.remove('shake-error');
+    void privacyBlock.offsetWidth; 
+    privacyBlock.classList.add('shake-error');
+    setTimeout(() => privacyBlock.classList.remove('shake-error'), 500);
+    return;
+  }
   
-  // Sprawdzenie poprawności wypełnienia wymaganych pól
+  const form = document.getElementById('mailForm');
   if (!form.checkValidity()) {
     form.reportValidity();
     return;
   }
   
-  const name = document.getElementById('formName').value;
-  const email = document.getElementById('formEmail').value;
-  const plan = document.getElementById('formPlan').value;
-  const message = document.getElementById('formMessage').value;
+  const messageVal = document.getElementById('formMessage').value.trim();
+  if (messageVal === "") {
+    warningPopup.classList.add('active');
+    return;
+  }
   
-  const emailTo = "kretkiewicz@gmail.com";
-  const subject = encodeURIComponent("Rezerwacja / pytanie - wycieczki Hel");
-  
-  // Struktura wiadomości zgodnie z Twoim życzeniem
-  const bodyText = `Imię: ${name}%0D%0AEmail: ${email}%0D%0APakiet: ${plan}%0D%0A%0D%0AWiadomość:%0D%0A${message}`;
-  
-  window.location.href = `mailto:${emailTo}?subject=${subject}&body=${bodyText}`;
+  executeMailRedirect();
+});
+
+popupYes.addEventListener('click', function() {
+  warningPopup.classList.remove('active');
+  executeMailRedirect();
+});
+
+popupNo.addEventListener('click', function() {
+  warningPopup.classList.remove('active');
+  document.getElementById('formMessage').focus();
 });
 </script>
 
