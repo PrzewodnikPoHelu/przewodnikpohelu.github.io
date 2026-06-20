@@ -1,89 +1,48 @@
 <!DOCTYPE html>
-<html class="dark" lang="pl">
+<html lang="pl">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+  <title>Artykuł – Przewodnik po Helu</title>
 
-<title>Przewodnik po Helu – Daniel Kretkiewicz | Oficjalny Przewodnik Turystyczny</title>
-
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700;900&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-<link rel="icon" type="image/png" sizes="32x32" href="kollo.png">
-<link rel="icon" type="image/png" sizes="16x16" href="kollo.png">
-<link rel="apple-touch-icon" href="kollo.png">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "TravelAgency",
-  "name": "Przewodnik po Helu - Daniel Kretkiewicz",
-  "url": "https://przewodnikpohelu.pl/", 
-  "description": "Profesjonalne wycieczki i oprowadzanie po Półwyspie Helskim. Poznaj historię, militaria oraz najpiękniejsze zakątki Helu z certyfikowanym przewodnikiem Danielem Kretkiewiczem.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Hel",
-    "addressRegion": "Pomorskie",
-    "addressCountry": "PL"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "54.6083",
-    "longitude": "18.8014"
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "08:00",
-    "closes": "20:00"
-  }
-}
-</script>
-
-
-
-<meta name="description" content="Szukasz profesjonalnego przewodnika po Helu? Daniel Kretkiewicz to certyfikowany przewodnik po Półwyspie Helskim. Odkryj unikalne zabytki militarne, historię rybołówstwa, fokarium oraz ukryte plaże na końcu Polski. Zaplanuj niezapomnianą wycieczkę na Helu w sezonie 2026. Sprawdź ofertę!">
-
-<meta name="keywords" content="przewodnik po helu, Daniel Kretkiewicz, przewodnik Daniel Kretkiewicz, hel przewodnik, atrakcje helu, co warto zobaczyć na helu, półwysep helski wycieczki, wycieczki z przewodnikiem hel, militaria hel zwiedzanie">
-
-<meta property="og:title" content="Przewodnik po Helu – Daniel Kretkiewicz">
-<meta property="og:description" content="Oficjalny przewodnik po Helu – Daniel Kretkiewicz. Najlepsze atrakcje, militaria, plaże i unikalne wycieczki z przewodnikiem. Zarezerwuj termin!">
-<meta property="og:url" content="https://przewodnikpohelu.pl/">
-<meta property="og:type" content="website">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Przewodnik po Helu – Daniel Kretkiewicz">
-<meta name="twitter:description" content="Odkryj sekrety Półwyspu Helskiego z profesjonalnym przewodnikiem Danielem Kretkiewiczem. Sprawdź szczegóły wycieczek.">
-
-
-  <!-- === GSAP i ScrollTrigger do animacji przewijania === -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- FontAwesome & Czcionka Inter -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* ---------- KOMENTARZ: GŁÓWNE STYLE STRONY ---------- */
-    /* Zdefiniowane zmienne, tło, karty, efekty szkła i responsywność */
-
+    /* ===================================================
+       SYSTEMOWE ZMIENNE DESIGNU (Mniejsza czcionka o 1)
+       =================================================== */
     :root {
-      --bg: #050505;        /* głęboka czerń tła */
-      --card: #0f0f0f;     /* kolor kart */
-      --text: #f5f5f5;     /* jasny tekst */
-      --muted: #8f8f8f;    /* przygaszony tekst */
+      --bg: #0a0a0a;
+      --bg-card: rgba(18, 18, 18, 0.75);
+      --bg-input: rgba(26, 26, 26, 0.85);
+      --text: #f5f5f5;
+      --muted: #a1a1a1;
+      --line: rgba(255, 255, 255, 0.08);
+      --accent: #1371ff;
+      --accent-glow: rgba(19, 113, 255, 0.15);
+      --article-font-size: 1.0rem; 
+      --header-padding: 12px 18px;  
+      --btn-height: 42px;           
+    }
+
+    /* Tryb Stonowanego Wysokiego Kontrastu */
+    [data-theme="high-contrast"] {
+      --bg: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-input: #edf2f7;
+      --text: #0f172a;
+      --muted: #4a5568;
+      --line: rgba(15, 23, 42, 0.12);
+      --accent: #0044cc;
+      --accent-glow: rgba(0, 68, 204, 0.08);
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html {
@@ -91,5039 +50,1050 @@
     }
 
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
-      overflow-x: hidden;
+      line-height: 1.85;
+      transition: background 0.35s ease, color 0.35s ease;
+      -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    .container {
+      width: 92%;
+      max-width: 1140px;
+      margin: auto;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    section {
-      position: relative;
-      width: 100%;
-      padding: 10vh 0;
-    }
-
-
-    /* ---------- PASKA NAVIGACJI ---------- */
-    .navbar {
+    /* ===================================================
+       PASEK POSTĘPU CZYTANIA (READING PROGRESS)
+       =================================================== */
+    .reading-progress-wrap {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 3000;
-      transition: .4s;
+      height: 4px;
+      background: transparent;
+      z-index: 10001;
     }
 
-    .nav-inner {
-      width: 92%;
-      margin: auto;
+    .reading-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), #6ec8ff);
+      transition: width 0.1s ease-out;
+    }
+
+    /* ===================================================
+       ACCESSIBILITY & LANGUAGE BAR (Górny panel)
+       =================================================== */
+    .access-header {
+      position: sticky;
+      top: 12px;
+      z-index: 1000;
+      padding: 10px 0;
+      margin-bottom: 20px;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), top 0.3s ease;
+    }
+
+    .access-header.scrolled {
+      top: 6px;
+    }
+    .access-header.scrolled .access-topbar {
+      padding: 6px 14px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .access-header.scrolled .btn-tool {
+      height: 34px;
+      font-size: 0.78rem;
+      border-radius: 8px;
+    }
+    .access-header.scrolled .lang-selector {
+      height: 34px;
+      font-size: 0.75rem;
+      border-radius: 8px;
+    }
+
+    .access-topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 2vh 0;
+      gap: 12px;
+      background: var(--bg-card);
+      backdrop-filter: blur(25px) saturate(180%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: var(--header-padding);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+      transition: padding 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .logo {
-      font-size: 1rem;
-      font-weight: 800;
-      letter-spacing: .3vw;
-    }
-
-    .nav-links {
+    .access-left, .access-right {
       display: flex;
-      gap: 1.4vw;
-    }
-
-    .nav-links a {
-      font-size: 0.97rem;
-      color: #fff;
-      opacity: .92;
-      position: relative;
-      transition: .35s;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 0%;
-      height: 1px;
-      background: #fff;
-      transition: .35s;
-    }
-
-    .nav-links a:hover {
-      opacity: 1;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    /* ---------- HAMBURGER (MENU MOBILNE) ---------- */
-    .hamburger {
-      width: 42px;
-      height: 42px;
-      display: none;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      gap: 5px;
+      gap: 8px;
+    }
+
+    .btn-tool {
+      height: var(--btn-height);
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--bg-input);
+      color: var(--text);
+      font-size: 0.82rem; 
+      font-weight: 600;
       cursor: pointer;
-      z-index: 4000;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.25s ease;
     }
 
-    .hamburger span {
-      width: 22px;
-      height: 2px;
-      background: white;
-      transition: .4s;
-      border-radius: 999px;
+    .btn-tool:hover {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+      transform: translateY(-1px);
     }
 
-    .hamburger.active span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
+    .lang-selector {
+      height: var(--btn-height);
+      padding: 0 10px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      color: var(--text);
+      border: 1px solid var(--line);
+      font-size: 0.8rem; 
+      outline: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.25s ease;
     }
 
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-    /* ---------- SZUFLADA (DRAWER) ---------- */
-    .mobile-menu {
+    .access-pull-tab {
+      display: none;
       position: fixed;
       top: 0;
-      right: -320px;
-      width: 320px;
-      height: 100vh;
-      background: #000000;
-      z-index: 2500;
-      padding: 12vh 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(-100%);
+      background: var(--accent);
+      color: #ffffff;
+      padding: 6px 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border-radius: 0 0 14px 14px;
+      box-shadow: 0 8px 24px rgba(19, 113, 255, 0.3);
+      cursor: pointer;
+      z-index: 1001;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .access-pull-tab.active {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ===================================================
+       STRUKTURA ARTYKUŁU (NAGŁÓWEK + AKAPITY)
+       =================================================== */
+    .article-wrapper {
+      padding-top: 10px;
+    }
+
+    .article-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .article-main-title {
+      font-size: clamp(1.9rem, 4.5vw, 2.8rem); 
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 20px;
+    }
+
+    .article-author-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 35px;
+    }
+
+    .author-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author-details h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .author-meta-info {
+      display: flex;
+      gap: 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .author-meta-info span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .main-photo-frame {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      border: 1px solid var(--line);
+    }
+
+    .main-photo-frame img {
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-credits {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: right;
+      margin-bottom: 35px;
+      font-style: italic;
+      padding-right: 4px;
+    }
+
+    /* GRID UKŁADU TREŚCI */
+    .article-grid {
+      display: grid;
+      grid-template-columns: 1fr 310px; 
+      gap: 50px;
+      align-items: start;
+      padding-bottom: 100px;
+    }
+
+    .article-core-text {
+      font-size: var(--article-font-size);
+      line-height: 1.85;
+    }
+
+    .article-core-text p {
+      margin-bottom: 24px;
+    }
+
+    .article-core-text h2 {
+      font-size: 1.6em;
+      font-weight: 800;
+      margin: 45px 0 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .article-core-text h3 {
+      font-size: 1.25em;
+      font-weight: 700;
+      margin: 35px 0 14px;
+      letter-spacing: -0.3px;
+      scroll-margin-top: 110px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    /* FANCY MINIMALISTYCZNE PODŚWIETLENIE */
+    .article-core-text h3::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .article-core-text h3.section-highlight {
+      color: var(--accent) !important;
+      animation: pulseHighlight 0.75s ease-in-out;
+    }
+
+    .article-core-text h3.section-highlight::after {
+      width: 60px;
+    }
+
+    @keyframes pulseHighlight {
+      0% { transform: scale(1); }
+      30% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+
+    .article-core-text ul {
+      margin: 20px 0 24px 25px;
+    }
+
+    .article-core-text li {
+      margin-bottom: 12px;
+      padding-left: 5px;
+    }
+
+    .premium-blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 20px;
+      margin: 35px 0;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 1.1em;
+    }
+
+    .inline-photo-box {
+      margin: 35px 0 12px 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .inline-photo-box img {
+      width: 100%;
+      display: block;
+      max-height: 400px;
+      object-fit: cover;
+    }
+
+    /* ===================================================
+       SIDEBAR & SPIS TREŚCI (DESKTOP)
+       =================================================== */
+    .sidebar-sticky-panel {
+      position: sticky;
+      top: 100px;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      transition: right .65s cubic-bezier(.77, 0, .175, 1);
-      border-left: 1px solid rgba(255, 255, 255, .06);
+      gap: 35px;
     }
 
-    .mobile-menu.active {
-      right: 0;
+    .toc-container {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    .mobile-menu a {
-      font-size: 1rem;
-      font-weight: 500;
-      color: white;
-      transition: .3s;
-    }
-
-    .mobile-menu a:hover {
-      transform: translateX(6px);
-      opacity: .7;
-    }
-
-    /* Przyciemnienie tła przy otwartym menu */
-    .menu-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, .55);
-      backdrop-filter: blur(.3rem);
-      opacity: 0;
-      pointer-events: none;
-      transition: .4s;
-      z-index: 2000;
-    }
-
-    .menu-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* Główna treść – przesunięcie przy otwartym menu mobilnym */
-    .page-content {
-      position: relative;
-      background: var(--bg);
-      transition: transform .65s cubic-bezier(.77, 0, .175, 1);
-      will-change: transform;
-      min-height: 100vh;
-    }
-
-    .page-content.menu-open {
-      transform: translateX(-320px);
-    }
-
-    
-
-    /* ---------- SEKCJA O MNIE (PRZEWODNIK) ---------- */
-    .about-min {
-      padding: 10vh 0;
-    }
-
-    .about-card {
+    .toc-title {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      font-weight: 700;
       display: flex;
-      gap: 3rem;
-      padding: 3rem;
-      border: 1px solid rgba(255, 255, 255, .06);
-      border-radius: 2rem;
-      background: rgba(255, 255, 255, .02);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 20px 80px rgba(0, 0, 0, .4);
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .about-avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      overflow: hidden;
-      flex-shrink: 0;
-      border: 1px solid rgba(255, 255, 255, .12);
+    .toc-title-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .about-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .toc-title i {
+      color: var(--accent);
     }
 
-    .about-content h2 {
-      font-size: 1.8rem;
-      margin-bottom: .4rem;
-    }
-
-    .about-content h3 {
-      font-size: .85rem;
-      color: #8f8f8f;
-      margin-bottom: 1.2rem;
-      letter-spacing: 2px;
-    }
-
-    .about-content p {
-      color: #d0d0d0;
-      line-height: 1.8;
-    }
-
-    /* Przycisk rozwijania tekstu */
-    .about-more {
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height .6s ease, opacity .3s ease;
-    }
-
-    .about-more.open {
-      max-height: 1000px;
-      opacity: 1;
-    }
-
-    .about-toggle {
-      margin-top: 1rem;
+    .toc-close-btn {
+      display: none;
       background: none;
       border: none;
-      padding: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
+      color: var(--muted);
+      font-size: 1.1rem;
       cursor: pointer;
-      font-size: .85rem;
-      color: #4da3ff;
-      font-weight: 500;
     }
 
-    .cert-title {
-      margin-top: 2rem;
-      font-size: .75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #8f8f8f;
-    }
-
-    .cert-row {
+    .toc-list {
+      list-style: none;
       display: flex;
-      gap: .8rem;
-      margin-top: 1rem;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    .cert-mini {
-      width: 56px;
-      height: 56px;
+    .toc-item a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      line-height: 1.4;
+      display: block;
+      padding: 2px 0 2px 10px;
+      border-left: 2px solid transparent;
+      transition: all 0.25s ease;
+    }
+
+    .toc-item a:hover {
+      color: var(--text);
+      padding-left: 14px;
+    }
+
+    .toc-item.active a {
+      color: var(--text);
+      font-weight: 700;
+      border-left-color: var(--accent);
+      padding-left: 14px;
+    }
+
+    /* INNE WPISY */
+    .sidebar-heading {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .aside-post-node {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+      padding: 12px;
+      border-radius: 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      margin-bottom: 12px;
+      transition: all 0.3s cubic-bezier(.16,1,.3,1);
+    }
+
+    .aside-post-node:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+    }
+
+    .aside-node-img {
+      width: 70px;
+      height: 70px;
       border-radius: 10px;
       object-fit: cover;
-      cursor: pointer;
-      opacity: .85;
-      border: 1px solid rgba(255, 255, 255, .1);
-      transition: .2s;
+      flex-shrink: 0;
     }
 
-    .cert-mini:hover {
-      transform: scale(1.08);
-      opacity: 1;
-    }
-
-    /* Lightbox do podglądu certyfikatów */
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, .88);
-      backdrop-filter: blur(25px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 99999;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: .2s ease;
-    }
-
-    .lightbox.active {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
-    .lightbox img {
-      max-width: 100%;
-      max-height: 90vh;
-      border-radius: 14px;
-      box-shadow: 0 40px 120px rgba(0, 0, 0, .9);
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 22px;
-      cursor: pointer;
-      background: rgba(255, 255, 255, .08);
-      border: 1px solid rgba(255, 255, 255, .12);
-    }
-
-    body.no-scroll {
+    .aside-node-info h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 4px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
       overflow: hidden;
     }
 
+    .aside-node-info span {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
 
+    /* PŁYWAJĄCY PRZYCISK SPISU TREŚCI (MOBILE/TABLET) */
+    .mobile-toc-trigger {
+      display: none;
+      position: fixed;
+      right: 20px;
+      bottom: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      box-shadow: 0 8px 24px rgba(19, 113, 255, 0.4);
+      cursor: pointer;
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: transform 0.2s ease;
+    }
 
-    /* ---------- REVEAL (animowane pojawianie) ---------- */
-    .reveal {
+    .mobile-toc-trigger:active {
+      transform: scale(0.9);
+    }
+
+    /* OVERLAY TŁA DLA WYSUNIĘTEGO MENU */
+    .toc-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 10002;
       opacity: 0;
-      transform: translateY(80px);
+      transition: opacity 0.3s ease;
     }
 
-    /* ---------- RESPONSYWNOŚĆ ---------- */
-    @media (max-width: 1200px) {
-
-      .cards-grid .card,
-      .cards-grid-oferta .card {
-        flex: 0 0 calc(50% - 2vw);
-      }
+    .toc-overlay.open {
+      display: block;
+      opacity: 1;
     }
 
-    @media (max-width: 900px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .section-title {
-        white-space: normal;
-      }
-
-      .cards-grid .card,
-      .cards-grid-oferta .card {
-        flex: 0 0 85%;
-      }
-
-      .about-card {
-        flex-direction: column;
-        padding: 1.5rem;
+    /* ===================================================
+       RESPONSYWNOŚĆ & WYSÓWANY PANEL
+       =================================================== */
+    @media (max-width: 950px) {
+      .photo-credits {
         text-align: center;
       }
-      .about-avatar {
-        width: 110px;
-        height: 110px;
-        margin: auto;
+      .article-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .main-photo-frame img {
+        max-height: 380px;
+      }
+      .sidebar-sticky-panel {
+        position: static;
+        gap: 30px;
       }
 
-      .about-toggle {
-        justify-content: center;
+      .toc-container {
+        position: fixed;
+        top: 0;
+        right: -320px; 
+        width: 300px;
+        height: 100vh;
+        z-index: 10003;
+        border-radius: 20px 0 0 20px;
+        background: rgba(15, 15, 15, 0.95);
+        border-left: 1px solid var(--line);
+        border-top: none;
+        border-bottom: none;
+        box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+        padding: 30px 24px;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        overflow-y: auto;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
-      .cert-row {
-        justify-content: center;
+      .toc-container.open {
+        right: 0;
+      }
+
+      .toc-close-btn {
+        display: block;
+      }
+
+      .mobile-toc-trigger {
+        display: flex;
       }
     }
 
-    .hel-about-v4{
-  padding:11vh 0; /* WYŻEJ */
-}
-
-
-/* CARD */
-.hel-about-v4-card{
-  display:grid;
-  grid-template-columns:.95fr 1.05fr;
-  gap:1.5rem;
-
-  max-width:1150px;
-  margin:auto;
-
-  padding:1.4rem;
-
-  border-radius:1.8rem;
-
-  background:
-  linear-gradient(
-    180deg,
-    rgba(0, 128, 255, 0.079),
-    rgba(255, 255, 255, 0)
-  );
-
-  border:1px solid rgba(255,255,255,.07);
-
-  backdrop-filter:blur(1.4rem);
-}
-
-/* IMAGE */
-.hel-about-v4-media{
-  position:relative;
-  min-height:32rem; /* WYŻSZY BLOK */
-  border-radius:1.3rem;
-  overflow:hidden;
-}
-
-.hel-about-v4-media img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.hel-about-v4-badge{
-  position:absolute;
-  bottom:1rem;
-  left:1rem;
-
-  display:flex;
-  gap:.5rem;
-  align-items:center;
-
-  padding:.55rem .85rem;
-
-  border-radius:999px;
-
-  font-size:.78rem;
-
-  background:rgba(0,0,0,.55);
-  border:1px solid rgba(255,255,255,.08);
-}
-
-/* TEXT */
-.hel-about-v4-content{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-.hel-about-v4-kicker{
-  font-size:.72rem;
-  letter-spacing:.22rem;
-  color:#8b8b8b;
-  margin-bottom:.8rem;
-}
-
-.hel-about-v4-title{
-  font-size:clamp(1.9rem,2.8vw,2.7rem); /* WIĘKSZE */
-  line-height:1.05;
-  margin-bottom:1rem;
-}
-
-.hel-about-v4-lead{
-  font-size:.98rem; /* WIĘKSZE */
-  line-height:180%;
-  color:#bdbdbd;
-  margin-bottom:.9rem;
-}
-
-/* EXPAND */
-.hel-about-v4-more{
-  max-height:0;
-  overflow:hidden;
-  opacity:0;
-  transition:.5s ease;
-  margin-bottom:0;
-}
-
-.hel-about-v4-more.active{
-  max-height:20rem;
-  opacity:1;
-  margin-bottom:1rem;
-}
-
-.hel-about-v4-more p{
-  font-size:.92rem;
-  line-height:180%;
-  color:#a8a8a8;
-  margin-bottom:.6rem;
-}
-
-/* TOGGLE — CHUDY */
-.hel-about-v4-toggle{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:.5rem;
-
-  padding:.55rem .9rem; /* CHUDSZY */
-
-  border-radius:999px;
-
-  font-size:.8rem;
-
-  background:transparent;
-  border:1px solid rgba(255,255,255,.08);
-
-  color:white;
-
-  cursor:pointer;
-
-  margin-bottom:1.2rem;
-
-  transition:.25s;
-}
-
-.hel-about-v4-toggle:hover{
-  background:white;
-  color:black;
-}
-
-/* STATS */
-.hel-about-v4-stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:.7rem;
-  margin-bottom:1.3rem;
-}
-
-.hel-about-v4-stat{
-  padding:.9rem;
-  border-radius:1.1rem;
-
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.05);
-
-  text-align:center;
-}
-
-.hel-about-v4-stat h3{
-  font-size:1.6rem; /* WIĘKSZE */
-}
-
-.hel-about-v4-stat span{
-  font-size:.72rem;
-  color:#9a9a9a;
-}
-
-/* CTA — IDENTYCZNY JAK INNE SEKCJE */
-.hel-about-v4-btn{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  padding:.9rem 1rem;
-
-  border-radius:999px;
-
-  background:white;
-  color:black;
-
-  text-decoration:none;
-
-  font-weight:400;
-
-  transition:.3s;
-}
-.hel-about-v4-btn:hover {
-  transform:translateY(-1px);
-}
-
-.hel-about-v4-arrow{
-  width:2.4rem;
-  height:2.4rem;
-
-  border-radius:50%;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  background:black;
-  color:white;
-}
-
-/* MOBILE */
-@media(max-width:900px){
-
-  .hel-about-v4-card{
-    grid-template-columns:1fr;
-  }
-
-  .hel-about-v4-media{
-    min-height:20rem;
-  }
-
-  .hel-about-v4-stats{
-    grid-template-columns:1fr;
-  }
-}
-/* =========================================
-   HERO PREMIUM LUXURY
-========================================= */
-
-/* Globalne zablokowanie przesuwania strony na boki */
-html, body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden; /* Odcina wszystko, co wystaje w prawo lub lewo */
-  position: relative;
-}
-
-/* Twoje poprawione Hero */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  align-items: center;
-  overflow: hidden; /* Kluczowe odcięcie */
-}
-
-.hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,.18) 0%,
-      rgba(0, 0, 0, 0.302) 40%,
-      rgba(0, 0, 0, 0.764) 100%
-    ),
-    url("background.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transform: scale(1.06);
-  backface-visibility: hidden; /* Pomaga stabilizować grafikę w Safari */
-  -webkit-transform-style: preserve-3d;
-}
-
-/* Podmiana pliku tła dla telefonów */
-@media (max-width: 900px) {
-  .hero-bg {
-    /* CAŁKOWITE WYŁĄCZENIE SKALI NA MOBILE — to ono pozwalało na oddalanie ekranu! */
-    transform: none !important; 
-    
-    width: 100% !important;
-    height: 100% !important;
-
-    background:
-      linear-gradient(
-        180deg,
-      rgba(0,0,0,.18) 0%,
-      rgba(0, 0, 0, 0.162) 40%,
-      rgba(0, 0, 0, 0.7) 100%
-      ),
-      url("backgroundmobile.png") !important;
-    background-size: cover !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-  }
-}
-
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  background:
-  radial-gradient(
-    circle at center,
-    rgba(255,255,255,.08),
-    transparent 60%
-  );
-
-  pointer-events:none;
-  z-index:1;
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-
-  width:min(90%,1400px);
-  margin:auto;
-}
-
-.hero-kicker{
-  display:block;
-
-  margin-bottom:1.2rem;
-
-  font-size:1.2rem;
-  font-weight:500;
-
-  text-transform:uppercase;
-  letter-spacing:.35rem;
-
-  color:rgba(255,255,255,.78);
-}
-
-.hero-title{
-  font-size:clamp(5.5rem,10vw,8rem);
-
-  line-height:.92;
-
-  font-weight:600;
-
-  letter-spacing:0.0em;
-
-  text-transform:uppercase;
-
-  max-width:950px;
-
-  color:#fff;
-
-  text-wrap:balance;
-
-  text-shadow:
-    0 .4rem 2rem rgba(0,0,0,.25),
-    0 0 4rem rgba(255,255,255,.04);
-}
-
-.hero-desc{
-  margin-top:1.8rem;
-
-  max-width:720px;
-
-  font-size:1.08rem;
-  line-height:1.95;
-
-  color:rgba(255,255,255,.84);
-
-  font-weight:400;
-}
-
-.hero-buttons{
-  margin-top:2.3rem;
-}
-
-.hero-neo-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:.8rem;
-
-  padding:1rem 1.8rem;
-
-  border-radius:999rem;
-
-  background:#fff;
-  color:#000;
-
-  font-size:.95rem;
-  font-weight:600;
-
-  text-decoration:none;
-
-  transition:
-    transform .3s ease,
-    background .3s ease,
-    box-shadow .3s ease;
-
-  box-shadow:
-    0 1rem 2rem rgba(0,0,0,.2);
-}
-
-.hero-neo-btn:hover{
-  transform:translateY(-.25rem);
-
-  box-shadow:
-    0 1.5rem 3rem rgba(0,0,0,.35);
-}
-
-/* TABLET */
-
-@media(max-width:1024px){
-
-  .hero-title{
-    font-size:clamp(4rem,11vw,6rem);
-  }
-
-  .hero-desc{
-    max-width:600px;
-  }
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-  .hero{
-    text-align:center;
-  }
-
-  .hero-content{
-    width:92%;
-  }
-
-  .hero-kicker{
-    font-size:.9rem;
-    letter-spacing:.16rem;
-  }
-
-  .hero-title{
-    font-size:clamp(5.1rem,14vw,5rem);
-
-    max-width:100%;
-
-    line-height:.94;
-
-  }
-
-  .hero-desc{
-    margin-left:auto;
-    margin-right:auto;
-
-    max-width:100%;
-
-    font-size:.95rem;
-
-    line-height:1.85;
-  }
-
-  .hero-buttons{
-    display:flex;
-    justify-content:center;
-  }
-
-  .hero-neo-btn{
-    width:100%;
-    max-width:22rem;
-  }
-}
-
-/* MAŁE TELEFONY */
-
-@media(max-width:480px){
-
-  .hero-title{
-    font-size:2.9rem;
-  }
-
-  .hero-desc{
-    font-size:.9rem;
-  }
-
-  .hero-kicker{
-    font-size:.9rem;
-  }
-}
-.post{
-  will-change: transform, opacity;
-}
-@keyframes heroBtnFade{
-  from{
-opacity:0;
-transform:translateY(20px);
-animation:heroBtnFade .8s ease forwards;
-animation-delay:.6s;
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -320px;
-  width: 320px;
-  height: 100vh;
-  background: #000000;
-  z-index: 2500;
-  padding: 12vh 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  transition: right .65s cubic-bezier(.77, 0, .175, 1);
-  border-left: 1px solid rgba(255, 255, 255, .06);
-}
-
-/* --- Nowe style dla linków i ikon --- */
-.mobile-menu a {
-  color: #ffffff; /* Przykładowy kolor linków */
-  text-decoration: none;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center; /* Centrowanie ikony i tekstu w pionie */
-  gap: 0.75rem;       /* Odstęp między ikoną a tekstem */
-  transition: color 0.3s ease;
-}
-
-.mobile-menu a:hover {
-  color: #ff0055; /* Przykładowy efekt hover */
-}
-
-.mobile-menu a i {
-  width: 24px;       /* Stała szerokość ikony, żeby tekst startował w jednej linii */
-  text-align: center;
-}
-</style>
+    @media (max-width: 600px) {
+      .access-header {
+        position: fixed;
+        left: 4%;
+        right: 4%;
+        top: 12px;
+        padding: 0;
+        margin-bottom: 0;
+        will-change: transform;
+      }
+
+      .access-header.hide-bar {
+        transform: translateY(-150%);
+      }
+
+      .access-topbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 12px;
+        border-radius: 16px;
+      }
+
+      .access-left, .access-right {
+        justify-content: space-between;
+      }
+
+      .btn-tool, .lang-selector {
+        flex: 1;
+        justify-content: center;
+        height: 38px;
+      }
+
+      .article-wrapper {
+        margin-top: calc(var(--btn-height) * 2 + 50px); 
+      }
+    }
+
+    /* STOPKA */
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 40px 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+      background: var(--bg-card);
+      margin-top: 40px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-nav a:hover {
+      color: var(--text);
+    }
+  </style>
 </head>
+<body>
 
-<body id="dom">
-  <div id="cookie-popup" class="cookie-popup-container">
-  <div class="cookie-popup-inner">
-    <div class="cookie-popup-header">
-      <div class="cookie-icon-shield">
-        <i class="fa-solid fa-cookie-bite"></i>
-      </div>
-      <div class="cookie-title-block">
-        <h3>Prywatność i pliki cookies</h3>
-        <p>Szanujemy Twój czas i dane na końcu mapy.</p>
+  <div class="access-pull-tab" id="pullTab" onclick="forceShowHeader()">
+    <i class="fa-solid fa-bars"></i> <span data-i18n="options">Opcje strony</span>
+  </div>
+
+  <div class="reading-progress-wrap">
+    <div class="reading-progress-bar" id="readingProgress"></div>
+  </div>
+
+  <!-- Pływający przycisk spisu treści dla smartfonów/tabletów -->
+  <button class="mobile-toc-trigger" id="mobileTocBtn" onclick="toggleMobileToc()" aria-label="Spis treści">
+    <i class="fa-solid fa-list-ul"></i>
+  </button>
+
+  <!-- Tło gaszące ekran przy otwartym spisie treści -->
+  <div class="toc-overlay" id="tocOverlay" onclick="toggleMobileToc()"></div>
+
+  <div class="container">
+
+    <div class="access-header" id="accessHeader">
+      <div class="access-topbar">
+        <div class="access-left">
+          <button class="btn-tool" onclick="history.back()">
+            <i class="fa-solid fa-arrow-left"></i> <span data-i18n="back">Powrót</span>
+          </button>
+          <select class="lang-selector" id="langSelect" onchange="switchLanguage()">
+            <option value="pl" selected>Polski</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+        <div class="access-right">
+          <button class="btn-tool" onclick="toggleContrast()">
+            <i class="fa-solid fa-circle-half-stroke"></i> <span data-i18n="contrast">Kontrast</span>
+          </button>
+          <button class="btn-tool" onclick="alterFont(1)"><b>A+</b></button>
+          <button class="btn-tool" onclick="alterFont(-1)"><b>A-</b></button>
+        </div>
       </div>
     </div>
-    
-    <div class="cookie-popup-body">
-      <p>
-        Używamy plików cookies, aby zrozumieć, jak trafiasz na naszą stronę przez <strong>Google Search Console</strong>, jak korzystasz z naszych materiałów oraz do poprawnego działania <strong>formularzy rezerwacji danych</strong>.
-      </p>
-      
-      <div id="cookie-advanced-options" class="cookie-options-drawer">
-        <div class="cookie-option-row">
-          <div class="cookie-option-info">
-            <span class="option-title">Niezbędne (Zawsze włączone)</span>
-            <span class="option-desc">Wymagane do podstawowego działania strony i formularzy kontaktowych.</span>
-          </div>
-          <div class="cookie-checkbox-mock checked">
-            <i class="fa-solid fa-check"></i>
+
+    <div class="article-wrapper">
+      <span class="article-kicker" data-i18n="kicker">Przewodnik / Artykuł</span>
+      <h1 class="article-main-title" id="artTitle" data-i18n="title">10 powodów, dla których warto odwiedzić Półwysep Helski</h1>
+
+      <div class="article-author-card">
+        <img src="omnieJa.jpg" alt="Avatar" class="author-img">
+        <div class="author-details">
+          <h4>Gracjan Śliwiński</h4>
+          <div class="author-meta-info">
+            <span><i class="fa-regular fa-calendar"></i> 05.06.2026</span>
+            <span><i class="fa-regular fa-clock"></i> <span data-i18n="readtime">8 min czytania</span></span>
           </div>
         </div>
+      </div>
+
+      <div class="main-photo-frame">
+        <img src="https://cdn.podroze.onet.pl/1/Fm6k9lLaHR0cDovL29jZG4uZXUvaW1hZ2VzL3B1bHNjbXMvWW1ZN01EQV8vMmE0N2E2NzQxNWViYWFjZGU5YjFlZWNjNjUwNzc0MDAuanBnkpUDAMyMzQ86zQiQkwXNCWDNBOzeAAKhMAehMQQ" alt="Hel Coast">
+      </div>
+      <div class="photo-credits" data-i18n="photo1">fot. Gracjan Śliwiński • Archiwum prywatne, Hel 2026</div>
+
+      <div class="article-grid">
         
-        <div class="cookie-option-row">
-          <div class="cookie-option-info">
-            <span class="option-title">Analityka i Statystyki (Google)</span>
-            <span class="option-desc">Pozwala monitorować ruch z wyszukiwarki Google Search Console oraz zachowanie na stronie.</span>
-          </div>
-          <label class="cookie-switch">
-            <input type="checkbox" id="cookie-pref-analytics" checked>
-            <span class="cookie-slider"></span>
-          </label>
-        </div>
-      </div>
-    </div>
+        <main class="article-core-text" id="articleBody">
+          <p data-i18n="p1">
+            Półwysep Helski to jedno z najbardziej unikalnych miejsc na mapie Polski. Wąski pasek lądu otoczony z dwóch stron wodami Morza Bałtyckiego oraz Zatoki Puckiej przyciąga co roku tysiące turystów, pasjonatów sportów wodnych oraz osób zainteresowanych historią. W tym wpisie dowiesz się, co naprawdę warto zobaczyć, będąc tutaj.
+          </p>
 
-    <div class="cookie-popup-footer">
-      <button id="cookie-btn-settings" class="cookie-btn cookie-btn-secondary">
-        <span>Ustawienia</span>
-      </button>
-      <div class="cookie-footer-rights">
-        <button id="cookie-btn-reject" class="cookie-btn cookie-btn-secondary">Odrzuć</button>
-        <button id="cookie-btn-accept" class="cookie-btn cookie-btn-primary">Akceptuję wszystkie</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<style>
-.cookie-popup-container {
-  position: fixed;
-  bottom: -100%; /* Domyślnie schowany, wysuwa się skryptem */
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(92%, 600px);
-  z-index: 999999;
-  margin-bottom: 2vh;
-  transition: bottom 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.cookie-popup-container.active {
-  bottom: 0;
-}
-
-.cookie-popup-inner {
-  padding: 1.8rem;
-  background: rgba(10, 10, 10, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1.8rem;
-  backdrop-filter: blur(2rem);
-  -webkit-backdrop-filter: blur(2rem);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8);
-}
-
-.cookie-popup-header {
-  display: flex;
-  align-items: center;
-  gap: 1.1rem;
-  margin-bottom: 1.2rem;
-}
-
-.cookie-icon-shield {
-  width: 2.8rem;
-  height: 2.8rem;
-  background: rgba(0, 119, 255, 0.1);
-  border: 1px solid rgba(0, 119, 255, 0.25);
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #0077ff;
-  font-size: 1.2rem;
-  flex-shrink: 0;
-}
-
-.cookie-title-block h3 {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.2;
-}
-.cookie-title-block p {
-  font-size: 0.78rem;
-  color: #666666;
-  margin-top: 0.15rem;
-}
-
-.cookie-popup-body {
-  font-size: 0.86rem;
-  line-height: 1.6;
-  color: #cccccc;
-  margin-bottom: 1.5rem;
-}
-.cookie-popup-body strong {
-  color: #ffffff;
-  font-weight: 600;
-}
-
-/* Szuflada zaawansowana */
-.cookie-options-drawer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, margin-top 0.4s ease;
-}
-.cookie-options-drawer.open {
-  max-height: 300px;
-  margin-top: 1.5rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.cookie-option-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 0.8rem 0;
-}
-.cookie-option-info {
-  display: flex;
-  flex-direction: column;
-}
-.option-title {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #ffffff;
-}
-.option-desc {
-  font-size: 0.75rem;
-  color: #666666;
-  margin-top: 0.1rem;
-}
-
-/* Niezbędne ikona */
-.cookie-checkbox-mock.checked {
-  width: 1.8rem;
-  height: 1.8rem;
-  background: rgba(255, 255, 255, 0.05);
-  color: #444;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-}
-
-/* Przełącznik Premium Switch */
-.cookie-switch {
-  position: relative;
-  display: inline-block;
-  width: 2.6rem;
-  height: 1.5rem;
-  flex-shrink: 0;
-}
-.cookie-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-.cookie-slider {
-  position: absolute;
-  cursor: pointer;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.1);
-  transition: .3s;
-  border-radius: 999px;
-}
-.cookie-slider:before {
-  position: absolute;
-  content: "";
-  height: 1.1rem;
-  width: 1.1rem;
-  left: 0.2rem;
-  bottom: 0.2rem;
-  background-color: white;
-  transition: .3s;
-  border-radius: 50%;
-}
-input:checked + .cookie-slider {
-  background-color: #0077ff;
-}
-input:checked + .cookie-slider:before {
-  transform: translateX(1.1rem);
-}
-
-/* Stopka i przyciski */
-.cookie-popup-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.cookie-footer-rights {
-  display: flex;
-  gap: 0.6rem;
-}
-
-.cookie-btn {
-  padding: 0.65rem 1.2rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-.cookie-btn-primary {
-  background: #ffffff;
-  color: #000000;
-  border: 1px solid #ffffff;
-}
-.cookie-btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.15);
-}
-.cookie-btn-secondary {
-  background: transparent;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.cookie-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.03);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-@media (max-width: 500px) {
-  .cookie-popup-footer {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .cookie-footer-rights {
-    flex-direction: column-reverse;
-    gap: 0.5rem;
-  }
-  .cookie-btn {
-    width: 100%;
-    text-align: center;
-  }
-  #cookie-btn-settings {
-    order: 3;
-  }
-}
-</style>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const cookiePopup = document.getElementById("cookie-popup");
-  const btnAccept = document.getElementById("cookie-btn-accept");
-  const btnReject = document.getElementById("cookie-btn-reject");
-  const btnSettings = document.getElementById("cookie-btn-settings");
-  const advancedDrawer = document.getElementById("cookie-advanced-options");
-  const analyticsCheckbox = document.getElementById("cookie-pref-analytics");
-
-  // 1. Sprawdzenie, czy użytkownik już podjął decyzję w przeszłości
-  if (!localStorage.getItem("cookieConsentDecision")) {
-    setTimeout(() => {
-      cookiePopup.classList.add("active");
-    }, 1500); // wysuwa się subtelnie po 1.5 sekundy
-  } else {
-    // Jeśli decyzja zapadła, uruchom dozwolone systemy od razu
-    evalConsentAndRun();
-  }
-
-  // 2. Rozwijanie opcji zaawansowanych
-  btnSettings.addEventListener("click", function() {
-    advancedDrawer.classList.toggle("open");
-  });
-
-  // 3. Akceptacja wszystkich
-  btnAccept.addEventListener("click", function () {
-    localStorage.setItem("cookieConsentDecision", "all_granted");
-    localStorage.setItem("cookieAnalyticsAllowed", "true");
-    closeCookiePopup();
-    evalConsentAndRun();
-  });
-
-  // 4. Odrzucenie wszystkich (blokada)
-  btnReject.addEventListener("click", function () {
-    localStorage.setItem("cookieConsentDecision", "all_rejected");
-    localStorage.setItem("cookieAnalyticsAllowed", "false");
-    closeCookiePopup();
-    evalConsentAndRun();
-  });
-
-  function closeCookiePopup() {
-    cookiePopup.classList.remove("active");
-  }
-
-  // 5. ZARZĄDZANIE ŚLEDZENIEM GOOGLE I FORMULARZYM
-  function evalConsentAndRun() {
-    const isAnalyticsAllowed = localStorage.getItem("cookieAnalyticsAllowed") === "true";
-
-    if (isAnalyticsAllowed) {
-      console.log("Consent Cookie: Śledzenie Google (Search Console/Analytics) aktywne.");
-      
-      // MIEJSCE NA TWOJE SKRYPTY GOOGLE (np. Tag Manager, Google Analytics v4)
-      // Wklej tutaj swój standardowy kod od Google, jeśli go posiadasz, np.:
-      /*
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-XXXXXXX');
-      */
-      
-    } else {
-      console.log("Consent Cookie: Śledzenie Google zostało ZABLOKOWANE przez użytkownika.");
-      // Czyszczenie ewentualnych ciasteczek Google w razie odrzucenia zgody
-      document.cookie = "_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-      document.cookie = "_gid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    }
-  }
-
-  // 6. MONITOROWANIE FORMULARZY WPISYWANIA DANYCH
-  // Nasłuchujemy wszystkie formularze na stronie. Jeśli użytkownik odrzucił cookies,
-  // blokujemy przesyłanie zdarzeń analitycznych (event trackerów) podczas kliknięcia rezerwacji.
-  const forms = document.querySelectorAll("form");
-  forms.forEach(form => {
-    form.addEventListener("submit", function(e) {
-      const isAnalyticsAllowed = localStorage.getItem("cookieAnalyticsAllowed") === "true";
-      
-      if (isAnalyticsAllowed) {
-        // Formularz wysłany - wysyłamy zdarzenie konwersji do analityki Google
-        if (typeof dataLayer !== 'undefined') {
-          dataLayer.push({'event': 'form_submission_success'});
-        }
-        console.log("Analityka: Zdarzenie wysłania danych przesłane do Search Console/Analytics.");
-      } else {
-        console.log("Analityka: Wysłano formularz w trybie incognito (bez śledzenia Google).");
-      }
-    });
-  });
-});
-</script>
-  <!-- STATYCZNA WARSTWA SZUMU -->
-  <div class="blur-bg"></div>
-  <div class="menu-overlay"></div>
-
-  <!-- MOBILNE MENU (SZUFLADA) -->
-<div class="mobile-menu">
-  <a href="#dom"><i class="fa-solid fa-house"></i> Dom</a>
-  <a href="#cennik"><i class="fa-solid fa-tags"></i> Cennik</a>
-  <a href="#opinie"><i class="fa-solid fa-star"></i> Opinie</a>
-  <a href="#atrakcje"><i class="fa-solid fa-route"></i> Atrakcje</a> <!-- Uwaga: jeśli ferris-wheel jest płatne, użyj 'fa-mountain' lub 'fa-ticket' -->
-  <a href="#oferta"><i class="fa-solid fa-briefcase"></i> Oferta</a>
-  <a href="#o-mnie"><i class="fa-solid fa-user"></i> O mnie</a>
-  <a href="#kontakt"><i class="fa-solid fa-envelope"></i> Kontakt</a>
-  <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a>
-</div>
-
-  <div class="site-wrapper">
-    <!-- PASKA NAVIGACJI -->
-    <nav class="navbar">
-      <div class="nav-inner">
-        <div class="logo">HEL</div>
-        <div class="nav-links">
-              <a href="#dom">Dom</a>
-                <a href="#cennik">Cennik</a>
-                <a href="#opinie">Opinie</a>
-                <a href="#atrakcje">Atrakcje</a> <!-- Uwaga: jeśli ferris-wheel jest płatne, użyj 'fa-mountain' lub 'fa-ticket' -->
-                <a href="#oferta">Oferta</a>
-                <a href="#o-mnie">O mnie</a>
-                <a href="#kontakt">Kontakt</a>
-                <a href="blog.html">Blog</a>
-        </div>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </nav>
-
-    <!-- GŁÓWNA TREŚĆ -->
-    <main class="page-content">
-      <!-- HERO -->
-<section class="hero">
-
-  <div class="hero-bg"></div>
-
-  <div class="hero-content">
-
-    <span class="hero-kicker">
-       PRZEWODNIK TURYSTYCZNY PO HELU
-    </span>
-
-    <h1 class="hero-title">
-      Daniel<br>
-      Kretkiewicz
-    </h1>
-
-    <p class="hero-desc">
-       Tu kończy się Polska, a zaczyna przygoda. Odkryj Hel i poznaj jego sekrety.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="#kontakt" class="hero-neo-btn">
-        <i class="fa-solid fa-pen-to-square"></i>
-        <span>Zarezerwuj termin</span>
-      </a>
-    </div>
-
-  </div>
-
-</section>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
-
-<section class="pricing-premium-section" id="cennik">
-  <div class="pricing-glow-1"></div>
-  <div class="pricing-glow-2"></div>
-
-  <div class="container-main">
-    
-    <div class="pricing-premium-header reveal">
-      <span class="pricing-kicker">AKTUALNA OFERTA</span>
-      <h2 class="pricing-main-title">Cennik i pakiety zwiedzania</h2>
-    </div>
-
-    <div class="pricing-premium-grid" id="pricing-scroll-container">
-  
-      <div class="pricing-premium-card reveal">
-        <div class="card-inner-wrapper">
-          
-          <div class="card-header-block">
-            <div class="icon-box-wrapper">
-              <i class="fa-solid fa-person-hiking"></i>
-            </div>
-            <div class="title-box">
-              <span class="card-tag">cena za godzinę</span>
-              <h3>Usługa godzinowa</h3>
-            </div>
+          <div class="premium-blockquote" data-i18n="quote">
+            "Hel nie jest po prostu końcem Polski — to początek niesamowitej, morskiej opowieści, którą pisze sam wiatr i fale."
           </div>
 
-          <div class="price-display-block">
-            <span class="amount">170</span>
-            <span class="currency">zł</span>
-            <span class="period">/ godz.</span>
+          <!-- SEKCJA 1 (SAM TEKST, BEZ WYPUNKTOWAŃ NA LOGIKĘ) -->
+          <div class="inline-photo-box">
+            <img src="https://lh5.googleusercontent.com/p/AF1QipP60iwyoYuyhvSErt8B4qzT0wGINvx_-TacrNK8=s1600" alt="Plaża Hel">
           </div>
+          <h3 id="punkt1" data-i18n="h1">Najpiękniejsze plaże na Półwyspie Helskim</h3>
+          <p data-i18n="lead1"><strong>Złocisty piasek i szum fal z dwóch stron lądu.</strong> Półwysep oferuje coś absolutnie niespotykanego – plaże o zupełnie odmiennym charakterze oddalone od siebie o zaledwie krótki spacer.</p>
+          <p data-i18n="p2">
+            Wybierając plaże od strony otwartego Morza Bałtyckiego, zanurzysz się w szerokich, piaszczystych przestrzeniach z majestatycznymi, silnymi falami i kojącym, otwartym horyzontem. To idealne miejsce na klasyczne, głębokie plażowanie z dala od zgiełku miast. Z kolei przechodząc na drugą stronę lądu, trafisz nad spokojne, znacznie cieplejsze i płytsze wody Zatoki Puckiej. To tam bije serce europejskiego surfingu – stabilne wiatry tworzą tu idealny poligon dla początkujących i zaawansowanych pasjonatów kitesurfingu oraz windsurfingu. Według danych geograficznych i krajoznawczych, piaszczyste osady tworzące tutejsze plaże charakteryzują się wyjątkową czystością oraz jasną barwą, co w połączeniu z pasami wydm nadmorskich porośniętych borem sosnowym stwarza unikalny mikroklimat bogaty w jód. Ruchome podłoże półwyspu sprawia, że linie brzegowe ulegają nieustannym zmianom pod wpływem prądów morskich i wiatru, co czyni każdą wizytę na Helu unikalnym doświadczeniem przyrodniczym.
+          </p>
 
-          <p class="card-brief">Najlepsze dla osób prywatnych i rodzin.</p>
-
-          <hr class="card-divider">
-
-          <ul class="premium-features-list">
-            <li>
-              <div class="feature-bullet"><i class="fa-solid fa-check"></i></div>
-              <div class="feature-text">
-                <strong>Czas pod Twoją kontrolą</strong>
-                <p>Sami decydujecie, ile godzin chcecie poświęcić na zwiedzanie</p>
-              </div>
-            </li>
-            <li>
-              <div class="feature-bullet"><i class="fa-solid fa-check"></i></div>
-              <div class="feature-text">
-                <strong>Dostosowanie do uczestników</strong>
-                <p>Tempo i trasa dopasowane do wieku oraz zainteresowań każdego z Was</p>
-              </div>
-            </li>
-            <li>
-              <div class="feature-bullet"><i class="fa-solid fa-check"></i></div>
-              <div class="feature-text">
-                <strong>Najciekawsze zakątki Helu</strong>
-                <p>Odkrywanie tajemnic półwyspu, od historii po piękne widoki</p>
-              </div>
-            </li>
+          <!-- SEKCJA 2 (SZCZEGÓŁOWA LISTA Z WIKIPEDII) -->
+          <div class="inline-photo-box">
+            <img src="https://visiton.pl/components/com_djclassifieds/images/item/6/6785__mg_1816_thb.jpg" alt="Latarnia Hel">
+          </div>
+          <h3 id="punkt2" data-i18n="h2">Co warto zobaczyć na Helu?</h3>
+          <p data-i18n="lead2"><strong>Ślady wielkiej historii, rybackie tradycje i kultowe budowle.</strong> Samo miasto Hel, ulokowane na samym cyplu, to prawdziwy skarbiec pełen kontrastów – od surowej architektury militarnej po urokliwy kaszubski klimat.</p>
+          <p data-i18n="p3_intro">Opierając się na bogatych kronikach historycznych oraz faktach dokumentowanych przez polskie instytucje muzealne, podczas wizyty w Helu koniecznie trzeba zobaczyć i poznać następujące historyczne obiekty:</p>
+          <ul>
+            <li data-i18n="p3_li1"><strong>Zabytkowa Latarnia Morska z 1942 roku:</strong> Ośmiokątna wieża z ciemnoczerwonej cegły o wysokości 41,5 metra. Wybudowana przez Niemców podczas okupacji w miejsce wysadzonej przez polskie wojsko poprzedniej latarni z 1826 roku. Oferuje niesamowitą panoramę całej Zatoki Gdańskiej.</li>
+            <li data-i18n="p3_li2"><strong>Muzeum Obrony Wybrzeża (MOW):</strong> Zlokalizowane w potężnych, betonowych obiektach dawnej niemieckiej baterii Schleswig-Holstein (kaliber armat 406 mm). Prezentuje militarną historię półwyspu, który w 1939 roku stanowił Rejon Umocniony Hel i bronił się jako jeden z ostatnich bastionów w Polsce.</li>
+            <li data-i18n="p3_li3"><strong>Muzeum Rybołówstwa w dawnej świątyni:</strong> Mieści się w gotyckim poewangelickim kościele św. Piotra i Pawła z XV wieku, położonym tuż przy porcie. Z wieży kościoła roztacza się piękny widok, a ekspozycje prezentują dzieje rzemiosła rybackiego na Morzu Bałtyckim oraz historię regionu kaszubskiego.</li>
+            <li data-i18n="p3_li4"><strong>Ulica Wiejska i tradycyjne chaty ryglowe:</strong> Zabytkowa oś architektoniczna miasta o długości około jednego kilometra. Zachowały się tu unikalne drewniane i ryglowe (szachulcowe) domki rybackie z przełomu XVIII i XIX wieku, oddające autentyczną atmosferę dawnej osady pomorskiej.</li>
           </ul>
 
-          <a href="#kontakt" class="pricing-btn">
-            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
-              <i class="fa-solid fa-person-hiking"></i>
-            </div>
-            <span>Zarezerwuj wycieczkę</span>
-          </a>
-
-        </div>
-      </div>
-
-      <div class="pricing-premium-card featured-luxury reveal">
-        <div class="luxury-badge">
-          <i class="fa-solid fa-star"></i> Popularne
-        </div>
-        
-        <div class="card-inner-wrapper">
-          
-          <div class="card-header-block">
-            <div class="icon-box-wrapper unique-gold">
-              <i class="fa-solid fa-users"></i>
-            </div>
-            <div class="title-box">
-              <span class="card-tag gold-tag">Najpopularniejszy pakiet</span>
-              <h3>Wycieczka całodniowa</h3>
-            </div>
+          <!-- SEKCJA 3 -->
+          <div class="inline-photo-box">
+            <img src="https://www.worldisbeautiful.eu/up_files/1255-12-Spacer-przy-zachodzie-slonca.jpg" alt="Zachód słońca Hel">
           </div>
+          <h3 id="punkt3" data-i18n="h3">Najlepsze miejsca na spacery i zachody słońca</h3>
+          <p data-i18n="lead3"><strong>Chwile wyciszenia na legendarnym początku Polski.</strong> Gdy opadną całodzienne emocje, Półwysep zmienia się w oazę spokoju, oferując widowiska malowane prosto na niebie.</p>
+          <p data-i18n="p4">
+            Najbardziej mistycznym miejscem na spacer jest sam Cypel Helski, czyli symboliczny „Koniec Świata”, gdzie wody otwartego morza łączą się z Zatoką Pucką, a fale uderzają o piaszczysty brzeg z trzech stron. Spacer ułatwia wspaniale przygotowana drewniana promenada. Równie niezapomniane chwile gwarantuje wędrówka przez unikalny, chroniony bór bażynowy – ukształtowane przez potężne wiatry karłowate, powyginane sosny tworzą baśniowy, wręcz surrealistyczny krajobraz. Z kolei na najpiękniejsze zachody słońca warto udać się na molo w Jastarni lub plaże w okolicach Chałup, gdzie słońce spektakularnie chowa się bezpośrednio w wodach zatoki.
+          </p>
 
-          <div class="price-display-block">
-            <span class="amount">1190</span>
-            <span class="currency">zł</span>
-            <span class="period"></span>
+          <!-- SEKCJA 4 (WYPUNKTOWANA I ROZBUDOWANA) -->
+          <div class="inline-photo-box">
+            <img src="https://surfpeople.pl/wp-content/uploads/2023/06/portraits_pt2_27-edited-1.jpg" alt="Foki Hel">
           </div>
-
-<p class="card-brief">Obejmuje 7 godzin zwiedzania</p>
-
-          <hr class="card-divider">
-
-          <ul class="premium-features-list">
-            <li>
-              <div class="feature-bullet gold-bullet"><i class="fa-solid fa-check"></i></div>
-              <div class="feature-text">
-                <strong>Pełna panorama Helu</strong>
-                <p>Możliwość zobaczenia wszystkich najważniejszych miejsc i ukrytych ciekawostek podczas jednej wyprawy</p>
-              </div>
+          <h3 id="punkt4" data-i18n="h4">Atrakcje dla dzieci i całej rodziny</h3>
+          <p data-i18n="lead4"><strong>Edukacja przez zabawę i aktywny wypoczynek na świeżym powietrzu.</strong> Hel to idealny kierunek na rodzinny wyjazd, łączący bliskość natury z fascynującymi atrakcjami dla najmłodszych.</p>
+          <p data-i18n="p5_intro">Planując pobyt z dziećmi, warto skierować się ku miejscom oferującym wartościową edukację przyrodniczą oraz aktywność fizyczną:</p>
+          <ul>
+            <li data-i18n="p5_li1"><strong>Helskie Fokarium Stacji Morskiej Uniwersytetu Gdańskiego:</strong> Specjalistyczna placówka naukowa działająca od 1999 roku, której celem jest odtworzenie i ochrona populacji foki szarej (Halichoerus grypus) w południowym Bałtyku. Co dokładnie oferuje rodzinom?
+              <br>• Dwa razy dziennie (stałe godziny: 11:00 i 14:00) odbywają się publiczne treningi medyczne połączone z karmieniem fok, podczas których opiekunowie opowiadają o biologii tych ssaków.
+              <br>• Podziemna ścieżka edukacyjna oraz wystawa "Ssaki naszego morza", prezentująca zagrożenia ekologiczne dla fauny morskiej.
             </li>
-            <li>
-              <div class="feature-bullet gold-bullet"><i class="fa-solid fa-check"></i></div>
-              <div class="feature-text">
-                <strong>Dzień bez pośpiechu</strong>
-                <p>Około 7 godzin spokojnego odkrywania bez patrzenia na zegarek</p>
-              </div>
-            </li>
-            <li>
-              <div class="feature-bullet gold-bullet"><i class="fa-solid fa-check"></i></div>
-              <div class="feature-text">
-                <strong>Bogaty program i elastyczność</strong>
-                <p>Dłuższy czas pozwala na swobodne i głębokie poznanie lokalnych atrakcji i legend</p>
-              </div>
-            </li>
+            <li data-i18n="p5_li2"><strong>Helska Ścieżka Rowerowa (Puck - Hel):</strong> Ponad 40-kilometrowa, doskonale przygotowana trasa biegnąca wzdłuż całego półwyspu. Całkowicie odseparowana od ruchu samochodowego, płaska i bezpieczna dla dzieci, co pozwala na całodniowe wycieczki z widokiem na Zatokę Pucką.</li>
+            <li data-i18n="p5_li3"><strong>Park Wydmowy i Dom Morświna:</strong> Kameralna ekspozycja edukacyjna poświęcona morświnom – bałtyckim kuzynom delfina, którzy są krytycznie zagrożeni wyginięciem. Dzieci mogą tu zobaczyć makiety w naturalnych rozmiarach i posłuchać dźwięków wydawanych przez te ssaki.</li>
           </ul>
+        </main>
 
-          <a href="#kontakt" class="pricing-btn">
-            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
-              <i class="fa-solid fa-person-hiking"></i>
-            </div>
-            <span>Zarezerwuj wycieczkę</span>
-          </a>
+        <aside class="sidebar-sticky-panel">
+          <div class="toc-container" id="tocContainer">
+            <h3 class="toc-title">
+              <span class="toc-title-left"><i class="fa-solid fa-list-ul"></i> <span data-i18n="toc_title">Spis treści</span></span>
+              <button class="toc-close-btn" onclick="toggleMobileToc()"><i class="fa-solid fa-xmark"></i></button>
+            </h3>
+            <ul class="toc-list">
+              <li class="toc-item active" id="toc-punkt1"><a href="#punkt1" data-i18n="h1">Najpiękniejsze plaże</a></li>
+              <li class="toc-item" id="toc-punkt2"><a href="#punkt2" data-i18n="h2">Co warto zobaczyć?</a></li>
+              <li class="toc-item" id="toc-punkt3"><a href="#punkt3" data-i18n="h3">Spacery i zachody słońca</a></li>
+              <li class="toc-item" id="toc-punkt4"><a href="#punkt4" data-i18n="h4">Atrakcje dla dzieci</a></li>
+            </ul>
+          </div>
 
-        </div>
+          <div>
+            <h3 class="sidebar-heading" data-i18n="sideheading">Inne wpisy</h3>
+            <a href="#" class="aside-post-node">
+              <img src="https://photos.wikimapia.org/p/00/04/27/62/49_big.jpg" alt="Post" class="aside-node-img">
+              <div class="aside-node-info">
+                <h4 data-i18n="side1">Gdzie zjeść na Półwyspie Helskim? Konkretne miejsca bez turystycznych pułapek</h4>
+                <span> 08.05.2026</span>
+              </div>
+            </a>
+            <a href="#" class="aside-post-node">
+              <img src="image copy.png" alt="Post" class="aside-node-img">
+              <div class="aside-node-info">
+                <h4 data-i18n="side2">Co zobaczyć na Półwyspie Helskim? Przewodnik po Helu i okolicach</h4>
+                <span>28.05.2026</span>
+              </div>
+            </a>
+          </div>
+        </aside>
+
       </div>
-
     </div>
   </div>
-</section>
 
-<style>
-.pricing-premium-section {
-  position: relative;
-  padding: 8vh 0;
-  background: #030303;
-  overflow: hidden;
-  margin-left: 1rem !important;
-}
-
-.pricing-glow-1 {
-  position: absolute;
-  top: 20%;
-  left: -10%;
-  width: 30rem;
-  height: 30rem;
-  background: radial-gradient(circle, rgba(0, 102, 255, 0.06) 0%, transparent 70%);
-  pointer-events: none;
-}
-.pricing-glow-2 {
-  position: absolute;
-  bottom: 10%;
-  right: -10%;
-  width: 35rem;
-  height: 35rem;
-  background: radial-gradient(circle, rgba(0, 145, 255, 0.04) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.pricing-premium-header {
-  text-align: center;
-  margin-bottom: 5vh;
-}
-.pricing-kicker {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.25rem;
-  color: #0077ff;
-  text-transform: uppercase;
-  margin-bottom: 0.6rem;
-}
-.pricing-main-title {
-  font-size: clamp(2rem, 3.5vw, 2.8rem);
-  font-weight: 800;
-  line-height: 1.15;
-  color: #ffffff;
-  letter-spacing: -0.01em;
-}
-
-.pricing-premium-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.8rem;
-  max-width: 1050px;
-  margin: 0 auto;
-  align-items: stretch;
-}
-
-/* WAŻNE: Dodajemy płynny transition dla samych kart pod kątem animacji hintu */
-.pricing-premium-card {
-  position: relative;
-  border-radius: 1.8rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 100%);
-  border:1px solid rgba(255, 255, 255, 0.189);
-  backdrop-filter: blur(2rem);
-  -webkit-backdrop-filter: blur(2rem);
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease, box-shadow 0.4s ease;
-}
-.card-inner-wrapper {
-  padding: 2.2rem;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.featured-luxury {
-  background: linear-gradient(180deg, rgba(0, 119, 255, 0.04) 0%, rgba(0, 0, 0, 0) 100%);
-  border: 1px solid rgba(0, 119, 255, 0.2);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-}
-
-.pricing-premium-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-}
-
-.luxury-badge {
-  position: absolute;
-  top: -12px;
-  right: 2rem;
-  background: linear-gradient(90deg, #0077ff, #00d2ff);
-  color: #ffffff;
-  padding: 0.4rem 1rem;
-  border-radius: 999px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  box-shadow: 0 8px 20px rgba(0, 119, 255, 0.25);
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.card-header-block {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-.icon-box-wrapper {
-  width: 3.2rem;
-  height: 3.2rem;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.15rem;
-  color: #0077ff;
-}
-.unique-gold {
-  color: #00d2ff;
-  background: rgba(0, 210, 255, 0.04);
-  border-color: rgba(0, 210, 255, 0.12);
-}
-.title-box h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #fff;
-}
-.card-tag {
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.08rem;
-  color: #777;
-  text-transform: uppercase;
-}
-.gold-tag { color: #00d2ff; }
-
-.price-display-block {
-  display: flex;
-  align-items: baseline;
-  gap: 0.3rem;
-  margin-bottom: 0.8rem;
-}
-.currency {
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: #555;
-}
-.amount {
-  font-size: 3.2rem;
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-.period { font-size: 0.88rem; color: #777; }
-
-.card-brief {
-  font-size: 0.88rem;
-  line-height: 1.5;
-  color: #999;
-  margin-bottom: 1.5rem;
-}
-
-.card-divider {
-  border: 0;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
-  margin-bottom: 1.5rem;
-}
-
-.premium-features-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-  margin-bottom: auto;
-  padding-bottom: 2rem;
-}
-.premium-features-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.8rem;
-}
-.feature-bullet {
-  width: 1.3rem;
-  height: 1.3rem;
-  border-radius: 50%;
-  background: rgba(0, 119, 255, 0.08);
-  color: #0077ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  flex-shrink: 0;
-  margin-top: 0.1rem;
-}
-.gold-bullet {
-  background: rgba(0, 210, 255, 0.08);
-  color: #00d2ff;
-}
-.feature-text strong {
-  display: block;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: #ffffff;
-}
-.feature-text p {
-  font-size: 0.8rem;
-  color: #666;
-  margin-top: 0.05rem;
-}
-
-.pricing-btn {
-  margin-top: 1.4rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.9rem 2rem;
-  border-radius: 999px;
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.1);
-  transition: all 0.3s ease;
-  color: white;
-  font-weight: 500;
-  font-size: 0.9rem;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-@media (max-width: 768px) {
-  .pricing-premium-grid {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    
-    scroll-snap-type: x mandatory !important; 
-    scroll-behavior: smooth !important;
-    
-    -webkit-overflow-scrolling: touch;
-    padding: 0.5rem 0.8rem 1rem 0.8rem; 
-    margin: 0 -5vw;
-    gap: 0.8rem;
-    scrollbar-width: none;
-  }
-
-  .pricing-premium-grid::-webkit-scrollbar {
-    display: none;
-  }
-
-  .pricing-premium-card {
-    flex: 0 0 94% !important; 
-    min-width: 94% !important;
-    scroll-snap-align: center !important;
-  }
-
-  .card-inner-wrapper { padding: 1.2rem 1.3rem; }
-  .premium-features-list { gap: 0.7rem; padding-bottom: 0px; margin-bottom: 1rem; }
-  .luxury-badge { right: 1.2rem; top: -10px; }
-  .pricing-premium-header { margin-bottom: 1.5vh; }
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const container = document.getElementById('pricing-scroll-container');
-  const section = document.getElementById('cennik');
-  if (!container || !section) return;
-
-  let hasAnimated = false; 
-  let userInteracted = false;
-
-  // Pobieramy obie karty, aby poruszyć nimi niezależnie od paska scrolla
-  const cards = container.querySelectorAll('.pricing-premium-card');
-
-  function stopHint() {
-    if (userInteracted) return;
-    userInteracted = true;
-    
-    // W przypadku dotknięcia natychmiast anulujemy przesunięcie na kartach
-    cards.forEach(card => {
-      card.style.transform = "none";
-    });
-    
-    container.removeEventListener('touchstart', stopHint);
-    container.removeEventListener('scroll', stopHint);
-  }
-
-  container.addEventListener('touchstart', stopHint, { passive: true });
-  container.addEventListener('scroll', stopHint, { passive: true });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      // Reaguje na telefonach, gdy sekcja pojawi się w polu widzenia (threshold: 0.25)
-      if (entry.isIntersecting && !hasAnimated && window.innerWidth <= 768) {
-        hasAnimated = true; 
-        observer.unobserve(section); 
-
-        // CZAS OCZEKIWANIA: 1.5 sekundy (1500ms) od wejścia na sekcję cennika
-        setTimeout(() => {
-          if (userInteracted) return;
-
-          // 1. SUBTELNE WYCHYLENIE KART: Przesuwamy same karty w lewo o 60px
-          // Ruch odbywa się wewnątrz paska, nie niszcząc tła strony
-          cards.forEach(card => {
-            card.style.transform = "translateX(-60px)";
-          });
-
-          // 2. PRZETRZYMANIE: Po 500ms karty wracają do normy
-          setTimeout(() => {
-            if (userInteracted) return;
-            
-            cards.forEach(card => {
-              card.style.transform = "none";
-            });
-
-            container.removeEventListener('touchstart', stopHint);
-            container.removeEventListener('scroll', stopHint);
-          }, 500); 
-
-        }, 1500); 
-      }
-    });
-  }, {
-    threshold: 0.25 // Odpala, gdy 25% sekcji jest widoczne na ekranie
-  });
-
-  observer.observe(section);
-});
-</script>
-
-<section class="reviews-premium-section" id="opinie">
-  <div class="reviews-glow-1"></div>
-  <div class="reviews-glow-2"></div>
-
-  <div class="container-main-reviews">
-    
-    <div class="reviews-premium-header reveal">
-      <a href="https://www.google.com/search?sa=X&sca_esv=d1946b299fc53e00&sxsrf=ANbL-n7YjKMEiifzGCAnQbqjWzZb_QqMeg:1781706697135&q=Daniel+-+przewodnik+turystyczny+po+Helu+Opinie&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2sjS3MLMwNzUztzAxNDCxMDA02sDI-IpRzyUxLzM1R0FXoaCoKrU8PyUvM1uhpLSosrikMrkqr1KhIF_BIzWnVMG_IBOocBEriRoAo1mxsnwAAAA&rldimm=2978687567841048012&tbm=lcl&hl=pl-PL&ved=2ahUKEwjA8prWvo6VAxWmTVUIHX60D1kQ9fQKegQIUhAG&biw=1920&bih=992&dpr=1#lkt=LocalPoiReviews"><span class="reviews-kicker">ZOBACZ WIĘCEJ OPINII <i class="fa-solid fa-arrow-up-right-from-square"></i></span></a>
-      <h2 class="reviews-main-title">Opinie moich klientów</h2> <a href="https://www.google.com/search?sa=X&sca_esv=d2b5db79e1641e91&sxsrf=ANbL-n5Z-CkqgGUw_uugobxJKhaEU2vmUQ:1780836847812&q=daniel%20-%20przewodnik%20turystyczny%20po%20helu%20opinie&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2sjS3MLMwNzUztzAxNDCxMDA02sDI-IpRLyUxLzM1R0FXoaCoKrU8PyUvM1uhpLSosrikMrkqr1KhIF8hIzWnVCG_IBOocBEriRoA0E8HHXwAAAA&rldimm=2978687567841048012&tbm=lcl&hl=pl-PL&ved=0CAYQ5foLahcKEwio_Z-alvWUAxUAAAAAHQAAAAAQDA&biw=1920&bih=992&dpr=1#lkt=LocalPoiReviews&arid=Ci9DQUlRQUNvZENodHljRjlvT2s0eFRqQnZNVkZrUlhObFlsOWxibkJCYUY4M09FRRAB" target="_blank" class="header-google-trust">
-        <span class="google-svg-wrap">
-          <svg viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l3.66-2.85z" fill="#FBBC05"/>
-            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.85c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-          </svg>
-        </span>
-        <span class="trust-score">5.0 / 5.0</span>
-        <span class="trust-stars">
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-        </span>
-        <span class="trust-count">(400+ recenzji)</span>
-      </a>
-    </div>
-
-    <div class="reviews-slider-wrapper">
-      <button class="reviews-nav-btn prev-btn" id="reviews-prev" aria-label="Poprzednia opinia">
-        <i class="fa-solid fa-chevron-left"></i>
-      </button>
-
-      <div class="reviews-premium-grid" id="reviews-scroll-container">
-    
-        <div class="review-premium-card reveal">
-          <div class="review-inner-wrapper">
-            <div class="review-header">
-              <div class="user-avatar">
-                <img src="https://lh3.googleusercontent.com/a/ACg8ocKRsOj-zKUM3rXVaOBxaKKLhJFVRbPlRTG54ajPu-PXOiUA8mI=w72-h72-p-rp-mo-ba12-br100" alt="Wojciech Pawlikowski">
-              </div>
-              <div class="user-meta">
-                <h4>Wojciech Pawlikowski</h4>
-                <span>
-                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
-                </span>
-              </div>
-            </div>
-            <div class="card-stars-gold">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">
-              "Żałuję… że nie wziąłem wcześniej udziału w zwiedzaniu Helu z p.Danielem. Żal towarzyszy odczuciu niezwykle interesująco spędzonych dwóch godzin, które w perspektywie dwóch godzin mroźnego dnia minęły niezwykle szybko, ba! zbyt szybko. Polecam każdemu, a nie zainteresowanym powiem tylko tyle - nie wiecie co tracicie 😉"
-            </p>
-          </div>
-        </div>
-
-        <div class="review-premium-card reveal">
-          <div class="review-inner-wrapper">
-            <div class="review-header">
-              <div class="user-avatar">
-                <img src="https://lh3.googleusercontent.com/a/ACg8ocL-_U8iVt0d9tJhDxMvhTGxyyngcJEZcMDZeVtfBYph6VSiJw=w72-h72-p-rp-mo-br100" alt="Justyna Polakowska">
-              </div>
-              <div class="user-meta">
-                <h4>Justyna Polakowska</h4>
-                <span>
-                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
-                </span>
-              </div>
-            </div>
-            <div class="card-stars-gold">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">
-              "Jeśli spacer z przewodnikiem po Helu, to TYLKO z panem Danielem. Pan Daniel, to: elokwentny, komunikatywny, bardzo sympatyczny Człowiek, który chętnie dzieli się swoją wiedzą, pasją, energią, życzliwością, poczuciem humoru i...uśmiechem. Serdecznie dziękuję i pozdrawiam Pana, jak również wszystkich tu zaglądających."
-            </p>
-          </div>
-        </div>
-
-        <div class="review-premium-card reveal">
-          <div class="review-inner-wrapper">
-            <div class="review-header">
-              <div class="user-avatar">
-                <img src="https://lh3.googleusercontent.com/a/ACg8ocJz6b90ZHdFu1Zm_V-fAIoWEnVeqHuCVOgr1dQP6j82oBg1ww=w72-h72-p-rp-mo-ba12-br100" alt="Magdalena Ignaczak">
-              </div>
-              <div class="user-meta">
-                <h4>Magdalena Ignaczak</h4>
-                <span>
-                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
-                </span>
-              </div>
-            </div>
-            <div class="card-stars-gold">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">
-              "Pan Daniel jest świetnym przewodnikiem po Helu, byliśmy z grupą młodzieży na ok. 4 godzinnym spacerze po Półwyspie Helskim. Dużo ale konkretnych informacji pod tematykę którą się interesowała Młodzież, profesjonalny i rzeczowy. Bardzo polecam! "
-            </p>
-          </div>
-        </div>
-
-        <div class="review-premium-card reveal">
-          <div class="review-inner-wrapper">
-            <div class="review-header">
-              <div class="user-avatar">
-                <img src="https://lh3.googleusercontent.com/a-/ALV-UjWet78c0qkIxNXR96o35MoAU77soWeyKvHbCGB5EhCnOd_8zMLt=w72-h72-p-rp-mo-ba12-br100" alt="Kamil Nowak">
-              </div>
-              <div class="user-meta">
-                <h4>Joanna Dudziak</h4>
-                <span>
-                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
-                </span>
-              </div>
-            </div>
-            <div class="card-stars-gold">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">
-              "Pomimo zimniej i wietrznej pogody zwiedzaliśmy Hel, w super towarzystwie Pana Daniela, który oprowadził nas ciekawie po tym wspaniałym mieście. Serdecznie polecamy!"
-            </p>
-          </div>
-        </div>
-
-        <div class="review-premium-card reveal">
-          <div class="review-inner-wrapper">
-            <div class="review-header">
-              <div class="user-avatar">
-                <img src="https://lh3.googleusercontent.com/a-/ALV-UjWjGlQQ8BBsSxqinHSx8WxBJ8smFmM8dA0NhrFC3xiubn4iWc4J=w72-h72-p-rp-mo-ba12-br100" alt="Anna Kowalska">
-              </div>
-              <div class="user-meta">
-                <h4>RENA Rena</h4>
-                <span>
-                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
-                </span>
-              </div>
-            </div>
-            <div class="card-stars-gold">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">
-              "Pan Daniel bardzo ciekawie opowiada i zaciekawil mnie historia Helu , zna bardzo duzo szczegolow i cekawostek . Bardzo madry czlowiek."
-            </p>
-          </div>
-        </div>
-
-        <div class="review-premium-card reveal">
-          <div class="review-inner-wrapper">
-            <div class="review-header">
-              <div class="user-avatar">
-                <img src="https://lh3.googleusercontent.com/a-/ALV-UjUgX49a2X_6n0_Q6xUQSvS28mS5ttaNJ_L5nb5EHb2tZuyMEjEfTw=w72-h72-p-rp-mo-br100" alt="Anna Kowalska">
-              </div>
-              <div class="user-meta">
-                <h4>Marta Bargiel Juristova</h4>
-                <span>
-                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
-                </span>
-              </div>
-            </div>
-            <div class="card-stars-gold">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">
-              "Pan Daniel jest bardzo miłą i pozytywną osobą z dużą wiedzą i poczuciem humoru.Wyjazd jest bardzo ciekawy dla wszystkich grup wiekowych.Dodatkowo można ustalić własne punkty,które mają być zawarte w wyjeździe.Polecam serdecznie i bardzo dziękuję za spełnienie wszystkich życzeń wycieczkowych."
-            </p>
-          </div>
-        </div>
-
-        <div class="review-premium-card reveal">
-          <div class="review-inner-wrapper">
-            <div class="review-header">
-              <div class="user-avatar">
-                <img src="https://lh3.googleusercontent.com/a-/ALV-UjXL2rHPwoVpWwx-SuxwibMs_Wyy1QXD-x_OMsA3jiccY7FZLG0=w72-h72-p-rp-mo-br100" alt="Anna Kowalska">
-              </div>
-              <div class="user-meta">
-                <h4>Barbara Woszczyńska</h4>
-                <span>
-                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
-                </span>
-              </div>
-            </div>
-            <div class="card-stars-gold">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">
-              "Bardzo ciekawa trasa pod względem historycznym. To mi się bardzo podobało, z racji pasji historycznej. Dynamiczne, ciekawie podana opowieść, otwartość na uczestników, poczucie humoru - to główne atuty P. Daniela. Dziękuję bardzo 🤗🇵🇱"
-            </p>
-          </div>
-        </div>
-
-        <div class="review-premium-card reveal">
-          <div class="review-inner-wrapper">
-            <div class="review-header">
-              <div class="user-avatar">
-                <img src="https://lh3.googleusercontent.com/a-/ALV-UjVADXkVFKgcWoAQxvJYb9sUrT6ifEZtB2AuNjgmLbHM7Py9oqrs=w72-h72-p-rp-mo-br100" alt="Anna Kowalska">
-              </div>
-              <div class="user-meta">
-                <h4>Sylwia Moczadłowska</h4>
-                <span>
-                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
-                </span>
-              </div>
-            </div>
-            <div class="card-stars-gold">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">
-              "Serdecznie polecam. Trasę 6 godzinną z młodzieżą pań Daniel poprowadził w sposób ciekawy, nie zarzucając zbędnymi szczegółami."
-            </p>
-          </div>
-        </div>
-
-        <div class="review-premium-card reveal">
-          <div class="review-inner-wrapper">
-            <div class="review-header">
-              <div class="user-avatar">
-                <img src="https://lh3.googleusercontent.com/a/ACg8ocLT_sDWrPOzZGxU_yGuCEVwN7PWkrG6dW1TOWElHSzuFJlWiQ=w36-h36-p-rp-mo-ba12-br100" alt="Anna Kowalska">
-              </div>
-              <div class="user-meta">
-                <h4>Szymon Kaczmarek</h4>
-                <span>
-                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
-                </span>
-              </div>
-            </div>
-            <div class="card-stars-gold">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">
-              "Wczoraj z synem byliśmy na zwiedzaniu Helu wycieczka była bardzo świetna dowiedzieliśmy się wielu ciekawych rzeczy odnośnie Helu,mój syn był zafascynowany wycieczka,Pan Daniel super opowiada nawet nie wiedziałem kiedy minęło dwie godziny zwiedzania mam z synem super wspomnienia,on został z dziadkami jeszcze ja niestety wczoraj jechałem wieczorem do domu po 6 dniach napewno jak będę ma Helu w przyszłym roku to będę czekał z niecierpliwością na super zwiedzanie Helu z Panem Danielem."
-            </p>
-          </div>
-        </div>
-
-        <div class="review-premium-card reveal">
-          <div class="review-inner-wrapper">
-            <div class="review-header">
-              <div class="user-avatar">
-                <img src="https://lh3.googleusercontent.com/a-/ALV-UjUGbovc-nCr9CGsNLNvZ_BhviNWngXir8IO181JGLtlp4Wkg4j7=w72-h72-p-rp-mo-br100" alt="Anna Kowalska">
-              </div>
-              <div class="user-meta">
-                <h4>Hanys Hanyss</h4>
-                <span>
-                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
-                </span>
-              </div>
-            </div>
-            <div class="card-stars-gold">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">
-              "Jak najbardziej polecam , bardzo fajny przewodnik z dużą wiedzą na temat Helu a którego przyjemnie się słucha ... Polecam"
-            </p>
-          </div>
-        </div>
-        
-        <div class="review-premium-card reveal">
-          <div class="review-inner-wrapper">
-            <div class="review-header">
-              <div class="user-avatar">
-                <img src="https://lh3.googleusercontent.com/a/ACg8ocI1UmtndHKOcAerRwfpVnzJSGTJ5Y7aRnppXkOu6dwedfbQYQ=w72-h72-p-rp-mo-br100" alt="Anna Kowalska">
-              </div>
-              <div class="user-meta">
-                <h4>Lidia Zielińska</h4>
-                <span>
-                  Opinia z <a style="color: #0077ff;">G</a><a style="color: #ff0000;">o</a><a style="color: #fff200;">o</a><a style="color: #0077ff;">g</a><a style="color: #32a800;">l</a><a style="color: #ff0000;">e</a>
-                </span>
-              </div>
-            </div>
-            <div class="card-stars-gold">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">
-              "Polecamy Pana Daniela. Wszystko super: ogromna wiedza, świetny kontakt z dziećmi, piękny przekaz, uśmiech, śmiało można napisać, że wszystko naj..."
-            </p>
-          </div>
-        </div>
-
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-credits">
+        &copy; 2026 Hel Guide. Projekt i realizacja: Gracjan Śliwiński.
       </div>
-
-      <button class="reviews-nav-btn next-btn" id="reviews-next" aria-label="Następna opinia">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
-    </div>
-
-  </div>
-</section>
-
-<style>
-.reviews-premium-section {
-  position: relative;
-  padding: 20vh 0; 
-  background: #000000;
-  overflow: hidden;
-}
-
-.container-main-reviews {
-  width: min(92%, 1150px);
-  margin: 0 auto;
-}
-
-/* NAGŁÓWEK SEKCJI */
-.reviews-premium-header {
-  text-align: center;
-  margin-bottom: 5vh;
-}
-.reviews-kicker {
-  display: block;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.25rem;
-  color: #0077ff; 
-  text-transform: uppercase;
-  margin-bottom: 0.6rem;
-}
-.reviews-main-title {
-  font-size: clamp(2rem, 3.2vw, 2.6rem);
-  font-weight: 600;
-  line-height: 1.1;
-  color: #ffffff; 
-  margin-bottom: 1.2rem;
-}
-
-/* WIDGET GOOGLE */
-.header-google-trust {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.5rem 1.2rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 999px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-.header-google-trust:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.15);
-}
-
-.google-svg-wrap {
-  width: 16px !important;
-  height: 16px !important;
-}
-.google-svg-wrap svg {
-  display: block !important;
-  width: 16px !important;
-  height: 16px !important;
-}
-
-.trust-score {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #fff;
-}
-.trust-stars {
-  display: flex;
-  gap: 0.1rem;
-}
-.trust-stars i {
-  color: #ffb700; 
-  font-size: 0.7rem;
-}
-.trust-count {
-  font-size: 0.78rem;
-  color: #777777;
-}
-
-/* KONTENER SLIDERA PC */
-.reviews-slider-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-/* GRID SLIDERA DLA PC */
-.reviews-premium-grid {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: calc((100% - (2 * 1.5rem)) / 3); 
-  gap: 1.5rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  scrollbar-width: none; 
-  width: 100%;
-  padding: 0.5rem 0.2rem 1.5rem 0.2rem;
-}
-
-.reviews-premium-grid::-webkit-scrollbar {
-  display: none; 
-}
-
-/* STRZAŁKI NAWIGACYJNE DLA PC */
-.reviews-nav-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background: rgba(15, 15, 15, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  font-size: 1rem;
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(0.5rem);
-  -webkit-backdrop-filter: blur(0.5rem);
-}
-
-.reviews-nav-btn:hover {
-  background: #0077ff;
-  border-color: #0077ff;
-  box-shadow: 0 0 15px rgba(0, 119, 255, 0.4);
-}
-
-.prev-btn { left: -4.5rem; }
-.next-btn { right: -4.5rem; }
-
-/* KARTA GLOBALNIE / PC */
-.review-premium-card {
-  scroll-snap-align: start;
-  position: relative;
-  border-radius: 1.5rem;
-  background: radial-gradient(circle at center, rgba(0, 119, 255, 0.12) 0%, rgba(255, 255, 255, 0.008) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.189);
-  backdrop-filter: blur(1.5rem);
-  -webkit-backdrop-filter: blur(1.5rem);
-  box-shadow: 0 10px 25px rgba(0, 119, 255, 0.02);
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s, box-shadow 0.4s;
-}
-
-.review-premium-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(0, 119, 255, 0.4); 
-  box-shadow: 0 15px 30px rgba(0, 119, 255, 0.08);
-}
-
-.review-inner-wrapper {
-  padding: 1.8rem;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-/* ELEMENTY WEWNĘTRZNE KARTY */
-.review-header {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  margin-bottom: 0.8rem;
-}
-.user-avatar {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: #111;
-}
-.user-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.user-meta h4 {
-  font-size: 0.92rem;
-  font-weight: 500;
-  color: #ffffff; 
-  line-height: 1.2;
-}
-.user-meta span {
-  font-size: 0.72rem;
-  color: #777777; 
-  display: block;
-  margin-top: 0.1rem;
-}
-
-.card-stars-gold {
-  display: flex;
-  gap: 0.1rem;
-  margin-bottom: 1.1rem;
-}
-.card-stars-gold i {
-  color: #ffb700; 
-  font-size: 0.75rem;
-}
-
-/* ZAAWANSOWANE STYLOWANIE DYNAMICZNEGO TEKSTU */
-.review-text {
-  font-size: 0.88rem;
-  line-height: 1.7;
-  color: #ffffff9b; 
-  font-weight: 300;
-  overflow: hidden;
-  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1); 
-}
-
-/* NIEBIESKI LINK ZWROTNY */
-.review-toggle-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  color: #ffffff;
-  font-size: 0.82rem;
-  font-weight: 500;
-  background: none;
-  border: none;
-  padding: 0;
-  margin-top: 0.8rem;
-  cursor: pointer;
-  align-self: flex-start;
-  transition: color 0.2s ease;
-}
-
-.review-toggle-btn:hover {
-  color: #3399ff;
-}
-
-.review-toggle-btn .arrow {
-  display: inline-block;
-  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Obrót strzałki */
-.review-premium-card.expanded .review-toggle-btn .arrow {
-  transform: rotate(180deg);
-}
-
-/* ===================================================
-      SYSTEM RESPONSYWNY: TELEFONY ORAZ TABLETY
-   =================================================== */
-@media (max-width: 1024px) {
-  .reviews-premium-section {
-    padding: 12vh 0; 
-  }
-  
-  .container-main-reviews {
-    width: 100%;
-    padding-left: 1.2rem;
-  }
-
-  .reviews-premium-header {
-    padding-right: 1.2rem;
-    margin-bottom: 4vh;
-  }
-
-  .reviews-nav-btn {
-    display: none !important;
-  }
-
-  .reviews-premium-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    grid-auto-columns: auto;
-    padding: 0.2rem 1.5rem 1.5rem 0; 
-    gap: 0.8rem;
-  }
-
-  .review-premium-card {
-    flex: 0 0 82%; 
-    border-radius: 1.2rem;
-    background: radial-gradient(circle at center, rgba(0, 119, 255, 0.14) 0%, rgba(255, 255, 255, 0.01) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 6px 20px rgba(0, 119, 255, 0.02);
-  }
-
-  .review-premium-card:hover {
-    transform: none !important;
-    border-color: rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 6px 20px rgba(0, 119, 255, 0.02) !important;
-  }
-
-  .review-inner-wrapper {
-    padding: 1.4rem;
-  }
-
-  .review-text {
-    font-size: 0.85rem;
-    line-height: 1.6;
-    color: #dddddd;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .review-premium-card {
-    flex: 0 0 45%; 
-  }
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const container = document.getElementById('reviews-scroll-container');
-  const section = document.getElementById('opinie');
-  const prevBtn = document.getElementById('reviews-prev');
-  const nextBtn = document.getElementById('reviews-next');
-  
-  if (!container || !section) return;
-
-  // SYSTEM SKRACANIA DO DOKŁADNIE 350 ZNAKÓW Z POPRAWNYM UKRYWANIEM
-  const textCards = container.querySelectorAll('.review-premium-card');
-  const MAX_LEN = 350; // Zwiększona wartość znaków przed rozwinięciem
-
-  textCards.forEach(card => {
-    const textEl = card.querySelector('.review-text');
-    if (!textEl) return;
-
-    const fullText = textEl.textContent.trim();
-
-    if (fullText.length > MAX_LEN) {
-      const shortText = fullText.slice(0, MAX_LEN);
-      
-      textEl.innerHTML = `${shortText}<span class="dots">...</span><span class="more-text" style="display:none;">${fullText.slice(MAX_LEN)}</span>`;
-
-      const toggleBtn = document.createElement('button');
-      toggleBtn.className = 'review-toggle-btn';
-      toggleBtn.innerHTML = 'Zobacz więcej <span class="arrow">↓</span>';
-      
-      card.querySelector('.review-inner-wrapper').appendChild(toggleBtn);
-
-      toggleBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const dots = textEl.querySelector('.dots');
-        const moreText = textEl.querySelector('.more-text');
-
-        if (card.classList.contains('expanded')) {
-          card.classList.remove('expanded');
-          toggleBtn.innerHTML = 'Zobacz więcej <span class="arrow">↓</span>';
-          dots.style.display = 'inline';
-          moreText.style.display = 'none';
-        } else {
-          card.classList.add('expanded');
-          toggleBtn.innerHTML = 'Zwiń <span class="arrow"></span>';
-          dots.style.display = 'none';
-          moreText.style.display = 'inline';
-        }
-      });
-    }
-  });
-
-  // 1. Obsługa strzałek na PC
-  if (prevBtn && nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      const cardWidth = container.querySelector('.review-premium-card').offsetWidth;
-      const gap = parseFloat(window.getComputedStyle(container).gap) || 0;
-      container.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
-    });
-
-    prevBtn.addEventListener('click', () => {
-      const cardWidth = container.querySelector('.review-premium-card').offsetWidth;
-      const gap = parseFloat(window.getComputedStyle(container).gap) || 0;
-      container.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
-    });
-  }
-
-  // 2. Automatyczny hint mobilny
-  let hasAnimated = false; 
-  let userInteracted = false;
-  const cards = container.querySelectorAll('.review-premium-card');
-
-  function stopHint() {
-    if (userInteracted) return;
-    userInteracted = true;
-    cards.forEach(card => card.style.transform = "none");
-    container.removeEventListener('touchstart', stopHint);
-    container.removeEventListener('scroll', stopHint);
-  }
-
-  container.addEventListener('touchstart', stopHint, { passive: true });
-  container.addEventListener('scroll', stopHint, { passive: true });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !hasAnimated && window.innerWidth <= 1024) {
-        hasAnimated = true; 
-        observer.unobserve(section); 
-
-        setTimeout(() => {
-          if (userInteracted) return;
-          cards.forEach(card => card.style.transform = "translateX(-60px)");
-
-          setTimeout(() => {
-            if (userInteracted) return;
-            cards.forEach(card => card.style.transform = "none");
-            container.removeEventListener('touchstart', stopHint);
-            container.removeEventListener('scroll', stopHint);
-          }, 500); 
-        }, 1500); 
-      }
-    });
-  }, { threshold: 0.25 });
-
-  observer.observe(section);
-});
-</script>
-
-
-<!-- ===================================================
-     SEKCJA ATRAKCJE (SLIDER ULTRA-PREMIUM)
-     =================================================== -->
-<section id="atrakcje" class="pricing-premium-section" style="background: #030303;">
-  <div class="pricing-glow-1"></div>
-  <div class="pricing-glow-2"></div>
-
-  <div class="container-main">
-    
-    <div class="section-header reveal">
-      <div class="header-text-group">
-        <span class="pricing-kicker">ODKRYJ PÓŁWYSEP</span>
-        <h2 class="section-title">Helskie Atrakcje</h2>
-      </div>
-      <div class="slider-controls">
-        <button class="slider-btn left">‹</button>
-        <button class="slider-btn right">›</button>
+      <div class="footer-nav">
+        <a href="index.html" data-i18n="f1">Główna</a>
+        <a href="index.html#cennik" data-i18n="f2">Cennik</a>
+        <a href="#" data-i18n="f3">Polityka prywatności</a>
       </div>
     </div>
-
-    <div class="cards-grid">
-      
-      <!-- Karta 1 -->
-      <div class="card reveal">
-        <div class="card-img"><img src="https://cetniewo.pl/wp-content/uploads/2023/05/hel-pazdziernik-94.jpg" alt="Wycieczka Plenerowa"></div>
-        <div class="card-content">
-          <div class="card-header-block">
-            <div class="icon-box-wrapper"><i class="fa-solid fa-person-hiking"></i></div>
-            <div class="title-box">
-              <p class="card-category">Wycieczka</p>
-              <h3 class="card-title">Wycieczka plenerowa ("pod chmurką")</h3>
-            </div>
-          </div>
-          <p class="card-text">Kompleksowe przejście po największych i najbardziej spektakularnych helskich atrakcjach.</p>
-          <a href="arakcje.html#chmurka" class="pricing-btn">
-            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;"><i class="fa-solid fa-circle-info"></i></div>
-            <span>Zobacz więcej</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Karta 2 -->
-      <div class="card reveal">
-        <div class="card-img"><img src="https://gohel.pl/files/image/OO/Muzeum-Obrony-Wybrzeza/mow3.jpg" alt="Muzeum Obrony Wybrzeża"></div>
-        <div class="card-content">
-          <div class="card-header-block">
-            <div class="icon-box-wrapper"><i class="fa-solid fa-landmark"></i></div>
-            <div class="title-box">
-              <p class="card-category">Muzeum</p>
-              <h3 class="card-title">Muzeum Obrony Wybrzeża</h3>
-            </div>
-          </div>
-          <p class="card-text">W Muzeum Obrony Wybrzeża zobaczysz autentyczne działa, bunkry i wojskowe eksponaty, które przybliżają historię obrony polskiego wybrzeża podczas II wojny światowej.</p>
-          <a href="arakcje.html#muzeumObrnyWybrzeza" class="pricing-btn">
-            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;"><i class="fa-solid fa-circle-info"></i></div>
-            <span>Zobacz więcej</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Karta 3 -->
-      <div class="card reveal">
-        <div class="card-img"><img src="https://d37rmf1ynyg9aw.cloudfront.net/fit-in/1280x1280/data/v4/resources/images/86df68d5-5ec0-4cf5-b93e-916fb2ba2003.jpeg" alt="Muzeum Helu"></div>
-        <div class="card-content">
-          <div class="card-header-block">
-            <div class="icon-box-wrapper"><i class="fa-solid fa-landmark"></i></div>
-            <div class="title-box">
-              <p class="card-category">Muzeum</p>
-              <h3 class="card-title">Muzeum Helu</h3>
-            </div>
-          </div>
-          <p class="card-text">Muzeum Helu. W dawnym kościele ewangelickim poznasz fascynującą historię Helu. Od rybackiej osady po popularny kurort i ważny punkt militarny na mapie Polski.</p>
-          <a href="arakcje.html#muzeumHelu" class="pricing-btn">
-            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;"><i class="fa-solid fa-circle-info"></i></div>
-            <span>Zobacz więcej</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Karta 4 -->
-      <div class="card reveal">
-        <div class="card-img"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/637038_Hel_muz._Ryboustwa_01.JPG" alt="Muzeum Rybołówstwa"></div>
-        <div class="card-content">
-          <div class="card-header-block">
-            <div class="icon-box-wrapper"><i class="fa-solid fa-landmark"></i></div>
-            <div class="title-box">
-              <p class="card-category">Muzeum</p>
-              <h3 class="card-title">Muzeum Rybołówstwa</h3>
-            </div>
-          </div>
-          <p class="card-text">W zabytkowym kościele zobaczysz tradycyjne łodzie, narzędzia rybackie oraz ekspozycje ukazujące codzienne życie i pracę kaszubskich rybaków.</p>
-          <a href="arakcje.html#muzeumRybolostwa" class="pricing-btn">
-            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;"><i class="fa-solid fa-circle-info"></i></div>
-            <span>Zobacz więcej</span>
-          </a>
-        </div>
-      </div>
-
-
-
-            <!-- Karta 5 -->
-      <div class="card reveal">
-        <div class="card-img"><img src="https://blueapart.pl/_next/image?url=https%3A%2F%2Fcms-blueapart.boringowl.dev%2Fuploads%2FAtrakcje_turystyczne_na_Helu_ca9933361c.jpg&w=3840&q=75" alt="Muzeum Rybołówstwa"></div>
-        <div class="card-content">
-          <div class="card-header-block">
-            <div class="icon-box-wrapper"><i class="fa-solid fa-water"></i></div>
-            <div class="title-box">
-              <p class="card-category">Fokarium</p>
-              <h3 class="card-title">Helskie fokarium</h3>
-            </div>
-          </div>
-          <p class="card-text">Wyjątkowe miejsce, gdzie można z bliska obserwować foki szare oraz dowiedzieć się, jak naukowcy chronią i pomagają odbudować ich populację w Morzu Bałtyckim.</p>
-          <a href="arakcje.html#helskieFokarium" class="pricing-btn">
-            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;"><i class="fa-solid fa-circle-info"></i></div>
-            <span>Zobacz więcej</span>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===================================================
-     SEKCJA OFERTA DLA GRUP (SLIDER ULTRA-PREMIUM)
-     =================================================== -->
-<section id="oferta" class="pricing-premium-section" style="background: #030303; padding-top: 4vh;">
-  <div class="container-main">
-    
-    <div class="section-header reveal">
-      <div class="header-text-group">
-        <span class="pricing-kicker">ELASTYCZNE PAKIETY</span>
-        <h2 class="section-title">Oferta dla grup</h2>
-      </div>
-      <div class="slider-controls">
-        <button class="slider-btn left">‹</button>
-        <button class="slider-btn right">›</button>
-      </div>
-    </div>
-
-    <div class="cards-grid-oferta">
-      
-      <!-- Karta 1 -->
-      <div class="card reveal">
-        <div class="card-img"><img src="https://lh3.googleusercontent.com/p/AF1QipO48fwOou3clReI2neXarHXkx3QOkaHwC5GtRZz=s680-w680-h510-rw" alt="Wycieczka grupowa"></div>
-        <div class="card-content">
-          <div class="card-header-block">
-            <div class="icon-box-wrapper"><i class="fa-solid fa-people-group"></i></div>
-            <div class="title-box">
-              <p class="card-category">Duże grupy</p>
-              <h3 class="card-title">Duże grupy zorganizowane</h3>
-            </div>
-          </div>
-          <p class="card-text">Dedykowane pakiety wycieczkowe stworzone optymalnie dla grup liczących minimum 12 osób.</p>
-          <a href="oferta.html#duze-grupy" class="pricing-btn">
-            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;"><i class="fa-solid fa-people-group"></i></div>
-            <span>Więcej informacji</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Karta 2 -->
-      <div class="card reveal">
-        <div class="card-img"><img src="https://lh3.googleusercontent.com/p/AF1QipOCs1iZqGpcdbtGW3S7nqdtEZPPoWoODOBWZbjJ=s680-w680-h510-rw" alt="Historia"></div>
-        <div class="card-content">
-          <div class="card-header-block">
-            <div class="icon-box-wrapper"><i class="fa-solid fa-people-pulling"></i></div>
-            <div class="title-box">
-              <p class="card-category">Dla każdego</p>
-              <h3 class="card-title">Rodziny i osoby indywidualne</h3>
-            </div>
-          </div>
-          <p class="card-text">Wycieczki przeznaczone dla rodzin z dziećmi, par, grup znajomych oraz wszystkich osób, które chcą odkrywać Hel w przyjaznej atmosferze.</p>
-          <a href="oferta.html#rodziny" class="pricing-btn">
-            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;"><i class="fa-solid fa-people-pulling"></i></div>
-            <span>Więcej informacji</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Karta 3 -->
-      <div class="card reveal">
-        <div class="card-img"><img src="https://lh3.googleusercontent.com/p/AF1QipPeLSSisIIFmjYmNW-KDkNiPoa-HL4dQk1IqfBa=s680-w680-h510-rw" alt="Rejsy"></div>
-        <div class="card-content">
-          <div class="card-header-block">
-            <div class="icon-box-wrapper"><i class="fa-solid fa-graduation-cap"></i></div>
-            <div class="title-box">
-              <p class="card-category">Szkolne wycieczki</p>
-              <h3 class="card-title">Wycieczki szkolne</h3>
-            </div>
-          </div>
-          <p class="card-text">Edukacja przez świetną zabawę. Bezpieczne i pełne pasji wycieczki dla dzieci i młodzieży.</p>
-          <a href="oferta.html#szkoly" class="pricing-btn">
-            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;"><i class="fa-solid fa-graduation-cap"></i></div>
-            <span>Więcej informacji</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Karta 4 -->
-      <div class="card reveal">
-        <div class="card-img"><img src="https://lh3.googleusercontent.com/p/AF1QipNeglrGtSH3Q_WYzzAEHK0yMwbgRMuSvg5VRCA3=s680-w680-h510-rw" alt="Kulinaria"></div>
-        <div class="card-content">
-          <div class="card-header-block">
-            <div class="icon-box-wrapper"><i class="fa-solid fa-person-cane"></i></div>
-            <div class="title-box">
-              <p class="card-category">Seniorzy</p>
-              <h3 class="card-title">Seniorzy</h3>
-            </div>
-          </div>
-          <p class="card-text">Programy zwiedzania ułożone bez pośpiechu, z dbałością o komfort oraz zdrowie.</p>
-          <a href="oferta.html#seniorzy" class="pricing-btn">
-            <div class="pricing-btn-arrow" style="margin-right: 0.6rem;"><i class="fa-solid fa-person-cane"></i></div>
-            <span>Więcej informacji</span>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="hel-about-v4" id="o-mnie" style="background: #030303;">
-  <div class="pricing-glow-1"></div>
-  <div class="pricing-glow-2"></div>
-
-  <div class="container-main">
-    <div class="hel-about-v4-card reveal">
-
-      <div class="hel-about-v4-media">
-        <img src="Daniel Kretkiewicz.png" alt="Przewodnik Hel Daniel Kretkiewicz">
-        <div class="hel-about-v4-badge">
-          <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i>
-          <a href="https://www.google.com/search?q=Hel..."><span>Półwysep Helski</span></a>
-        </div>
-      </div>
-
-      <div class="hel-about-v4-content">
-        
-        <div class="card-header-block" style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 1.2rem; gap: 0.15rem;">
-          <p class="hel-about-v4-kicker">MOJA HISTORIA</p>
-          <h2 class="hel-about-v4-title">Daniel Kretkiewicz</h2>
-        </div>
-
-        <p class="hel-about-v4-lead">
-          Nazywam się Daniel Kretkiewicz, mam 48 lat i jestem szczęśliwym mężem oraz ojcem trójki dzieci. W Helu zakochałem się jeszcze jako nastolatek, kiedy to w 1996 roku zamieszkałem tu na stałe. Już wtedy zaczęła fascynować mnie historia i kultura tej niezwykłej krainy. Przez większość życia zbierałem najróżniejsze pamiątki związane z dziejami Helu i całego Półwyspu Helskiego.
-        </p>
-
-        <div class="hel-about-v4-more" id="helMore">
-          <p>
-            Po powstaniu w Helu Muzeum Obrony Wybrzeża oraz Muzeum Helu, znaczna część mojej kolekcji zasiliła tamtejsze ekspozycje. Daje mi to ogromną satysfakcję, bo wiem, że dołożyłem swoją cegiełkę aby odwiedzający te miejsca, a także przyszłe pokolenia miłośników Helu, mogli czerpać wiedzę i radość z obcowania z dziedzictwem naszego wyjątkowego miasteczka.
-          </p>
-          <p>
-            W latach 2010–2011 ukończyłem szkolenie zakończone państwowym egzaminem, uzyskując uprawnienia Terenowego Przewodnika Turystycznego. Choć posiadam kwalifikacje do oprowadzania nie tylko po Półwyspie Helskim, ale również po całym powiecie puckim (do którego należy Hel), a także po powiatach wejherowskim i lęborskim, od wielu lat skupiam się wyłącznie na helskiej ziemi. Nieustannie się szkolę i poszerzam swoją wiedzę, aby móc dzielić się nią w jak najbardziej rzetelny i ciekawy sposób.
-          </p>
-        </div>
-
-        <button class="hel-about-v4-toggle" id="helToggle">
-          <span>Czytaj więcej</span>
-          <i class="fa-solid fa-plus" style="color: #0077ff;"></i>
-        </button>
-
-        <div class="hel-about-v4-stats">
-          <div class="hel-about-v4-stat">
-            <h3 class="counter" data-target="15">0</h3>
-            <span>lat doświadczenia</span>
-          </div>
-          <div class="hel-about-v4-stat">
-            <h3 class="counter" data-target="900">0</h3>
-            <span>przeprowadzonych wycieczek</span>
-          </div>
-        </div>
-
-        <a href="#kontakt" class="pricing-btn">
-          <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
-            <i class="fa-solid fa-map-location-dot"></i>
-          </div>
-          <span>Zarezerwuj wycieczkę</span>
-        </a>
-
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<style>
-.hel-about-v4 {
-  position: relative;
-  overflow: hidden;
-  padding: 10vh 0;
-}
-
-/* KARTA - SPERSONALIZOWANY GRADIENT AKCENTUJĄCY CYJAN/NIEBIESKI */
-.hel-about-v4-card {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 2.5rem;
-  max-width: 1200px;
-  margin: auto;
-  padding: 2.2rem;
-  border-radius: 1.8rem;
-  background: linear-gradient(180deg, rgba(0, 119, 255, 0.04) 0%, rgba(255, 255, 255, 0.005) 100%);
-  border:1px solid rgba(255, 255, 255, 0.189);
-  backdrop-filter: blur(2rem);
-  -webkit-backdrop-filter: blur(2rem);
-  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hel-about-v4-card:hover {
-  border-color: rgba(0, 119, 255, 0.25);
-}
-
-/* SEKCJA MEDIA */
-.hel-about-v4-media {
-  position: relative;
-  min-height: 48vh;
-  border-radius: 1.4rem;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-.hel-about-v4-media::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(3,3,3,0.4) 100%);
-}
-.hel-about-v4-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hel-about-v4-badge {
-  position: absolute;
-  bottom: 1.2rem;
-  left: 1.2rem;
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  padding: 0.55rem 0.95rem;
-  border-radius: 999px;
-  font-size: 0.74rem;
-  font-weight: 500;
-  background: rgba(3, 3, 3, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: 2;
-}
-.hel-about-v4-badge a {
-  color: #fff;
-  text-decoration: none;
-}
-
-/* KONTENER TEKSTU */
-.hel-about-v4-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 100%;
-}
-
-.hel-about-v4-kicker {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.25rem;
-  color: #0077ff; 
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.hel-about-v4-title {
-  font-size: clamp(2rem, 3.5vw, 2.8rem);
-  font-weight: 500;
-  line-height: 1.15;
-  color: #ffffff;
-  letter-spacing: -0.02em;
-  margin: 0;
-}
-
-.hel-about-v4-lead {
-  font-size: 0.92rem;
-  line-height: 1.65;
-  color: #bdbdbd;
-  margin: 0 0 1.2rem 0;
-}
-
-/* ROZWIJANIE TEKSTU */
-.hel-about-v4-more {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  margin-bottom: 0;
-}
-.hel-about-v4-more.active {
-  max-height: 40rem;
-  opacity: 1;
-  margin-bottom: 1.2rem;
-}
-.hel-about-v4-more p {
-  font-size: 0.88rem;
-  line-height: 1.65;
-  color: #a8a8a8;
-  margin-bottom: 0.8rem;
-}
-
-/* PRZYCISK ROZWIJANIA */
-.hel-about-v4-toggle {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.65rem 1.2rem;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  background: rgba(0, 119, 255, 0.03);
-  border: 1px solid rgba(0, 119, 255, 0.15);
-  color: white;
-  cursor: pointer;
-  margin-bottom: 1.5rem;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.hel-about-v4-toggle:hover {
-  color: rgb(0, 119, 255);
-  background: rgba(0, 119, 255, 0.1);
-  border-color: rgba(0, 119, 255, 0.4);
-}
-
-/* ZMODYFIKOWANE STATYSTYKI — 2 KOLUMNY ZAMIAST 3 */
-.hel-about-v4-stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-.hel-about-v4-stat {
-  padding: 1.2rem 1rem;
-  border-radius: 1.2rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  text-align: center;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.hel-about-v4-stat:hover {
-  border-color: rgba(0, 119, 255, 0.3);
-  background: rgba(0, 119, 255, 0.02);
-}
-.hel-about-v4-stat h3 {
-  font-size: 1.8rem;
-  font-weight: 500;
-  color: #ffffff; 
-  margin: 0 0 0.2rem 0;
-  letter-spacing: -0.02em;
-}
-.hel-about-v4-stat span {
-  display: block;
-  font-size: 0.75rem;
-  color: #8a8a8a;
-  line-height: 1.3;
-}
-
-/* PRZYCISK NA SAMYM DOLE */
-.hel-about-v4-content .pricing-btn {
-  margin-top: auto;
-}
-
-/* RESPONSYWNOŚĆ */
-@media (max-width: 900px) {
-  .hel-about-v4-card {
-    grid-template-columns: 1fr;
-    gap: 1.8rem;
-    padding: 1.3rem;
-  }
-  .hel-about-v4-media {
-    min-height: 320px;
-  }
-  .hel-about-v4-stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
-    margin-bottom: 1.5rem;
-  }
-  .hel-about-v4-stat {
-    padding: 1rem 0.5rem;
-  }
-  .hel-about-v4-stat h3 {
-    font-size: 1.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hel-about-v4-stats {
-    grid-template-columns: 1fr;
-    gap: 0.6rem;
-  }
-}
-</style>
-
-<style>
-/* KONTENER STRONY */
-.container-main {
-  width: 90%;
-  max-width: 1500px;
-  margin: auto;
-}
-
-/* PODŚWIETLENIA TŁA */
-.pricing-premium-section {
-  position: relative;
-  overflow: hidden;
-  padding: 6vh 0;
-}
-.pricing-glow-1 {
-  position: absolute;
-  top: 10%;
-  left: -5%;
-  width: 35rem;
-  height: 35rem;
-  background: radial-gradient(circle, rgba(0, 102, 255, 0.05) 0%, transparent 75%);
-  pointer-events: none;
-  z-index: 0;
-}
-.pricing-glow-2 {
-  position: absolute;
-  bottom: -5%;
-  right: -5%;
-  width: 35rem;
-  height: 35rem;
-  background: radial-gradient(circle, rgba(0, 210, 255, 0.03) 0%, transparent 75%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* NAGŁÓWEK SEKCJII */
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 2rem;
-  margin-bottom: 5vh;
-  text-align: left;
-}
-.header-text-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.pricing-kicker {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.25rem;
-  color: #0077ff;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-.section-title {
-  font-size: clamp(2rem, 3.5vw, 2.8rem);
-  font-weight: 800;
-  line-height: 1.15;
-  color: #ffffff;
-  letter-spacing: -0.02em;
-  margin: 0;
-}
-
-/* STRZAŁKI SLIDERA OBOK SIEBIE */
-.slider-controls {
-  display: flex;
-  gap: 0.6rem;
-  flex-shrink: 0;
-}
-.slider-btn {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, .12);
-  background: rgba(255, 255, 255, .04);
-  color: white;
-  font-size: 1.6rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.slider-btn:hover {
-  background: white;
-  color: black;
-  transform: translateY(-2px);
-  border-color: white;
-}
-.slider-btn:disabled {
-  opacity: .2;
-  cursor: not-allowed;
-  transform: none;
-}
-
-/* KONTENERY SLIDERA */
-.cards-grid, .cards-grid-oferta {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: calc(33.333% - 1.2rem); 
-  grid-auto-rows: 1fr; 
-  gap: 1.8rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding: 0.5rem 0 2.5rem 0;
-  position: relative;
-  z-index: 1;
-}
-.cards-grid::-webkit-scrollbar, .cards-grid-oferta::-webkit-scrollbar { display: none; }
-.cards-grid, .cards-grid-oferta { scrollbar-width: none; }
-
-/* STRUKTURA POJEDYNCZEJ KARTY */
-.card {
-  position: relative;
-  border-radius: 1.8rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 100%);
-  border:1px solid rgba(255, 255, 255, 0.189);
-  backdrop-filter: blur(2rem);
-  -webkit-backdrop-filter: blur(2rem);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column; 
-  height: 100%; 
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  scroll-snap-align: start;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(0, 119, 255, 0.25);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-}
-
-/* WYSOKIE BLOKI ZDJĘCIOWE */
-.card-img {
-  height: 42vh;
-  min-height: 280px;
-  overflow: hidden;
-  position: relative;
-}
-.card-img::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(3,3,3,0.5) 100%);
-}
-.card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.card:hover .card-img img {
-  transform: scale(1.05);
-}
-
-/* WNĘTRZE KARTY */
-.card-content {
-  padding: 1.8rem 2rem;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1; 
-}
-
-.card-header-block {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.icon-box-wrapper {
-  width: 3.2rem;
-  height: 3.2rem;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.15rem;
-  color: #0077ff;
-  flex-shrink: 0;
-}
-.unique-gold {
-  color: #00d2ff;
-  background: rgba(0, 210, 255, 0.04);
-  border-color: rgba(0, 210, 255, 0.12);
-}
-
-.title-box {
-  display: flex;
-  flex-direction: column;
-}
-.card-category {
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.08rem;
-  color: #8a8a8a;
-  text-transform: uppercase;
-  margin: 0 0 0.15rem 0;
-}
-.gold-tag {
-  color: #00d2ff;
-}
-
-.card-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #ffffff !important;
-  line-height: 1.25;
-  margin: 0;
-}
-
-/* OPIS */
-.card-text {
-  font-size: 0.88rem;
-  line-height: 1.55;
-  color: #999999;
-  margin: 0 0 1.8rem 0;
-  flex-grow: 1; 
-}
-
-/* PRZYCISK CTA */
-.pricing-btn {
-  margin-top: auto; 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.9rem 1.8rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, .03);
-  border: 1px solid rgba(255, 255, 255, .08);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  color: white;
-  font-weight: 500;
-  font-size: 0.88rem;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  width: 100%;
-  text-decoration: none;
-}
-.pricing-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-  transition: left 0.6s ease;
-  z-index: -1;
-}
-.pricing-btn:hover::before { left: 100%; }
-.pricing-btn:hover {
-  background: #ffffff;
-  color: #000000;
-  border-color: #ffffff;
-  transform: translateY(-2px);
-}
-.pricing-btn-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
-}
-
-/* ===================================================
-   RESPONSYWNOŚĆ: TABLET
-   =================================================== */
-@media (max-width: 1024px) {
-  .cards-grid, .cards-grid-oferta {
-    grid-auto-columns: calc(50% - 0.75rem);
-    gap: 1.5rem !important;
-  }
-  .card-img {
-    height: 34vh !important;
-  }
-}
-
-/* ===================================================
-   RESPONSYWNOŚĆ: MOBILE ULTRA-PREMIUM
-   =================================================== */
-@media (max-width: 768px) {
-  .section-header {
-    flex-direction: row !important;
-    align-items: flex-end !important;
-  }
-  
-  .slider-controls {
-    display: none !important;
-  }
-
-  .cards-grid, .cards-grid-oferta {
-    grid-auto-columns: 94%; 
-    gap: 0.8rem !important; 
-    padding: 0.5rem 0.8rem 1.5rem 0.8rem !important;
-    margin: 0 -5vw !important;
-    width: calc(100% + 10vw) !important;
-  }
-
-  .card-img {
-    height: 300px !important;
-  }
-
-  .card-content {
-    padding: 1.2rem 1.3rem !important; 
-  }
-
-  .card-header-block {
-    margin-bottom: 0.8rem !important;
-  }
-
-  .card-title {
-    font-size: 1.15rem !important;
-  }
-
-  .card-text {
-    margin-bottom: 1rem !important; 
-    font-size: 0.85rem !important;
-  }
-
-  .pricing-btn {
-    padding: 0.85rem 1.5rem !important;
-    font-size: 0.85rem !important;
-  }
-}
-
-@media(max-width: 480px) {
-  .card-img {
-    height: 250px !important;
-  }
-}
-</style>
-
-<section class="contact-section" id="kontakt">
-
-  <div class="container-main">
-
-    <div class="contact-wrapper">
-
-      <div class="contact-form-wrap reveal">
-
-        <div class="contact-pattern"></div>
-
-        <div class="form-top">
-
-          <p class="form-mini">
-            SZYBKA WIADOMOŚĆ
-          </p>
-
-          <h3 class="form-title">
-            Wyślij maila
-          </h3>
-
-        </div>
-
-        <form class="contact-form" id="mailForm" novalidate>
-
-          <div class="form-group">
-
-            <i class="fa-solid fa-user"></i>
-
-            <input
-              type="text"
-              id="formName"
-              placeholder="Imię i nazwisko"
-              required
-            >
-
-          </div>
-
-          <div class="form-group">
-
-            <i class="fa-solid fa-envelope"></i>
-
-            <input
-              type="email"
-              id="formEmail"
-              placeholder="Twój adres e-mail"
-              required
-            >
-
-          </div>
-
-          <div class="form-group textarea-group">
-
-            <i class="fa-solid fa-comment"></i>
-
-            <textarea
-              id="formMessage"
-              placeholder="Treść wiadomości (opcjonalnie)..."
-            ></textarea>
-
-          </div>
-
-          <div class="privacy-container" id="privacyBlock">
-            <div class="privacy-red-gradient-bg"></div>
-            <label class="uiverse-checkbox-label">
-              <input type="checkbox" id="formPrivacy">
-              <svg viewBox="0 0 64 64" height="1.2em" width="1.2em">
-                <path d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16" pathLength="575.0541381835938" class="path"></path>
-              </svg>
-              <span class="privacy-text">
-                Zgadzam się na przetwarzanie danych. <a href="PolitykaPrywatnosci.html" class="privacy-link">Polityka prywatności</a>
-              </span>
-            </label>
-          </div>
-
-          <a href="#" class="pricing-btn disabled" id="submitMailBtn">
-            <div class="pricing-btn-arrow">
-              <i class="fa-solid fa-envelope"></i>
-            </div>
-            <span>
-              Wyślij wiadomość
-            </span>
-          </a>
-
-        </form>
-
-        <div class="custom-warning-popup" id="warningPopup">
-          <div class="warning-popup-content">
-            <div class="warning-icon">
-              <i class="fa-solid fa-triangle-exclamation"></i>
-            </div>
-            <h4>Pusta wiadomość</h4>
-            <p>Nie wpisałeś treści wiadomości. Czy chcesz kontynuować i otworzyć program pocztowy?</p>
-            <div class="warning-actions">
-              <button type="button" class="warn-btn-yes" id="popupYes">Tak, wyślij</button>
-              <button type="button" class="warn-btn-no" id="popupNo">Uzupełnij</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="contact-info reveal">
-
-        <div class="contact-pattern"></div>
-
-        <p class="contact-mini">
-          UMÓW WYCIECZKĘ
-        </p>
-
-        <h2 class="contact-title">
-          Kontakt
-        </h2>
-
-        <p class="contact-text">Skontaktuj się ze mną w najwygodniejszy dla Ciebie sposób.</p>
-
-        <a href="tel:+48609494760" class="contact-box">
-
-          <div class="contact-box-glow"></div>
-
-          <div class="contact-icon">
-            <i class="fa-solid fa-phone"></i>
-          </div>
-
-          <div class="contact-box-content">
-            <h4>Telefon</h4>
-            <span>Zadzwoń</span>
-          </div>
-
-          <div class="contact-arrow">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </div>
-
-        </a>
-
-        <a href="mailto:kretkiewicz@gmail.com" class="contact-box">
-
-          <div class="contact-box-glow"></div>
-
-          <div class="contact-icon">
-            <i class="fa-solid fa-envelope"></i>
-          </div>
-
-          <div class="contact-box-content">
-            <h4>E-mail</h4>
-            <span>Wyślij E-mail</span>
-          </div>
-
-          <div class="contact-arrow">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </div>
-
-        </a>
-        <a 
-        href="https://wa.me/48609494760" 
-        target="_blank"
-        class="contact-box">
-
-          <div class="contact-box-glow"></div>
-
-          <div class="contact-icon whatsapp">
-            <i class="fa-brands fa-whatsapp"></i>
-          </div>
-
-          <div class="contact-box-content">
-            <h4>WhatsApp</h4>
-            <span>Napisz wiadomość</span>
-          </div>
-
-          <div class="contact-arrow">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </div>
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<style>
-/* =========================
-  CONTACT SECTION
-========================= */
-.contact-section{
-  padding:10vh 0;
-  position:relative;
-  overflow:hidden;
-}
-
-/* =========================
-  GRID
-========================= */
-.contact-wrapper{
-  display:grid;
-  grid-template-columns: 1.05fr .95fr;
-  gap:1.4rem;
-  max-width:1200px;
-  margin:auto;
-}
-
-/* =========================
-  CARD STYLE
-========================= */
-.contact-info,
-.contact-form-wrap{
-  position:relative;
-  overflow:hidden;
-  padding:1.7rem;
-  border-radius:1.8rem;
-  background:
-  linear-gradient(
-    180deg,
-    rgba(0, 119, 255, 0.04), 
-    rgba(255, 255, 255, 0)
-  );
-  border:1px solid rgba(255, 255, 255, 0.189);
-  
-  backdrop-filter:blur(1.5rem);
-  transition:.45s;
-}
-
-.contact-info::before,
-.contact-form-wrap::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:
-  radial-gradient(
-    circle at top right,
-    rgba(0, 119, 255, 0.04),
-    transparent 40%
-  );
-  pointer-events:none;
-}
-
-.contact-info:hover,
-.contact-form-wrap:hover{
-  transform:translateY(-6px);
-  border-color:
-  rgba(0, 119, 255, 0.25);
-}
-
-/* =========================
-  TEXT
-========================= */
-.contact-mini,
-.form-mini{
-  position:relative;
-  font-size:.7rem;
-  letter-spacing:.24rem;
-  color:#0077ff; 
-  margin-bottom:1rem;
-  z-index:2;
-}
-
-.contact-title,
-.form-title{
-  position:relative;
-  font-size:2rem;
-  font-weight:800;
-  line-height:.92;
-  margin-bottom:1rem;
-  z-index:2;
-}
-
-.contact-text{
-  position:relative;
-  color:#9f9f9f;
-  line-height:180%;
-  font-size:.92rem;
-  margin-bottom:2rem;
-  z-index:2;
-}
-
-.form-top{
-  position:relative;
-  z-index:2;
-  margin-bottom:1.4rem;
-}
-
-/* =========================
-  CONTACT BOX
-========================= */
-.contact-box{
-  position:relative;
-  display:flex;
-  align-items:center;
-  gap:1rem;
-  overflow:hidden;
-  padding:1rem;
-  border-radius:1.2rem;
-  margin-bottom:.8rem;
-  background:
-  rgba(255,255,255,.03);
-  border:1px solid rgba(255, 255, 255, 0.189);
-
-  transition:.35s;
-  text-decoration: none;
-  color: inherit;
-}
-
-.contact-box-glow{
-  position:absolute;
-  inset:0;
-  background:
-  radial-gradient(
-    circle at top left,
-    rgba(255,255,255,.08),
-    transparent 60%
-  );
-  opacity:0;
-  transition:.35s;
-}
-
-.contact-box:hover .contact-box-glow{
-  opacity:1;
-}
-
-.contact-box:hover{
-  transform:translateX(.35rem);
-  background:
-  rgba(255,255,255,.055);
-  border-color:
-  rgba(255,255,255,.12);
-}
-
-.contact-icon{
-  width:3rem;
-  height:3rem;
-  border-radius:.95rem;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
-  background:black;
-  border:
-  1px solid rgba(255,255,255,.08);
-  font-size:.95rem;
-  color: white; 
-}
-
-.whatsapp{
-  background:#000000;
-  color:white; 
-}
-
-.contact-box-content{
-  flex:1;
-}
-
-.contact-box h4{
-  font-size:.9rem;
-  margin-bottom:.12rem;
-  margin-top: 0;
-}
-
-.contact-box span{
-  font-size:.8rem;
-  color:#9c9c9c;
-}
-
-.contact-arrow{
-  width:2.2rem;
-  height:2.2rem;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:
-  rgba(255,255,255,.05);
-  border:
-  1px solid rgba(255,255,255,.08);
-  font-size:.7rem;
-  color: inherit;
-  transition:.35s;
-}
-
-.contact-box:hover .contact-arrow{
-  transform:translateX(3px);
-  background:white;
-  color:black;
-}
-
-/* =========================
-  FORM & BUTTON GAP
-========================= */
-.contact-form{
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  gap:1rem;
-  z-index:2;
-}
-
-.pricing-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem; 
-  transition: transform 0.2s ease, opacity 0.3s ease;
-}
-
-/* =========================
-  INPUTS
-========================= */
-.form-group{
-  position:relative;
-}
-
-.form-group i{
-  position:absolute;
-  top:50%;
-  left:1rem;
-  transform:translateY(-50%);
-  color:#8c8c8c;
-  font-size:.9rem;
-  z-index:2;
-}
-
-.form-group input,
-.form-group textarea{
-  width:100%;
-  background:
-  rgba(255,255,255,.03);
-  border:
-  1px solid rgba(255,255,255,.06);
-  outline:none;
-  color:white;
-  border-radius:1rem;
-  padding:1rem 1rem 1rem 3rem;
-  font-size:.88rem;
-  transition:.35s;
-  font-family: inherit;
-}
-
-.form-group textarea{
-  min-height:10rem;
-  resize:none;
-  padding-top:1.2rem;
-}
-
-.textarea-group i{
-  top:1.3rem;
-  transform:none;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder{
-  color:#8d8d8d;
-}
-
-.form-group input:focus,
-.form-group textarea:focus{
-  border-color: rgba(0, 119, 255, 0.4); 
-  background: rgba(255, 255, 255, 0.05);
-}
-
-/* ===================================================
-  UIVERSE CHECKBOX (CZYSTY, KONTROLOWANY BLOK)
-=================================================== */
-.privacy-container {
-  position: relative;
-  margin: .2rem 0;
-  padding: 0.6rem;
-  border-radius: 0.8rem;
-  overflow: hidden;
-  border: 1px solid transparent;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.privacy-red-gradient-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, 
-    rgba(255, 0, 68, 0) 0%, 
-    rgba(255, 0, 68, 0.25) 50%, 
-    rgba(255, 0, 68, 0) 100%);
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.uiverse-checkbox-label {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  cursor: pointer;
-  z-index: 2;
-}
-
-.uiverse-checkbox-label input {
-  display: none;
-}
-
-.uiverse-checkbox-label svg {
-  overflow: visible;
-  flex-shrink: 0;
-}
-
-.path {
-  fill: none;
-  stroke: currentColor;
-  opacity: 0.45;
-  stroke-width: 6.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease, stroke 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
-  stroke-dasharray: 241 9999999;
-  stroke-dashoffset: 0;
-}
-
-.uiverse-checkbox-label:hover .path {
-  opacity: 0.9;
-}
-
-.uiverse-checkbox-label input:checked ~ svg .path {
-  stroke: #00ff88 !important;
-  opacity: 1;
-  stroke-dasharray: 70.5096664428711 9999999;
-  stroke-dashoffset: -262.2723388671875;
-  filter: drop-shadow(0 0 4px rgba(0, 255, 136, 0.5));
-}
-
-.privacy-text {
-  font-size: .82rem;
-  line-height: 1.4;
-  color: #8c8c8c;
-  transition: color 0.3s ease;
-  user-select: none;
-}
-
-.uiverse-checkbox-label input:checked ~ .privacy-text {
-  color: #e0e0e0;
-}
-
-/* SUBTELNY LINK */
-.privacy-link {
-  display: inline-block;
-  color: #a0a0a5;
-  text-decoration: none;
-  font-weight: 500;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
-  transition: color 0.2s, border-color 0.2s;
-  border: none;
-}
-
-.privacy-link:hover {
-  color: #ffffff;
-  border: none;
-  border-color: #ffffff;
-}
-
-/* SHAKE ERRORS */
-@keyframes waveMove {
-  0% { background-position: 150% 0; }
-  100% { background-position: -50% 0; }
-}
-
-.shake-error {
-  border-color: rgba(255, 0, 68, 0.4) !important;
-  box-shadow: 0 0 12px rgba(255, 0, 68, 0.15);
-}
-
-.shake-error .path {
-  stroke: #ff0044 !important;
-  opacity: 1;
-  filter: drop-shadow(0 0 6px rgba(255, 0, 68, 0.8));
-}
-
-.shake-error .privacy-red-gradient-bg {
-  opacity: 1;
-  animation: waveMove 0.5s ease-in-out forwards;
-}
-
-.pricing-btn.disabled {
-  opacity: 0.4;
-  cursor: pointer;
-  filter: grayscale(0.8);
-}
-
-@keyframes buttonShake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-4px); }
-  75% { transform: translateX(4px); }
-}
-.btn-shake {
-  animation: buttonShake 0.25s ease-in-out 2;
-}
-
-@keyframes blockShake {
-  0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-5px); }
-  40%, 80% { transform: translateX(5px); }
-}
-.shake-error {
-  animation: blockShake 0.4s ease-in-out;
-}
-
-/* ===================================================
-  MODAL OSTRZEGAWCZY
-=================================================== */
-.custom-warning-popup {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  z-index: 100;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  border-radius: 1.8rem;
-}
-
-.custom-warning-popup.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.warning-popup-content {
-  background: #0d0d11;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-  padding: 2rem;
-  border-radius: 1.3rem;
-  text-align: center;
-  max-width: 330px;
-  transform: scale(0.85);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.custom-warning-popup.active .warning-popup-content {
-  transform: scale(1);
-}
-
-.warning-icon {
-  font-size: 2.4rem;
-  color: #ffffff;
-  margin-bottom: 0.9rem;
-  opacity: 0.8;
-}
-
-.warning-popup-content h4 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0 0 0.6rem 0;
-}
-
-.warning-popup-content p {
-  font-size: 0.86rem;
-  color: #a0a0a5;
-  line-height: 1.55;
-  margin: 0 0 1.5rem 0;
-}
-
-.warning-actions {
-  display: flex;
-  gap: 0.75rem;
-}
-
-.warning-actions button {
-  flex: 1;
-  padding: 0.8rem;
-  font-size: 0.88rem;
-  font-weight: 600;
-  border-radius: 0.75rem;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-}
-
-.warn-btn-yes {
-  background: #ffffff;
-  color: #000000;
-}
-.warn-btn-yes:hover { 
-  background: #e5e5e5; 
-  transform: translateY(-2px);
-}
-
-.warn-btn-no {
-  background: rgba(255,255,255,0.04);
-  color: #ffffff;
-  border: 1px solid rgba(255,255,255,0.08) !important;
-}
-.warn-btn-no:hover { 
-  background: rgba(255,255,255,0.08); 
-  transform: translateY(-2px); 
-}
-
-/* =========================
-  MOBILE
-========================= */
-@media(max-width:900px){
-  .contact-section{ padding:6vh 0; }
-  .contact-wrapper{
-    display:flex; flex-wrap:nowrap; gap:1rem;
-    overflow-x:auto; overflow-y:hidden;
-    scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; 
-    width:100%; padding: 0 1rem 0rem 0rem;
-  }
-  .contact-wrapper::-webkit-scrollbar{ display:none; }
-  .contact-wrapper{ scrollbar-width:none; }
-  
-  .contact-form-wrap { order: 1; }
-  .contact-info { order: 2; }
-
-  .contact-info, .contact-form-wrap{
-    min-width:99%; width:99%; flex:0 0 99%; scroll-snap-align:center;
-    padding:1.2rem; border-radius:1.5rem; margin: 0rem;
-    transition: transform 0.75s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.45s;
-    will-change: transform;
-  }
-  .contact-title, .form-title{ font-size:1.85rem; line-height:1.05; }
-  .contact-mini, .form-mini{ font-size:.68rem; letter-spacing:.2rem; }
-  .contact-text{ font-size:.88rem; line-height:165%; }
-  .contact-box{ padding:.85rem; border-radius:1rem; gap:.9rem; margin-bottom:.8rem; }
-  .contact-icon{ width:2.8rem; height:2.8rem; border-radius:.85rem; font-size:.9rem; }
-  .contact-box h4{ font-size:.88rem; }
-  .contact-box span{ font-size:.75rem; }
-  .contact-arrow{ width:2rem; height:2rem; font-size:.65rem; }
-  .form-group i{ left:1rem; font-size:.85rem; }
-  .form-group input, .form-group textarea{ padding:1rem 1rem 1rem 2.8rem; border-radius:1rem; font-size:.85rem; }
-  .form-group textarea{ min-height:9rem; }
-  .privacy-container {
-  position: relative;
-  margin: .9rem 0;
-  padding: 0.6rem;
-  border-radius: 0.8rem;
-  overflow: hidden;
-  border: 1px solid transparent;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-}
-@media(max-width:520px){
-  .contact-info, .contact-wrapper { min-width:99%; width:99%; }
-  .contact-form-wrap{ min-width:99%; width:99%; flex:0 0 95%; padding: 1.25rem; }
-  .contact-title, .form-title{ font-size:1.65rem; }
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const container = document.querySelector('.contact-wrapper');
-  const items = container ? container.querySelectorAll('.contact-form-wrap, .contact-info') : null;
-  const section = document.getElementById('kontakt');
-  
-  if (!container || !items || !section) return;
-
-  let hasAnimated = false; 
-  let userInteracted = false;
-
-  function stopHint() {
-    if (userInteracted) return;
-    userInteracted = true;
-    items.forEach(item => { item.style.transform = 'none'; item.style.webkitTransform = 'none'; });
-    container.removeEventListener('touchstart', stopHint);
-    container.removeEventListener('scroll', stopHint);
-  }
-
-  container.addEventListener('touchstart', stopHint, { passive: true });
-  container.addEventListener('scroll', stopHint, { passive: true });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !hasAnimated && window.innerWidth <= 900) {
-        hasAnimated = true; 
-        observer.unobserve(section); 
-        setTimeout(() => {
-          if (userInteracted) return;
-          items.forEach(item => { item.style.transform = 'translate3d(-45px, 0, 0)'; });
-          setTimeout(() => {
-            if (userInteracted) return;
-            items.forEach(item => { item.style.transform = 'translate3d(0, 0, 0)'; });
-            container.removeEventListener('touchstart', stopHint);
-            container.removeEventListener('scroll', stopHint);
-          }, 500); 
-        }, 1500); 
-      }
-    });
-  }, { threshold: 0.25 });
-  observer.observe(section);
-});
-</script>
-
-<script>  
-const helToggle = document.getElementById('helToggle');
-const helMore = document.getElementById('helMore');
-
-if(helToggle && helMore) {
-  helToggle.addEventListener('click', () => {
-    helMore.classList.toggle('active');
-    helToggle.innerHTML = helMore.classList.contains('active') 
-      ? `<span>Zwiń całość</span><i class="fa-solid fa-minus"></i>` 
-      : `<span>Czytaj więcej</span><i class="fa-solid fa-plus"></i>`;
-  });
-}
-
-const counters = document.querySelectorAll('.counter');
-const countObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const el = e.target;
-      const target = +el.dataset.target;
-      let current = 0;
-      const step = () => {
-        current += Math.ceil(target / 100);
-        if (current < target) { el.innerText = current; setTimeout(step, 18); } 
-        else { el.innerText = target + '+'; }
-      };
-      step();
-    }
-  });
-}, { threshold: 0.5 });
-counters.forEach(c => countObserver.observe(c));
-
-
-/* ===================================================
-  LOGIKA FORMULARZA I POPUPÓW
-=================================================== */
-const privacyCheckbox = document.getElementById('formPrivacy');
-const submitBtn = document.getElementById('submitMailBtn');
-const privacyBlock = document.getElementById('privacyBlock');
-
-const warningPopup = document.getElementById('warningPopup');
-const popupYes = document.getElementById('popupYes');
-const popupNo = document.getElementById('popupNo');
-
-privacyCheckbox.addEventListener('change', function() {
-  if(this.checked) {
-    submitBtn.classList.remove('disabled');
-  } else {
-    submitBtn.classList.add('disabled');
-  }
-});
-
-function executeMailRedirect() {
-  const name = document.getElementById('formName').value;
-  const email = document.getElementById('formEmail').value;
-  const message = document.getElementById('formMessage').value;
-  
-  const emailTo = "kretkiewicz@gmail.com";
-  const subject = encodeURIComponent("Wiadomość z formularza - wycieczki Hel");
-  const bodyText = `Imię i nazwisko: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AWiadomość:%0D%0A${message}`;
-  
-  window.location.href = `mailto:${emailTo}?subject=${subject}&body=${bodyText}`;
-}
-
-submitBtn.addEventListener('click', function(e) {
-  e.preventDefault();
-  
-  if (!privacyCheckbox.checked) {
-    submitBtn.classList.remove('btn-shake');
-    void submitBtn.offsetWidth;
-    submitBtn.classList.add('btn-shake');
-    setTimeout(() => submitBtn.classList.remove('btn-shake'), 300);
-
-    privacyBlock.classList.remove('shake-error');
-    void privacyBlock.offsetWidth; 
-    privacyBlock.classList.add('shake-error');
-    setTimeout(() => privacyBlock.classList.remove('shake-error'), 500);
-    return;
-  }
-  
-  const form = document.getElementById('mailForm');
-  if (!form.checkValidity()) {
-    form.reportValidity();
-    return;
-  }
-  
-  const messageVal = document.getElementById('formMessage').value.trim();
-  if (messageVal === "") {
-    warningPopup.classList.add('active');
-    return;
-  }
-  
-  executeMailRedirect();
-});
-
-popupYes.addEventListener('click', function() {
-  warningPopup.classList.remove('active');
-  executeMailRedirect();
-});
-
-popupNo.addEventListener('click', function() {
-  warningPopup.classList.remove('active');
-  document.getElementById('formMessage').focus();
-});
-</script>
-
-<!-- ===================================================
-     STYLIZACJA SYSTEMOWA SEKCJI BLOG-VIDEO (LUXURY BLUE)
-     =================================================== -->
-<style>
-.blog-video{
-  padding:8vh 0;
-}
-
-.blog-video-inner{
-  max-width:1100px;
-  margin:auto;
-}
-
-/* ===== WIDEO ===== */
-.blog-video-media{
-  position:relative;
-
-  width:100%;
-  height:420px;
-
-  border-radius:2rem;
-
-  overflow:hidden;
-
-  border:1px solid rgba(0, 119, 255, 0.12); /* Zmiana na systemową ramkę */
-
-  box-shadow:0 40px 120px rgba(0,0,0,.4);
-}
-
-.blog-video-media video{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-/* overlay */
-.blog-video-overlay{
-  position:absolute;
-  inset:0;
-
-  background:
-  linear-gradient(
-    180deg,
-    rgb(0, 0, 0),
-    rgba(0, 0, 0, 0.779)
-  );
-}
-
-/* badge */
-.blog-video-badge{
-  position:absolute;
-
-  top:20px;
-  left:20px;
-
-  padding:.5rem .9rem;
-
-  border-radius:999px;
-
-  background:rgba(255,255,255,.08);
-
-  backdrop-filter:blur(16px);
-
-  border:1px solid rgba(255,255,255,.12);
-
-  font-size:.75rem;
-
-  letter-spacing:.2rem;
-
-  color:white;
-}
-
-/* ===== TEKST ===== */
-.blog-video-content{
-  margin-top:1.8rem;
-}
-
-.blog-video-content h2{
-  font-size:clamp(1.8rem,3vw,2.6rem);
-  line-height:1.1;
-
-  margin-bottom:1rem;
-}
-
-.blog-video-content p{
-  color:#a8a8a8;
-
-  line-height:1.8;
-
-  max-width:700px;
-
-  margin-bottom:1.4rem;
-}
-
-/* CTA */
-.blog-video-actions{
-  display:flex;
-  gap:1rem;
-  flex-wrap:wrap;
-}
-
-.blog-secondary{
-  display:flex;
-  align-items:center;
-
-  padding:1rem 1.2rem;
-
-  border-radius:999px;
-
-  border:1px solid rgba(255,255,255,.1);
-
-  color:white;
-
-  text-decoration:none;
-
-  background:transparent;
-
-  transition:.3s;
-}
-
-.blog-secondary:hover{
-  background:rgba(255,255,255,.08);
-}
-
-/* ===== MOBILE ===== */
-@media(max-width:900px){
-
-  .blog-video-media{
-    height:295px;
-    border-radius:1.4rem;
-  }
-
-  .blog-video-content h2{
-    font-size:1.6rem;
-  }
-
-  .blog-video-content p{
-    font-size:.9rem;
-  }
-
-  .blog-video-actions{
-    flex-direction:column;
-  }
-
-  .blog-secondary,
-  .pricing-btn{
-    justify-content:center;
-  }
-}
-</style>
-
-<style>
-.blog-video-cta{
-  padding: 10vh 0;
-  display:flex;
-  justify-content:center;
-}
-
-.blog-video-inner{
-  width:min(1200px, 92vw);
-
-  display:grid;
-  grid-template-columns: 1.25fr 1fr;
-
-  gap:1.5rem;
-
-  padding:1.2rem;
-  border-radius:2rem;
-
-  /* Dopasowany gradient tła z delikatną głębią błękitu */
-  background: linear-gradient(
-    135deg,
-    rgba(0, 119, 255, 0.04),
-    rgba(255,255,255,.01)
-  );
-
-  border:1px solid rgba(255, 255, 255, 0.189); /* Spójna systemowa ramka */
-  backdrop-filter: blur(18px);
-
-  overflow:hidden;
-}
-
-/* VIDEO */
-.video-box{
-  position:relative;
-  border-radius:1.5rem;
-  overflow:hidden;
-  min-height:340px;
-}
-
-.video-box video{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transform:scale(1.06);
-}
-
-.video-overlay{
-  position:absolute;
-  inset:0;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.4),
-    transparent
-  );
-}
-
-.video-badge{
-  position:absolute;
-  top:1rem;
-  left:1rem;
-
-  display:flex;
-  align-items:center;
-  gap:.5rem;
-
-  padding:.5rem .9rem;
-  border-radius:999px;
-
-  background:rgba(0, 0, 0, 0.6);
-  border:1px solid rgba(255,255,255,.12);
-
-  color:#fff;
-  font-size:.8rem;
-
-  backdrop-filter: blur(12px);
-}
-
-/* TEXT */
-.text-box{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:1rem;
-}
-
-.kicker{
-  font-size:.7rem;
-  letter-spacing:.25rem;
-  color:#0077ff; /* Kicker w kolorze głębokiego błękitu */
-  margin-bottom:.8rem;
-  font-weight: 600;
-}
-
-.text-box h2{
-  font-size:clamp(1.8rem,3vw,2.6rem);
-  line-height:1.05;
-  margin-bottom:1rem;
-}
-
-.text-box p{
-  color:#bdbdbd;
-  line-height:1.75;
-  font-size:.95rem;
-  margin-bottom:1.8rem;
-}
-
-.cta-btn {
-  max-height: 120px;
-}
-
-/* CTA — 80% WIDTH BUTTON (Nienaruszony oryginalny styl) */
-.cta-btn{
-  width:90%;
-  max-width:420px;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  padding:1rem 1.2rem;
-
-  border-radius:999px;
-
-  background:#fff;
-  color:#000;
-
-  text-decoration:none;
-
-  font-weight:500;
-
-  transition:.35s ease;
-}
-
-.cta-btn .arrow{
-  width:2rem;
-  height:2rem;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border-radius:50%;
-
-  background:#000;
-  color:#fff;
-
-  transition:.35s ease;
-}
-
-.cta-btn:hover{
-  transform:translateY(-3px);
-}
-
-.cta-btn:hover .arrow{
-  transform:translateX(4px);
-}
-
-/* MOBILE — KLUCZOWA POPRAWA */
-@media(max-width:900px){
-
-  .blog-video-inner{
-    grid-template-columns:1fr;
-    gap:1rem;
-    padding:1rem;
-    border-radius:1.5rem;
-  }
-
-  .video-box{
-    aspect-ratio:16/9;
-    min-height:auto;
-    border-radius:1.2rem;
-  }
-
-  .text-box{
-    padding:.5rem .2rem;
-  }
-
-  .text-box h2{
-    font-size:1.6rem;
-  }
-
-  .text-box p{
-    font-size:.85rem;
-    margin-bottom:1.2rem;
-  }
-
-  .cta-btn{
-    width:100%;
-    max-width:none;
-    justify-content:center;
-    gap:1rem;
-  }
-}
-</style>
-
-<!-- ===================================================
-     SEKCJA HTML — W THO_100% ORYGINALNA STRUKTURA
-     =================================================== -->
-<section class="blog-video-cta" id="bloggith">
-
-  <div class="blog-video-inner">
-
-    <!-- VIDEO -->
-    <div class="video-box">
-      <video autoplay muted loop playsinline>
-        <source src="videoo.mp4" type="video/mp4">
-      </video>
-
-      <div class="video-overlay"></div>
-
-      <div class="video-badge">
-        <i class="fa-solid fa-play"></i>
-        Hel • Polska
-      </div>
-    </div>
-
-    <!-- TEXT -->
-    <div class="text-box">
-
-      <span class="kicker">BLOG</span>
-
-<h2>
-  Poznaj Hel<br>
-  przed rozpoczęciem zwiedzania
-</h2>
-
-<p>
-  Atrakcje, ciekawostki, lokalne historie i praktyczne wskazówki,  które pomogą Ci lepiej zaplanować pobyt na końcu Polski.
-</p>
-
-<a href="blog.html" class="pricing-btn">
-  <div class="pricing-btn-arrow" style="margin-right: 0.6rem;">
-    <i class="fa-solid fa-newspaper"></i>
-  </div>
-  <span>
-    Czytaj artykuły
-  </span>
-</a>
-
-    </div>
-
-  </div>
-
-</section>
-
-<footer class="footer" id="kontakt">
-  <div class="container-main">
-    <div class="footer-inner">
-
-      <div class="footer-left">
-        <a href="PolitykaPrywatnosci.html" class="footer-link footer-link--secondary">
-          Polityka prywatności<span class="link-icon">↗</span>
-        </a>
-      </div>
-
-      <div class="footer-right">
-        © 2026 Daniel Kretkiewicz | Realizacja:
-        <a href="https://gsliwinski.pl"target="_blank" class="footer-link">
-          Gracjan Śliwiński
-        </a>
-      </div>
-
-    </div>
-  </div>
-</footer>
-<style>
-.footer {
-  padding: 4vh 0;
-  border-top: 0.1rem solid rgba(255, 255, 255, 0.08);
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* linki */
-.footer-link {
-  color: #00b7ff;
-  text-decoration: none;
-  transition: 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.footer-link:hover {
-  color: #66ddff;
-}
-
-/* polityka – drugoplanowa */
-.footer-link--secondary {
-  opacity: 0.6;
-  font-size: 0.8125rem;
-}
-
-.footer-link--secondary:hover {
-  opacity: 1;
-}
-
-/* ikona linku */
-.link-icon {
-  font-size: 0.75rem;
-  opacity: 0.8;
-}
-
-/* desktop */
-.footer-left {
-  text-align: left;
-}
-
-.footer-right {
-  text-align: right;
-  color: rgb(255, 255, 255);
-  font-size: 0.875rem;
-}
-
-/* MOBILE – hierarchia treści */
-@media (max-width: 768px) {
-  .footer-inner {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.4rem;
-  }
-
-  /* POLITYKA NA GÓRZE */
-  .footer-left {
-    order: 1;
-    opacity: 0.7;
-  }
-
-  /* REALIZACJA POD NIĄ */
-  .footer-right {
-    order: 2;
-    font-size: 0.8125rem;
-    line-height: 1.4;
-    text-align: center;
-  }
-}
-</style>
+  </footer>
 
   <script>
-    // === WSZYSTKIE INTERAKCJE I ANIMACJE Z KOMENTARZAMI ===
+    const header = document.getElementById("accessHeader");
+    const pullTab = document.getElementById("pullTab");
+    const tocContainer = document.getElementById("tocContainer");
+    const tocOverlay = document.getElementById("tocOverlay");
+    let lastScrollTop = 0;
 
-    // Inicjalizacja GSAP ScrollTrigger
-    gsap.registerPlugin(ScrollTrigger);
+    const sections = document.querySelectorAll(".article-core-text h3");
+    const tocItems = document.querySelectorAll(".toc-item");
 
-    // 1. Animacje HERO (tytuł, opis, przyciski)
-    gsap.from(".hero-title", { y: 120, opacity: 0, duration: 1.3, ease: "power4.out" });
-    gsap.from(".hero-desc", { y: 40, opacity: 0, delay: .25, duration: 1 });
-    gsap.from(".hero-buttons", { y: 40, opacity: 0, delay: .4, duration: 1 });
-    gsap.from(".her-btn-hero", { y: 40, opacity: 0, delay: .7, duration: 1 });
-
-   document.addEventListener('DOMContentLoaded', () => {
-  gsap.registerPlugin(ScrollTrigger);
-
-  // Sprawdzamy, czy użytkownik jest na telefonie/tablecie
-  const isMobile = window.innerWidth <= 1024;
-
-  // 1. DYNAMICZNY PARALLAX HERO (Mocny efekt na PC i Mobile)
-  const heroBg = document.querySelector('.hero-bg');
-  if (heroBg) {
-    // Wymuszamy mocne powiększenie i przesunięcie startowe na każdym urządzeniu
-    gsap.set(heroBg, { scale: 1.15, yPercent: -5 });
-
-    gsap.to(heroBg, {
-      yPercent: 12,
-      scale: 1.02,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: 1.5 // Płynne, gładkie śledzenie scrolla
-      }
-    });
-  }
-  // 2. REVEAL (Pojawianie elementów)
-  gsap.utils.toArray(".reveal").forEach(el => {
-    if (isMobile) {
-      // Płynne, klasyczne i bezbłędne wejście na telefonach (Zero lagów)
-      gsap.set(el, { opacity: 0, y: 30 });
-      gsap.to(el, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 92%", // Odpala odrobinę wcześniej na mobile, żeby uzytkownik nie widział pustki
-          toggleActions: "play none none none"
-        }
-      });
-    } else {
-      // Podkręcone luksusowe 3D tylko dla komputerów
-      gsap.set(el, { opacity: 0, y: 60, rotationX: -10, scale: 0.96, filter: "blur(4px)" });
-      gsap.to(el, {
-        opacity: 1,
-        y: 0,
-        rotationX: 0,
-        scale: 1,
-        filter: "blur(0px)",
-        duration: 1.3,
-        ease: "power4.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 88%",
-          toggleActions: "play none none none"
-        }
-      });
+    function toggleMobileToc() {
+      tocContainer.classList.toggle("open");
+      tocOverlay.classList.toggle("open");
     }
-  });
 
-  // 3. PŁYNNY NAVBAR (Zoptymalizowany pod Safari / iOS)
-  const navbar = document.querySelector('.navbar');
-  if (navbar) {
-    navbar.style.transition = "background-color 0.4s ease, backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease";
-    
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 30) {
-        navbar.style.backgroundColor = 'rgba(3, 3, 3, 0.85)';
-        navbar.style.backdropFilter = 'blur(12px)';
-        navbar.style.webkitBackdropFilter = 'blur(12px)';
-      } else {
-        navbar.style.backgroundColor = 'rgba(0, 0, 0, 0)';
-        navbar.style.backdropFilter = 'blur(0px)';
-        navbar.style.webkitBackdropFilter = 'blur(0px)';
-      }
-    }, { passive: true });
-  }
-
-  // 4. PŁYNNE ANCHORY (KOTWICE)
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolledProgress = (scrollTop / height) * 100;
       
-      const target = document.querySelector(targetId);
-      if (target) {
-        target.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
+      document.getElementById("readingProgress").style.width = scrolledProgress + "%";
+
+      if (scrollTop > 20) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+
+      if (window.innerWidth <= 600) {
+        if (scrollTop > lastScrollTop && scrollTop > 120) {
+          header.classList.add("hide-bar");
+          pullTab.classList.add("active");
+        } else {
+          header.classList.remove("hide-bar");
+          pullTab.classList.remove("active");
+        }
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+      let currentSectionId = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollTop >= sectionTop - 130) {
+          currentSectionId = section.getAttribute("id");
+        }
+      });
+
+      if (currentSectionId) {
+        tocItems.forEach(item => {
+          item.classList.remove("active");
+          if (item.getAttribute("id") === `toc-${currentSectionId}`) {
+            item.classList.add("active");
+          }
         });
       }
+    }, { passive: true });
+
+    document.querySelectorAll(".toc-item a").forEach(link => {
+      link.addEventListener("click", (e) => {
+        const targetId = link.getAttribute("href").substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (tocContainer.classList.contains("open")) {
+          toggleMobileToc();
+        }
+
+        if (targetSection) {
+          sections.forEach(sec => sec.classList.remove("section-highlight"));
+          
+          setTimeout(() => {
+            targetSection.classList.add("section-highlight");
+          }, 300);
+          
+          setTimeout(() => {
+            targetSection.classList.remove("section-highlight");
+          }, 1100);
+        }
+      });
     });
-  });
-});
 
-    // 4. MOBILNE MENU (hamburger, overlay, zamykanie)
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const overlay = document.querySelector('.menu-overlay');
-    const pageContent = document.querySelector('.page-content');
-
-    function openMenu() {
-      hamburger.classList.add('active');
-      mobileMenu.classList.add('active');
-      overlay.classList.add('active');
-      pageContent.classList.add('menu-open');
-      document.body.style.overflow = 'hidden';
+    function forceShowHeader() {
+      header.classList.remove("hide-bar");
+      pullTab.classList.remove("active");
     }
-    function closeMenu() {
-      hamburger.classList.remove('active');
-      mobileMenu.classList.remove('active');
-      overlay.classList.remove('active');
-      pageContent.classList.remove('menu-open');
-      document.body.style.overflow = '';
-    }
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.contains('active') ? closeMenu() : openMenu();
-    });
-    overlay.addEventListener('click', closeMenu);
-    document.querySelectorAll('.mobile-menu a').forEach(link => link.addEventListener('click', closeMenu));
 
-    // 5. Funkcja do sterowania sliderami (przewijanie o 1 lub 2 karty)
-    function initStepperSlider(sectionSelector, sliderSelector, stepCards = 1) {
-      const section = document.querySelector(sectionSelector);
-      const slider = section.querySelector(sliderSelector);
-      const btnLeft = section.querySelector('.slider-btn.left');
-      const btnRight = section.querySelector('.slider-btn.right');
-      if (!section || !slider || !btnLeft || !btnRight) return;
-      const card = slider.querySelector('.card');
-      if (!card) return;
-      function getStep() {
-        const cardWidth = card.getBoundingClientRect().width;
-        const gap = parseFloat(getComputedStyle(slider).gap) || 0;
-        return (cardWidth + gap) * stepCards;
+    function toggleContrast() {
+      const current = document.documentElement.getAttribute("data-theme");
+      if (current === "high-contrast") {
+        document.documentElement.removeAttribute("data-theme");
+      } else {
+        document.documentElement.setAttribute("data-theme", "high-contrast");
       }
-      function updateButtons() {
-        const maxScroll = slider.scrollWidth - slider.clientWidth;
-        btnLeft.disabled = slider.scrollLeft <= 5;
-        btnRight.disabled = slider.scrollLeft >= maxScroll - 5;
-      }
-      btnRight.addEventListener('click', () => slider.scrollBy({ left: getStep(), behavior: 'smooth' }));
-      btnLeft.addEventListener('click', () => slider.scrollBy({ left: -getStep(), behavior: 'smooth' }));
-      slider.addEventListener('scroll', updateButtons);
-      window.addEventListener('resize', updateButtons);
-      updateButtons();
     }
-    // Inicjalizacja sliderów: atrakcje (1 karta) i oferta (2 karty dla lepszego skoku)
-    initStepperSlider('#atrakcje', '.cards-grid', 1);
-    initStepperSlider('#oferta', '.cards-grid-oferta', 2);
 
-    // 6. Sekcja "O mnie" – rozwijanie tekstu
-    const toggleBtn = document.getElementById('toggleBtn');
-    const aboutMore = document.getElementById('aboutMore');
-    if (toggleBtn && aboutMore) {
-      toggleBtn.addEventListener('click', () => {
-        const open = aboutMore.classList.toggle('open');
-        toggleBtn.innerHTML = open ? 'Zwiń' : 'Rozwiń ▼';
+    let fontMultiplier = 1.0; 
+    function alterFont(direction) {
+      if (direction === 1 && fontMultiplier < 1.8) {
+        fontMultiplier += 0.12;
+      } else if (direction === -1 && fontMultiplier > 0.8) {
+        fontMultiplier -= 0.12;
+      }
+      document.documentElement.style.setProperty('--article-font-size', fontMultiplier + 'rem');
+    }
+
+    const dictionary = {
+      pl: {
+        back: "Powrót", 
+        contrast: "Kontrast", 
+        kicker: "Przewodnik / Artykuł", 
+        options: "Opcje strony",
+        toc_title: "Spis treści",
+        title: "10 powodów, dla których warto odwiedzić Półwysep Helski",
+        readtime: "8 min czytania", 
+        photo1: "fot. Gracjan Śliwiński • Archiwum prywatne, Hel 2026",
+        p1: "Półwysep Helski to jedno z najbardziej unikalnych miejsc na mapie Polski. Wąski pasek lądu otoczony z dwóch stron wodami Morza Bałtyckiego oraz Zatoki Puckiej przyciąga co roku tysiące turystów, pasjonatów sportów wodnych oraz osób zainteresowanych historią. W tym wpisie dowiesz się, co naprawdę warto zobaczyć, będąc tutaj.",
+        quote: '"Hel nie jest po prostu końcem Polski — to początek niesamowitej, morskiej opowieści, którą pisze sam wiatr i fale."',
+        
+        h1: "Najpiękniejsze plaże na Półwyspie Helskim",
+        lead1: "Złocisty piasek i szum fal z dwóch stron lądu. Półwysep oferuje coś absolutnie niespotykanego – plaże o zupełnie odmiennym charakterze oddalone od siebie o zaledwie krótki spacer.",
+        p2: "Wybierając plaże od strony otwartego Morza Bałtyckiego, zanurzysz się w szerokich, piaszczystych przestrzeniach z majestatycznymi, silnymi falami i kojącym, otwartym horyzontem. To idealne miejsce na klasyczne, głębokie plażowanie z dala od zgiełku miast. Z kolei przechodząc na drugą stronę lądu, trafisz nad spokojne, znacznie cieplejsze i płytsze wody Zatoki Puckiej. To tam bije serce europejskiego surfingu – stabilne wiatry tworzą tu idealny poligon dla początkujących i zaawansowanych pasjonatów kitesurfingu oraz windsurfingu. Według danych geograficznych i krajoznawczych, piaszczyste osady tworzące tutejsze plaże charakteryzują się wyjątkową czystością oraz jasną barwą, co w połączeniu z pasami wydm nadmorskich porośniętych borem sosnowym stwarza unikalny mikroklimat bogaty w jód. Ruchome podłoże półwyspu sprawia, że linie brzegowe ulegają nieustannym zmianom pod wpływem prądów morskich i wiatru, co czyni każdą wizytę na Helu unikalnym doświadczeniem przyrodniczym.",
+        
+        h2: "Co warto zobaczyć w Helu?",
+        lead2: "Ślady wielkiej historii, rybackie tradycje i kultowe budowle. Samo miasto Hel, ulokowane na samym cyplu, to prawdziwy skarbiec pełen kontrastów – od surowej architektury militarnej po urokliwy kaszubski klimat.",
+        p3_intro: "Opierając się na bogatych kronikach historycznych oraz faktach dokumentowanych przez polskie instytucje muzealne, podczas wizyty w Helu koniecznie trzeba zobaczyć i poznać następujące historyczne obiekty:",
+        p3_li1: "<strong>Zabytkowa Latarnia Morska z 1942 roku:</strong> Ośmiokątna wieża z ciemnoczerwonej cegły o wysokości 41,5 metra. Wybudowana przez Niemców podczas okupacji w miejsce wysadzonej przez polskie wojsko poprzedniej latarni z 1826 roku. Oferuje niesamowitą panoramę całej Zatoki Gdańskiej.",
+        p3_li2: "<strong>Muzeum Obrony Wybrzeża (MOW):</strong> Zlokalizowane w potężnych, betonowych obiektach dawnej niemieckiej baterii Schleswig-Holstein (kaliber armat 406 mm). Prezentuje militarną historię półwyspu, który w 1939 roku stanowił Rejon Umocnionego Hel i bronił się jako jeden z ostatnich bastionów w Polsce.",
+        p3_li3: "<strong>Muzeum Rybołówstwa w dawnej świątyni:</strong> Mieści się w gotyckim poewangelickim kościele św. Piotra i Pawła z XV wieku, położonym tuż przy porcie. Z wieży kościoła roztacza się piękny widok, a ekspozycje prezentują dzieje rzemiosła rybackiego na Morzu Bałtyckim oraz historię regionu kaszubskiego.",
+        p3_li4: "<strong>Ulica Wiejska i tradycyjne chaty ryglowe:</strong> Zabytkowa oś architektoniczna miasta o długości około jednego kilometra. Zachowały się tu unikalne drewniane i ryglowe (szachulcowe) domki rybackie z przełomu XVIII i XIX wieku, oddające autentyczną atmosferę dawnej osady pomorskiej.",
+        
+        h3: "Najlepsze miejsca na spacery i zachody słońca",
+        lead3: "Chwile wyciszenia na legendarnym początku Polski. Gdy opadną całodzienne emocje, Półwysep zmienia się w oazę spokoju, oferując widowiska malowane prosto na niebie.",
+        p4: "Najbardziej mistycznym miejscem na spacer jest sam Cypel Helski, czyli symboliczny „Koniec Świata”, gdzie wody otwartego morza łączą się z Zatoką Pucką, a fale uderzają o piaszczysty brzeg z trzech stron. Spacer ułatwia wspaniale przygotowana drewniana promenada. Równie niezapomniane chwile gwarantuje wędrówka przez unikalny, chroniony bór bażynowy – ukształtowane przez potężne wiatry karłowate, powyginane sosny tworzą baśniowy, wręcz surrealistyczny krajobraz. Z kolei na najpiękniejsze zachody słońca warto udać się na molo w Jastarni lub plaże w okolicach Chałup, gdzie słońce spektakularnie chowa się bezpośrednio w wodach zatoki.",
+        
+        h4: "Atrakcje dla dzieci i całej rodziny",
+        lead4: "Edukacja przez zabawę i aktywny wypoczynek na świeżym powietrzu. Hel to idealny kierunek na rodzinny wyjazd, łączący bliskość natury z fascynującymi atrakcjami dla najmłodszych.",
+        p5_intro: "Planując pobyt z dziećmi, warto skierować się ku miejscom oferującym wartościową edukację przyrodniczą oraz aktywność fizyczną:",
+        p5_li1: "<strong>Helskie Fokarium Stacji Morskiej Uniwersytetu Gdańskiego:</strong> Specjalistyczna placówka naukowa działająca od 1999 roku, której celem jest odtworzenie i ochrona populacji foki szarej (Halichoerus grypus) w południowym Bałtyku. Co dokładnie oferuje rodzinom?<br>• Dwa razy dziennie (stałe godziny: 11:00 i 14:00) odbywają się publiczne treningi medyczne połączone z karmieniem fok, podczas których opiekunowie opowiadają o biologii tych ssaków.<br>• Podziemna ścieżka edukacyjna oraz wystawa \"Ssaki naszego morza\", prezentująca zagrożenia ekologiczne dla fauny morskiej.",
+        p5_li2: "<strong>Helska Ścieżka Rowerowa (Puck - Hel):</strong> Ponad 40-kilometrowa, doskonale przygotowana trasa biegnąca wzdłuż całego półwyspu. Całkowicie odseparowana od ruchu samochodowego, płaska i bezpieczna dla dzieci, co pozwala na całodniowe wycieczki z widokiem na Zatokę Pucką.",
+        p5_li3: "<strong>Park Wydmowy i Dom Morświna:</strong> Kameralna ekspozycja edukacyjna poświęcona morświnom – bałtyckim kuzynom delfina, którzy są krytycznie zagrożeni wyginięciem. Dzieci mogą tu zobaczyć makiety w naturalnych rozmiarach i posłuchać dźwięków wydawanych przez te ssaki.",
+        
+        sideheading: "Inne wpisy",
+        side1: "Gdzie zjeść na Półwyspie Helskim? Sprawdzone punkty",
+        side2: "Półwysep Helski bez samochodu – jak zwiedzać bez korków",
+        f1: "Główna", f2: "Cennik", f3: "Polityka prywatności"
+      },
+      en: {
+        back: "Back", 
+        contrast: "Contrast", 
+        kicker: "Guide / Article", 
+        options: "Page options",
+        toc_title: "Table of Contents",
+        title: "10 Reasons Why You Should Visit the Hel Peninsula",
+        readtime: "8 min read", 
+        photo1: "photo: Gracjan Śliwiński • Private archive, Hel 2026",
+        p1: "The Hel Peninsula is one of the most unique places on the map of Poland. A narrow strip of land surrounded on both sides by the waters of the Baltic Sea and the Puck Bay attracts thousands of tourists, water sports enthusiasts, and history lovers every year. In this post, you will find out what is truly worth seeing while being here.",
+        quote: '"Hel is not just the end of Poland — it is the beginning of an amazing maritime story written by the wind and the waves themselves."',
+        
+        h1: "The Most Beautiful Beaches on the Hel Peninsula",
+        lead1: "Golden sand and the sound of waves from two sides of the land. The peninsula offers something absolutely unique – beaches with completely different characters just a short walk apart.",
+        p2: "By choosing the beaches on the open Baltic Sea side, you will immerse yourself in wide, sandy spaces with majestic, strong waves and a soothing, open horizon. It is a perfect place for classic, deep sunbathing away from the hustle and bustle of cities. On the other hand, crossing to the other side of the land, you will find the calm, much warmer, and shallower waters of the Puck Bay. That is where the heart of European surfing beats – stable winds create a perfect training ground for both beginners and advanced kitesurfing and windsurfing enthusiasts. According to geographical data, the sandy deposits forming these beaches are exceptionally clean and bright, which combined with the coastal sand dunes covered with pine forests creates a unique microclimate rich in iodine. The shifting ground of the peninsula causes the shorelines to constantly change under the influence of sea currents and wind, making every visit to Hel a unique natural experience.",
+        
+        h2: "What is Worth Seeing in Hel?",
+        lead2: "Traces of great history, fishing traditions, and iconic buildings. The town of Hel itself, located at the very tip, is a real treasure trove full of contrasts – from austere military architecture to charming Kashubian atmosphere.",
+        p3_intro: "Based on rich historical chronicles and facts documented by Polish museum institutions, during your visit to Hel you must see and experience the following historical sites:",
+        p3_li1: "<strong>Historic Lighthouse from 1942:</strong> An octagonal dark red brick tower with a height of 41.5 meters. Built by the Germans during the occupation to replace the previous lighthouse from 1826 blown up by the Polish army. It offers an incredible panoramic view of the entire Gulf of Gdańsk.",
+        p3_li2: "<strong>Museum of Coastal Defence (MOW):</strong> Located in the massive concrete facilities of the former German Schleswig-Holstein battery (406 mm gun caliber). It presents the military history of the peninsula, which in 1939 was the Hel Fortified Region and defended itself as one of the last bastions in Poland.",
+        p3_li3: "<strong>Fisheries Museum in a Former Temple:</strong> Located in the Gothic post-Evangelical Church of St. Peter and St. Paul from the 15th century, situated right by the harbor. The church tower offers a beautiful view, and the exhibitions present the history of fishing crafts in the Baltic Sea and the history of the Kashubian region.",
+        p3_li4: "<strong>Wiejska Street and Traditional Timber-Framed Huts:</strong> The historic architectural axis of the city, about one kilometer long. Unique wooden and timber-framed (half-timbered) fishermen's houses from the turn of the 18th and 19th centuries have been preserved here, reflecting the authentic atmosphere of an old Pomeranian settlement.",
+        
+        h3: "Best Places for Walks and Sunsets",
+        lead3: "Moments of tranquility at the legendary beginning of Poland. When the all-day excitement subsides, the Peninsula turns into an oasis of peace, offering spectacles painted directly on the sky.",
+        p4: "The most mystical place for a walk is the Hel Cape itself, the symbolic 'End of the World', where the waters of the open sea merge with the Puck Bay, and waves hit the sandy shore from three sides. The walk is facilitated by a wonderfully prepared wooden promenade. Equally unforgettable moments are guaranteed by a hike through the unique, protected crowberry forest – stunted, twisted pines shaped by powerful winds create a fairytale, almost surreal landscape. For the most beautiful sunsets, it is worth going to the pier in Jastarnia or the beaches around Chałupy, where the sun spectacularly hides directly in the waters of the bay.",
+        
+        h4: "Attractions for Children and the Whole Family",
+        lead4: "Education through fun and active recreation in the fresh air. Hel is an ideal destination for a family trip, combining the closeness of nature with fascinating attractions for the youngest.",
+        p5_intro: "When planning a stay with children, it is worth heading towards places that offer valuable nature education and physical activity:",
+        p5_li1: "<strong>Hel Sealarium of the Marine Station of the University of Gdańsk:</strong> A specialized scientific facility operating since 1999, whose goal is to restore and protect the population of the grey seal (Halichoerus grypus) in the southern Baltic. What exactly does it offer families?<br>• Twice a day (fixed hours: 11:00 AM and 2:00 PM) public medical training sessions combined with seal feeding take place, during which keepers talk about the biology of these mammals.<br>• An underground educational path and the 'Mammals of our Sea' exhibition, presenting environmental threats to marine fauna.",
+        p5_li2: "<strong>Hel Bike Path (Puck - Hel):</strong> A well-prepared route of over 40 kilometers running along the entire peninsula. Completely separated from car traffic, flat and safe for children, allowing for all-day trips with a view of the Puck Bay.",
+        p5_li3: "<strong>Dune Park and Harbor Porpoise House:</strong> A cozy educational display dedicated to harbor porpoises – Baltic cousins of the dolphin, which are critically endangered. Children can see life-sized models here and listen to the sounds made by these mammals.",
+        
+        sideheading: "Other posts",
+        side1: "Where to eat on the Hel Peninsula? Proven spots",
+        side2: "Hel Peninsula without a car – how to sightsee without traffic jams",
+        f1: "Home", f2: "Pricing", f3: "Privacy Policy"
+      }
+    };
+
+    function switchLanguage() {
+      const lang = document.getElementById("langSelect").value;
+      const elements = document.querySelectorAll("[data-i18n]");
+      
+      elements.forEach(element => {
+        const key = element.getAttribute("data-i18n");
+        if (dictionary[lang] && dictionary[lang][key]) {
+          element.innerHTML = dictionary[lang][key];
+        }
       });
     }
-
-    // 7. Lightbox dla certyfikatów
-    const certImgs = document.querySelectorAll('.cert-mini');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const closeLightbox = document.getElementById('closeBtn');
-    function openLightbox(src) {
-      lightbox.classList.add('active');
-      document.body.classList.add('no-scroll');
-      lightboxImg.style.opacity = 0;
-      lightboxImg.onload = () => lightboxImg.style.opacity = 1;
-      lightboxImg.src = src;
-    }
-    function closeLb() {
-      lightbox.classList.remove('active');
-      document.body.classList.remove('no-scroll');
-      lightboxImg.src = "";
-    }
-    certImgs.forEach(img => img.addEventListener('click', () => openLightbox(img.src)));
-    closeLightbox.addEventListener('click', closeLb);
-    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLb(); });
-    document.addEventListener('keydown', (e) => { if (e.key === "Escape") closeLb(); });
-
-    // Normalizacja ScrollTrigger
-    ScrollTrigger.normalizeScroll(true);
-
-    const itemsToAnimate = document.querySelectorAll(".fade-item");
-
-const observerOptions = {
-  root: null,
-  threshold: 0.2,
-  rootMargin: "0px 0px -10% 0px"
-};
-
-const visibilityState = new WeakMap();
-
-function toggleState(element, shouldShow) {
-  if (visibilityState.get(element) === shouldShow) return;
-
-  visibilityState.set(element, shouldShow);
-
-  element.classList.toggle("show", shouldShow);
-  element.classList.toggle("hide", !shouldShow);
-}
-
-const io = new IntersectionObserver((entries) => {
-  for (const entry of entries) {
-    toggleState(entry.target, entry.isIntersecting);
-  }
-}, observerOptions);
-
-itemsToAnimate.forEach((el) => {
-  el.classList.add("hide");
-  io.observe(el);
-});
-
-// scroll backup – bardziej czuły
-let ticking = false;
-
-function handleScroll() {
-  if (ticking) return;
-
-  ticking = true;
-
-  requestAnimationFrame(() => {
-    const viewportHeight = window.innerHeight;
-
-    for (const el of itemsToAnimate) {
-      const rect = el.getBoundingClientRect();
-
-      const active =
-        rect.top < viewportHeight * 0.9 &&
-        rect.bottom > viewportHeight * 0.1;
-
-      toggleState(el, active);
-    }
-
-    ticking = false;
-  });
-}
-
-window.addEventListener("scroll", handleScroll, { passive: true });
-window.addEventListener("resize", handleScroll);
-
-handleScroll();
-gsap.from(".hero-neo-btn", {
-  y: 20,
-  opacity: 0,
-  duration: 1,
-  delay: 0.6,
-  ease: "power3.out"
-});
   </script>
+  <script>
+    // ===================================================
+// SYSTEM ZAPAMIĘTYWANIA POZYCJI PRZEWIJANIA (SCROLL)
+// ===================================================
 
+const scrollStorageKey = 'scrollPosition_' + window.location.pathname;
+
+// 1. Przywracanie pozycji po załadowaniu strony
+window.addEventListener('DOMContentLoaded', () => {
+  const savedPosition = localStorage.getItem(scrollStorageKey);
   
+  if (savedPosition) {
+    // Delikatne opóźnienie, aby przeglądarka zdążyła wyrenderować style i zdjęcia
+    setTimeout(() => {
+      window.scrollTo({
+        top: parseInt(savedPosition, 10),
+        behavior: 'smooth' // Płynne przewinięcie do miejsca, gdzie skończył
+      });
+    }, 150);
+  }
+});
+
+// 2. Zapisywanie pozycji podczas przewijania (zoptymalizowane)
+let scrollSaveTimeout;
+
+window.addEventListener('scroll', () => {
+  // Czyścimy poprzedni timeout, żeby nie zapisywać co 1 milisekundę
+  clearTimeout(scrollSaveTimeout);
+
+  // Zapis uruchomi się dopiero 300ms po tym, jak użytkownik zatrzyma palec/myszkę
+  scrollSaveTimeout = setTimeout(() => {
+    const currentScroll = window.scrollY;
+    const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+    // Jeśli użytkownik jest blisko końca artykułu (np. 95% i więcej), czyścimy zapis,
+    // żeby przy następnym wejściu nie startował od stopki, tylko od początku.
+    if (currentScroll / totalHeight > 0.95) {
+      localStorage.removeItem(scrollStorageKey);
+    } else if (currentScroll > 150) { 
+      // Zapisujemy pozycję tylko, jeśli przewinął chociaż trochę w dół
+      localStorage.setItem(scrollStorageKey, currentScroll);
+    }
+  }, 300);
+}, { passive: true });
+  </script>
 </body>
 </html>
