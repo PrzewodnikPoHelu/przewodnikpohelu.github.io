@@ -1050,5 +1050,50 @@
       });
     }
   </script>
+  <script>
+    // ===================================================
+// SYSTEM ZAPAMIĘTYWANIA POZYCJI PRZEWIJANIA (SCROLL)
+// ===================================================
+
+const scrollStorageKey = 'scrollPosition_' + window.location.pathname;
+
+// 1. Przywracanie pozycji po załadowaniu strony
+window.addEventListener('DOMContentLoaded', () => {
+  const savedPosition = localStorage.getItem(scrollStorageKey);
+  
+  if (savedPosition) {
+    // Delikatne opóźnienie, aby przeglądarka zdążyła wyrenderować style i zdjęcia
+    setTimeout(() => {
+      window.scrollTo({
+        top: parseInt(savedPosition, 10),
+        behavior: 'smooth' // Płynne przewinięcie do miejsca, gdzie skończył
+      });
+    }, 150);
+  }
+});
+
+// 2. Zapisywanie pozycji podczas przewijania (zoptymalizowane)
+let scrollSaveTimeout;
+
+window.addEventListener('scroll', () => {
+  // Czyścimy poprzedni timeout, żeby nie zapisywać co 1 milisekundę
+  clearTimeout(scrollSaveTimeout);
+
+  // Zapis uruchomi się dopiero 300ms po tym, jak użytkownik zatrzyma palec/myszkę
+  scrollSaveTimeout = setTimeout(() => {
+    const currentScroll = window.scrollY;
+    const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+    // Jeśli użytkownik jest blisko końca artykułu (np. 95% i więcej), czyścimy zapis,
+    // żeby przy następnym wejściu nie startował od stopki, tylko od początku.
+    if (currentScroll / totalHeight > 0.95) {
+      localStorage.removeItem(scrollStorageKey);
+    } else if (currentScroll > 150) { 
+      // Zapisujemy pozycję tylko, jeśli przewinął chociaż trochę w dół
+      localStorage.setItem(scrollStorageKey, currentScroll);
+    }
+  }, 300);
+}, { passive: true });
+  </script>
 </body>
 </html>
