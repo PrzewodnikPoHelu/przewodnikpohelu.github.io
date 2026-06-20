@@ -3470,6 +3470,101 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <div class="contact-wrapper">
 
+      <div class="contact-form-wrap reveal">
+
+        <div class="contact-pattern"></div>
+
+        <div class="form-top">
+
+          <p class="form-mini">
+            SZYBKA WIADOMOŚĆ
+          </p>
+
+          <h3 class="form-title">
+            Wyślij maila
+          </h3>
+
+        </div>
+
+        <form class="contact-form" id="mailForm" novalidate>
+
+          <div class="form-group">
+
+            <i class="fa-solid fa-user"></i>
+
+            <input
+              type="text"
+              id="formName"
+              placeholder="Imię i nazwisko"
+              required
+            >
+
+          </div>
+
+          <div class="form-group">
+
+            <i class="fa-solid fa-envelope"></i>
+
+            <input
+              type="email"
+              id="formEmail"
+              placeholder="Twój adres e-mail"
+              required
+            >
+
+          </div>
+
+          <div class="form-group textarea-group">
+
+            <i class="fa-solid fa-comment"></i>
+
+            <textarea
+              id="formMessage"
+              placeholder="Treść wiadomości (opcjonalnie)..."
+            ></textarea>
+
+          </div>
+
+          <div class="privacy-container" id="privacyBlock">
+            <div class="privacy-red-gradient-bg"></div>
+            <label class="uiverse-checkbox-label">
+              <input type="checkbox" id="formPrivacy">
+              <svg viewBox="0 0 64 64" height="1.2em" width="1.2em">
+                <path d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16" pathLength="575.0541381835938" class="path"></path>
+              </svg>
+              <span class="privacy-text">
+                Zgadzam się na przetwarzanie danych. <a href="PolitykaPrywatnosci.html" class="privacy-link">Polityka prywatności</a>
+              </span>
+            </label>
+          </div>
+
+          <a href="#" class="pricing-btn disabled" id="submitMailBtn">
+            <div class="pricing-btn-arrow">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <span>
+              Wyślij wiadomość
+            </span>
+          </a>
+
+        </form>
+
+        <div class="custom-warning-popup" id="warningPopup">
+          <div class="warning-popup-content">
+            <div class="warning-icon">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h4>Pusta wiadomość</h4>
+            <p>Nie wpisałeś treści wiadomości. Czy chcesz kontynuować i otworzyć program pocztowy?</p>
+            <div class="warning-actions">
+              <button type="button" class="warn-btn-yes" id="popupYes">Tak, wyślij</button>
+              <button type="button" class="warn-btn-no" id="popupNo">Uzupełnij</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
       <div class="contact-info reveal">
 
         <div class="contact-pattern"></div>
@@ -3545,101 +3640,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
       </div>
 
-      <div class="contact-form-wrap reveal">
-
-        <div class="contact-pattern"></div>
-
-        <div class="form-top">
-
-          <p class="form-mini">
-            SZYBKA WIADOMOŚĆ
-          </p>
-
-          <h3 class="form-title">
-            Wyślij maila
-          </h3>
-
-        </div>
-
-        <form class="contact-form" id="mailForm" novalidate>
-
-          <div class="form-group">
-
-            <i class="fa-solid fa-user"></i>
-
-            <input
-              type="text"
-              id="formName"
-              placeholder="Imię i nazwisko"
-              required
-            >
-
-          </div>
-
-          <div class="form-group">
-
-            <i class="fa-solid fa-envelope"></i>
-
-            <input
-              type="email"
-              id="formEmail"
-              placeholder="Twój adres e-mail"
-              required
-            >
-
-          </div>
-
-          <div class="form-group textarea-group">
-
-            <i class="fa-solid fa-comment"></i>
-
-            <textarea
-              id="formMessage"
-              placeholder="Treść wiadomości (opcjonalnie)..."
-            ></textarea>
-
-          </div>
-
-          <div class="privacy-container" id="privacyBlock">
-            <div class="privacy-red-gradient-bg"></div>
-            <label class="uiverse-checkbox-label">
-              <input type="checkbox" id="formPrivacy">
-              <svg viewBox="0 0 64 64" height="1.2em" width="1.2em">
-                <path d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16" pathLength="575.0541381835938" class="path"></path>
-              </svg>
-              <span class="privacy-text">
-                Wyrażam zgodę na przetwarzanie danych w celu obsługi zapytania. Wiadomość zostanie wysłana bezpośrednio przez Twój program pocztowy.
-              </span>
-            </label>
-          </div>
-
-          <a href="#" class="pricing-btn disabled" id="submitMailBtn">
-            <div class="pricing-btn-arrow">
-              <i class="fa-solid fa-envelope"></i>
-            </div>
-            <span>
-              Wyślij wiadomość
-            </span>
-          </a>
-
-        </form>
-
-        <div class="custom-warning-popup" id="warningPopup">
-          <div class="warning-popup-content">
-            <div class="warning-icon">
-              <i class="fa-solid fa-triangle-exclamation"></i>
-            </div>
-            <h4>Pusta wiadomość</h4>
-            <p>Nie wpisałeś treści wiadomości. Czy chcesz kontynuować i otworzyć program pocztowy?</p>
-            <div class="warning-actions">
-              <button type="button" class="warn-btn-yes" id="popupYes">Tak, wyślij</button>
-              <button type="button" class="warn-btn-no" id="popupNo">Uzupełnij</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
     </div>
 
   </div>
@@ -3661,7 +3661,7 @@ document.addEventListener('DOMContentLoaded', function() {
 ========================= */
 .contact-wrapper{
   display:grid;
-  grid-template-columns:.95fr 1.05fr;
+  grid-template-columns: 1.05fr .95fr;
   gap:1.4rem;
   max-width:1200px;
   margin:auto;
@@ -3924,7 +3924,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 /* ===================================================
-  UIVERSE CHECKBOX & REAKTYWNE AKCENTY
+  UIVERSE CHECKBOX (CZYSTY, KONTROLOWANY BLOK)
 =================================================== */
 .privacy-container {
   position: relative;
@@ -3953,7 +3953,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .uiverse-checkbox-label {
   position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.85rem;
   cursor: pointer;
   z-index: 2;
@@ -3966,7 +3966,6 @@ document.addEventListener('DOMContentLoaded', function() {
 .uiverse-checkbox-label svg {
   overflow: visible;
   flex-shrink: 0;
-  margin-top: 0.2rem;
 }
 
 .path {
@@ -3985,7 +3984,6 @@ document.addEventListener('DOMContentLoaded', function() {
   opacity: 0.9;
 }
 
-/* ZIELONY HIT PO ZAZNACZENIU */
 .uiverse-checkbox-label input:checked ~ svg .path {
   stroke: #00ff88 !important;
   opacity: 1;
@@ -3996,7 +3994,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .privacy-text {
   font-size: .82rem;
-  line-height: 1.5;
+  line-height: 1.4;
   color: #8c8c8c;
   transition: color 0.3s ease;
   user-select: none;
@@ -4006,7 +4004,24 @@ document.addEventListener('DOMContentLoaded', function() {
   color: #e0e0e0;
 }
 
-/* CZERWONY ALERT CHECKBOXA */
+/* SUBTELNY LINK */
+.privacy-link {
+  display: inline-block;
+  color: #a0a0a5;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+  transition: color 0.2s, border-color 0.2s;
+  border: none;
+}
+
+.privacy-link:hover {
+  color: #ffffff;
+  border: none;
+  border-color: #ffffff;
+}
+
+/* SHAKE ERRORS */
 @keyframes waveMove {
   0% { background-position: 150% 0; }
   100% { background-position: -50% 0; }
@@ -4053,12 +4068,12 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 /* ===================================================
-  MODAL OSTRZEGAWCZY - USUNIĘTO ODCIEŃ NIEBIESKIEGO
+  MODAL OSTRZEGAWCZY
 =================================================== */
 .custom-warning-popup {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85); /* Czysta, głęboka matowa czerń */
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
@@ -4077,9 +4092,9 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .warning-popup-content {
-  background: #0d0d11; /* Ciemny grafit/czerń dopasowana do inputów, bez niebieskiego */
-  border: 1px solid rgba(255, 196, 0, 0.3);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 196, 0, 0.03);
+  background: #0d0d11;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
   padding: 2rem;
   border-radius: 1.3rem;
   text-align: center;
@@ -4094,9 +4109,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .warning-icon {
   font-size: 2.4rem;
-  color: #ffc400;
+  color: #ffffff;
   margin-bottom: 0.9rem;
-  filter: drop-shadow(0 0 10px rgba(255, 196, 0, 0.35));
+  opacity: 0.8;
 }
 
 .warning-popup-content h4 {
@@ -4130,13 +4145,12 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .warn-btn-yes {
-  background: #ffc400;
+  background: #ffffff;
   color: #000000;
 }
 .warn-btn-yes:hover { 
-  background: #e0ad00; 
+  background: #e5e5e5; 
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 196, 0, 0.2);
 }
 
 .warn-btn-no {
@@ -4150,7 +4164,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 /* =========================
-  MOBILE 
+  MOBILE
 ========================= */
 @media(max-width:900px){
   .contact-section{ padding:6vh 0; }
@@ -4162,6 +4176,10 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   .contact-wrapper::-webkit-scrollbar{ display:none; }
   .contact-wrapper{ scrollbar-width:none; }
+  
+  .contact-form-wrap { order: 1; }
+  .contact-info { order: 2; }
+
   .contact-info, .contact-form-wrap{
     min-width:99%; width:99%; flex:0 0 99%; scroll-snap-align:center;
     padding:1.2rem; border-radius:1.5rem; margin: 0rem;
@@ -4190,7 +4208,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const container = document.querySelector('.contact-wrapper');
-  const items = container ? container.querySelectorAll('.contact-info, .contact-form-wrap') : null;
+  const items = container ? container.querySelectorAll('.contact-form-wrap, .contact-info') : null;
   const section = document.getElementById('kontakt');
   
   if (!container || !items || !section) return;
